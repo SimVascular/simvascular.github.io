@@ -21,6 +21,7 @@
   <link rel="stylesheet" href="../css/grayscale.css">
   <link rel="stylesheet" href="../css/standards.css">
   <link rel="stylesheet" href="../css/documentation.css">
+  <link rel="stylesheet" href="../navbar_style.css">
   
   <script>
     window.ZeroMd = {
@@ -58,17 +59,81 @@
           <div class="headerLogoContainer">
             <img id="logo" class="headerLogoImage" src="../img/svLogoTitle.png" alt="SimVascular Logo"></img>
           </div>
+        <div class="topRightNav">
+          <nav class="navbar fixed-top navbar-expand-lg navbar-custom">
+            <div class="container-fluid">
+              <button
+                class="navbar-toggler ml-auto custom-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+              >
+              <i class="fa-solid fa-bars" style="color: var(--blue)"></i>
+              </button>
+      
+              <div
+                class="collapse navbar-collapse justify-content-end"
+                id="navbarSupportedContent"
+              >
+                <ul class="navbar-nav">
+                  <!-- <li class="nav-item active">
+                    <a class="nav-link" href="index.html"
+                      >Home <span class="sr-only">(current)</span></a
+                    >
+                  </li> -->
+                  <li class="nav-item dropdown active" style="margin-right: 15px">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                    <i class="iconInHeader fa-regular fa-user"></i>User Guides
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="quickguide.html">Getting Started</a>
+                    </div>
+                  </li>
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      id="navbarDropdown"
+                      role="button"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                    <i class="iconInHeader fa-solid fa-stethoscope" style="padding-right: 15px"></i>Clinical Cases
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                      <a class="dropdown-item" href="tutorial.html">Tutorial</a>
+                      <a class="dropdown-item" href="FAQs.html">FAQs</a>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </nav>
+        </div>
+          
           <!-- nav bar top right; same for all -->
-          <div id="headerNavBar">
+          <!-- <div id="headerNavBar">
             <details>
               <summary><i class="fa-solid fa-bars" id="iconForSkip"></i></summary>
               <div class="navBarSection">
                 <details>
                   <summary class="navTitle"><i class="iconInHeader fa-regular fa-user"></i>User Guides</summary>
                   <div>
-                    <div class="navSubLink">
+                     <div class="navSubLink">
                       <p href="https://github.com/SimVascular/SimVascular/wiki//user_simvascular_software_suite_install">Installing SimVascular</p>
-                    </div>
+                    </div> 
                     <div class="navSubLink">
                       <p href="quickguide.html">Getting Started</p>
                     </div>
@@ -133,7 +198,7 @@
                   </div>
                 </details>
               </div>
-          </div>
+          </div> -->
         </div>
     </section>
 
