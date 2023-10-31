@@ -439,10 +439,10 @@ Arguments
     <li><i>oarea</i> (double - Segment outlet area. </li><br>
     <li><i>iflow</i> (double - Segment initial flow. </li><br>
     <li><i>material</i> (string) - Segment material. </li><br>
-    <li><i>mltype</i> (string) - Minor loss type. </li><br>
-    <li><i>angle</i> (double) - Branch angle. </li><br>
-    <li><i>uid</i> (integer) - Upstream segment ID. </li><br>
-    <li><i>bid</i> (integer) - Branch segment ID. </li><br>
+    <li><i>mltype</i> (string) - Minor loss type. (NONE or <a href="https://github.com/SimVascular/svOneDSolver/blob/master/tests/cases/tube_stenosis_r.in">STENOSIS</a>) </li><br>
+    <li><i>angle</i> (double) - Branch angle. (not used) </li><br>
+    <li><i>uid</i> (integer) - Upstream segment ID. (in cases of STENOSIS minor loss type) </li><br>
+    <li><i>bid</i> (integer) - Branch segment ID. (not used) </li><br>
     <li><i>bctype</i> (string) - Outlet boundary condition type. </li><br>
     <li><i>dname</i> (string) - Data Table Name for boundary condition. </li><br>
   </ul>
@@ -455,10 +455,10 @@ Arguments
 Outlet boundary condition types
 
   <ul style="list-style-type:none;">
-    <li> FLOW - Time-varying outlet flow rate. </li><br>
-    <li> NOBOUND - No outlet boundary condition; used for internal segment outlets. </li><br>
-    <li> RCR - Boundary condition specified through an RCR circuit. </li><br>
-    <li> RESISTANCE - Constant resistance in model units. </li><br>
+    <li> <a href="https://github.com/SimVascular/svOneDSolver/blob/master/tests/cases/Left_coronary_inlet_pressure_wave_outlet_coronary.in">NOBOUND</a> - No outlet boundary condition; used for internal segment outlets. </li><br>
+    <li> <a href="https://github.com/SimVascular/svOneDSolver/blob/master/tests/cases/tube_rcr.in">RCR</a> - Boundary condition specified through an RCR circuit (see <a href="https://www.sciencedirect.com/science/article/pii/S0045782505002586">Vignon-Clementel et al., 2006</a>). The sequence of parameters in the input file is Rp, C, Rd, Pd.</li><br>
+    <li> <a href="https://github.com/SimVascular/svOneDSolver/blob/master/tests/cases/tube_r.in">RESISTANCE</a> - Constant resistance. </li><br>
+    <li> <a href="https://github.com/SimVascular/svOneDSolver/blob/master/tests/cases/Left_coronary_inlet_pressure_wave_outlet_coronary.in">CORONARY</a> - Coronary boundary condition (see <a href="https://link.springer.com/article/10.1007/s10439-010-0083-6">Kim et al., 2010</a>). The sequence of parameters in the input file is Ra1, Ra2, Ca, Cc, Rv1, and a time-table for P_v. </li><br>
   </ul>
 </div>
 <br>
