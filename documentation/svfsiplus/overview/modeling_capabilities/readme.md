@@ -1,47 +1,62 @@
 
 ### Modeling capabilities 
 
-**svFSIplus** can numerically solve PDEs governing solid and fluid mechanics, diffusion, and electrophysiology. 
-Some equations can coupled and solved simultaneously to simulate the interaction between multiple regions representing 
+svFSIplus can numerically solve PDEs governing solid and fluid mechanics, diffusion, and electrophysiology. 
+Some equations can be coupled and solved simultaneously to simulate the interaction between multiple regions representing 
 different physical system.  
 
-**svFSIplus** supports the solution of the folowing equations
+svFSIplus supports the solution of the folowing equations
 
-##### Solid mechanics equations 
-
-<ul>
-  <li> Linear elastodynamics </li>
-  <li> Linear elastodynamics modified for mesh motion used in fluid-solid interaction </li>
-  <li> Nonlinear elastodynamics </li>
-  <li> Nonlinear elastodynamics using a mixed VMS-stabilized formulation </li>
-  <li> Nonlinear thin shell mechanics </li> 
-</ul>
-
-##### Fluid mechanics equations 
+<li> Solid mechanics equations 
 
 <ul>
-  <li> Navier-Stokes equations for viscous incompressible fluid flow</li>
-  <li> Unsteady Stokes flow </li>
-</ul>
+  <li> <i>Linear elastodynamics</i> - Solves the linear elasticity problem. </li>
 
-##### Diffusion equations 
+  <li> <i> Linear elastodynamics modified for mesh motion used in fluid-solid interaction </i> - Solves for
+       the elastic deformation of a solid region as part of the Arbitrary Lagrangian-Eulerian (ALE) formulation
+       in a fluid-solid interaction simulation.  </li>
+
+  <li> <i> Nonlinear elastodynamics </i> - Solves the nonlinear structural mechanics problem using a pure 
+       displacement-based formulation. </li>
+
+  <li> <i> Nonlinear elastodynamics using a mixed formulation </i> - Solves the nonlinear structural dynamics 
+       problem where the structure's velocity and pressure are the unknown degrees of freedom. </li>
+
+  <li> <i> Nonlinear thin shell mechanics </i> - Solves the nonlinear shell mechanics problem. </li> 
+</ul>
+</li>
+
+<li> Fluid mechanics equations 
 
 <ul>
-  <li> Unsteady diffusion </li>
-  <li> Unsteady advection-diffusion </li>
+  <li> <i> Navier-Stokes equation </i> -  Solves the incompressible viscous fluid flow problem. </li>
+  <li> <i> Unsteady Stokes flow </i> - Solves for unsteady flow where inertia is negligible (creeping flow). </li>
 </ul>
+</li>
 
-##### Coupled fluid-solid equations 
+<li> Diffusion equations 
 
 <ul>
-  <li> Coupled momentum method </li>
-  <li> Arbitrary Lagrangian-Eulerian (ALE) formulation </li>
+  <li> <i> Unsteady diffusion </i> - Solves the diffusion problem in a solid. </li>
+  <li> <i> Unsteady advection-diffusion </i> - Solves the unsteady advection-diffusion 
+                problem in a fluid (e.g. dye transport). </li>
 </ul>
+</li>
 
-##### Cardiac electrophysiolog
+<li> Coupled fluid-solid equations 
 
 <ul>
-  <li> Mono-domain model of cardiac electrophysiology </li>
+  <li> <i> Coupled momentum method (CMM) </i> - Solves the fluid-solid interaction problem using the coupled momentum method. </li>
+  <li> <i> Arbitrary Lagrangian-Eulerian (ALE) formulation </i> - Solves the fluid-solid interaction problem using the 
+        Arbitrary Lagrangian-Eularian (ALE) method. </li>
 </ul>
+</li>
+
+<li> Cardiac electrophysiology
+
+<ul>
+  <li> <i> Mono-domain model of cardiac electrophysiology </i> - Solves for the electrical propagation in myocardial tissue. </li>
+</ul>
+</li>
 
 
