@@ -157,20 +157,23 @@ in a text file.
 <nobr>
 &nbsp;&lt;<a href="#bc_RCR_values">RCR_values&gt;</a>
 
-&nbsp;&nbsp;&lt;<a href="#bc_RCR_values_Capacitance">Capacitance&gt;</a> <i>real</i>
+<div style="background-color: #E0E0E0; padding: 1px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
+
+&nbsp;&nbsp;&nbsp;&lt;<a href="#bc_RCR_values_Capacitance">Capacitance&gt;</a> <i>real</i>
 &lt;<a href="#bc_RCR_values_Capacitance">/Capacitance&gt;</a>
 
-&nbsp;&nbsp;&lt;<a href="#bc_RCR_values_Distal_resistance">Distal_resistance&gt;</a> <i>real</i>
+&nbsp;&nbsp;&nbsp;&lt;<a href="#bc_RCR_values_Distal_resistance">Distal_resistance&gt;</a> <i>real</i>
 &lt;<a href="#bc_RCR_values_Distal_resistance">/Distal_resistance&gt;</a>
 
-&nbsp;&nbsp;&lt;<a href="#bc_RCR_values_Distal_pressure">Distal_pressure&gt;</a> <i>real</i>
+&nbsp;&nbsp;&nbsp;&lt;<a href="#bc_RCR_values_Distal_pressure">Distal_pressure&gt;</a> <i>real</i>
 &lt;<a href="#bc_RCR_values_Distal_pressure">/Distal_pressure&gt;</a>
 
-&nbsp;&nbsp;&lt;<a href="#bc_RCR_values_Initial_pressure">Initial_pressure&gt;</a> <i>real</i>
+&nbsp;&nbsp;&nbsp;&lt;<a href="#bc_RCR_values_Initial_pressure">Initial_pressure&gt;</a> <i>real</i>
 &lt;<a href="#bc_RCR_values_Initial_pressure">/Initial_pressure&gt;</a>
 
-&nbsp;&nbsp;&lt;<a href="#bc_RCR_values_Proximal_resistance">Proximal_resistance&gt;</a> <i>real</i>
+&nbsp;&nbsp;&nbsp;&lt;<a href="#bc_RCR_values_Proximal_resistance">Proximal_resistance&gt;</a> <i>real</i>
 &lt;<a href="#bc_RCR_values_Proximal_resistance">/Proximal_resistance&gt;</a>
+</div>
 
 &lt;<a href="#bc_RCR_values">/RCR_values&gt;</a>
 <br><br>
@@ -250,78 +253,80 @@ in a text file.
 
 <pre>
 
-<section id="bc_Apply_along_normal_direction"> Apply_along_normal_direction (optional) - 
+<section id="bc_Apply_along_normal_direction"> Apply_along_normal_direction (Robin, optional) - If true then when the Robin BC is applied along the normal direction the applied surface traction takes the form sigma.n = -(k u.n + c v.n - p)n
 
-<section id="bc_Bct_file_path"> Bct_file_path (optional) - 
+<section id="bc_Bct_file_path"> Bct_file_path (optional) - Load a file used to set the spatial and temporal values for a boundary condition. The file can be a VTK VTP-format file or a text file. 
 
-<section id="bc_Damping"> Damping (optional) - 
+<section id="bc_Damping"> Damping (Robin) - The damping constant for the spring-mass-damper force used to implement a Robin boundary condition.
 
-<section id="bc_Distal_pressure"> Distal_pressure (optional) - 
+<section id="bc_Distal_pressure"> Distal_pressure (Neumann, default=0.0) - The distal pressure used to initialize an RCR boundary condition.
 
-<section id="bc_Effective_direction"> Effective_direction (optional) - 
+<section id="bc_Effective_direction"> Effective_direction (Dirichlet, optional) - Enforce a Dirichlet boundary condition along a given Cartesian coordinate 3-vector. The vector has the form (x,y,z).
 
-<section id="bc_Follower_pressure_load"> Follower_pressure_load (optional) - 
+<section id="bc_Follower_pressure_load"> Follower_pressure_load (Neumann, default=false) - If true then the applied load <i>follows</i> the mesh deformation. This implies that the magnitude of the load is proportional to the surface area during the deformation.
 
-<section id="bc_Fourier_coefficients_file_path"> Fourier_coefficients_file_path (optional) - 
+<section id="bc_Fourier_coefficients_file_path"> Fourier_coefficients_file_path (Neumann, optional) - A text file containing the Fourier coefficients interpolating a time-dependent state variable.
 
-<section id="bc_Impose_flux"> Impose_flux (optional) - 
+<section id="bc_Impose_flux"> Impose_flux (default=false) - If true then normalize the spatial profile with the area of the face so that the imposed flux value is converted into the state variable.
 
-<section id="bc_Impose_on_state_variable_integral"> Impose_on_state_variable_integral (optional) - 
+<section id="bc_Impose_on_state_variable_integral"> Impose_on_state_variable_integral (default=false) - If true then used for applying a Dirichlet boundary condition on the displacement degrees of freedom when velocity is the state variable (e.g. fluid, CMM, FSI).
 
-<section id="bc_Initial_displacements_file_path"> Initial_displacements_file_path (optional) - 
+<section id="bc_Initial_displacements_file_path"> Initial_displacements_file_path (CMM, optional) - Use the VTK VTP-format file to initialize CMM using an inflation method resulting from a diastolic or time-averaged fluid traction.
 
-<section id="bc_Penalty_parameter"> Penalty_parameter (optional) - 
+<section id="bc_Penalty_parameter"> Penalty_parameter (optional) - If the Poisson ratio for a given case is close to 0.5, then calculated bulk modulus used for dilational penalty model can be extremely high leading to poor linear solver convergence. The users may then override the physical bulk modulus with a penalty constant sufficiently large enough for the linear solver to converge.
 
-<section id="bc_Penalty_parameter_normal"> Penalty_parameter_normal (optional) - 
+<section id="bc_Penalty_parameter_normal"> Penalty_parameter_normal (Dirichlet, optional) - If true then if the Dirichlet boundary condition is weakly applied then it is applied in a normal direction.
 
-<section id="bc_Penalty_parameter_tangential"> Penalty_parameter_tangential (optional) - 
+<section id="bc_Penalty_parameter_tangential"> Penalty_parameter_tangential (optional) - If true then if the Dirichlet boundary condition is weakly applied then it is applied in a tangential direction.
 
-<section id="bc_Prestress_file_path"> Prestress_file_path (optional) - 
+<section id="bc_Prestress_file_path"> Prestress_file_path (CMM, optional) - Use the VTK VTP-format file to initialize CMM using a prestressed wall under equilibrium with fluid traction.
 
-<section id="bc_Profile"> Profile (optional) - 
+<section id="bc_Profile"> Profile (default=flat) - Set the spatial distribution of a state varible on the face. Acceptable values: Flat, Parabolic or User_defined
 
-<section id="bc_Ramp_function"> Ramp_function (optional) - 
+<section id="bc_Ramp_function"> Ramp_function (default=false) - If true then the first two entries in the file setting an unsteady boundary is used to linearly increment from the first value to the second value, and maintains a steady value thereafter.
 
-<section id="bc_Spatial_profile_file_path"> Spatial_profile_file_path (optional) - 
+<section id="bc_Spatial_profile_file_path"> Spatial_profile_file_path (optional) - Use the given text file to set the spatial distribution of a state varible for a User_defined profile.
 
-<section id="bc_Spatial_values_file_path"> Spatial_values_file_path (optional) - The path to the text file containing spatial values. 
+<section id="bc_Spatial_values_file_path"> Spatial_values_file_path (optional) - The path to the VTK VTU-format file used to set the spatially varying body force to a face. 
 
 <section id="bc_Temporal_and_spatial_values_file_path"> Temporal_and_spatial_values_file_path (optional) - The path to the text file containing temporal and spatial values. 
 
 <section id="bc_Temporal_values_file_path"> Temporal_values_file_path (optional) - The path to the text file containing temporal values. 
 
-<section id="bc_Time_dependence"> Time_dependence (optional, default=steady) - The time dependence of a boundary condition. Permissible values are:
-   &middot;general - 
-   &middot;spatial - 
-   &middot;steady - 
-   &middot;unsteady - 
+<section id="bc_Time_dependence"> Time_dependence (default=steady) - The time dependence of a boundary condition. Permissible values are:
+   &middot;general - Spatial and temporal variations are provided from a file
+   &middot;spatial - Spatially varying values 
+   &middot;steady - A constant value is imposed 
+   &middot;unsteady - Time-dependent values are provide from a file 
 
-<section id="bc_Traction_values_file_path"> Traction_values_file_path (optional) - The path to the 
+<section id="bc_Traction_values_file_path"> Traction_values_file_path (Traction, optional) - TThe path to the VTK VTP-format file containing nodally varying traction values. 
 
-<section id="bc_Traction_multiplier"> Traction_multiplier (optional) - 
+<section id="bc_Traction_multiplier"> Traction_multiplier (Traction, default=1.0) - The value used to scale the traction values read from from a file.
 
 <section id="bc_Type"> Type - The boundary condition type. Permissible values are:
    &middot;Coupled Momentum - Identifies the face to be treated using the coupled momentum method 
-   &middot;Dirichlet 
-   &middot;Neumann 
-   &middot;Robin 
-   &middot;Traction 
+   &middot;Dirichlet - Identifies the face to be treated as a Dirichlet boundary condition
+   &middot;Neumann - Identifies the face to be treated as a Neumann boundary condition
+   &middot;Robin - Identifies the face to be treated as a Robin boundary condition
+   &middot;Traction - Identifies the face to be treated as a Traction boundary condition
 
-<section id="bc_Undeforming_neu_face"> Undeforming_neu_face (optional) - 
+<section id="bc_Undeforming_neu_face"> Undeforming_neu_face (Neumann, optional) - If true then mimic clamped condition on a specimen routinely done in experiments. Clamping will not allow the surface, on which the load is applied, to deform. Used only for nonlinear elastodynamics.
 
 <section id="bc_Value"> Value - The value of the state variable. 
 
-<section id="bc_Weakly_applied"> Weakly_applied - 
+<section id="bc_Weakly_applied"> Weakly_applied (Dirichlet, optional) - If true then the Dirichlet boundary condition is applied weakly using augmented Lagrange-multiplier formulation. This setting is applied to fluid/FSI equations only.
 
-<section id="bc_Zero_out_perimeter"> Zero_out_perimeter - 
+<section id="bc_Zero_out_perimeter"> Zero_out_perimeter (Dirichlet, default=true) - If true then the solver will zero out the nodes shared by two adjacent faces.
 
 <section id="bc_RCR_values"> RCR_values 
 <pre>
-  <section id="bc_RCR_values_Capacitance"> Capacitance - 
-  <section id="bc_RCR_values_Distal_resistance"> Distal_resistance - 
-  <section id="bc_RCR_values_Distal_pressure"> Distal_pressure - 
-  <section id="bc_RCR_values_Initial_pressure"> Initial_pressure - 
-  <section id="bc_RCR_values_Proximal_resistance"> Proximal_resistance - 
+  <section id="bc_RCR_values_Capacitance"> Capacitance - compliance/capacitance.
+  <section id="bc_RCR_values_Distal_resistance"> Distal_resistance - distal resistance
+  <section id="bc_RCR_values_Distal_pressure"> Distal_pressure - The distal pressure used to initialize an RCR boundary condition.
+ 
+  <section id="bc_RCR_values_Initial_pressure"> Initial_pressure - The initial pressure used to initialize an RCR boundary condition.
+
+  <section id="bc_RCR_values_Proximal_resistance"> Proximal_resistance - proximal resistance
 </pre>
 
 </pre>
