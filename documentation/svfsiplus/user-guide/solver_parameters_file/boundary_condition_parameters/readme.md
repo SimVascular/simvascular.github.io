@@ -1,16 +1,3 @@
-
-<style>
-.param_div {
-   background-color: #F0F0F0; 
-   padding: 8px; 
-   border: 1px solid #d0d0d0; 
-   border-left: 1px solid #d0d0d0;
-   overflow-wrap: break-word;
-   white-space: pre-line;
-   font-size: 85%;
-}
-</style>
-
 <!-- =================================================================== -->
 <!-- ==================== Boundary Condition Parameters ================ -->
 <!-- =================================================================== -->
@@ -26,9 +13,9 @@ The &lt;<strong>Add_BC</strong> name=<i>face_name</i>&gt; parameter adds a bound
 Some forms of boundary conditions only apply to certain equations.
 </div>
 
-The &lt;<strong>Add_BC</strong> parameter section contains the following nested parameter sections
+The &lt;<strong>Add_BC</strong> parameter section contains the following parameter subsections
 <ul style="list-style-type:disc;">
-  <li> &lt;RCR_values> - </a> </li>
+  <li> <a href="#rcr_boundary_condition_parameters"> &lt;RCR_values> </a> </li>
 </ul>
 
 <h5> Boundary condition types </h5>
@@ -76,7 +63,7 @@ in a text file.
 <!-- ---------- G e n e r a l  P a r a m e t e r s ---------- -->
 <br>
 <h5> General Parameters </h5>
-<div class="param_div">
+<div class="bc_param_div">
 <strong>&lt;Bct_file_path&gt;</strong> string [none]  <nobr> 
 <strong>&lt;/Bct_file_path&gt;</strong>
 </nobr><br>
@@ -85,12 +72,12 @@ Load a file used to set the spatial and temporal values for a boundary condition
 <strong>&lt;Impose_flux&gt;</strong> boolean [false]  <nobr> 
 <strong>&lt;/Impose_flux&gt;</strong>
 </nobr><br>
-If true then normalize the spatial profile with the area of the face so that the imposed flux value is converted into the state variable.
+If <i>true</i> then normalize the spatial profile with the area of the face so that the imposed flux value is converted into the state variable.
 <br>
 <strong>&lt;Impose_on_state_variable_integral&gt;</strong> boolean [false]  <nobr> 
 <strong>&lt;/Impose_on_state_variable_integral&gt;</strong>
 </nobr><br>
-If true then used for applying a Dirichlet boundary condition on the displacement degrees of freedom when velocity is the state variable (e.g. fluid, CMM, FSI).
+If <i>true</i> then used for applying a Dirichlet boundary condition on the displacement degrees of freedom when velocity is the state variable (e.g. fluid, CMM, FSI).
 <br>
 <strong>&lt;Initial_displacements_file_path&gt;</strong> string [none]  <nobr> 
 <strong>&lt;/Initial_displacements_file_path&gt;</strong>
@@ -115,7 +102,7 @@ Set the spatial distribution of a state varible on the face. Acceptable values: 
 <strong>&lt;Ramp_function&gt;</strong> boolean [false]  <nobr> 
 <strong>&lt;/Ramp_function&gt;</strong>
 </nobr><br>
-If true then the first two entries in the file setting an unsteady boundary is used to linearly increment from the first value to the second value, and maintains a steady value thereafter.
+If <i>true</i> then the first two entries in the file setting an unsteady boundary is used to linearly increment from the first value to the second value, and maintains a steady value thereafter.
 <br>
 <strong>&lt;Spatial_profile_file_path&gt;</strong> string [none]  <nobr> 
 <strong>&lt;/Spatial_profile_file_path&gt;</strong>
@@ -175,8 +162,8 @@ The value of the state variable.
 
 <!-- ---------- R C R  P a r a m e t e r s ---------- -->
 
-<h5> RCR Boundary Condition Parameters </h5>
-<div class="param_div">
+<h5 id="rcr_boundary_condition_parameters"> RCR Boundary Condition Parameters </h5>
+<div class="bc_param_div">
 <strong>&lt;RCR_values&gt;</strong><br>
 <strong>&lt;Capacitance&gt;</strong> real <nobr> 
 <strong>&lt;/Capacitance&gt;</strong>
@@ -209,7 +196,7 @@ Proximal resistance.
 <!-- ---------- D i r i ch l e t  P a r a m e t e r s ---------- -->
 
 <h5> Dirichlet Boundary Condition Parameters </h5>
-<div class="param_div">
+<div class="bc_param_div">
 <strong>&lt;Effective_direction&gt;</strong> vector [none]  <nobr> 
 <strong>&lt;/Effective_direction&gt;</strong>
 </nobr><br>
@@ -228,19 +215,19 @@ If the Dirichlet boundary condition is weakly applied then it is applied in a ta
 <strong>&lt;Weakly_applied&gt;</strong> boolean [false]  <nobr> 
 <strong>&lt;/Weakly_applied&gt;</strong>
 </nobr><br>
-If true then the Dirichlet boundary condition is applied weakly using augmented Lagrange-multiplier formulation. This setting is applied to fluid/FSI equations only.
+If <i>true</i> then the Dirichlet boundary condition is applied weakly using augmented Lagrange-multiplier formulation. This setting is applied to fluid/FSI equations only.
 <br>
 <strong>&lt;Zero_out_perimeter&gt;</strong> boolean [true]  <nobr> 
 <strong>&lt;/Zero_out_perimeter&gt;</strong>
 </nobr><br>
-If true then the solver will zero out the nodes shared by two adjacent faces.
+If <i>true</i> then the solver will zero out the nodes shared by two adjacent faces.
 <br>
 </div>
 
 <!-- ---------- N e u m a n n  P a r a m e t e r s ---------- -->
 
 <h5> Neumann Boundary Condition Parameters </h5>
-<div class="param_div">
+<div class="bc_param_div">
 <strong>&lt;Distal_pressure&gt;</strong> real [0.0]  <nobr> 
 <strong>&lt;/Distal_pressure&gt;</strong>
 </nobr><br>
@@ -249,7 +236,7 @@ The distal pressure used to initialize an RCR boundary condition.
 <strong>&lt;Follower_pressure_load&gt;</strong> boolean [false]  <nobr> 
 <strong>&lt;/Follower_pressure_load&gt;</strong>
 </nobr><br>
-If true then the applied load <i>follows</i> the mesh deformation. This implies that the magnitude of the load is proportional to the surface area during the deformation.
+If <i>true</i> then the applied load <i>follows</i> the mesh deformation. This implies that the magnitude of the load is proportional to the surface area during the deformation.
 <br>
 <strong>&lt;Fourier_coefficients_file_path&gt;</strong> string [none]  <nobr> 
 <strong>&lt;/Fourier_coefficients_file_path&gt;</strong>
@@ -259,17 +246,17 @@ A text file containing the Fourier coefficients interpolating a time-dependent s
 <strong>&lt;Undeforming_neu_face&gt;</strong> boolean [false]  <nobr> 
 <strong>&lt;/Undeforming_neu_face&gt;</strong>
 </nobr><br>
-If true then mimic clamped condition on a specimen routinely done in experiments. Clamping will not allow the surface, on which the load is applied, to deform. Used only for nonlinear elastodynamics.
+If <i>true</i> then mimic clamped condition on a specimen routinely done in experiments. Clamping will not allow the surface, on which the load is applied, to deform. Used only for nonlinear elastodynamics.
 </div>
 
 <!-- ---------- R o b i n  P a r a m e t e r s ---------- -->
 
 <h5> Robin Boundary Condition Parameters </h5>
-<div class="param_div">
+<div class="bc_param_div">
 <strong>&lt;Apply_along_normal_direction&gt;</strong> <i>boolean [false]</i> <nobr> 
 <strong>&lt;/Apply_along_normal_direction&gt;</strong>
 </nobr><br>
-If true then when the Robin BC is applied along the normal direction the applied surface traction takes the form sigma.n = -(k u.n + c v.n - p)n
+If <i>true</i> then when the Robin BC is applied along the normal direction the applied surface traction takes the form sigma.n = -(k u.n + c v.n - p)n
 <br>
 <strong>&lt;Damping>&gt;</strong> <i>real [1.0]</i> <nobr> 
 <strong>&lt;/Damping&gt;</strong>

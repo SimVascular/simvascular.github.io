@@ -337,6 +337,17 @@ details summary::-webkit-details-marker {
     }
 }
 
+.bc_param_div {
+   background-color: #F0F0F0;
+   padding: 8px;
+   border: 1px solid #d0d0d0;
+   border-left: 1px solid #d0d0d0;
+   overflow-wrap: break-word;
+   white-space: pre-line;
+   font-size: 85%;
+}
+
+
 /*------------------------------------------ 
 
         navigationSection STYLING
