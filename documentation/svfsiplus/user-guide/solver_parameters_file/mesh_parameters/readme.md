@@ -73,7 +73,6 @@ The value used to scale mesh nodal coordinates.
 </nobr><br>
 The name of the file used to 
 <br>
-
 <strong>&lt;Initial_velocities_file_path&gt;</strong> <i>string [none] </i> <nobr>
 <strong>&lt;/Initial_velocities_file_path&gt;</strong>
 </nobr><br>

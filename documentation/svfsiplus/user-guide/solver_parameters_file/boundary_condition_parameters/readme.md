@@ -7,16 +7,25 @@ The Boundary Condition Parameters section of the solver parameters input file ad
 A boundary condition is set on a mesh face (surface) using a face name added to the simulation using the 
 &lt;<strong>Add_face</strong> parameter. 
 
+The Boundary Condition Parameters section is organized as follows
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
+&lt;<strong>Add_BC</strong> name=<i>face_name</i>&gt;
+<br><br>
+[Boundary Condition Parameter]
+<br><br>
+&lt;<strong>RCR_values</strong>&gt;<br>
+[<a href="#rcr_boundary_condition_parameters"> RCR Parameters </a> ]
+<br>
+&lt;<strong>RCR_values</strong>&gt;<br>
+<br>
+&lt;<strong>Add_BC</strong>&gt;
+</div>
+
 The &lt;<strong>Add_BC</strong> name=<i>face_name</i>&gt; parameter adds a boundary condition to the enclosing equation.
 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 6px solid #d0d0d0">
 Some forms of boundary conditions only apply to certain equations.
 </div>
-
-The &lt;<strong>Add_BC</strong> parameter section contains the following parameter subsections
-<ul style="list-style-type:disc;">
-  <li> <a href="#rcr_boundary_condition_parameters"> &lt;RCR_values> </a> </li>
-</ul>
 
 <h5> Boundary condition types </h5>
 <div style="background-color: #F0F0F0; padding: 8px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
