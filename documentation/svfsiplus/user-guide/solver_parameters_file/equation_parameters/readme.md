@@ -1,31 +1,39 @@
 <!-- ========================================================= -->
-<!-- ==================== Equation Parameters ================ -->
+<!-- ==================== Equation Section =================== -->
 <!-- ========================================================= -->
 
-<!-- -------------------------------- -->
-<!-- ---------- Parameters ---------- -->
-<!-- -------------------------------- -->
-
-<h4 id="equation_parameters"> Equation Parameters </h4>
-The Equation Parameters section of the solver parameters input file defines the properties of an equation
+<h4 id="equation_section"> Equation Section </h4>
+The <i>Equation Section</i> of the solver parameters input file defines the properties of an equation
 <ul style="list-style-type:disc;">
   <li> physics - fluid, structure, electrophysiology, etc. </li>
   <li> domains </li>
 </ul>
 
-The Equation  Parameters section is organized as follows
+The <i>Equation Section</i> is organized as follows
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
-&lt;<strong>Add_equation</strong> type=equation_type</i>&gt;
+&lt;<strong>Add_equation</strong> type=<i>equation_type</i>&gt;
 <br><br>
-[Equation Parameters]
+[<a href="#equation_parameters"> Equation Parameters </a> ]
 <br> <br>
+
+&lt;<strong>Domain</strong> id=<i>domain_id</i>&gt;
+<br>
+[<a href="#domain_section"> Domain Subsection </a> ]
+<br>
+&lt;<strong>/Domain</strong>&gt;
+
+&lt;<strong>Viscosity</strong> model=<i>viscosity_model</i>&gt;<br>
+[<a href="#viscosity_parameters"> Viscosity Subsection </a> ]
+<br>
+&lt;<strong>Viscosity</strong>&gt;
+
 &lt;<strong>LS</strong> type=<i>linear_solver_type</i>&gt;<br>
-[<a href="#liner_solver_parameters"> Linear Solver Parameters </a> ]
+[<a href="#liner_solver_parameters"> Linear Solver Subsection </a> ]
 <br>
 &lt;<strong>LS</strong>&gt;
 
 &lt;<strong>Output</strong> type=<i>output_type</i>&gt;<br>
-[Output Parameters]
+[<a href="#output_parameters"> Output Subsection </a>]
 <br>
 &lt;<strong>Output</strong>&gt;
 <br>
@@ -34,8 +42,8 @@ The Equation  Parameters section is organized as follows
 
 </div>
 
-The &lt;<strong>Add_equation</strong> type=<i>equation_type</i>&gt; parameter adds an equation of type <i>equation_type</i>
-to the simulation. Multiple &lt;<strong>Add_equation</strong> type=<i>equation_type</i>&gt; parameters can be given
+The <strong>Add_equation</strong> keyword adds an equation of type <i>equation_type</i>
+to the simulation. Multiple <strong>Add_equation</strong> keywords can be given
 within a solver parameters input file.
 
 The value of <i>equation_type</i> can be 
@@ -58,7 +66,7 @@ The value of <i>equation_type</i> can be
 <!-- ---------- Equation Parameters ---------- -->
 <!-- ----------------------------------------- -->
 
-<h5> Equation Parameters </h5>
+<h5 id="equation_parameters"> Equation Parameters </h5>
 <div class="bc_param_div">
 <strong>&lt;Coupled&gt;</strong> <i>boolean [true]</i> <nobr>
 <strong>&lt;/Coupled&gt;</strong>
@@ -105,4 +113,105 @@ The solution of a nonlinear system of equations is considered to be converged (s
 If <i>true</i> then use a Taylor-Hood element pair for increassed stability.
 <br>
 </div>
+
+<!-- ============================================================== -->
+<!-- ==================== Viscosity Subsection ==================== -->
+<!-- ============================================================== -->
+
+<h4 id="viscosity_parameters"> Viscosity Subsection </h4>
+The <i>Viscosity Subsection</i> of the <i>Equation Section</i> or <i>Domain Subsection</i> defines 
+the parameters for the viscosty model used by fluid and stokes equations. 
+
+The <i>Viscosity Subsection</i> is organized as follows
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
+&lt;<strong>Viscosity</strong> model=<i>viscosity_model</i>&gt;
+<br><br>
+[ Viscosity Parameters ]
+<br> <br>
+&lt;<strong>/Viscosity</strong>&gt;
+</div>
+
+The <strong>Viscosity</strong> keyword defines a subsection for viscosity parameters.
+
+The value of <i>viscosity_model</i> can be
+
+<ul style="list-style-type:disc;">
+ <li> "newtonian" - Newtonian viscosity model </li>
+ <li> "carreau-yasuda" - Carreau-Yasuda viscosity model </li>
+ <li> "cassons" - Cassons viscosity model </li>
+</ul>
+
+<!-- ---------- Newtonian ---------- -->
+
+<h5> Newtonian </h5>
+<div class="bc_param_div">
+&lt;<strong>Viscosity</strong> model="newtonian"&gt;
+<br>
+<strong>&lt;Value&gt;</strong> <i>real</i> <nobr>
+<strong>&lt;/Value&gt;</strong>
+</nobr><br>
+The value of the viscosity constant. 
+<br>
+&lt;<strong>/Viscosity</strong>&gt;
+</div>
+
+<!-- ---------- Carreau-Yasuda ---------- -->
+
+<h5> Carreau-Yasuda</h5>
+<div class="bc_param_div">
+&lt;<strong>Viscosity</strong> model="carreau-yasuda"&gt;
+<br>
+<strong>&lt;Limiting_high_shear_rate_viscosity&gt;</strong> <i>real</i> <nobr>
+<strong>&lt;/Limiting_high_shear_rate_viscosity&gt;</strong>
+</nobr><br>
+The value of 
+<br>
+<strong>&lt;Limiting_low_shear_rate_viscosity&gt;</strong> <i>real</i> <nobr>
+<strong>&lt;/Limiting_low_shear_rate_viscosity&gt;</strong>
+</nobr><br>
+The value of 
+<br>
+<strong>&lt;Power_law_index&gt;</strong> <i>real</i> <nobr>
+<strong>&lt;/Power_law_index&gt;</strong>
+</nobr><br>
+The value of 
+<br>
+<strong>&lt;Shear_rate_tensor_multiplier&gt;</strong> <i>real</i> <nobr>
+<strong>&lt;/Shear_rate_tensor_multiplier&gt;</strong>
+</nobr><br>
+The value of 
+<br>
+<strong>&lt;Shear_rate_tensor_exponent&gt;</strong> <i>real</i> <nobr>
+<strong>&lt;/Shear_rate_tensor_exponent&gt;</strong>
+</nobr><br>
+The value of 
+<br>
+&lt;<strong>/Viscosity</strong>&gt;
+</div>
+
+<!-- ---------- Cassons ---------- -->
+
+<h5> Cassons</h5>
+<div class="bc_param_div">
+&lt;<strong>Viscosity</strong> model="cassons"&gt;
+<br>
+<strong>&lt;Asymptotic_viscosity_parameter&gt;</strong> <i>real</i> <nobr>
+<strong>&lt;/Asymptotic_viscosity_parameter&gt;</strong>
+</nobr><br>
+The value of 
+<br>
+<strong>&lt;Low_shear_rate_threshold&gt;</strong> <i>real</i> <nobr>
+<strong>&lt;/Low_shear_rate_threshold&gt;</strong>
+</nobr><br>
+The value of 
+<br>
+<strong>&lt;Yield_stress_parameter&gt;</strong> <i>real</i> <nobr>
+<strong>&lt;/Yield_stress_parametergt;</strong>
+</nobr><br>
+The value of 
+<br>
+&lt;<strong>/Viscosity</strong>&gt;
+</div>
+
+
 

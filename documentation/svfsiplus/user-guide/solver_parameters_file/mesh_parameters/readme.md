@@ -1,13 +1,13 @@
 <!-- =============================================================== -->
-<!-- ========================= Mesh Parameters ===================== -->
+<!-- ========================= Mesh Section ======================== -->
 <!-- =============================================================== -->
 
-<h4 id="mesh_parameters"> Mesh Parameters </h4>
-The Mesh Parameters section of the solver parameters input file is primarily used to identify the finite element 
+<h4 id="mesh_parameters"> Mesh Section </h4>
+A <i>Mesh Section</i> of the solver parameters input file is primarily used to identify the finite element 
 mesh files used in a simulation. The <strong>Add_mesh</strong> keyword defines the volumetric and surfaces meshes 
 used in the simulation. 
 
-The Mesh Parameters section is organized as follows 
+A <i>Mesh Section</i> is organized as follows 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
 &lt;<strong>Add_mesh</strong> name=<i>mesh_name</i>&gt; 
 <br> <br>

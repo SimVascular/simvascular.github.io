@@ -110,7 +110,7 @@ The parameter input file is organized into six sections used to provide context 
 
   <li> <a href="#mesh_parameters"> &lt;Add_mesh> - Mesh Parameters </a> </li>
 
-  <li> <a href="#equation_parameters"> &lt;Add_equation> - Equation Parameters </a> </li>
+  <li> <a href="#equation_section"> &lt;Add_equation> - Equation Section </a> </li>
 
   <li> <a href="#liner_solver_parameters"> &lt;LS> - Linear Solver Parameters </a> </li>
 

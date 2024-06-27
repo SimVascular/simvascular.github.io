@@ -1,22 +1,20 @@
 <!-- ============================================================== -->
-<!-- ==================== Output Parameters ======================= -->
+<!-- ==================== Output Subsection ======================= -->
 <!-- ============================================================== -->
 
-<!-- -------------------------------- -->
-<!-- ---------- Parameters ---------- -->
-<!-- -------------------------------- -->
+<h4 id="output_parameters"> Output Subsection </h4>
+The <i>Output Subsection</i> section of the <i>Equation Section</i> defines the quantities written to simulation
+results files.
 
-<h4 id="output_parameters"> Output Parameters </h4>
-The Output Parameters section of the solver parameters input file defines 
-
-The Output Parameters section is organized as a list of quantity names with a <i>boolean</i> 
+The <i>Output Subsection <i>is organized as a list of quantity names with a <i>boolean</i> 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
 &lt;<strong>Output</strong> type=<i>output_type</i>&gt;
 <br>[<i>Quantity names</i>]<br>
 &lt;<strong>Output</strong>&gt;
 </div>
 
-The &lt;<strong>Output</strong> type=<i>output_type</i>&gt; parameter enables output of quantities for the enclosing equation. The value of <i>output_type</i> can be
+The <strong>Output</strong> keyword enables output of quantities for the enclosing equation. 
+The value of <i>output_type</i> can be
 <ul style="list-style-type:disc;">
   <li> "Spatial" - </li>
 </ul>
