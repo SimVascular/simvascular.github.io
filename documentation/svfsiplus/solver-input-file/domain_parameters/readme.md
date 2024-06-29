@@ -185,22 +185,20 @@ make sense when used in a domain defined for a specific type of equation.
 <strong>&lt;Anisotropic_conductivity&gt;</strong> <i>vector</i> <nobr>
 <strong>&lt;/Anisotropic_conductivity&gt;</strong>
 </nobr><br>
-?
+Sets the anisotropic conductivity constant.
 <br>
 
 <section id="domain_Backflow_stabilization_coefficient">
 <strong>&lt;Backflow_stabilization_coefficient&gt;</strong> <i>real</i> [0.2] <nobr>
 <strong>&lt;/Backflow_stabilization_coefficient&gt;</strong>
 </nobr><br>
-?
+A parameter used to control flow reversal at outlet boundaries.
 <br>
-
 
 <strong>&lt;Conductivity&gt;</strong> <i>real</i> [0.0] <nobr>
 <strong>&lt;/Conductivity&gt;</strong>
 </nobr><br>
 ?
-[advection_diffusion, solid_heat]
 <br>
 
 <strong>&lt;Continuity_stabilization_coefficient&gt;</strong> <i>real</i> [0.0] <nobr>
@@ -213,28 +211,40 @@ make sense when used in a domain defined for a specific type of equation.
 <strong>&lt;Density&gt;</strong> <i>real</i> [0.5] <nobr>
 <strong>&lt;/Density&gt;</strong>
 </nobr><br>
-?
-[fluid, fluid-solid-interaction, linear_elasticity, shell, solid_heat, structural, structural_velocity_pressure]
+The density property for a solid or fluid.
 <br>
 
 <strong>&lt;Dilational_penalty_model&gt;</strong> <i>string [none] </i> <nobr>
 <strong>&lt;/Dilational_penalty_mode&gt;</strong>
 </nobr><br>
-?
+The dilational or volume-preserving component of the hyperelastic strain energy function.
+Permissible values are
+<ul style="list-style-type:disc;">
+  <li> Quadratic - </li>
+  <li> Simo-Taylor91 - </li>
+  <li> Miehe94 - </li>
+</ul>
 <br>
 
 <section id="domain_Elasticity_modulus">
 <strong>&lt;Elasticity_modulus&gt;</strong> <i>real</i> [1e7] <nobr>
 <strong>&lt;/Elasticity_modulus&gt;</strong>
 </nobr><br>
-?
+The elastic modulus property for a solid or fluid.
 <br>
 
 <section id="domain_Electrophysiology_model">
 <strong>&lt;Electrophysiology_model&gt;</strong> <i>string [none] </i> <nobr>
 <strong>&lt;/Electrophysiology_model&gt;</strong>
 </nobr><br>
-?
+The activation model used to simulation electrical activity in heart muscle.
+Permissible values are
+<ul style="list-style-type:disc;">
+  <li> aliev-panfilov - Aliev-Panfilov model </li>
+  <li> bueno-orovio - Bueno-Orovio model </li>
+  <li> fitzhugh-nagumo - Fitzhugh-Nagumo model </li>
+  <li> tentusscher-panfilov - tenTusscher-Panfilov model </li>
+</ul>
 <br>
 
 <strong>&lt;Feedback_parameter_for_stretch_activated_currents&gt;</strong> <i>real</i> [0.5] <nobr>
@@ -247,7 +257,7 @@ make sense when used in a domain defined for a specific type of equation.
 <strong>&lt;Fluid_density&gt;</strong> <i>real</i> [0.5] <nobr>
 <strong>&lt;/Fluid_density&gt;</strong>
 </nobr><br>
-?
+The density property for a fluid.
 <br>
 
 <section id="domain_Force_x">
@@ -304,7 +314,7 @@ make sense when used in a domain defined for a specific type of equation.
 <strong>&lt;Isotropic_conductivity&gt;</strong> <i>real</i> [0.0] <nobr>
 <strong>&lt;/Isotropic_conductivity&gt;</strong>
 </nobr><br>
-?
+Sets the isotropic conductivity constant.
 <br>
 
 <strong>&lt;Mass_damping&gt;</strong> <i>real</i> [0.0] <nobr>
@@ -324,27 +334,39 @@ make sense when used in a domain defined for a specific type of equation.
 <strong>&lt;Myocardial_zone&gt;</strong> <i>string [none] </i> <nobr>
 <strong>&lt;/Myocardial_zone&gt;</strong>
 </nobr><br>
-?
+The region of the heart the domain is representing. This is needed for some activation models. 
+Permissible values are
+<ul style="list-style-type:disc;">
+  <li> endocardium </li>
+  <li> epicardium </li>
+  <li> myocardium </li>
+</ul>
 <br>
 
 <section id="domain_ODE_solver">
 <strong>&lt;ODE_solver&gt;</strong> <i>string </i> [euler] <nobr>
 <strong>&lt;/ODE_solver&gt;</strong>
 </nobr><br>
-?
+The time integration method to solve the ODEs used to integrate activation models.
+<ul style="list-style-type:disc;">
+  <li> euler </li>
+  <li> implicit - </li>
+  <li> runge - </li>
+</ul>
 <br>
 
 <strong>&lt;Penalty_parameter&gt;</strong> <i>real </i> [0.0] <nobr>
 <strong>&lt;/Penalty_parameter&gt;</strong>
 </nobr><br>
-?
+The penalty constant used to override the physical bulk modulus. This is needed if the Poisson ratio 
+for a solid is close to 0.5.
 <br>
 
 <section id="domain_Poisson_ratio">
 <strong>&lt;Poisson_ratio&gt;</strong> <i>real </i> [0.3] <nobr>
 <strong>&lt;/Poisson_ratio&gt;</strong>
 </nobr><br>
-?
+The Poisson ratio property for a solid. Permissible values are beteen 0.0 and 0.5.
 <br>
 
 <strong>&lt;Relative_tolerance&gt;</strong> <i>real</i> [1e-4] <nobr>
@@ -364,13 +386,13 @@ make sense when used in a domain defined for a specific type of equation.
 <strong>&lt;Solid_density&gt;</strong> <i>real</i> [0.5] <nobr>
 <strong>&lt;/Solid_density&gt;</strong>
 </nobr><br>
-?
+The density property for a solid.
 <br>
 
 <strong>&lt;Solid_viscosity&gt;</strong> <i>real</i> [0.9] <nobr>
 <strong>&lt;/Solid_viscosity&gt;</strong>
 </nobr><br>
-?
+The viscosity property for a solid.
 <br>
 
 <strong>&lt;Source_term&gt;</strong> <i>real</i> [0.0] <nobr>
@@ -395,7 +417,7 @@ make sense when used in a domain defined for a specific type of equation.
 <strong>&lt;Time_step_for_integration&gt;</strong> <i>real</i> [0.0] <nobr>
 <strong>&lt;/Time_step_for_integration&gt;</strong>
 </nobr><br>
-?
+The time step size used to integrate activation models if different from simulaton time step. 
 <br>
 
 </div>
