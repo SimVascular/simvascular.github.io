@@ -1,10 +1,10 @@
-### Solver Parameter Input File 
+<h2> Solver Parameter Input File </h2>
 
 The svFSIplus solver reads simulation parameters from a text file in Extensible Markup Language 
 <a href="https://en.wikipedia.org/wiki/XML"> (XML) </a> format. The XML file structurally organizes the svFSIplus 
 solver parameters and input data (e.g. mesh files) needed to set up and execute a simulation. 
 
-<h4> What is XML </h4>
+<h3> What is XML </h3>
 
 The XML format is made up of tags, elements and atributes. A tag begins with < and ends with >. 
 There are two types of tag
@@ -71,7 +71,7 @@ The above contains
 <!-- ============================== How svFSIplus uses XML =========================== -->
 <!-- ================================================================================= -->
 
-<h4> How svFSIplus uses XML </h4>
+<h3> How svFSIplus uses XML </h3>
 
 For the svFSIplus solver input file the XML elements are used as the names of the solver parameters.
 
@@ -100,7 +100,7 @@ Some parameters are optional. There are two types of optional parameters
 <!-- ============================== organizaion of the parameter input file =========================== -->
 <!-- ================================================================================================== -->
 
-<h4> The organizaion of the parameter input file </h4>
+<h3> The organizaion of the parameter input file </h3>
 
 The parameter input file is organized into six sections used to provide context for the parameters defined under them
 
