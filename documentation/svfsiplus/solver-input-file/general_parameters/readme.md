@@ -69,12 +69,18 @@ Save simulation results after the given time step.
 <strong>&lt;Increment_in_saving_restart_files&gt;</strong> <i>integer</i> [10] <nobr>
 <strong>&lt;/Increment_in_saving_restart_files&gt;</strong>
 </nobr><br>
-Increment_in_saving_restart_files (optional,  default=10) - Indicates how often to save restart files.
+Indicates how often to save restart files.
 <br>
 <strong>&lt;Increment_in_saving_restart_files&gt;</strong> <i>integer</i> [10] <nobr>
 <strong>&lt;/Increment_in_saving_restart_files&gt;</strong>
 </nobr><br>
-Increment_in_saving_restart_files (optional,  default=10) - Indicates how often to save restart files.
+Indicates how often to save restart files.
+<br>
+<section id="general_params_Simulation_initialization_file_path">
+<strong>&lt;Simulation_initialization_file_path&gt;</strong> <i>string [none] </i> <nobr>
+<strong>&lt;/Simulation_initialization_file_path&gt;</strong>
+</nobr><br>
+Initialize all state variables from a VTK VTU file.
 <br>
 </div>
 

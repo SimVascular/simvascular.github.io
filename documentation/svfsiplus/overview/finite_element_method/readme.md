@@ -14,7 +14,7 @@ svFSIplus supports the folowing element types
  <li> <i>triangle</i> - linear and quadratic </li>
  <li> <i>quadrilateral</i> - bilinear, serendipity, biquadratic </li>
  <li> <i>tetrahedron </i> - linear and quadratic </li>
- <li> <i>hexagonal brick </i> - trilinear, quadratic/serendipity, triquadratic </li>
+ <li> <i>hexahedron</i> - trilinear, quadratic/serendipity, triquadratic </li>
  <li> <i>wedge</i> - linear </li>
 </ul>
 

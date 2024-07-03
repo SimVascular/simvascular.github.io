@@ -68,16 +68,19 @@ Creates IDs for multiple domains from a VTK VTU file. Domain IDs are assumed to 
 </nobr><br>
 The value used to scale mesh nodal coordinates. 
 <br>
+<section id="mesh_params_Initial_pressures_file_path">
 <strong>&lt;Initial_pressures_file_path&gt;</strong> <i>string [none] </i> <nobr>
 <strong>&lt;/Initial_pressures_file_path&gt;</strong>
 </nobr><br>
 The name of the file used to 
 <br>
+<section id="mesh_params_Initial_velocities_file_path">
 <strong>&lt;Initial_velocities_file_path&gt;</strong> <i>string [none] </i> <nobr>
 <strong>&lt;/Initial_velocities_file_path&gt;</strong>
 </nobr><br>
 The name of the file used to 
 <br>
+<section id="mesh_params_Initial_displacements_file_path">
 <strong>&lt;Initial_displacements_file_path&gt;</strong> <i>string [none] </i> <nobr>
 <strong>&lt;/Initial_displacements_file_path&gt;</strong>
 </nobr><br>
