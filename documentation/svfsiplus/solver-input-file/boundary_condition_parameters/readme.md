@@ -88,16 +88,18 @@ If <i>true</i> then normalize the spatial profile with the area of the face so t
 </nobr><br>
 If <i>true</i> then used for applying a Dirichlet boundary condition on the displacement degrees of freedom when velocity is the state variable (e.g. fluid, CMM, FSI).
 <br>
+<section id="bc_Initial_displacements_file_path">
 <strong>&lt;Initial_displacements_file_path&gt;</strong> string [none]  <nobr> 
 <strong>&lt;/Initial_displacements_file_path&gt;</strong>
 </nobr><br>
-Use the VTK VTP-format file to initialize CMM using an inflation method resulting from a diastolic or time-averaged fluid traction.
+Use the VTK VTU-format file to initialize CMM using an inflation method resulting from a diastolic or time-averaged fluid traction.
 <br>
 <strong>&lt;Penalty_parameter&gt;</strong> real [none]  <nobr> 
 <strong>&lt;/Penalty_parameter&gt;</strong>
 </nobr><br> 
 If the Poisson ratio for a given case is close to 0.5, then calculated bulk modulus used for dilational penalty model can be extremely high leading to poor linear solver convergence. The users may then override the physical bulk modulus with a penalty constant sufficiently large enough for the linear solver to converge.
 <br>
+<section id="bc_Prestress_file_path">
 <strong>&lt;Prestress_file_path&gt;</strong> string [none]  <nobr> 
 <strong>&lt;/Prestress_file_path&gt;</strong>
 </nobr><br>
@@ -118,16 +120,19 @@ If <i>true</i> then the first two entries in the file setting an unsteady bounda
 </nobr><br>
 Use the given text file to set the spatial distribution of a state varible for a User_defined profile.
 <br>
+<section id="bc_Spatial_values_file">
 <strong>&lt;Spatial_values_file_path&gt;</strong> string [none]  <nobr> 
 <strong>&lt;/Spatial_values_file_path&gt;</strong>
 </nobr><br>
-The path to the VTK VTU-format file used to set the spatially varying body force to a face.
+The path to the VTK VTP-format file used to set the spatially varying body force to a face.
 <br>
+<section id="bc_Temporal_and_spatial_values_file_path">
 <strong>&lt;Temporal_and_spatial_values_file_path&gt;</strong> string [none]  <nobr> 
 <strong>&lt;/Temporal_and_spatial_values_file_path&gt;</strong>
 </nobr><br>
 The path to the text file containing temporal and spatial values. 
 <br>
+<section id="bc_Temporal_values_file_path">
 <strong>&lt;Temporal_values_file_path&gt;</strong> string [non]  <nobr> 
 <strong>&lt;/Temporal_values_file_path&gt;</strong>
 </nobr><br>

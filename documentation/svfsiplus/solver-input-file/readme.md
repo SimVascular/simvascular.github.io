@@ -1,4 +1,4 @@
-<h2> Solver Parameter Input File </h2>
+<h2 id="solver_input_file"> Solver Parameter Input File </h2>
 
 The svFSIplus solver reads simulation parameters from a text file in Extensible Markup Language 
 <a href="https://en.wikipedia.org/wiki/XML"> (XML) </a> format. The XML file structurally organizes the svFSIplus 
