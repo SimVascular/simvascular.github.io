@@ -367,16 +367,149 @@ Example:
 <!-- ======================== Solver Input XML File ==================== -->
 <!-- =================================================================== -->
 
-<h3 id="run_solver_input_xml_file"> Solver Input File </h3>
-The svFSIplus <a href="#solver_input_file"> solver input file </a> is created referencing the mesh 
-and boundary condition data files needed by the simulation. 
-<br><br>
+<h3 id="run_solver_input_xml_file"> Creating a Solver Input File </h3>
+A <a href="#solver_input_file"> basic solver input XML file </a> is created by adding the
+<a href="#general_parameters">General Simulation</a> 
+and <a href="#equation_parameters"> Equation </a> parameters required to perform a simulation
 
-<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #0000e6; border-left: 6px solid #0000e6">
-It is best to copy a solver input file from the svFSIplus 
+<ul style="list-style-type:disc;">
+<li> number of time steps </i> 
+<li> time step </i> 
+<li> results output </i> 
+<li> mesh files </i> 
+<li> equation </i> 
+  <ul style="list-style-type:square;">
+  <li> phyical properties</i> 
+  <li> linear solver </i> 
+  <li> boundary conditions </i> 
+  <li> results quantities to write </i> 
+  </ul>
+</ul>
+
+A solver input file is automatically created by the <a href="#sv-fsi-tool"> SimVascular FSI Tool</a>.
+It can also be created by customizing a copy of a solver input file from the svFSIplus 
 <a href="https://github.com/SimVascular/svFSIplus/tree/main/tests/cases"> 
 test/case directory</a> that is similar to the simulation you wish to perform.
+
+<h4> Example solver input file for a fluid simulation </h4>
+An example of solver input file for a fluid simulation is given below. The simulation
+
+<ul style="list-style-type:disc;">
+<li> Single domain named <strong>fluid_domain</strong> </li> 
+<li> Three faces named
+<ul style="list-style-type:square;">
+<li> <strong>lumen_inlet</strong> </li> 
+<li> <strong>lumen_outlet</strong> </li> 
+<li> <strong>lumen_wall</strong> </li> 
+</ul>
+</ul>
+
+<pre>
+&lt;?xml version="1.0" encoding="UTF-8" ?&gt;
+&lt;svFSIFile version="0.1"&gt;
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #F0F0F0; border-left: 1px solid #F0F0F0">
+&lt;!--- General Simulation Parameters --->
+
+<a href="#general_parameters">&lt;GeneralSimulationParameters&gt;</a>
+  &lt;Continue_previous_simulation&gt; false &lt;/Continue_previous_simulation&gt;
+  &lt;Number_of_spatial_dimensions&gt; 3 &lt;/Number_of_spatial_dimensions&gt; 
+  &lt;Number_of_time_steps&gt; 2 &lt;/Number_of_time_steps&gt; 
+  &lt;Time_step_size&gt; 0.005 &lt;/Time_step_size&gt; 
+  &lt;Spectral_radius_of_infinite_time_step&gt; 0.50 &lt;/Spectral_radius_of_infinite_time_step&gt; 
+  &lt;Searched_file_name_to_trigger_stop&gt; STOP_SIM &lt;/Searched_file_name_to_trigger_stop&gt; 
+
+  &lt;Save_results_to_VTK_format&gt; true &lt;/Save_results_to_VTK_format&gt; 
+  &lt;Name_prefix_of_saved_VTK_files&gt; result &lt;/Name_prefix_of_saved_VTK_files&gt; 
+  &lt;Increment_in_saving_VTK_files&gt; 2 &lt;/Increment_in_saving_VTK_files&gt; 
+  &lt;Start_saving_after_time_step&gt; 1 &lt;/Start_saving_after_time_step&gt; 
+
+  &lt;Increment_in_saving_restart_files&gt; 100 &lt;/Increment_in_saving_restart_files&gt; 
+  &lt;Convert_BIN_to_VTK_format&gt; 0 &lt;/Convert_BIN_to_VTK_format&gt; 
+<a href="#general_parameters">&lt;/GeneralSimulationParameters&gt;</a>
 </div>
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #F0F0F0; border-left: 1px solid #F0F0F0">
+&lt;!--- Finite Element Mesh Parameters --->
+
+<a href="#mesh_parameters">&lt;Add_mesh name="fluid_domain" &gt; </a>
+  &lt;Mesh_file_path&gt; domain.vtu &lt;/Mesh_file_path&gt;
+
+  &lt;Add_face name="lumen_inlet"&gt;
+      &lt;Face_file_path&gt; lumen_inlet.vtp &lt;/Face_file_path&gt;
+  &lt;/Add_face&gt;
+
+  &lt;Add_face name="lumen_outlet"&gt;
+      &lt;Face_file_path&gt; lumen_outlet.vtp &lt;/Face_file_path&gt;
+  &lt;/Add_face&gt;
+
+  &lt;Add_face name="lumen_wall"&gt;
+      &lt;Face_file_path&gt; lumen_wall.vtp &lt;/Face_file_path&gt;
+  &lt;/Add_face&gt;
+<a href="#mesh_parameters">&lt;/Add_mesh&gt;</a>
+</div>
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #F0F0F0; border-left: 1px solid #F0F0F0">
+&lt;!--- Equation Parameters --->
+
+<a href="#equation_parameters">&lt;Add_equation type="fluid" &gt;</a>
+   &lt;Coupled&gt; true &lt;/Coupled&gt;
+   &lt;Min_iterations&gt; 3 &lt;/Min_iterations&gt;  
+   &lt;Max_iterations&gt; 5&lt;/Max_iterations&gt; 
+   &lt;Tolerance&gt; 1e-11 &lt;/Tolerance&gt; 
+   &lt;Backflow_stabilization_coefficient&gt; 0.2 &lt;/Backflow_stabilization_coefficient&gt; 
+
+   &lt;Density&gt; 1.06 &lt;/Density&gt; 
+   &lt;Viscosity model="Constant" &gt;
+     &lt;Value&gt; 0.04 &lt;/Value&gt;
+   &lt;/Viscosity&gt;
+
+   <a href="#output_parameters">&lt;Output type="Spatial" &gt;</a>
+      &lt;Velocity&gt; true &lt;/Velocity&gt;
+      &lt;Pressure&gt; true &lt;/Pressure&gt;
+      &lt;Traction&gt; true &lt;/Traction&gt;
+      &lt;Vorticity&gt; true&lt;/Vorticity&gt;
+      &lt;Divergence&gt; true&lt;/Divergence&gt;
+      &lt;WSS&gt; true &lt;/WSS&gt;
+   <a href="#output_parameters">&lt;/Output&gt;</a>
+
+   <a href="#liner_solver_parameters">&lt;LS type="GMRES" &gt;</a>
+      &lt;Linear_algebra type="fsils" &gt;
+         &lt;Preconditioner&gt; fsils &lt;/Preconditioner&gt;
+      &lt;/Linear_algebra&gt;
+     &lt;Max_iterations&gt; 100 &lt;/Max_iterations&gt;
+     &lt;Tolerance&gt; 1e-12 &lt;/Tolerance&gt;
+   <a href="#liner_solver_parameters">&lt;/LS&gt;</a>
+
+   <a href="#boundary_condition_parameters">&lt;Add_BC name="lumen_inlet" &gt; </a>
+      &lt;Type&gt; Dirichlet &lt;/Type&gt; 
+      &lt;Time_dependence&gt; Unsteady &lt;/Time_dependence&gt; 
+     &lt;Temporal_values_file_path&gt; lumen_inlet.flow&lt;/Temporal_values_file_path&gt; 
+      &lt;Profile&gt; Parabolic &lt;/Profile&gt; 
+      &lt;Impose_flux&gt; true &lt;/Impose_flux&gt; 
+   <a href="#boundary_condition_parameters">&lt;/Add_BC&gt; </a>
+
+   <a href="#boundary_condition_parameters">&lt;Add_BC name="lumen_outlet" &gt;</a>
+      &lt;Type&gt; Neumann &lt;/Type&gt; 
+      &lt;Time_dependence&gt; RCR &lt;/Time_dependence&gt; 
+      &lt;RCR_values&gt; 
+        &lt;Capacitance&gt; 1.5e-5 &lt;/Capacitance&gt; 
+        &lt;Distal_resistance&gt; 1212 &lt;/Distal_resistance&gt; 
+        &lt;Proximal_resistance&gt; 121 &lt;/Proximal_resistance&gt; 
+        &lt;Distal_pressure&gt; 0 &lt;/Distal_pressure&gt; 
+        &lt;Initial_pressure&gt; 0 &lt;/Initial_pressure&gt; 
+      &lt;/RCR_values&gt; 
+   <a href="#boundary_condition_parameters">&lt;/Add_BC&gt;</a>
+
+   <a href="#boundary_condition_parameters">&lt;Add_BC name="lumen_wall" &gt;</a>
+      &lt;Type&gt; Dirichlet &lt;/Type&gt; 
+      &lt;Time_dependence&gt; Steady &lt;/Time_dependence&gt; 
+      &lt;Value&gt; 0.0 &lt;/Value&gt; 
+   <a href="#boundary_condition_parameters">&lt;/Add_BC&gt;</a>
+<a href="#equation_parameters">&lt;/Add_equation&gt;</a>
+</div>
+
+&lt;/svFSIFile&gt;
+
+
+</pre>
 
 <!-- =================================================================== -->
 <!-- ======================== Running a Simulation ===================== -->
