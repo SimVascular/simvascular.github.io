@@ -9,6 +9,8 @@ physics, properties and solution parameters.
 
 <ul style="list-style-type:disc;">
 
+<li> <a href="#run_getting"> Getting the svFSIplus Program </a> </li> 
+
 <li> <a href="#run_finite_element_mesh"> Create files storing the finite element mesh </a> </li> 
 
 <li> <a href="#run_initial_conditions"> Create files storing initial condition data </a> </li> 
@@ -20,6 +22,24 @@ physics, properties and solution parameters.
 </ul>
 
 Additional files and parameters will be needed for simulations of more complex problems.
+
+<!-- =================================================================== -->
+<!-- ======================= Getting the svFSIplus Program ============= -->
+<!-- =================================================================== -->
+
+<h3 id="run_getting"> Getting the svFSIplus Program </h3>
+The svFSIplus program is a C++ program compiled into an executable named <strong>svfsiplus</strong>. 
+
+The svFSIplus program can be obtained by
+<ul style="list-style-type:disc;">
+<li> Downloading an installer from <a href="https://simtk.org/frs/?group_id=188"> SimTK SimVascular Downloads </a> </li>
+<li> Building from source downloaded from <a href="https://github.com/SimVascular/svFSIplus?tab=readme-ov-file"> svFSIplus </a> GitHub repository </li>
+</ul>
+
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600">
+The svFSIplus program requires several software packages to run. 
+See the <a href=""> svFSIplus </a> GitHub repository for more information about software dependencies. 
+</div>
 
 <!-- =================================================================== -->
 <!-- ========================== Finite Element Mesh ==================== -->
@@ -392,11 +412,11 @@ It can also be created by customizing a copy of a solver input file from the svF
 test/case directory</a> that is similar to the simulation you wish to perform.
 
 <h4> Example solver input file for a fluid simulation </h4>
-An example of solver input file for a fluid simulation is given below. The simulation
+An example of a solver input file for a fluid simulation is given below. The simulation
 
 <ul style="list-style-type:disc;">
 <li> Single domain named <strong>fluid_domain</strong> </li> 
-<li> Three faces named
+<li> Three boundary surfaces (faces) named
 <ul style="list-style-type:square;">
 <li> <strong>lumen_inlet</strong> </li> 
 <li> <strong>lumen_outlet</strong> </li> 
@@ -505,10 +525,7 @@ An example of solver input file for a fluid simulation is given below. The simul
    <a href="#boundary_condition_parameters">&lt;/Add_BC&gt;</a>
 <a href="#equation_parameters">&lt;/Add_equation&gt;</a>
 </div>
-
 &lt;/svFSIFile&gt;
-
-
 </pre>
 
 <!-- =================================================================== -->
@@ -516,9 +533,155 @@ An example of solver input file for a fluid simulation is given below. The simul
 <!-- =================================================================== -->
 
 <h3 id="run_run_simulation"> Running a Simulation </h3>
+The following steps take place when running the <strong>svfsiplus</strong> executable using N 
+processors (cores)
+<ul style="list-style-type:disc;">
+<li> Read the solver input XML file </li>
+<li> Read mesh files </li>
+<li> Read any boundary condition data files </li>
+<li> Create a directory to store simulation results </li> 
+<li> Partition mesh and boundary condition data into N parts and write that data to N files </li>
+<li> If running on an HPC cluster then distribute files to MPI processors </li>
+<li> Run N svfsiplus programs on the N processors </li>
+<li> Step in time writing result and state files to <i>N</i>-procs </li>
+</ul>
+
+The svfsiplus program stores state and results files in a directory named, by default, <i>N</i>-procs. 
+The default directory name can be changed using the <a href="#gen_Save_results_in_folder"> 
+Save_results_in_folder parameter</a>. 
+
+The svfsiplus program can be run on a workstation using
+<ul style="list-style-type:disc;">
+<li> <a href="#sv-fsi-tool"> SimVascular FSI Tool</a> </li>
+<li> Command line in a terminal </li>
+</ul>
+
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600">
+The size of a finite element mesh needed to accurately represent the vasculature of an anatomical region can be
+quite large (millions of elements). Simulations may also require 1000s of time steps to reproduce 
+realistic blood flow. Such large complex simulations are typically run on HPC clusters using 10s of processors.
+
+Simulations may be run on a workstation for just a few time steps to verify that the simulation
+is setup correctly. 
+</div>
+
+<h4> Running a Simulation from the Command Line </h4>
+The svfsiplus program located in the <i>svFSIplusPath</i> directory can be run from a terminal window 
+on a workstation using the mpiexec command
+<pre>
+mpiexec -np N svFSIplusPath/svfsiplus solver_input.xml
+</pre>
+This will run N svfsiplus programs on N cores.
+
+<h4>Simulation History histor.dat File </h4>
+The svfsiplus program creates a text file named <strong>histor.dat</strong> used to store 
+the information about how a simulation is progressing. The convergence of nonlinear and
+linear numerical algorithms can be used to evaluate the correctness of the solution for
+a give time step.
+
+The finite element solution procedure uses an iterative algorithm to create a convergent 
+sequence of linear approximations to obtain the approximate solution to a nonlinear problem.
+The linear approximation at each nonlinear iteration is solved for the state variables of the 
+problem also using iterative algorithms.
+
+A residual is used to measure the error between the approximate and exact solutions to equations. 
+Iterative methods seek solutions to equations by systematically minimizing the residual. Convergence 
+is assumed when size of the residual is less than a given tolerance. The norm of a residual is a 
+scalar measure of the magnitude of the residual. Residual norms are computed for both the nonlinear
+and linear problems for each nonlinear iteration. The ratio of residual norms are used to determine
+how effective is the solution strategy (.e.g tolerances, number of iterations, preconditioner) used for 
+the nonlinear solution.
+
+In the following definitions the term <i>norm</i> will be used to mean the norm of a residual.
+
+The histor.dat file contains 10 columns of informaion labeled as
+<pre>
+Eq    N-i    T    dB    Ri/R1    Ri/R0    R/Ri    lsIt    dB    %t
+</pre>
+
+<h5>Eq</h5> 
+<i>Eq</i> Is a two-character abbreviation name of the equation being solved. <i>Eq</i> can be </li>
+<ul style="list-style-type:disc;">
+<li> CM - coupled_momentum </li> 
+<li> EP - cardiac_electro_physiology </li> 
+<li> FS - fluid-solid-interaction </li> 
+<li> HF - advection_diffusion </li> 
+<li> HS - solid_heat </li> 
+<li> LE - linear_elasticity </li> 
+<li> MS - mesh </li> 
+<li> NS - fluid (Navier-Stokes) </li> 
+<li> SH - shell </li> 
+<li> SS - stokes </li> 
+<li> ST - structural and structural_velocity_pressure</li> 
+</ul>
+
+<h5> <i>N</i>-<i>i</i> </h5>
+The <i>N</i>-<i>i</i> column shows the current time step <i>N</i> and the nonlinear iteration step <i>i</i>.
+
+<h5> <i>T</i> </h5>
+The <i>T</i> column shows the cpu time in seconds counted since the start of the analysis.
+
+<h5> <i>dB</i> </h5>
+The <i>dB</i> column shows the logarithm of the residual change. A large negative value means that
+the size of the residual is rapidly decreasing. 
+<pre>
+  norm_ratio = <i>Initial linear system norm</i> / <i>Initial nonlinear norm</i> / <i>First nonlinear iteration norm</i> 
+  dB = (20.0 * log10(norm_ratio))
+</pre>
+
+<h5> <i>Ri/R1</i> </h5>
+The <i>Ri/R1</i> column shows the ratio of linear and nonlinear norms.
+<pre>
+Ri/R1 = (<i>Initial linear system norm</i> / <i>Initial nonlinear norm</i>) / <i>(First nonlinear iteration norm</i>
+</pre>
+
+<h5> <i>Ri/R0</i> </h5>
+The <i>Ri/R0</i> column shows the ratio of linear and nonlinear norms.
+<pre>
+Ri/R0 = <i>Initial linear system norm</i> / <i>Initial nonlinear norm</i> 
+</pre>
+
+<h5> <i>R/Ri</i> </h5>
+The <i>R/Ri</i> column shows the ratio linear system norms.
+<pre>
+R/Ri = <i>Final linear system norm</i> / <i>Initial linear system norm</i>
+</pre>
+
+<h5> <i>lsIt</i> </h5>
+The <i>lsIt</i> column shows the number of iterations used to solve the linear system.
+
+<h5> <i>dB</i> </h5>
+The <i>dB</i> column shows the logarithm of the residual change for the linear system.
+
+<h5> <i>%t</i> </h5>
+The <i>%t</i> column shows the percentage of cpu time spent in the solution of the linear system.
+
+
+<h5> Example </h5>
+<pre>
+----------------------------------------------------------------------------
+ Eq   N-i     T          dB     Ri/R1     Ri/R0      R/Ri      lsIt dB  %t
+----------------------------------------------------------------------------
+ NS   1-1  8.960e-01  [  0   1.000e+00  1.000e+00  3.692e-04]  [5  -16  83]
+ NS   1-2  1.667e+00  [-62   7.921e-04  7.921e-04  3.603e-04]  [4  -15  81]
+ NS   1-3s 2.460e+00  [-128  3.796e-07  3.796e-07  5.880e-04]  [4  -16  78]
+ NS   2-1  3.452e+00  [   0  1.000e+00  3.552e+01  5.392e-04]  [3  -16  49]
+ NS   2-2  4.230e+00  [ -65  5.446e-04  1.935e-02  5.010e-04]  [4  -18  81]
+ NS   2-3s 5.037e+00  [-128  3.757e-07  1.335e-05  3.266e-04]  [4  -17  78]
+</pre>
+
+
+<h4> Simulation Results </h4>
+Simulation state data is stored in binary files named, by default, stFile_<i>T</i>.bin, where <i>T</i> is 
+the time step. The default name can be changed using the <a href="#gen_Restart_file_name">Restart_file_name</a> parameter. State data files can be used to restart a simulation from a given state (time step).
+
+Simulation results data is stored in <a href="#appendix_vtk_file_format"> VTK VTU </a> files named, by default, 
+result_<i>T</i>.vtu, where <i>T</i> is the time step. The default name can be changed using the 
+<a href="#gen_Restart_file_name">Restart_file_name</a> parameter.
+
 
 <!-- =================================================================== -->
-<!-- ======================== Restarting a Simulation ===================== -->
+<!-- ====================== Restarting a Simulation ==================== -->
 <!-- =================================================================== -->
 
 <h3 id="run_restart_simulation"> Restarting a Simulation </h3>

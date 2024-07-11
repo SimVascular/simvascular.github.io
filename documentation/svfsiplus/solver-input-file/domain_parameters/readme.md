@@ -178,7 +178,7 @@ make sense when used in a domain defined for a specific type of equation.
 <strong>&lt;Absolute_tolerance&gt;</strong> <i>real</i> [1e-6] <nobr>
 <strong>&lt;/Absolute_tolerance&gt;</strong>
 </nobr><br>
-?
+Convergence is deemed to occur when the size of the residual becomes sufficiently small compared with this value. 
 <br>
 
 <section id="domain_Anisotropic_conductivity">
@@ -372,7 +372,8 @@ The Poisson ratio property for a solid. Permissible values are beteen 0.0 and 0.
 <strong>&lt;Relative_tolerance&gt;</strong> <i>real</i> [1e-4] <nobr>
 <strong>&lt;/Relative_tolerance&gt;</strong>
 </nobr><br>
-?
+Convergence is deemed to occur when the size of the residual becomes sufficiently small compared 
+with the first error estimate calculated.
 <br>
 
 <section id="domain_Shell_thickness">

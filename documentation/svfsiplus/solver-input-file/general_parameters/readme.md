@@ -83,10 +83,11 @@ Save simulation results after the given time step.
 </nobr><br>
 Indicates how often to save restart files.
 <br>
-<strong>&lt;Increment_in_saving_restart_files&gt;</strong> <i>integer</i> [10] <nobr>
-<strong>&lt;/Increment_in_saving_restart_files&gt;</strong>
+<section id="gen_Restart_file_name">
+<strong>&lt;Restart_file_name&gt;</strong> <i>string [stFile.bin]</i> <nobr>
+<strong>&lt;/Restart_file_name&gt;</strong>
 </nobr><br>
-Indicates how often to save restart files.
+Name of the file used to store simulation state data. This file is used for restarting simulations.
 <br>
 <section id="general_params_Simulation_initialization_file_path">
 <strong>&lt;Simulation_initialization_file_path&gt;</strong> <i>string [none] </i> <nobr>
