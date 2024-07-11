@@ -16,6 +16,7 @@ The General Simulation Parameters section contains the basic parameters used to 
 
 <h5>Parameters</h5>
 <div class="bc_param_div">
+<section id="gen_Continue_previous_simulation">
 <strong>&lt;Continue_previous_simulation&gt;</strong> <i>boolean</i> [false]  <nobr>
 <strong>&lt;/Continue_previous_simulation&gt;</strong>
 </nobr><br>

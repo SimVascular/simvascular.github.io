@@ -573,6 +573,10 @@ mpiexec -np N svFSIplusPath/svfsiplus solver_input.xml
 </pre>
 This will run N svfsiplus programs on N cores.
 
+<!-- --------------------------------------------------------- -->
+<!-- ------------- Simulation History ------------------------ -->
+<!-- --------------------------------------------------------- -->
+
 <h4>Simulation History histor.dat File </h4>
 The svfsiplus program creates a text file named <strong>histor.dat</strong> used to store 
 the information about how a simulation is progressing. The convergence of nonlinear and
@@ -657,19 +661,40 @@ The <i>dB</i> column shows the logarithm of the residual change for the linear s
 The <i>%t</i> column shows the percentage of cpu time spent in the solution of the linear system.
 
 
-<h5> Example </h5>
+<h5> Example: Fluid simulation histor.dat file  </h5>
+This following text shows the histor.dat file create by a fluid simulation.
 <pre>
 ----------------------------------------------------------------------------
  Eq   N-i     T          dB     Ri/R1     Ri/R0      R/Ri      lsIt dB  %t
 ----------------------------------------------------------------------------
- NS   1-1  8.960e-01  [  0   1.000e+00  1.000e+00  3.692e-04]  [5  -16  83]
- NS   1-2  1.667e+00  [-62   7.921e-04  7.921e-04  3.603e-04]  [4  -15  81]
+ NS   1-1  8.960e-01  [   0  1.000e+00  1.000e+00  3.692e-04]  [5  -16  83]
+ NS   1-2  1.667e+00  [ -62  7.921e-04  7.921e-04  3.603e-04]  [4  -15  81]
  NS   1-3s 2.460e+00  [-128  3.796e-07  3.796e-07  5.880e-04]  [4  -16  78]
  NS   2-1  3.452e+00  [   0  1.000e+00  3.552e+01  5.392e-04]  [3  -16  49]
  NS   2-2  4.230e+00  [ -65  5.446e-04  1.935e-02  5.010e-04]  [4  -18  81]
  NS   2-3s 5.037e+00  [-128  3.757e-07  1.335e-05  3.266e-04]  [4  -17  78]
 </pre>
 
+<ul style="list-style-type:disc;">
+<li> This is a simulation with a single fluid equation so the <i>Eq</i> column contains only the 
+<strong>NS</strong> equation. </li>
+
+<li>The <i>N-i</i> column shows two time steps with three nonlinear iterations. </li>
+
+<li>The first <i>dB</i> column shows that the nonlinear residual is rapidly decreaing in size for each nonlinear iteration. </li>
+
+<li>All of the ratio of the residual norms <i>Ri/R1, Ri/R0, R/Ri</i> are small for the last nonlinear iteration. </li> 
+
+<li>The <i>lsIt</i> column shows that linear system at each nonlinear step take 5 or less iterations to solve. </li> 
+
+<li>The last <i>dB</i> column shows that the linear system residual is rapidly decreaing in size for each 
+nonlinear iteration. </li>
+
+</ul>
+
+<!-- --------------------------------------------------------- -->
+<!-- --------------- Simulation Results ---------------------- -->
+<!-- --------------------------------------------------------- -->
 
 <h4> Simulation Results </h4>
 Simulation state data is stored in binary files named, by default, stFile_<i>T</i>.bin, where <i>T</i> is 
@@ -679,12 +704,14 @@ Simulation results data is stored in <a href="#appendix_vtk_file_format"> VTK VT
 result_<i>T</i>.vtu, where <i>T</i> is the time step. The default name can be changed using the 
 <a href="#gen_Restart_file_name">Restart_file_name</a> parameter.
 
-
 <!-- =================================================================== -->
 <!-- ====================== Restarting a Simulation ==================== -->
 <!-- =================================================================== -->
 
 <h3 id="run_restart_simulation"> Restarting a Simulation </h3>
-
+A simulation can be continued from a previous state using a state data binary file.
+The <a href="#gen_Continue_previous_simulation"> Continue_previous_simulation </a> and 
+<a href="#gen_Restart_file_name"> Restart_file_name</a> paramters are used to restart the simulation
+from a previous state.
 
 
