@@ -1,3 +1,5 @@
+<hr class="rounded">
+
 <h2 id="sv_fsi_tool_tutorial"> SimVascular FSI Tool Tutorial </h2>
 The SimVascular <a href="https://simtk.org/frs/?group_id=930"> Cylinder Project Example</a> will be used 
 for the model and mesh data referenced in the discussion.
@@ -15,9 +17,9 @@ The <strong>cylinder</strong> model has three faces (boundary surfaces)
 panel displayed to the right of the graphics window shows the model <strong>Face List</strong>.</figcaption>
 </figure>
 
-<!--- --------------------------------------------------- --->
-<!--- --------------- Creating Mesh Files --------------- --->
-<!--- --------------------------------------------------- --->
+<!-- --------------------------------------------------- -->
+<!-- --------------- Creating Mesh Files --------------- -->
+<!-- --------------------------------------------------- -->
 
 <h3 id="sv_fsi_tool_mesh"> Creating Mesh Files </h3> 
 The <strong>SV FSI Tool</strong> requires files containing the finite element volume mesh (VTK VTU) and 
@@ -54,9 +56,9 @@ where
 
 These files will be used to define the finite element mesh for the FSI simulation.
 
-<!--- --------------------------------------------------- --->
-<!--- ---------- Creating an FSI Tool Instance ---------- --->
-<!--- --------------------------------------------------- --->
+<!-- --------------------------------------------------- -->
+<!-- ---------- Creating an FSI Tool Instance ---------- -->
+<!-- --------------------------------------------------- -->
 
 <h3 id="sv_fsi_tool_create_instance"> Creating an FSI Tool Instance </h3> 
 A <strong>SV FSI Tool</strong> instance is created by right-clicking on the <strong>svFSI</strong> node 
@@ -91,9 +93,9 @@ needed to run a svFSIplus solver simulation
 A selecting a sub-panel name brings up the sub-panel's widgets. The following sections describe how each of the 
 sub-panels are used.
 
-<!--- --------------------------------------------------- --->
-<!--- ---------------- Domains Panel -------------------- --->
-<!--- --------------------------------------------------- --->
+<!-- --------------------------------------------------- -->
+<!-- ---------------- Domains Panel -------------------- -->
+<!-- --------------------------------------------------- -->
 
 <h3 id="sv_fsi_tool_domains"> Domains Panel </h2>. A <strong>SV FSI Tool</strong> 
 

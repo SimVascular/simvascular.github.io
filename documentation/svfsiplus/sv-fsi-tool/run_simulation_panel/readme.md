@@ -1,9 +1,9 @@
-<!--- --------------------------------------------------- --->
-<!--- ------------- Run Simulation Panel ---------------- --->
-<!--- --------------------------------------------------- --->
+<!-- --------------------------------------------------- -->
+<!-- ------------- Run Simulation Panel ---------------- -->
+<!-- --------------------------------------------------- -->
 
 <h2 id="run_simulation_panel"> Run Simulation Panel </h2> 
-The Run Simulation panel is used to 
+The <i>Run Simulation</i> panel is used to create the solver input files needed to run a simulation.
 
 <h3> Panel Layout </h3> 
 
@@ -17,11 +17,12 @@ The Run Simulation panel is used to
 
 <h3> Usage </h3> 
 
-<strong>Create Input File</strong> <i>Button</i> - If selected
+<strong>Create Input File</strong> <i>Button</i> - Select to create solver input files.
 
-<strong>Number of processes</strong> <i>Slider</i> - 
+<strong>Number of processes</strong> <i>Slider</i> - Select the number of processors (cores) for MPI to use for a 
+parallel simulation.
 
-<strong>Run</strong> <i>Button</i> - If selected
+<strong>Run</strong> <i>Button</i> - Select to start a simulation.
 
-<strong>Stop</strong> <i>Button</i> - If selected
+<strong>Stop</strong> <i>Button</i> - Select to stop a simulation.
 

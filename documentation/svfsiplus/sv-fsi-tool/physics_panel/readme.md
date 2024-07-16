@@ -1,6 +1,6 @@
-<!--- --------------------------------------------------- --->
-<!--- ------------------- Physics Panel ----------------- --->
-<!--- --------------------------------------------------- --->
+<!-- --------------------------------------------------- -->
+<!-- ------------------- Physics Panel ----------------- -->
+<!-- --------------------------------------------------- -->
 
 <h2 id="sv_fsi_tool_physics"> Physics Panel </h2> 
 The Physics panel is used to set the equation(s), its physical propertiies, 
@@ -20,15 +20,15 @@ solve it in a simulation.
 <h3> Usage </h3> 
 
 **Add or remove equtions** - This GUI control is used to add equations to the simulation. Selecting the equation 
-name in the left panel and selecting the <strong>&gt;</strong> <i>Button</i> adds moves it to the right
-pannel and adds that equation to the simulation. 
+name in the left panel and selecting the <strong>&gt;</strong> <i>Button</i> moves it to the right
+pannel and adds that equation to the simulation. Use the <strong>&lt;</strong> <i>Button</i> to remove
+that equation from the simulation.
 
 When an equation is added the <i>Buttons</i> at the bottom of this control (Properties, Output, etc.) are 
 used to set the parameters for the selected equation. The GUI controls for setting parameters for each of
 these are displayed directly beneath them.
 
-**Properties** <i>Button</i> - Select to display the GUI controls used to set the physicals properties 
-(e.g. density) needed by the equation.
+**Properties** <i>Button</i> - Select to display the <a href="#properties_gui_controls"> GUI controls</a> used to set the physicals properties (e.g. density) needed by the equation.
 
 **Output** <i>Button</i> - Select to display the <a href="#output_gui_controls"> GUI controls </a> to 
 add/remove names of the quantities for output. 
@@ -44,7 +44,74 @@ names of the quantities for output.
 
 <h4> GUI controls for setting parameters </h4>
 
-<!--- ------------------- Adding output quantities ----------------- --->
+<!-- ------------------- Adding properties quantities ----------------- -->
+
+<br>
+<div style="background-color: #E0E0E0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
+<h5 id="properties_gui_controls"> Properties <i>Button</i> - Setting physical properties</h5>
+The physical properties displayed in the panel depend of the selected equation.
+<br> <br>
+
+<strong> Fluid equation properties </strong>
+<figure>
+  <img src="/documentation/svfsiplus/sv-fsi-tool/images/physics-panel-fluid-props.png" style="width: 30%;">
+</figure>
+<strong>Density</strong> <i>TextBox</i> - Fluid denisty
+<br>
+<strong>Viscosity</strong> <i>TextBox</i> - Fluid viscosity
+
+<br> <br> 
+<strong> Linear elasticity equation properties </strong>
+<figure>
+  <img src="/documentation/svfsiplus/sv-fsi-tool/images/physics-panel-linear-elasticity-props.png" style="width: 30%;">
+</figure>
+<strong>Density</strong> <i>TextBox</i> - Solid denisty
+<br>
+<strong>Elastic modulus</strong> <i>TextBox</i> - Elastic modulus 
+<br>
+<strong>Poisson ratio</strong> <i>TextBox</i> -  Poisson ratio. Value <= 0.5
+
+
+<br> <br> 
+<strong> Structure equation properties </strong>
+<figure>
+  <img src="/documentation/svfsiplus/sv-fsi-tool/images/physics-panel-structure-props.png" style="width: 30%;">
+</figure>
+<strong>Density</strong> <i>TextBox</i> - Solid denisty
+<br>
+<strong>Elastic modulus</strong> <i>TextBox</i> - Elastic modulus 
+<br>
+<strong>Poisson ratio</strong> <i>TextBox</i> -  Poisson ratio. Value <= 0.5
+<br>
+<strong>Constitutive model</strong> <i>ComboBox</i> - Constitutive model selected from
+<ul style="list-style-type:disc;">
+<li>stVK - St. Venant-Kirchhoff material model</li>
+<li>nHK - NeoHookean material model </li>
+</ul>
+
+
+
+<br><br>
+<strong> FSI equation properties </strong>
+<figure>
+  <img src="/documentation/svfsiplus/sv-fsi-tool/images/physics-panel-fsi-props.png" style="width: 30%;">
+</figure>
+<strong>Density</strong> <i>TextBox</i> - Fluid denisty
+<br>
+<strong>Viscosity</strong> <i>TextBox</i> - Fluid viscosity
+<br>
+<strong>Solid Density</strong> <i>TextBox</i> - Solid denisty
+<br>
+<strong>Poisson ratio</strong> <i>TextBox</i> -  Poisson ratio. Value <= 0.5
+<br>
+<strong>Constitutive model</strong> <i>ComboBox</i> - Constitutive model selected from
+<ul style="list-style-type:disc;">
+<li>stVK - St. Venant-Kirchhoff material model</li>
+<li>nHK - NeoHookean material model </li>
+</ul>
+</div>
+
+<!-- ------------------- Adding output quantities ----------------- -->
 
 <br>
 <div style="background-color: #E0E0E0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
@@ -53,11 +120,13 @@ The quantities output by default are displayed in the right sub-panel.
 
 Selecting the output quantity name in the left panel and selecting the <strong>&gt;</strong> <i>Button</i> moves 
 it to the right pannel and adds that quantity for output.
+<figure>
   <img src="/documentation/svfsiplus/sv-fsi-tool/images/physics-panel-output.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   <p style="clear: both;">
+</figure>
 </div>
 
-<!--- ------------------- Adding Boundary Conditions ----------------- --->
+<!-- ------------------- Adding Boundary Conditions ----------------- -->
 
 <br>
 <div style="background-color: #E0E0E0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
@@ -135,7 +204,7 @@ Selecting a face name adds a boundary condition for that face.
 
 </div>
 
-<!--- ------------------- Advanced ----------------- --->
+<!-- ------------------- Advanced ----------------- -->
 
 <br>
 <div style="background-color: #E0E0E0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
@@ -158,7 +227,7 @@ Selecting a face name adds a boundary condition for that face.
 
 </div>
 
-<!--- ------------------- Linear Solver ----------------- --->
+<!-- ------------------- Linear Solver ----------------- -->
 
 <br>
 <div style="background-color: #E0E0E0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
