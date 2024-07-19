@@ -1,6 +1,6 @@
-## User Guide 
+<h1> User Guide </h1>
 
-The following sections describe how to setup a solver job. 
-
+The following sections describe in some the details of certain application areas useful to 
+cardiovascular simulations.
 
 

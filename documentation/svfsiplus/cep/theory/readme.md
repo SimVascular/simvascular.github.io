@@ -1,1 +1,0 @@
-## Mathematical Model of Cardiac Electrophysiology

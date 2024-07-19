@@ -1,0 +1,3 @@
+<h2 id="user_guide_computational_hemodynamics"> Computational Hemodynamics </h2>
+
+Modeling of cardiovascular flow is the main function of **SimVascular**. Currently, the default flow solver of **SimVascular** is [**svSolver**](flowsolver.html). All of the features in **svSolver** exists in **svFSI** including RCR boundary condition, Coupled Momentum Method, GenBC etc. Also, we have carefully tested the new solver to make sure it produce the same results as **svSolver**. In this section, we won't dwell on the similarities between these two solvers, and instead will focus two new features in flow simulation using **svFSI**, i.e., non-Newtonian flow model and simulation of prescribed motion.
