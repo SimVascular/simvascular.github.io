@@ -105,6 +105,7 @@ If the Poisson ratio for a given case is close to 0.5, then calculated bulk modu
 </nobr><br>
 Use the VTK VTP-format file to initialize CMM using a prestressed wall under equilibrium with fluid traction.
 <br>
+<section id="bc_Profile">
 <strong>&lt;Profile&gt;</strong> string [flat]  <nobr> 
 <strong>&lt;/Profile&gt;</strong>
 </nobr><br>
@@ -252,6 +253,7 @@ The distal pressure used to initialize an RCR boundary condition.
 </nobr><br>
 If <i>true</i> then the applied load <i>follows</i> the mesh deformation. This implies that the magnitude of the load is proportional to the surface area during the deformation.
 <br>
+<section id="bc_Fourier_coefficients_file_path">
 <strong>&lt;Fourier_coefficients_file_path&gt;</strong> string [none]  <nobr> 
 <strong>&lt;/Fourier_coefficients_file_path&gt;</strong>
 </nobr><br>

@@ -1,6 +1,5 @@
 
 <h2 id="data_file_formats_mesh"> Finite Element Mesh Data </h1>
-
 Finite element mesh data is stored in the <a href="#appendix_vtk_file_format"> Visualization Toolkit (VTK) </a> file format. Finite element mesh files are typically created using the SimVascular <a href="quickguide.html#"> SV Meshing Tool </a>. 
 <br>
 <h3 id="data_file_formats_mesh_volume"> Finite Element Volume Mesh </h3>
@@ -106,9 +105,8 @@ Example: A finite element boundary surface mesh comprising 2647 nodes and 5290 e
 </pre>
 
 The node IDs contained in the <strong>GlobalNodeID</strong> array identify the nodes stored in the
-in the boundary surface VTP with the nodes in the finite element volume mesh.
+boundary surface VTP with the nodes in the finite element volume mesh.
 
 The element IDs contained in the <strong>GlobalElementID</strong> array identify the element in the
-finite element volume mesh that each face belongs to. 
-
+finite element volume mesh that each polygon of the face belongs to. 
 
