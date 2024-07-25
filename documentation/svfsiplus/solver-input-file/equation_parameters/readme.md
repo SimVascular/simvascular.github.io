@@ -2,7 +2,7 @@
 <!-- ==================== Equation Section =================== -->
 <!-- ========================================================= -->
 
-<h4 id="equation_section"> Equation Section </h4>
+<h2 id="equation_section"> Equation Section </h2>
 The <i>Equation Section</i> of the solver parameters input file defines the properties of an equation
 <ul style="list-style-type:disc;">
   <li> physics - fluid, structure, electrophysiology, etc. </li>
@@ -66,7 +66,7 @@ The value of <i>equation_type</i> can be
 <!-- ---------- Equation Parameters ---------- -->
 <!-- ----------------------------------------- -->
 
-<h5 id="equation_parameters"> Equation Parameters </h5>
+<h3 id="equation_parameters"> Equation Parameters </h3>
 <div class="bc_param_div">
 <strong>&lt;Coupled&gt;</strong> <i>boolean [true]</i> <nobr>
 <strong>&lt;/Coupled&gt;</strong>

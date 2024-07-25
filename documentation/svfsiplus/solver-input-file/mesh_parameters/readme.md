@@ -2,7 +2,7 @@
 <!-- ========================= Mesh Section ======================== -->
 <!-- =============================================================== -->
 
-<h4 id="mesh_parameters"> Mesh Section </h4>
+<h2 id="mesh_parameters"> Mesh Section </h2>
 A <i>Mesh Section</i> of the solver parameters input file is primarily used to identify the finite element 
 mesh files used in a simulation. The <strong>Add_mesh</strong> keyword defines the volumetric and surfaces meshes 
 used in the simulation. 
@@ -46,7 +46,7 @@ with the volumetric mesh. A surface mesh, refered to as a <i>face</i>, is used t
 <!-- ---------- General Parameters ---------- -->
 <!-- ---------------------------------------- -->
 
-<h5 id="add_mesh_parameters"> Mesh Parameters</h5>
+<h3 id="add_mesh_parameters"> Mesh Parameters</h3>
 <div class="bc_param_div">
 <strong>&lt;Mesh_file_path&gt;</strong> <i>string</i> <nobr>
 <strong>&lt;/Mesh_file_path&gt;</strong>
@@ -114,7 +114,7 @@ The name of the file used to
 <!-- ---------- Face Parameters ---------- -->
 <!-- ------------------------------------- -->
 
-<h5 id="add_face_parameters"> Add_Face Parameters</h5>
+<h3 id="add_face_parameters"> Add_Face Parameters</h3>
 <div class="bc_param_div">
 <strong>&lt;Add_face&gt;</strong><br> 
 <strong>&lt;Face_file_path&gt;</strong> <i>string</i> <nobr>

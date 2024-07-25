@@ -1,7 +1,7 @@
 <br>
 <hr class="rounded">
 
-<h2> Running svFSIplus </h2>
+<h1> Running svFSIplus </h1>
 
 This section describes how to set up and run an svFSIplus simulaion. Setting up a simulation requires 
 first creating the base files necessary for the definition of the problem mesh, boundary conditions, 

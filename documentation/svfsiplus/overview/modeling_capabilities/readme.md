@@ -1,5 +1,5 @@
 
-### Modeling capabilities 
+<h2> Modeling capabilities </h2>
 
 svFSIplus can numerically solve PDEs governing solid and fluid mechanics, diffusion, and electrophysiology. 
 Some equations can be coupled and solved simultaneously to simulate the interaction between multiple regions representing 

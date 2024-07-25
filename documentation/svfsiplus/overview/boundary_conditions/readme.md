@@ -1,5 +1,5 @@
 
-### Boundary conditions 
+<h2> Boundary conditions </h2>
 
 Boundary conditions are an integral part of a problem definition and act as constraints necessary for the solution of a PDE.
 

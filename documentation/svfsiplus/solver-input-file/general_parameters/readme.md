@@ -2,7 +2,7 @@
 <!-- ========== General Simulation Parameters ========== -->
 <!-- =================================================== -->
 
-<h4 id="general_parameters"> General Simulation Parameters </h4>
+<h2 id="general_parameters"> General Simulation Parameters </h2>
 The General Simulation Parameters section contains the basic parameters used to setup the simulation
 <ul style="list-style-type:disc;">
   <li> spatial dimension </li> 
@@ -14,7 +14,7 @@ The General Simulation Parameters section contains the basic parameters used to 
 <!-- ---------- Parameters ---------- -->
 <!-- -------------------------------- -->
 
-<h5>Parameters</h5>
+<h3>Parameters</h3>
 <div class="bc_param_div">
 <section id="gen_Continue_previous_simulation">
 <strong>&lt;Continue_previous_simulation&gt;</strong> <i>boolean</i> [false]  <nobr>
@@ -104,4 +104,5 @@ Initialize all state variables from a VTK VTU file.
 <br>
 </div>
 
-<h5>Examples</h5>
+<h3>Examples</h3>
+

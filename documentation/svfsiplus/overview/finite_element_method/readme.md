@@ -1,5 +1,5 @@
 
-### Finite element method
+<h2> Finite element method </h2>
 
 The finite element method (FEM) is used to numerically solve transient PDEs governing the behavior of a physical system in two
 or three space dimensions. FEM approximates the geometry of a physical domain by subdividing it into a collection of discrete
