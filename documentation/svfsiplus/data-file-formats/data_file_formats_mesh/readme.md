@@ -18,6 +18,8 @@ data type. The file contains the following mesh data
   </ul>
 </ul>
 
+A finite element volume mesh file is set using the solver input file <a href="#add_mesh_parameters"> Mesh_file_path </a> keyword.
+
 Example: A finite element volume mesh comprising 8561 nodes and 45723 elements
 <pre>
 &lt;?xml version="1.0"?>
@@ -64,6 +66,7 @@ data type. The file contains the following mesh data
   </ul>
 </ul>
 
+A finite element boundary surface mesh file is set using the solver input file <a href="#add_face_parameters"> Face_file_path </a> keyword. 
 
 Example: A finite element boundary surface mesh comprising 2647 nodes and 5290 elements
 <pre>
@@ -109,4 +112,6 @@ boundary surface VTP with the nodes in the finite element volume mesh.
 
 The element IDs contained in the <strong>GlobalElementID</strong> array identify the element in the
 finite element volume mesh that each polygon of the face belongs to. 
+
+
 

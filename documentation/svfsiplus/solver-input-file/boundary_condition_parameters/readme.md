@@ -116,6 +116,7 @@ Set the spatial distribution of a state varible on the face. Acceptable values: 
 </nobr><br>
 If <i>true</i> then the first two entries in the file setting an unsteady boundary is used to linearly increment from the first value to the second value, and maintains a steady value thereafter.
 <br>
+<section id="bc_Spatial_profile_file_path">
 <strong>&lt;Spatial_profile_file_path&gt;</strong> string [none]  <nobr> 
 <strong>&lt;/Spatial_profile_file_path&gt;</strong>
 </nobr><br>

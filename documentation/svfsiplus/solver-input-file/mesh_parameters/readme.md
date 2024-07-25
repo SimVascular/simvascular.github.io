@@ -46,7 +46,7 @@ with the volumetric mesh. A surface mesh, refered to as a <i>face</i>, is used t
 <!-- ---------- General Parameters ---------- -->
 <!-- ---------------------------------------- -->
 
-<h5>Mesh Parameters</h5>
+<h5 id="add_mesh_parameters"> Mesh Parameters</h5>
 <div class="bc_param_div">
 <strong>&lt;Mesh_file_path&gt;</strong> <i>string</i> <nobr>
 <strong>&lt;/Mesh_file_path&gt;</strong>
@@ -58,6 +58,7 @@ The path to a VTK VTU file defining a finite element volume mesh in the simulati
 </nobr><br>
 The integer ID used to identify a domain in the simulation.
 <br>
+<section id="mesh_params_Domain_file_path">
 <strong>&lt;Domain_file_path&gt;</strong> <i>string</i> <nobr>
 <strong>&lt;/Domain_file_path&gt;</strong>
 </nobr><br>
@@ -91,6 +92,7 @@ The name of the file used to
 </nobr><br>
 The name of the file used to 
 <br>
+<section id="mesh_params_Fiber_direction_file_path">
 <strong>&lt;Fiber_direction_file_path&gt;</strong> <i>string [none] </i> <nobr>
 <strong>&lt;/Fiber_direction_file_path&gt;</strong>
 </nobr><br>

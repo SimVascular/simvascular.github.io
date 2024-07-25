@@ -349,7 +349,7 @@ svFSIplus can write simulation results in the following file formats
 <ul style="list-style-type:disc;">
 <li> Binary results restart file - Custom format used to store state variables and mesh data. 
 Can be used to continue a simulation from a previous state.  Uses <strong>.bin</strong></i> file extension.  </li>
-<li> <a href="#appendix_vtk_file_format"> VTK VTU</a> format file - Custom format used to store state variables and mesh data.  Used for results visualization.  Uses <strong>.vtu</strong> </i> file extension. </li>
+<li> <a href="#appendix_vtk_file_format"> VTK </a> format files - VTK format files used to store state variables and any output quantities given in the solver input file <a href="#output_parameters"> Output Subsection</a>. Used for results visualization.  Uses <strong>.vtu</strong> and <strong>.vtp</strong> </i> file extensiosn. </li>
 </ul>
 
 There are several keywords in the <a href="#general_parameters"> General Simulation Parameters </a> 
