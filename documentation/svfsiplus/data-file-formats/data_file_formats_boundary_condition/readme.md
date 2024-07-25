@@ -11,7 +11,7 @@ over a boundary surface. Data can be of five types
   <li> <a href="#bdata_file_formats_boundary_condition_profile"> User-defined flow profile <a> </li>
 </ul>
 
-Data is stored using two types of files
+Data is stored using two file formats
 <ul style="list-style-type:disc;">
   <li> ASCII text file usually with a <strong>.dat</strong> file extension. </i>
   <li> <a href="#appendix_vtk_file_format"> VTK format </a> file </i> 
