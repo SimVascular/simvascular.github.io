@@ -1,7 +1,7 @@
 
 <h2 id="data_file_formats_boundary_condition"> Boundary Condition Data</h2>
 The data used for a boundary condition defines the spatial and/or the temporal distribution of values
-over a boundary surface. Data can be of four types
+over a boundary surface. Data can be of five types
 
 <ul style="list-style-type:disc;">
   <li> <a href="#data_file_formats_boundary_condition_fourier"> Fourier coefficients <a> </li>
@@ -11,7 +11,11 @@ over a boundary surface. Data can be of four types
   <li> <a href="#bdata_file_formats_boundary_condition_profile"> User-defined flow profile <a> </li>
 </ul>
 
-Data is stored in an ASCII text file usually with a <strong>.dat</strong> file extension.
+Data is stored using two types of files
+<ul style="list-style-type:disc;">
+  <li> ASCII text file usually with a <strong>.dat</strong> file extension. </i>
+  <li> <a href="#appendix_vtk_file_format"> VTK format </a> file </i> 
+</ul> 
 
 <!-- --------------------------------------------------- -->
 <!-- ---------- Fourier coefficients Data -------------- -->
