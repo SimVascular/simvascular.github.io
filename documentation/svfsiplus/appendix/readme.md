@@ -7,7 +7,7 @@
 <!-- ========================== VTK File Format ======================== -->
 <!-- =================================================================== -->
 
-<h3 id="appendix_vtk_file_format"> VTK File Format </h3> 
+<h2 id="appendix_vtk_file_format"> VTK File Format </h2> 
 The <a href="https://docs.vtk.org/en/latest/"> Visualization Toolkit (VTK)</a> compressed XML file format
 (see <a href="https://docs.vtk.org/en/latest/design_documents/VTKFileFormats.html"> VTK file formats</a>)
 is used by svFSIplus to store
