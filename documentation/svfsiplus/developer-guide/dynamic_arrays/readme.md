@@ -1,13 +1,13 @@
-<h3 id="developer_implementation_dynamic_arrays"> Dynamic Arrays </h3>
+<h3 id="developer_dynamic_arrays"> Dynamic Arrays </h3>
 An array is a series of elements of the same type placed in contiguous memory locations. A dynamic array is an array whose size is modifiable at runtime.
 
 Dynamic arrays have been implemented using custom C++ class templates 
 <br>
 <ul style="list-style-type:disc;">
-<li> <a href="#developer_implementation_dynamic_arrays_vector"> Vector </a>  </li>
-<li> <a href="#developer_implementation_dynamic_arrays_array"> Array </a>  </li>
-<li> <a href="#developer_implementation_dynamic_arrays_array3"> Array3 </a>  </li>
-<li> <a href="#developer_implementation_dynamic_arrays_tensor4"> Tensor4 </a>  </li>
+<li> <a href="#developer_dynamic_arrays_vector"> Vector </a>  </li>
+<li> <a href="#developer_dynamic_arrays_array"> Array </a>  </li>
+<li> <a href="#developer_dynamic_arrays_array3"> Array3 </a>  </li>
+<li> <a href="#developer_dynamic_arrays_tensor4"> Tensor4 </a>  </li>
 </ul>
 to store arrays of <code>int</code> and <code>double</code> values.
 
@@ -62,14 +62,14 @@ auto R = com_mod.R;
 <!-- --------------------------------------------------------- -->
 <!-- --------------- Vector Template ------------------------- -->
 <!-- --------------------------------------------------------- -->
-<h4 id="developer_implementation_dynamic_arrays_vector"> Vector Template </h4>
+<h4 id="developer_dynamic_arrays_vector"> Vector Template </h4>
 The <a href="https://github.com/SimVascular/svFSIplus/blob/b92add4a33eea4b6632fb323f484f08d3e62a716/Code/Source/svFSI/Vector.h#L48"> Vector.h</a> template is used to store a 1D array of values accessed using a single index. 
 
 <!-- --------------------------------------------------------- -->
 <!-- --------------- Array Template  ------------------------- -->
 <!-- --------------------------------------------------------- -->
 <br>
-<h4 id="developer_implementation_dynamic_arrays_array"> Array Template </h4>
+<h4 id="developer_dynamic_arrays_array"> Array Template </h4>
 The <a href="https://github.com/SimVascular/svFSIplus/blob/b92add4a33eea4b6632fb323f484f08d3e62a716/Code/Source/svFSI/Array.h#L53"> Array.h </a> template is used to store a 2D array of values. Values are accessed using two indexes. 
 
 Example of Array operators
@@ -111,7 +111,7 @@ column data is going to be modified. It can also speed up code that repeatedly e
 <!-- --------------------------------------------------------- -->
 <!-- --------------- Array3 Template  ------------------------ -->
 <!-- --------------------------------------------------------- -->
-<h4 id="developer_implementation_dynamic_arrays_array3"> Array3 Template </h4>
+<h4 id="developer_dynamic_arrays_array3"> Array3 Template </h4>
 The <a href="https://github.com/SimVascular/svFSIplus/blob/b92add4a33eea4b6632fb323f484f08d3e62a716/Code/Source/svFSI/Array3.h#L45">Array3.h</a> template is used to store a 3D array of values. Values are accessed using three indexes.  
 
 <h5> Extracting a 2D slice of data </h5>
@@ -131,7 +131,7 @@ slice data is going to be modified. It can also speed up code that repeatedly ex
 <!-- --------------- Tensor4 Template  ----------------------- -->
 <!-- --------------------------------------------------------- -->
 <br>
-<h4 id="developer_implementation_dynamic_arrays_tensor4"> Tensor4 Template </h4>
+<h4 id="developer_dynamic_arrays_tensor4"> Tensor4 Template </h4>
 The <a href="https://github.com/SimVascular/svFSIplus/blob/b92add4a33eea4b6632fb323f484f08d3e62a716/Code/Source/svFSI/Tensor4.h#L44"> Tensor4.h </a> template is used to store a 4D array of values. Values are accessed using fours indexes.  
 <strong>Tensor4</strong> objects are primarilty used in material model code.
 

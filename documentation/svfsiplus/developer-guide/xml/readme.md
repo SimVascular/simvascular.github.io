@@ -1,4 +1,4 @@
-<h3 id="developer_implementation_xml"> Processing XML</h3>
+<h3 id="developer_xml"> Processing XML</h3>
 The svFSIplus reads simulation parameters from the <a href="#solver_input_file"> solver input file </a> 
 stored in the Extensible Markup Language (XML) file format.
 
@@ -11,7 +11,7 @@ The XML file is parsed using the <a href="https://github.com/leethomason/tinyxml
 <!-- -------------------- Parameters class -------------------- -->
 <!-- ---------------------------------------------------------- -->
 
-<h4 id="developer_implementation_xml_parameters_class"> Parameters class </h4>
+<h4 id="developer_xml_parameters_class"> Parameters class </h4>
 The Parameters class is used to read and store simulation parameters parsed from an XML file using using 
 the <a href="https://github.com/leethomason/tinyxml2"> TinyXML-2</a> C++ XML parser. Parameter types are checked 
 as they are read so errors in parameter values are immediately detected.
@@ -95,7 +95,7 @@ xml_util_set_parameters(ftpr, xml_elem, error_msg);
 <!-- -------------------- Accessing Parameters ---------------- -->
 <!-- ---------------------------------------------------------- -->
 
-<h4 id="developer_implementation_xml_accessing_parameters"> Accessing Parameters</h4>
+<h4 id="developer_xml_accessing_parameters"> Accessing Parameters</h4>
 Parameter values are accessed from the core simulation code using the <strong>Simulation</strong> object's 
 <strong>Parameters</strong>  object. The <strong>template</strong> class () operator or value() method is used to 
 access the parameter's value, the defined() method is used to check if a parameter's value has been set.
