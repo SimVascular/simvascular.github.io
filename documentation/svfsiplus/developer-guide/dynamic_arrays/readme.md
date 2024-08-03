@@ -30,7 +30,7 @@ Templates have some common attibutes and methods
 </ul>
 
 
-The Fortran code made use of 0-size arrays in several places, using ALLOCATE with a zero size. For some reason Fortran is OK with using these 0-size arrays.
+The Fortran code made use of <strong>0-size arrays</strong> in several places, using ALLOCATE with a zero size. For some reason Fortran is OK with using these 0-size arrays.
 The C++ code reproduces this by allowing <strong>Array</strong> objects to be allocated with 0 size rows and columns. This is a total hack but it allowed to get the C++ code working without having to rewrite a lot of code.
 
 Indexes can be checked by defining the <strong>_check_enabled</strong> directive within each template include file. An index out of bounds will throw an std::runtime_error exception. Note that index checking will substantially slow down a simulation so it should be disabled when not testing.
