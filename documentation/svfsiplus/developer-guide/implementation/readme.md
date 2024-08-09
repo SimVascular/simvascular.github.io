@@ -1,22 +1,233 @@
 <h3 id="developer_implementation"> Implementation Details</h3>
 This section describes some of the svFSIplus implementation details that a developer should find useful.
 
+<ul style="list-style-type:disc;">
+  <li> <a href="#developer_implementation_enumeration"> Enumerations </a> </li>
+  <li> <a href="#developer_implementation_flow_control"> Flow of Control </a> </li>
+  <li> <a href="#developer_implementation_material_models"> Material Models </a> </li>
+  <li> <a href="#developer_implementation_parallel_processing"> Parallel Processing </a> </li>
+</ul>
+
+<!-- ========================================================= -->
+<!--                     Enumerations                          -->
+<!-- ========================================================= -->
+
+<h4 id="developer_implementation_enumeration"> Enumerations </h4>
+Enumerations are used to define user-defined data types that consist of integral constants used to represent a fixed range of possible values. 
+
+The C++ <strong>enum class</strong> is used to define enumerations using a class name as a scope. Most enumerations are defined in the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/const.h"> consts.h </a> file. 
+
+<strong>Example</strong> Finite element type
+<pre>
+enum class ElementType
+{
+  NA = 100,
+  PNT = 101,
+  LIN1 = 102,
+  LIN2 = 103,
+  TRI3 = 104,
+  TRI6 = 105,
+  QUD4 = 106,
+  QUD8 = 107,
+  QUD9 = 108,
+  TET4 = 109,
+  TET10 = 110,
+  HEX8 = 111,
+  HEX20 = 112,
+  HEX27 = 113,
+  WDG = 114,
+  NRB = 115
+};
+
+</pre>
+
+The <strong>HEX8</strong> value is accesed using <strong>ElementType::HEX8</strong>.
+
+The C++ <strong>constexpr</strong> statement can be used to create a short hand name for a <strong>enum class</strong> value 
+<pre>
+constexpr auto ElementHex8 = ElementType::HEX8;
+</pre>
+
+
+If a <strong>enum class</strong> value needs to be used as an <strong>int</strong> it can be converted using the <strong>enum_int</strong> function 
+<pre>
+int element_type = enum_int(ElementType::HEX8);
+</pre>
+
+
+
+<!-- ========================================================= -->
+<!--               Finite Element Method                       -->
+<!-- ========================================================= -->
+
+<h4 id="developer_implementation_finite_element_method"> Finite Element Method </h4>
+This section outlines some of the details of the finite element method implementation. 
+
+<!-- --------------------------------------------------------- -->
+<!-- Element properites and shape functions                    -->
+<!-- --------------------------------------------------------- -->
+<h5 id="developer_implementation_finite_element_method_props"> Element properites and shape functions </h5>
+The original Fortran code set element properties and shape function data using very large <i>select</i> statements in the NN.f file. The C++ code reproduces this functionality using (very large) <i>std::map</i> data structures implemented in the files with a <i>nn</i> prefix
+
+<br> 
+<ul>
+  <li> <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/lhsa.cpp"> lhsa.cpp </a> - Assembles the global element stiffness matrix and residue</li>
+  <li> <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/nn.cpp"> nn.cpp </a> - Set element properties and allocate element arrays</li> 
+  <li> <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/nn_elem_gip.h"> nn_elem_gip.h </a> - Sets element Gauss integration data</li>
+  <li> <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/nn_elem_gnn.h"> nn_elem_gnn.h </a> - Sets element shape function data</li> 
+  <li> <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/nn_elem_gnnxx.h"> nn_elem_gnnxx.h </a> - Sets 2nd derivatives element shape function data</li>
+  <li> <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/nn_elem_nn_bnds.h"> nn_elem_bnds.h </a> - Sets the bounds of element shape functions</li>
+  <li> <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/nn_elem_props.h"> nn_elem_props.h </a> Sets element properties</li>
+</ul>
+
+(It is unclear what the meaning of the <i>nn</i> prefix is.)
+
+The <i>std::map</i> data structures are used to map element types (e.g. ElementType::HEX8) to a lambda function that implements a specific operation (e.g. setting element properties). The functions defined in <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/nn.cpp"> nn.cpp </a> provide an interface accessing the operations defined in the <i>std::map</i> data structures.
+
+<strong>Example</strong> Define the <strong>set_3d_element_props</strong> <i>std::map</i>
+<pre>
+using SetElementPropsMapType = std::map&lt;int, std::function&lt;void(int, mshType&)>>;
+
+SetElementPropsMapType set_3d_element_props = {
+
+  {2, [](int insd, mshType& mesh) -> void {
+    mesh.eType = ElementType::LIN1;
+    mesh.nG = 2;
+    mesh.vtkType = 3;
+    mesh.nEf = 2;
+    mesh.lShpF = true;
+    }
+  },
+
+  {4, [](int insd, mshType& mesh) -> void {
+    mesh.eType = ElementType::TET4;
+    mesh.nG = 4;
+    mesh.vtkType = 10;
+    mesh.nEf = 4;
+    mesh.lShpF = true;
+    }
+  }
+...
+};
+</pre>
+
+The <strong>set_3d_element_props</strong> <i>std::map</i> maps integers (number of element nodes) to a lambda function of type <strong>void (int insd, mshType& mesh)</strong> which sets the element properties for the input <strong>mesh</strong>.
+
+<strong>Example</strong> Set element properties based on integration dimension and number of element nodes
+<pre>
+void select_ele(const ComMod& com_mod, mshType& mesh)
+{
+  int insd = com_mod.nsd;
+
+  try {
+    set_3d_element_props[mesh.eNoN](insd, mesh);
+  } catch (const std::bad_function_call& exception) {
+      throw std::runtime_error("[select_ele] No support for " + std::to_string(mesh.eNoN) + " noded " +
+          std::to_string(insd) + "D elements.");
+  }
+</pre>
+
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 6px solid #d0d0d0">
+This implementation will be replaced by C++ classes defined for each element type.
+</div>
+
+<!-- --------------------------------------------------------- -->
+<!-- Element matrix assembly                                   -->
+<!-- --------------------------------------------------------- -->
+<h5 id="developer_implementation_finite_element_assembly"> Element matrix assembly </h5>
+Element matrices are assembled to into a global system of equations. Matrix assembly is implemented in files named by the equation it is used for (see <a href="#developer_code_organization_svfsi_equations"> Organization Equations </a>). 
+
+Each of these files has a <strong>construct_<i>equation_name</i></strong> function used to assemble the element equations into a stiffness matrix <strong>lK</strong> and residual matrix <strong>lR</strong>. These matrices are then assembled into global matrices using a call to <strong>eq.linear_algebra->assemble()</strong>. See <a href="#developer_implementation_flow_control_assemble_equations"> Flow of Control / Assemble equations</a>.
+
+<!-- ========================================================= -->
+<!--                Material Models                            -->
+<!-- ========================================================= -->
+
+<h4 id="developer_implementation_material_models"> Material Models </h4>
+Material modesl are implemented using function templates in the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/mat_models_carray.h"> mat_models_carray.h</a> file. The function templates are parameterized by space dimension 2 or 3.
+
+<strong>Example</strong> Calling the <strong>get_pk2cc</strong> function template for dimension 3
+<pre>
+mat_models_carray::get_pk2cc&lt;3>(com_mod, cep_mod, dmn, F, nFn, fN, ya_g, S, Dm);
+</pre>
+
+The functions implementing material models use a C++ <strong>switch</strong> statement to select model types which are all implemented in that function.
+
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 6px solid #d0d0d0">
+This implementation will be replaced by C++ classes defined for each material model.
+</div>
+
+<!-- ========================================================= -->
+<!--                Parallel Processing                        -->
+<!-- ========================================================= -->
+
+<h4 id="developer_implementation_parallel_processing"> Parallel Processing </h4>
+The svFSIplus program uses Message Passing Interface (MPI) library routines to run in parallel on an HPC cluster. Coarse-grained parallelism is employed to divide the program into large tasks (svFISplus program) and assign them to different processors for computation. No fine-grained data parallelism is used (i.e. loop-level parallelism using OpenMP or GPUs).
+
+See <a href="#developer_code_organization_svfsi_parallel"> Organization / svFSI Parallel Processing </a> and 
+<a href="#developer_code_organization_svfsils_parallel"> Organization / FSILS Parallel Processing </a> for a list of the files associated with parallel processing.
+
+MPI is initialized in the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp#L781"> main </a> 
+svFSIplus function. Each process reads in the solver input XML file. The master process then partitions the simulation mesh and boundary conditions and sends the partiioned data to each process.
+
+The <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/CmMod.h#L82"> cmType class </a> <strong>bcast</strong> functions wrap <strong>MPI_Bcast</strong> for C++ data types (e.g., bool, double, etc.) and svFSIplu <strong>Vector</strong> objects. C++ <strong>enum</strong> values are sent as <strong>int</strong>s using the <strong>bcast_enum</strong> template function.
+
+<strong>Example</strong> Broadcasting the value of dmn.phys (class enum <strong>EquationType</strong>)
+<pre>
+cm.bcast_enum(cm_mod, &dmn.phys);
+</pre>
+
+MPI functions use raw pointers (e.g. double*) as function arguments. The <strong>Vector, Array and Array3</strong> classes all have a <strong>data()</strong> method that returns a raw pointer to their internal data. 
+
+<strong>Example</strong> Passing M.gIEN, sCount, and disp Array and Vector data to the MPI_Scatterv function
+<pre>
+MPI_Scatterv(lM.gIEN.data(), sCount.data(), disp.data(), cm_mod::mpint, lM.IEN.data(), nEl*eNoN, cm_mod::mpint, cm_mod.master, cm.com());
+
+</pre>
+
+<!-- ========================================================= -->
+<!--                 Flow of Control                           -->
+<!-- ========================================================= -->
+
+<h4 id="developer_implementation_flow_control"> Flow of Control </h4>
+This section outlines the solver flow of control for a simulation.
+
 The code is documented using a text and links to code in GitHub using the followig conventions
 
 <ul style="list-style-type:disc;">
-  <li> A call to a function has the function name shown in square brackets [FUNC] </li>
+  <li> A call to a function has the function name shown in square brackets [<i>function_name</i>] </li>
   <li> A line in the code shown as a dot in square brackets [.] </li> 
   <li> A loop is defined using a <strong>foreach</strong> line followed by a colored box enclosing the code within the loop</li> 
 </ul> 
 
 The text description may be a link to subsections within this document describing code within a specific function.
 
+<strong>Sections</strong>
+<ul>
+  <li> <a href="#developer_implementation_flow_control_main"> Main </a> 
+  <li> <a href="#developer_implementation_flow_control_remesh_loop"> Iterate for restarting a simulation after remeshing </a> 
+  <li> <a href="#developer_implementation_flow_control_read_xml_bcs"> Read in a solver XML file, mesh and BC data </a> 
+  <li> <a href="#developer_implementation_flow_control_read_xml_params">  Read the solver XML </a> 
+  <li> <a href="#developer_implementation_flow_control_read_mesh_data">  Read mesh data </a> 
+  <li> <a href="#developer_implementation_flow_control_read_equations">  Read equations and boundary condition data </a> 
+  <li> <a href="#developer_implementation_flow_control_distribute">  Distribute data to processors </a> 
+  <li> <a href="#developer_implementation_flow_control_distribute_equation">  Distribute equation data </a> 
+  <li> <a href="#developer_implementation_flow_control_initialize">  Initialize simulation data </a> 
+  <li> <a href="#developer_implementation_flow_control_run_simulation">  Run the simulation </a> 
+  <li> <a href="#developer_implementation_flow_control_read_bc_data">  Read boundary condition data </a> 
+  <li> <a href="#developer_implementation_flow_control_iterate_solution">  Iterate solution </a> 
+  <li> <a href="#developer_implementation_flow_control_predictor_step">  Predictor step </a> 
+  <li> <a href="#developer_implementation_flow_control_initiator_step">  Initiator step for Generalized α−Method </a> 
+  <li> <a href="#developer_implementation_flow_control_assemble_equations">  Assemble equations </a> 
+</ul>
+
+
 <!-- --------------------------------------------------------- -->
-<!--                 Flow of Control                           -->
+<!-- Main                                                      -->
 <!-- --------------------------------------------------------- -->
 
-<h4 id="developer_implementation_flow_control"> Flow of Control </h4>
-This section outlines the solver flow of control for a simulation.
+<h5 id="developer_implementation_flow_control_main"> Main </h5>
+The <strong>main</strong> function is the entry point for the svFSIplus program.
 
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp#L770"> main() in main.cpp</a>
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 6px solid #d0d0d0">
@@ -332,7 +543,7 @@ Inner loop for nonlinear Newton iteration [<a href="https://github.com/SimVascul
 <strong>while true: </strong>
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #00e000; border-left: 6px solid #00e000">
 
-Initiator step for Generalized α−Method [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp#L391"> pic::pici </a>]
+<a href="#developer_implementation_flow_control_initiator_step"> Initiator step for Generalized α−Method </a> [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp#L391"> pic::pici </a>]
 
 Allocate com_mod.R and com_mod.Val arrays [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp#L415"> ls_ns::ls_alloc </a>]
 
@@ -340,7 +551,8 @@ Compute body forces [ <a href="https://github.com/SimVascular/svFSIplus/blob/mai
 
 <strong>foreach mesh</strong>: 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #00e0e6; border-left: 6px solid #00e0e6">
-Assemble equations [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp#L437">  eq_assem::global_eq_assem </a>]
+
+<a href="#developer_implementation_flow_control_assemble_equations"> Assemble equations </a> [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp#L437">  eq_assem::global_eq_assem </a>]
 </div>
 
 Apply Neumman or Traction boundary conditions [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp#L454"> set_bc::set_bc_neu </a>]
@@ -391,13 +603,79 @@ This code section implements the predictor step in a two-stage predictor–multi
 
 <br>
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 6px solid #d0d0d0">
-Prestress initialization 
+Prestress initialization [ 
+<a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/pic.cpp#L604"> . </a> ]
 
 <strong>foreach equation:</strong>
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #0000e6; border-left: 6px solid #0000e6">
-Update An, Dn
-Electrophysiology [  cep_ion::cep_integ() ]
+
+Update com_mod.An [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/pic.cpp#L662"> . </a> ]
+
+Electrophysiology [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/pic.cpp#L668"> cep_ion::cep_integ </a> ]
+
+Update com_mod.Yn [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/pic.cpp#L671"> . </a> ]
+
+Update com_mod.Dn [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/pic.cpp#L678"> . </a> ]
+
+</div>
+</div>
+
+<!-- --------------------------------------------------------- -->
+<!-- Initiator step for Generalized α−Method                   -->
+<!-- --------------------------------------------------------- -->
+<h5 id="developer_implementation_flow_control_initiator_step"> Initiator step for Generalized α−Method </h5>
+This code section implements the initiator step for the Generalized α−Method time stepping. 
+
+<a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/pic.cpp#L479"> pici() in pic.cpp </a>
+
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 6px solid #d0d0d0">
+eq.itr = eq.itr + 1 [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/pic.cpp#L495"> . </a> ]
+
+<strong>foreach equation:</strong>
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #0000e6; border-left: 6px solid #0000e6">
+Update Ag, Dg, Yg [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/pic.cpp#L529"> . </a> ]
 </div>
 
 </div>
+
+<!-- --------------------------------------------------------- -->
+<!-- Assemble equations                                        -->
+<!-- --------------------------------------------------------- -->
+<h5 id="developer_implementation_flow_control_assemble_equations"> Assemble equations </h5>
+This code section implements assembly of the finite element matrices for a given finite element mesh for the current equation specified by <strong>com_mod.cEq</strong>.
+
+<a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L309"> global_eq_assem() in eq_assem.cpp </a>
+
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 6px solid #d0d0d0">
+<strong>switch on eq.phys:</strong> 
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #0000e6; border-left: 6px solid #0000e6">
+
+EquationType::phys_fluid [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L333"> fluid::construct_fluid  </a> ]
+
+EquationType::phys_heatF [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L337"> heatf::construct_heatf </a> ]
+
+EquationType::phys_heatS [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L341"> heats::construct_heats </a> ]
+
+EquationType::phys_lElas [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L345"> l_elas::construct_l_elas </a> ]
+
+EquationType::phys_struct [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L349"> struct_ns::construct_dsolid </a> ]
+
+EquationType::phys_ustruct [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L353"> ustruct::construct_usolid </a> ]
+
+EquationType::cmm::construct_cmm [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L357"> cmm::construct_cmm </a> ]
+
+EquationType::phys_shell [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L361"> </a> ]
+
+EquationType::phys_FSI [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L365"> fsi::construct_fsi </a> ]
+
+EquationType::phys_mesh [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L369"> mesh::construct_mesh </a> ]
+
+EquationType::phys_CEP [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L373"> cep::construct_cep </a> ]
+
+EquationType::phys_stokes [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L377"> stokes::construct_stokes </a> ]
+
+</div> 
+</div> 
+
+
 
