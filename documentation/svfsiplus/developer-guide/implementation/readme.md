@@ -3,9 +3,12 @@ This section describes some of the svFSIplus implementation details that a devel
 
 <ul style="list-style-type:disc;">
   <li> <a href="#developer_implementation_enumeration"> Enumerations </a> </li>
+  <li> <a href="#developer_implementation_finite_element_method"> Finite Element Method </a> </li>
   <li> <a href="#developer_implementation_flow_control"> Flow of Control </a> </li>
+  <li> <a href="#developer_implementation_linear_algebra"> Linear Algebra Interface </a> </li>
   <li> <a href="#developer_implementation_material_models"> Material Models </a> </li>
   <li> <a href="#developer_implementation_parallel_processing"> Parallel Processing </a> </li>
+  <li> <a href="#developer_implementation_vtk"> VTK Interface </a> </li>
 </ul>
 
 <!-- ========================================================= -->
@@ -48,13 +51,10 @@ The C++ <strong>constexpr</strong> statement can be used to create a short hand 
 constexpr auto ElementHex8 = ElementType::HEX8;
 </pre>
 
-
 If a <strong>enum class</strong> value needs to be used as an <strong>int</strong> it can be converted using the <strong>enum_int</strong> function 
 <pre>
 int element_type = enum_int(ElementType::HEX8);
 </pre>
-
-
 
 <!-- ========================================================= -->
 <!--               Finite Element Method                       -->
@@ -140,6 +140,53 @@ Element matrices are assembled to into a global system of equations. Matrix asse
 Each of these files has a <strong>construct_<i>equation_name</i></strong> function used to assemble the element equations into a stiffness matrix <strong>lK</strong> and residual matrix <strong>lR</strong>. These matrices are then assembled into global matrices using a call to <strong>eq.linear_algebra->assemble()</strong>. See <a href="#developer_implementation_flow_control_assemble_equations"> Flow of Control / Assemble equations</a>.
 
 <!-- ========================================================= -->
+<!--                Linear Algebra Interface                   -->
+<!-- ========================================================= -->
+
+<h4 id="developer_implementation_linear_algebra"> Linear Algebra Interface </h4>
+svFSIplus supports a C++ interface to numerical linear algebra packages. The <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/LinearAlgebra.h"> LinearAlgebra </a> class implements an abstract interface to linear algebra frameworks for 
+
+<br>
+<ul>
+<li> <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSILS"> FSILS </a> - Custom linear algebra functions </li>
+<li> <a href="https://trilinos.github.io/"> Trilinos</a> - A collection of scientific software libraries for for linear solvers, non-linear solvers, etc. </li>
+<li> <a href="https://petsc.org/"> PETSc </a> - Portable, Extensible Toolkit for Scientific Computation is for the parallel solution of scientific applications modeled by partial differential equations  </li>
+</ul>
+
+The <strong>LinearAlgebra</strong> provides an abstract interface to functions used for 
+<ul>
+<li> Finite element assembly - assemble() </li>
+<li> Solve a linear system - solve() </li>
+</ul>
+
+The interface for each linear algebra framework is implemented in
+<ul>
+<li> 
+<a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/FsilsLinearAlgebra.h"> FsilsLinearAlgebra.h </a> 
+<a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/FsilsLinearAlgebra.cpp"> FsilsLinearAlgebra.cpp </a> 
+</li>
+<li> 
+<a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/PetscLinearAlgebra.h"> PetscLinearAlgebra.h </a>  
+<a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/PetscLinearAlgebra.cpp"> PetscLinearAlgebra.cpp</a>  
+<a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/petsc_impl.cpp"> petsc_impl.cpp</a>  
+</li>
+<li> 
+<a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/TrilinosLinearAlgebra.h"> TrilinosLinearAlgebra.h </a>  
+<a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/TrilinosLinearAlgebra.cpp"> TrilinosLinearAlgebra.cpp </a>  
+<a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/trilinos_impl.cpp"> trilinos_impl.cpp </a>  
+</li>
+</ul>
+
+Code referencing package-depedent data structures and functions is isolated in <strong>_impl.cpp</strong> files.
+
+The <b>eqType</b> class contains a <b>LinearAlgebra* linear_algebra</b> object used to interface to a linear algebra framework.
+This object is created in the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp#L68"> add_eq_linear_algebra</a> function.
+
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600">
+The <b>PetscLinearAlgebra</b> interface was taken from an implementation for the Fortran svFSI code. Its implementation uses static global objects so it can only support a single instance of a the <b>PetscLinearAlgebra</b> object.
+</div>
+
+<!-- ========================================================= -->
 <!--                Material Models                            -->
 <!-- ========================================================= -->
 
@@ -182,8 +229,44 @@ MPI functions use raw pointers (e.g. double*) as function arguments. The <strong
 <strong>Example</strong> Passing M.gIEN, sCount, and disp Array and Vector data to the MPI_Scatterv function
 <pre>
 MPI_Scatterv(lM.gIEN.data(), sCount.data(), disp.data(), cm_mod::mpint, lM.IEN.data(), nEl*eNoN, cm_mod::mpint, cm_mod.master, cm.com());
-
 </pre>
+
+<!-- ========================================================= -->
+<!--                    VTK Interface                          -->
+<!-- ========================================================= -->
+
+<h4 id="developer_implementation_vtk"> VTK Interface </h4>
+svFSIplus currently uses VTK-format files to store finite element mesh, boundary condition and initial condition data. The Fortran svFSI program used custom code (!) to read in VTK-format files. This code has been replaced with functions using the VTK library.
+
+An interface isolating calls to the VTK API has been implemented in the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/VtkData.h"> VtkData </a> abstract class. This class provides methods for read, writing and accessing VTK data stored in VTP and VTU files. It is primarily used in the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/vtk_xml.cpp"> vtk_xml_.cpp </a> code. 
+
+The <b>VtkData</b> base class is used to defined the two concrete class
+<ul>
+<li><b>VtkVtpData</b> - Interface for reading, writing and accessing data from VTP files </li>
+<li><b>VtkVtuData</b> - Interface for reading, writing and accessing data from VTU files </li>
+</ul>
+
+Each of these classes have an <b>Impl</b> class containing calls to the VTK API.
+
+The <b>VtkData</b> class contains two factory methods 
+<ul>
+<li><b>create_reader</b> - Create a reader for VTP or VTU files depending on file extension (.vtp or .vtu) </li>
+<li><b>create_writer</b> - Create a writer for VTP or VTU files depending on file extension (.vtp or .vtu) </li>
+</ul>
+
+<b>Example</b> Reading a VTK file using the <b>VtkData</b> class
+<pre>
+auto vtk_data = VtkData::create_reader(fName);
+int num_elems = vtk_data->num_elems();
+int num_points = vtk_data->num_points();
+mesh.IEN = vtk_data->get_connectivity();
+mesh.x = vtk_data->get_points();
+</pre>
+
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600">
+The <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/vtk_xml_parser.cpp"> vtk_xml_parser.cpp </a> file still contains calls to the VTK API. These will be replaced with the <b>VtkData</b> class. 
+</div>
+
 
 <!-- ========================================================= -->
 <!--                 Flow of Control                           -->
