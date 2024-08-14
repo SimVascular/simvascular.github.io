@@ -84,10 +84,10 @@ svFSIplus defines for each parameter
   <li> Name - Case sensitive with the first letter capitalized </li> 
   <li> Data type 
    <ul style="list-style-type:square;">
-     <li> boolean - on, off </li>
-     <li> integer - numeric with no decimal </li>
-     <li> string - a contiguous list of characters </li>
-     <li> real - numeric with decimal or scientific notation </li>
+     <li> <i>boolean</i> - on, off </li>
+     <li> <i>integer</i> - numeric with no decimal </li>
+     <li> <i>string</i> - a contiguous list of characters </li>
+     <li> <i>real</i> - numeric with decimal or scientific notation </li>
    </ul>
   <li> Context - parameters can only be found within the context of another parameter </li> 
 </ul>
@@ -194,6 +194,37 @@ The following outlines the basic structure of the parameter input XML file.
 
 &lt;<strong>/Add_equation</strong>&gt;
 </pre>
-
 </pre>
+
+<h2> Parameter Documentation Conventions </h2>
+Parameters are documented using the parameter <strong>Name</strong> and <i>DataType</i>. If the paramater is optional its default value is shown between square brackets
+
+<strong>Example</strong> The optional <strong>Spectral_radius_of_infinite_time_step</strong> parameter with default value 0.5
+<pre>
+<strong>&lt;Spectral_radius_of_infinite_time_step&gt;</strong> <i>real</i>  [0.5] <nobr>
+<strong>&lt;/Spectral_radius_of_infinite_time_step&gt;</strong>
+</pre>
+
+A string parameter will have a default value of <i>none</i>. If not set the parameter will have a value of an empty string ("" in C++) and will be treated as being unset and will not be used.
+
+<strong>Example</strong> The optional <strong>Save_results_in_folder</strong> <i>string</i> parameter with default value <i>none</i>
+<pre>
+<strong>&lt;Save_results_in_folder&gt;</strong> <i>string [none]</i> <nobr>
+<strong>&lt;/Save_results_in_folder&gt;</strong>
+</pre>
+
+
+A required parameter will have no default value.
+
+<strong>Example</strong>  The required <strong>Number_of_time_steps</strong> parameter with no default value
+<pre>
+<strong>&lt;Number_of_time_steps&gt;</strong> <i>integer</i> <nobr>
+<strong>&lt;/Number_of_time_steps&gt;</strong>
+</pre>
+
+<h2 id="solver_input_file_exmaples"> Solver Parameter Input File Examples</h2>
+The svFSIplus GitHub repository <a href="https://github.com/SimVascular/svFSIplus/tree/main/tests/cases"> Test Cases </a> directory contains solver input XML files used to test svFSIplus. These XML files can be used as templates that can be customized for a particular application.
+
+
+
 

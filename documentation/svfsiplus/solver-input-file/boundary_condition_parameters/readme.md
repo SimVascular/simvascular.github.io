@@ -73,74 +73,74 @@ in a text file.
 <br>
 <h5> General Parameters </h5>
 <div class="bc_param_div">
-<strong>&lt;Bct_file_path&gt;</strong> string [none]  <nobr> 
+<strong>&lt;Bct_file_path&gt;</strong> <i>string</i> [none]  <nobr> 
 <strong>&lt;/Bct_file_path&gt;</strong>
 </nobr><br>
 Load a file used to set the spatial and temporal values for a boundary condition. The file can be a VTK VTP-format file or a text file. 
 <br>
-<strong>&lt;Impose_flux&gt;</strong> boolean [false]  <nobr> 
+<strong>&lt;Impose_flux&gt;</strong> <i>boolean</i> [<i>false</i>]  <nobr> 
 <strong>&lt;/Impose_flux&gt;</strong>
 </nobr><br>
 If <i>true</i> then normalize the spatial profile with the area of the face so that the imposed flux value is converted into the state variable.
 <br>
-<strong>&lt;Impose_on_state_variable_integral&gt;</strong> boolean [false]  <nobr> 
+<strong>&lt;Impose_on_state_variable_integral&gt;</strong> <i>boolean</i> [<i>false</i>]  <nobr> 
 <strong>&lt;/Impose_on_state_variable_integral&gt;</strong>
 </nobr><br>
 If <i>true</i> then used for applying a Dirichlet boundary condition on the displacement degrees of freedom when velocity is the state variable (e.g. fluid, CMM, FSI).
 <br>
 <section id="bc_Initial_displacements_file_path">
-<strong>&lt;Initial_displacements_file_path&gt;</strong> string [none]  <nobr> 
+<strong>&lt;Initial_displacements_file_path&gt;</strong> <i>string</i> [<i>none/]  <nobr> 
 <strong>&lt;/Initial_displacements_file_path&gt;</strong>
 </nobr><br>
 Use the VTK VTU-format file to initialize CMM using an inflation method resulting from a diastolic or time-averaged fluid traction.
 <br>
-<strong>&lt;Penalty_parameter&gt;</strong> real [none]  <nobr> 
+<strong>&lt;Penalty_parameter&gt;</strong> <i>real</i> [0.0]  <nobr> 
 <strong>&lt;/Penalty_parameter&gt;</strong>
 </nobr><br> 
 If the Poisson ratio for a given case is close to 0.5, then calculated bulk modulus used for dilational penalty model can be extremely high leading to poor linear solver convergence. The users may then override the physical bulk modulus with a penalty constant sufficiently large enough for the linear solver to converge.
 <br>
 <section id="bc_Prestress_file_path">
-<strong>&lt;Prestress_file_path&gt;</strong> string [none]  <nobr> 
+<strong>&lt;Prestress_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Prestress_file_path&gt;</strong>
 </nobr><br>
 Use the VTK VTP-format file to initialize CMM using a prestressed wall under equilibrium with fluid traction.
 <br>
 <section id="bc_Profile">
-<strong>&lt;Profile&gt;</strong> string [flat]  <nobr> 
+<strong>&lt;Profile&gt;</strong> <i>string</i> [flat]  <nobr> 
 <strong>&lt;/Profile&gt;</strong>
 </nobr><br>
 Set the spatial distribution of a state varible on the face. Acceptable values: Flat, Parabolic or User_defined
 <br>
-<strong>&lt;Ramp_function&gt;</strong> boolean [false]  <nobr> 
+<strong>&lt;Ramp_function&gt;</strong> <i>boolean</i> [<i>false</i>]  <nobr> 
 <strong>&lt;/Ramp_function&gt;</strong>
 </nobr><br>
 If <i>true</i> then the first two entries in the file setting an unsteady boundary is used to linearly increment from the first value to the second value, and maintains a steady value thereafter.
 <br>
 <section id="bc_Spatial_profile_file_path">
-<strong>&lt;Spatial_profile_file_path&gt;</strong> string [none]  <nobr> 
+<strong>&lt;Spatial_profile_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Spatial_profile_file_path&gt;</strong>
 </nobr><br>
 Use the given text file to set the spatial distribution of a state varible for a User_defined profile.
 <br>
 <section id="bc_Spatial_values_file">
-<strong>&lt;Spatial_values_file_path&gt;</strong> string [none]  <nobr> 
+<strong>&lt;Spatial_values_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Spatial_values_file_path&gt;</strong>
 </nobr><br>
 The path to the VTK VTP-format file used to set the spatially varying body force to a face.
 <br>
 <section id="bc_Temporal_and_spatial_values_file_path">
-<strong>&lt;Temporal_and_spatial_values_file_path&gt;</strong> string [none]  <nobr> 
+<strong>&lt;Temporal_and_spatial_values_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Temporal_and_spatial_values_file_path&gt;</strong>
 </nobr><br>
 The path to the text file containing temporal and spatial values. 
 <br>
 <section id="bc_Temporal_values_file_path">
-<strong>&lt;Temporal_values_file_path&gt;</strong> string [non]  <nobr> 
+<strong>&lt;Temporal_values_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Temporal_values_file_path&gt;</strong>
 </nobr><br>
 The path to the text file containing temporal values.
 <br>
-<strong>&lt;Time_dependence&gt;</strong> string [steady]  <nobr> 
+<strong>&lt;Time_dependence&gt;</strong> <i>string</i> [steady]  <nobr> 
 <strong>&lt;/Time_dependence&gt;</strong>
 </nobr><br>
 The time dependence of a boundary condition. Permissible values are:
@@ -149,17 +149,17 @@ The time dependence of a boundary condition. Permissible values are:
    &middot;steady - A constant value is imposed
    &middot;unsteady - Time-dependent values are provide from a file
 <br>
-<strong>&lt;Traction_values_file_path&gt;</strong> string [none]  <nobr> 
+<strong>&lt;Traction_values_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Traction_values_file_path&gt;</strong>
 </nobr><br>
 The path to the VTK VTP-format file containing nodally varying traction values.
 <br>
-<strong>&lt;Traction_multiplier&gt;</strong> real [1.0]  <nobr> 
+<strong>&lt;Traction_multiplier&gt;</strong> <i>real</i> [1.0]  <nobr> 
 <strong>&lt;/Traction_multiplier&gt;</strong>
 </nobr><br>
 The value used to scale the traction values read from from a file.
 <br>
-<strong>&lt;Type&gt;</strong> string <nobr> 
+<strong>&lt;Type&gt;</strong> <i>string</i> <nobr> 
 <strong>&lt;/Type&gt;</strong>
 </nobr><br>
 The boundary condition type. Permissible values are:
@@ -169,7 +169,7 @@ The boundary condition type. Permissible values are:
    &middot;Robin - Identifies the face to be treated as a Robin boundary condition
    &middot;Traction - Identifies the face to be treated as a Traction boundary condition
 <br>
-<strong>&lt;Value&gt;</strong> real <nobr> 
+<strong>&lt;Value&gt;</strong> <i>real</i> <nobr> 
 <strong>&lt;/Value&gt;</strong>
 </nobr><br>
 The value of the state variable.
@@ -181,27 +181,27 @@ The value of the state variable.
 <h5 id="rcr_boundary_condition_parameters"> RCR Boundary Condition Parameters </h5>
 <div class="bc_param_div">
 <strong>&lt;RCR_values&gt;</strong><br>
-<strong>&lt;Capacitance&gt;</strong> real <nobr> 
+<strong>&lt;Capacitance&gt;</strong> <i>real</i> <nobr> 
 <strong>&lt;/Capacitance&gt;</strong>
 </nobr><br>
 Capacitance. 
 <br>
-<strong>&lt;Distal_resistance&gt;</strong> real <nobr> 
+<strong>&lt;Distal_resistance&gt;</strong> <i>real</i> <nobr> 
 <strong>&lt;/Distal_resistance&gt;</strong>
 </nobr><br>
 Distal resistance. 
 <br>
-<strong>&lt;Distal_pressure&gt;</strong> real <nobr> 
+<strong>&lt;Distal_pressure&gt;</strong> <i>real</i> <nobr> 
 <strong>&lt;/Distal_pressure&gt;</strong>
 </nobr><br>
 The distal pressure used to initialize an RCR boundary condition.
 <br>
-<strong>&lt;Initial_pressure&gt;</strong> real <nobr> 
+<strong>&lt;Initial_pressure&gt;</strong> <i>real</i> <nobr> 
 <strong>&lt;/Initial_pressure&gt;</strong>
 </nobr><br>
 The initial pressure used to initialize an RCR boundary condition.
 <br>
-<strong>&lt;Proximal_resistance&gt;</strong> real <nobr> 
+<strong>&lt;Proximal_resistance&gt;</strong> <i>real</i> <nobr> 
 <strong>&lt;/Proximal_resistance&gt;</strong>
 </nobr><br>
 Proximal resistance. 

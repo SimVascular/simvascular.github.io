@@ -164,27 +164,27 @@ The value of the viscosity constant.
 <strong>&lt;Limiting_high_shear_rate_viscosity&gt;</strong> <i>real</i> <nobr>
 <strong>&lt;/Limiting_high_shear_rate_viscosity&gt;</strong>
 </nobr><br>
-The value of 
+The value of the limiting high shear rate viscosity parameter.
 <br>
 <strong>&lt;Limiting_low_shear_rate_viscosity&gt;</strong> <i>real</i> <nobr>
 <strong>&lt;/Limiting_low_shear_rate_viscosity&gt;</strong>
 </nobr><br>
-The value of 
+The value of Limiting low shear rate viscosity parameter.
 <br>
 <strong>&lt;Power_law_index&gt;</strong> <i>real</i> <nobr>
 <strong>&lt;/Power_law_index&gt;</strong>
 </nobr><br>
-The value of 
+The value of the power law index parameter.
 <br>
 <strong>&lt;Shear_rate_tensor_multiplier&gt;</strong> <i>real</i> <nobr>
 <strong>&lt;/Shear_rate_tensor_multiplier&gt;</strong>
 </nobr><br>
-The value of 
+The value of the shear rate tensor multiplier parameter.
 <br>
 <strong>&lt;Shear_rate_tensor_exponent&gt;</strong> <i>real</i> <nobr>
 <strong>&lt;/Shear_rate_tensor_exponent&gt;</strong>
 </nobr><br>
-The value of 
+The value of the shear rate tensor exponent parameter.
 <br>
 &lt;<strong>/Viscosity</strong>&gt;
 </div>
@@ -198,20 +198,18 @@ The value of
 <strong>&lt;Asymptotic_viscosity_parameter&gt;</strong> <i>real</i> <nobr>
 <strong>&lt;/Asymptotic_viscosity_parameter&gt;</strong>
 </nobr><br>
-The value of 
+The value of the asymptotic viscosity parameter.
 <br>
 <strong>&lt;Low_shear_rate_threshold&gt;</strong> <i>real</i> <nobr>
 <strong>&lt;/Low_shear_rate_threshold&gt;</strong>
 </nobr><br>
-The value of 
+The value of the low shear rate threshold parameter.
 <br>
 <strong>&lt;Yield_stress_parameter&gt;</strong> <i>real</i> <nobr>
-<strong>&lt;/Yield_stress_parametergt;</strong>
+<strong>&lt;/Yield_stress_parameter&gt;</strong>
 </nobr><br>
-The value of 
+The value of the yield stress parameter.
 <br>
 &lt;<strong>/Viscosity</strong>&gt;
 </div>
-
-
 

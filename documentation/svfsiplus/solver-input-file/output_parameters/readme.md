@@ -6,7 +6,7 @@
 The <i>Output Subsection</i> section of the <i>Equation Section</i> defines the quantities written to simulation
 results files.
 
-The <i>Output Subsection <i>is organized as a list of quantity names with a <i>boolean</i> 
+The <i>Output Subsection </i>is organized as a list of quantity names with a <i>boolean</i> 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
 &lt;<strong>Output</strong> type=<i>output_type</i>&gt;
 <br>[<i>Quantity names</i>]<br>
@@ -16,7 +16,9 @@ The <i>Output Subsection <i>is organized as a list of quantity names with a <i>b
 The <strong>Output</strong> keyword enables output of quantities for the enclosing equation. 
 The value of <i>output_type</i> can be
 <ul style="list-style-type:disc;">
-  <li> "Spatial" - </li>
+  <li> "Boundary_integral" - Quantities computed as a flux through boundary surfaces (faces) (e.g. velocity flux, energy flux)
+  <li> "Spatial" - Quantities written to VTK VTU files </li>
+  <li> "Volume_integral" - Volume-averaged quantities </li>
 </ul>
 
 <i>Quantity names</i> are boolean parameters used to enable quantities for output by setting their value to <i>true</i>.

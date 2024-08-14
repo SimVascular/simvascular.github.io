@@ -40,8 +40,7 @@ The value use to increment the simulation time.
 <strong>&lt;Spectral_radius_of_infinite_time_step&gt;</strong> <i>real</i>  [0.5] <nobr>
 <strong>&lt;/Spectral_radius_of_infinite_time_step&gt;</strong>
 </nobr><br>
-The spectral radius is used to compute parameters for the generalized alpha method. A value of 0.0 leads to an over-damped system while 1.0 leads to an undamped system.
-<br>
+The spectral radius is used to compute parameters for the generalized alpha method. A value of 0.0 leads to an over-damped system while 1.0 leads to an undamped system.<br>
 <section id="gen_Save_results_to_VTK_format">
 <strong>&lt;Save_results_to_VTK_format&gt;</strong> <i>boolean [false]</i> <nobr>
 <strong>&lt;/Save_results_to_VTK_format&gt;</strong>
@@ -103,6 +102,4 @@ Name of the file used to store simulation state data. This file is used for rest
 Initialize all state variables from a VTK VTU file.
 <br>
 </div>
-
-<h3>Examples</h3>
 

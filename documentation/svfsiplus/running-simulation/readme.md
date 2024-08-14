@@ -3,9 +3,7 @@
 
 <h1> Running svFSIplus </h1>
 
-This section describes how to set up and run an svFSIplus simulaion. Setting up a simulation requires 
-first creating the base files necessary for the definition of the problem mesh, boundary conditions, 
-physics, properties and solution parameters.
+This section describes how to set up and run an svFSIplus simulaion. Setting up a simulation requires first creating the base files necessary for the definition of the problem mesh, boundary conditions, physics, properties and solution parameters.
 
 <ul style="list-style-type:disc;">
 
@@ -78,9 +76,7 @@ The surface mesh represents the 2D faces of the elements in a 3D domain mesh or 
 
 <h4 id="run_finite_element_mesh_types"> Element Types </h4>
 
-Element types are classified based on <a href="https://en.wikipedia.org/wiki/Types_of_mesh"> shape </a>
-and order. The element order is the number of nodes located on an element edge and in its interior. 
-Elements with an order higher than 1 can model curved edges and provide more accurate results.
+Element types are classified based on <a href="https://en.wikipedia.org/wiki/Types_of_mesh"> shape </a> and order. The element order is the number of nodes located on an element edge and in its interior. Elements with an order higher than 1 can model curved edges and provide more accurate results.
 
 Higher order elements can additionally be classified as 
 <ul style="list-style-type:disc;">
@@ -99,6 +95,7 @@ svFSIplus supports the folowing element types
  <li> <i>wedge</i> - linear </li>
 </ul>
 
+<!-- 
 <h5 id="run_finite_element_mesh_line"> Line Element </h4>
 
 <h5 id="run_finite_element_mesh_triangle"> Triangle Element </h4>
@@ -110,6 +107,8 @@ svFSIplus supports the folowing element types
 <h5 id="run_finite_element_mesh_hexahedron"> Hexahedron Element </h4>
 
 <h5 id="run_finite_element_mesh_wedge"> Wedge Element </h4>
+
+-->
 
 
 <!--- -------------------------------------- --->
@@ -389,7 +388,8 @@ Example:
 
 <h3 id="run_solver_input_xml_file"> Creating a Solver Input File </h3>
 A <a href="#solver_input_file"> basic solver input XML file </a> is created by adding the
-<a href="#general_parameters">General Simulation</a> 
+<a href="#general_parameters">General Simulation</a>,
+<a href="#mesh_parameters">Mesh</a>,
 and <a href="#equation_parameters"> Equation </a> parameters required to perform a simulation
 
 <ul style="list-style-type:disc;">
