@@ -1,4 +1,4 @@
-<h3 id="developer_code_organization"> Code Organization </h3>
+<h2 id="developer_code_organization"> Code Organization </h2>
 The svFSIplus code is organized by file. Procedures related to a specific type of application within the code are placed in a single file. For example, the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/fluid.cpp"> fluid.cpp </a> file contains procedures implementing the functionality for fluid flow simulation.
 
 Files are located in two directories
@@ -7,7 +7,7 @@ Files are located in two directories
 <li> <a href="#developer_code_organization_svfsils"> svFSILS </a> - Custom linear algebra code </li>
 </ul>
 
-<h5 id="developer_code_organization_namespace"> Namespaces </h5>
+<h3 id="developer_code_organization_namespace"> Namespaces </h3>
 C++ namespaces provide a scope to the identifiers (names of functions, variables, etc) inside it.
 svFSIplus uses namespaces to help organize the functions defined within each file. Namespace names are the same as the file name containing their functions.
 
@@ -25,7 +25,7 @@ using namespace mat_fun;
 auto Fi = mat_inv(F, 2);
 </pre>
 
-<h5 id="developer_code_organization_classes"> Classes </h5>
+<h3 id="developer_code_organization_classes"> Classes </h3>
 C++ <i>classes</i> are used to reproduce Fortran modules and user-defined data types. A module is a bit like a C++ class because it can encapsulate both data and procedures. Classes representing Fortan modules are stored in a file using the class name; the A class definition is in an A.h file and its implementation is in a A.cpp file. 
 
 A user-defined data type is implemented as a C++ class and is used primarilally to store data. All member data is public. Some have a <strong>destroy</strong> method used to free memory. These classes are defined in the C++ module classes.
@@ -40,7 +40,7 @@ Example
 <!-- -------------------- svFSI Code -------------------------- -->
 <!-- ---------------------------------------------------------- -->
 
-<h4 id="developer_code_organization_svfsi"> svFSI Code </h4>
+<h3 id="developer_code_organization_svfsi"> svFSI Code </h3>
 The <a href="https://github.com/SimVascular/svFSIplus/tree/main/Code/Source/svFSI"> svFSI </a> directory 
 contains the files for the C++ solver implementation. The C++ code attempts to replicate the data structures and flow of control of the Fortran implementation.
 
@@ -50,7 +50,7 @@ The svFSI files can be group by the operations they implement.
 <!-- --------------- Program entry point ------------ -->
 <!-- ------------------------------------------------ -->
 
-<h5 id="developer_code_organization_svfsi_main"> Program entry point </h5>
+<h4 id="developer_code_organization_svfsi_main"> Program entry point </h4>
 The <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp"> main.cpp </a> file contains the svFSIplus program entry point <strong>main()</strong> function. It performs the following operations 
 
 <ul style="list-style-type:disc;"><br>
@@ -67,7 +67,7 @@ The <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFS
 <!-- ---------------       Equations     ------------ -->
 <!-- ------------------------------------------------ -->
 
-<h5 id="developer_code_organization_svfsi_equations"> Equations </h5>
+<h4 id="developer_code_organization_svfsi_equations"> Equations </h4>
 The following list associates each type of equation with the file containing its implementation 
 
 <ul><br>
@@ -90,7 +90,7 @@ The following list associates each type of equation with the file containing its
 <!-- -----------  Cardiac Electrophysiology --------- -->
 <!-- ------------------------------------------------ -->
 
-<h5 id="developer_code_organization_svfsi_cep"> Cardiac Electrophysiology </h5>
+<h4 id="developer_code_organization_svfsi_cep"> Cardiac Electrophysiology </h4>
 The following is a list of the files used for cardiac electrophysiology. 
 
 <ul><br>
@@ -107,7 +107,7 @@ The following is a list of the files used for cardiac electrophysiology.
 <!-- -----------      Boundary Conditions ----------- -->
 <!-- ------------------------------------------------ -->
 
-<h5 id="developer_code_organization_svfsi_boundary_conditions"> Boundary Conditions </h5>
+<h4 id="developer_code_organization_svfsi_boundary_conditions"> Boundary Conditions </h4>
 The following is a list of the files used for boundary conditions..
 
 <ul><br>
@@ -121,7 +121,7 @@ The following is a list of the files used for boundary conditions..
 <!-- -----------  Finite Element -------------------- -->
 <!-- ------------------------------------------------ -->
 
-<h5 id="developer_code_organization_svfsi_finite_element"> Finite Element Method</h5>
+<h4 id="developer_code_organization_svfsi_finite_element"> Finite Element Method</h4>
 The following is a list of the files associated with the finite element method.
 
 <ul><br>
@@ -143,7 +143,7 @@ The <a href="#developer_code_organization_svfsi_equations"> Equations </a> files
 <!-- -----------      Linear Algebra     ------------ -->
 <!-- ------------------------------------------------ -->
 
-<h5 id="developer_code_organization_svfsi_cep"> Linear Algebra </h5>
+<h4 id="developer_code_organization_svfsi_cep"> Linear Algebra </h4>
 The following is a list of the files used for numerical linear algebra. 
 
 <ul><br>
@@ -162,7 +162,7 @@ The following is a list of the files used for numerical linear algebra.
 <!-- -----------      File I/O     ------------------ -->
 <!-- ------------------------------------------------ -->
 
-<h5 id="developer_code_organization_svfsi_file_io"> File Input/Output </h5>
+<h4 id="developer_code_organization_svfsi_file_io"> File Input/Output </h4>
 The following is a list of the files used for file input/output.
 
 <ul><br>
@@ -182,7 +182,7 @@ The following is a list of the files used for file input/output.
 <!-- -----------  Parallel Processing  -------------- -->
 <!-- ------------------------------------------------ -->
 
-<h5 id="developer_code_organization_svfsi_parallel"> Parallel Processing </h5>
+<h4 id="developer_code_organization_svfsi_parallel"> Parallel Processing </h4>
 The following is a list of the files associated with parallel processing.
 
 <ul><br>
@@ -196,7 +196,7 @@ The following is a list of the files associated with parallel processing.
 <!-- -------------------- svFSILS Code ------------------------ -->
 <!-- ========================================================== -->
 
-<h4 id="developer_code_organization_svfsils"> svFSILS Code </h4>
+<h3 id="developer_code_organization_svfsils"> svFSILS Code </h3>
 The <a href="https://github.com/SimVascular/svFSIplus/tree/main/Code/Source/svFSILS"> svFSILS </a> directory 
 contains the C++ files for the custom linear algebra implementation.
 
@@ -207,7 +207,7 @@ The svFSILS files can be group by the operations they implement.
 <!-- -----------      Boundary Conditions ----------- -->
 <!-- ------------------------------------------------ -->
 
-<h5 id="developer_code_organization_svfsils_boundary_conditions"> Boundary Conditions </h5>
+<h4 id="developer_code_organization_svfsils_boundary_conditions"> Boundary Conditions </h4>
 The following is a list of the files used for boundary conditions..
 
 <ul><br>
@@ -219,7 +219,7 @@ The following is a list of the files used for boundary conditions..
 <!-- -----------  Linear Solvers -------------------- -->
 <!-- ------------------------------------------------ -->
 
-<h5 id="developer_code_organization_svfsils_linear_solvers"> Linear Solvers </h5>
+<h4 id="developer_code_organization_svfsils_linear_solvers"> Linear Solvers </h4>
 The following is a list of the files associated with linear solvers.
 
 <ul><br>
@@ -238,7 +238,7 @@ The following is a list of the files associated with linear solvers.
 <!-- -----------      Linear Algebra     ------------ -->
 <!-- ------------------------------------------------ -->
 
-<h5 id="developer_code_organization_svfsi_cep"> Linear Algebra </h5>
+<h4 id="developer_code_organization_svfsi_cep"> Linear Algebra </h4>
 The following is a list of the files used for numerical linear algebra. 
 
 <ul><br>
@@ -253,7 +253,7 @@ The following is a list of the files used for numerical linear algebra.
 <!-- -----------  Parallel Processing  -------------- -->
 <!-- ------------------------------------------------ -->
 
-<h5 id="developer_code_organization_svfsils_parallel"> Parallel Processing </h5>
+<h4 id="developer_code_organization_svfsils_parallel"> Parallel Processing </h4>
 The following is a list of the files associated with parallel processing.
 
 <ul><br>

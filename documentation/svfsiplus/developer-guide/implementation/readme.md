@@ -1,4 +1,4 @@
-<h3 id="developer_implementation"> Implementation Details</h3>
+<h2 id="developer_implementation"> Implementation Details</h2>
 This section describes some of the svFSIplus implementation details that a developer should find useful.
 
 <ul style="list-style-type:disc;">
@@ -15,7 +15,7 @@ This section describes some of the svFSIplus implementation details that a devel
 <!--                     Enumerations                          -->
 <!-- ========================================================= -->
 
-<h4 id="developer_implementation_enumeration"> Enumerations </h4>
+<h3 id="developer_implementation_enumeration"> Enumerations </h3>
 Enumerations are used to define user-defined data types that consist of integral constants used to represent a fixed range of possible values. 
 
 The C++ <strong>enum class</strong> is used to define enumerations using a class name as a scope. Most enumerations are defined in the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/const.h"> consts.h </a> file. 
@@ -60,13 +60,13 @@ int element_type = enum_int(ElementType::HEX8);
 <!--               Finite Element Method                       -->
 <!-- ========================================================= -->
 
-<h4 id="developer_implementation_finite_element_method"> Finite Element Method </h4>
+<h3 id="developer_implementation_finite_element_method"> Finite Element Method </h3>
 This section outlines some of the details of the finite element method implementation. 
 
 <!-- --------------------------------------------------------- -->
 <!-- Element properites and shape functions                    -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_finite_element_method_props"> Element properites and shape functions </h5>
+<h4 id="developer_implementation_finite_element_method_props"> Element properites and shape functions </h4>
 The original Fortran code set element properties and shape function data using very large <i>select</i> statements in the NN.f file. The C++ code reproduces this functionality using (very large) <i>std::map</i> data structures implemented in the files with a <i>nn</i> prefix
 
 <br> 
@@ -134,7 +134,7 @@ This implementation will be replaced by C++ classes defined for each element typ
 <!-- --------------------------------------------------------- -->
 <!-- Element matrix assembly                                   -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_finite_element_assembly"> Element matrix assembly </h5>
+<h4 id="developer_implementation_finite_element_assembly"> Element matrix assembly </h4>
 Element matrices are assembled to into a global system of equations. Matrix assembly is implemented in files named by the equation it is used for (see <a href="#developer_code_organization_svfsi_equations"> Organization Equations </a>). 
 
 Each of these files has a <strong>construct_<i>equation_name</i></strong> function used to assemble the element equations into a stiffness matrix <strong>lK</strong> and residual matrix <strong>lR</strong>. These matrices are then assembled into global matrices using a call to <strong>eq.linear_algebra->assemble()</strong>. See <a href="#developer_implementation_flow_control_assemble_equations"> Flow of Control / Assemble equations</a>.
@@ -143,7 +143,7 @@ Each of these files has a <strong>construct_<i>equation_name</i></strong> functi
 <!--                Linear Algebra Interface                   -->
 <!-- ========================================================= -->
 
-<h4 id="developer_implementation_linear_algebra"> Linear Algebra Interface </h4>
+<h3 id="developer_implementation_linear_algebra"> Linear Algebra Interface </h3>
 svFSIplus supports a C++ interface to numerical linear algebra packages. The <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/LinearAlgebra.h"> LinearAlgebra </a> class implements an abstract interface to linear algebra frameworks for 
 
 <br>
@@ -190,7 +190,7 @@ The <b>PetscLinearAlgebra</b> interface was taken from an implementation for the
 <!--                Material Models                            -->
 <!-- ========================================================= -->
 
-<h4 id="developer_implementation_material_models"> Material Models </h4>
+<h3 id="developer_implementation_material_models"> Material Models </h3>
 Material modesl are implemented using function templates in the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/mat_models_carray.h"> mat_models_carray.h</a> file. The function templates are parameterized by space dimension 2 or 3.
 
 <strong>Example</strong> Calling the <strong>get_pk2cc</strong> function template for dimension 3
@@ -208,7 +208,7 @@ This implementation will be replaced by C++ classes defined for each material mo
 <!--                Parallel Processing                        -->
 <!-- ========================================================= -->
 
-<h4 id="developer_implementation_parallel_processing"> Parallel Processing </h4>
+<h3 id="developer_implementation_parallel_processing"> Parallel Processing </h3>
 The svFSIplus program uses Message Passing Interface (MPI) library routines to run in parallel on an HPC cluster. Coarse-grained parallelism is employed to divide the program into large tasks (svFISplus program) and assign them to different processors for computation. No fine-grained data parallelism is used (i.e. loop-level parallelism using OpenMP or GPUs).
 
 See <a href="#developer_code_organization_svfsi_parallel"> Organization / svFSI Parallel Processing </a> and 
@@ -235,7 +235,7 @@ MPI_Scatterv(lM.gIEN.data(), sCount.data(), disp.data(), cm_mod::mpint, lM.IEN.d
 <!--                    VTK Interface                          -->
 <!-- ========================================================= -->
 
-<h4 id="developer_implementation_vtk"> VTK Interface </h4>
+<h3 id="developer_implementation_vtk"> VTK Interface </h3>
 svFSIplus currently uses VTK-format files to store finite element mesh, boundary condition and initial condition data. The Fortran svFSI program used custom code (!) to read in VTK-format files. This code has been replaced with functions using the VTK library.
 
 An interface isolating calls to the VTK API has been implemented in the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/VtkData.h"> VtkData </a> abstract class. This class provides methods for read, writing and accessing VTK data stored in VTP and VTU files. It is primarily used in the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/vtk_xml.cpp"> vtk_xml_.cpp </a> code. 
@@ -272,7 +272,7 @@ The <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFS
 <!--                 Flow of Control                           -->
 <!-- ========================================================= -->
 
-<h4 id="developer_implementation_flow_control"> Flow of Control </h4>
+<h3 id="developer_implementation_flow_control"> Flow of Control </h3>
 This section outlines the solver flow of control for a simulation.
 
 The code is documented using a text and links to code in GitHub using the followig conventions
@@ -309,7 +309,7 @@ The text description may be a link to subsections within this document describin
 <!-- Main                                                      -->
 <!-- --------------------------------------------------------- -->
 
-<h5 id="developer_implementation_flow_control_main"> Main </h5>
+<h4 id="developer_implementation_flow_control_main"> Main </h4>
 The <strong>main</strong> function is the entry point for the svFSIplus program.
 
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp#L770"> main() in main.cpp</a>
@@ -325,7 +325,7 @@ Create <strong>Simulation</strong> object [ <a href="https://github.com/SimVascu
 <!-- --------------------------------------------------------- -->
 <!-- Iterate for restarting a simulation after remeshing       -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_remesh_loop"> Iterate for restarting a simulation after remeshing </h5>
+<h4 id="developer_implementation_flow_control_remesh_loop"> Iterate for restarting a simulation after remeshing </h4>
 This code section checks if a remeshing operation is needed while iterating over time. If remeshing is needed then the time
 iteration is interrupted, remshing is performed, new mesh data is distributed and time iteration continues.
 
@@ -352,7 +352,7 @@ iteration is interrupted, remshing is performed, new mesh data is distributed an
 <!-- --------------------------------------------------------- -->
 <!-- Read in a solver XML file and all mesh and BC data        -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_read_xml_bcs"> Read in a solver XML file, mesh and BC data </h5>
+<h4 id="developer_implementation_flow_control_read_xml_bcs"> Read in a solver XML file, mesh and BC data </h4>
 This code section reads in the solver input file, finite element mesh files and boundary condition data.
 <br>
 
@@ -378,7 +378,7 @@ read_eq </a> ]
 <!-- --------------------------------------------------------- -->
 <!-- Read the solver XML                                       -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_read_xml_params"> Read the solver XML </h5>
+<h4 id="developer_implementation_flow_control_read_xml_params"> Read the solver XML </h4>
 This code section reads and sets parameters from the solver input XML file.
 <br><br>
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/Simulation.cpp#L63"> read_parameters() in Simulation.cpp</a>
@@ -391,7 +391,7 @@ Read XML file [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code
 <!-- --------------------------------------------------------- -->
 <!-- Read mesh data                                            -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_read_mesh_data"> Read mesh data </h5>
+<h4 id="developer_implementation_flow_control_read_mesh_data"> Read mesh data </h4>
 This code section reads in the finite element mesh data. 
 
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/read_msh.cpp#L1079"> read_msh() in read_msh.cpp </a>
@@ -425,7 +425,7 @@ Set initial mesh pressure, velocity or displacement from a file [ <a href="https
 <!-- --------------------------------------------------------- -->
 <!-- Read equations                                            -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_read_equations"> Read equations and boundary condition data </h5>
+<h4 id="developer_implementation_flow_control_read_equations"> Read equations and boundary condition data </h4>
 This code section sets the parameter data for a given equation and reads in boundary condition data defined for it.
 
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/read_files.cpp#L1346"> read_eq() in read_files.cpp</a>
@@ -453,7 +453,7 @@ Read body forces [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/C
 <!-- --------------------------------------------------------- -->
 <!-- Distribute data to processors                             -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_distribute"> Distribute data to processors</h5>
+<h4 id="developer_implementation_flow_control_distribute"> Distribute data to processors</h4>
 This code section partitions and distributes data to processors. 
 
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/distribute.cpp#L57"> distribute() in distribute.cpp</a>
@@ -491,7 +491,7 @@ Distribute cplBC data [ <a href="https://github.com/SimVascular/svFSIplus/blob/m
 <!-- --------------------------------------------------------- -->
 <!-- Distribute equation data to processors                    -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_distribute_equation"> Distribute equation data </h5>
+<h4 id="developer_implementation_flow_control_distribute_equation"> Distribute equation data </h4>
 This code section distributes equation data to processors. 
 
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/distribute.cpp#L940"> dist_eq() in distribute.cpp</a>
@@ -522,7 +522,7 @@ Distribute body force data [ <a href="https://github.com/SimVascular/svFSIplus/b
 <!-- --------------------------------------------------------- -->
 <!-- Initialize simulation data                                -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_initialize"> Initialize simulation data </h5>
+<h4 id="developer_implementation_flow_control_initialize"> Initialize simulation data </h4>
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/initialize.cpp#L313"> initialize() in initialize.cpp</a>
 
 <br>
@@ -551,7 +551,7 @@ Initialize function spaces [ <a href="https://github.com/SimVascular/svFSIplus/b
 <!-- --------------------------------------------------------- -->
 <!-- Run the simulation                                        -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_run_simulation"> Run the simulation </h5>
+<h4 id="developer_implementation_flow_control_run_simulation"> Run the simulation </h4>
 This code section just calls the iterate_solution() function.
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp#L761"> run_simulation() in main.cpp</a>
 
@@ -565,7 +565,7 @@ This code section just calls the iterate_solution() function.
 <!-- --------------------------------------------------------- -->
 <!-- Read boundary condition data                              -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_read_bc_data"> Read boundary condition data </h5>
+<h4 id="developer_implementation_flow_control_read_bc_data"> Read boundary condition data </h4>
 This code section reads in boundary condition data.
 
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/read_files.cpp#L152"> read_bc() in read_files.cpp</a> 
@@ -589,7 +589,7 @@ CMM: load wall displacements, read prestress tensor, read displacements [ <a hre
 <!-- --------------------------------------------------------- -->
 <!-- iterate_solution                                          -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_iterate_solution"> Iterate solution </h5>
+<h4 id="developer_implementation_flow_control_iterate_solution"> Iterate solution </h4>
 This code section solves the simulation equations for each time step. If remeshing is active then a check is made if remeshing is needed. If it is then control is returned to <a href="#developer_implementation_flow_control_remesh_loop"> Iterate for restarting a simulation after remeshing </a>.
 
 The code iterates over two nested loops 
@@ -679,7 +679,7 @@ Check for last time step [ <a href="https://github.com/SimVascular/svFSIplus/blo
 <!-- --------------------------------------------------------- -->
 <!-- Predictor step                                            -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_predictor_step"> Predictor step </h5>
+<h4 id="developer_implementation_flow_control_predictor_step"> Predictor step </h4>
 This code section implements the predictor step in a two-stage predictor–multicorrector algorithm for solving the nonlinear finite element equations.
 
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/pic.cpp#L579"> picp() in pic.cpp </a>
@@ -706,7 +706,7 @@ Update com_mod.Dn [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/
 <!-- --------------------------------------------------------- -->
 <!-- Initiator step for Generalized α−Method                   -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_initiator_step"> Initiator step for Generalized α−Method </h5>
+<h4 id="developer_implementation_flow_control_initiator_step"> Initiator step for Generalized α−Method </h4>
 This code section implements the initiator step for the Generalized α−Method time stepping. 
 
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/pic.cpp#L479"> pici() in pic.cpp </a>
@@ -724,7 +724,7 @@ Update Ag, Dg, Yg [ <a href="https://github.com/SimVascular/svFSIplus/blob/main/
 <!-- --------------------------------------------------------- -->
 <!-- Assemble equations                                        -->
 <!-- --------------------------------------------------------- -->
-<h5 id="developer_implementation_flow_control_assemble_equations"> Assemble equations </h5>
+<h4 id="developer_implementation_flow_control_assemble_equations"> Assemble equations </h4>
 This code section implements assembly of the finite element matrices for a given finite element mesh for the current equation specified by <strong>com_mod.cEq</strong>.
 
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/eq_assem.cpp#L309"> global_eq_assem() in eq_assem.cpp </a>

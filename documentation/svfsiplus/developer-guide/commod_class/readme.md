@@ -1,4 +1,4 @@
-<h3 id="developer_commod_class"> ComMod Class</h3>
+<h2 id="developer_commod_class"> ComMod Class</h2>
 The <strong>ComMod</strong> C++ class is used to implement the Fortran <strong>COMMOD</strong> module. (A Fortran module is a bit like a C++ class because it can encapsulate both data and procedures.) The svFSI Fortran code used the <strong>COMMOD</strong> module to define data structures and to store data accessed as global variables.
 
 The <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/ComMod.h"> ComMod.h </a> file defines the <strong>ComMod</strong> class and many of the classes used throughout the code

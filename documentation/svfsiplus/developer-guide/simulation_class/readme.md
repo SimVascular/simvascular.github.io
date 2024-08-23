@@ -1,4 +1,4 @@
-<h3 id="developer_simulation_class"> Simulation Class</h3>
+<h2 id="developer_simulation_class"> Simulation Class</h2>
 The C++ <strong>Simulation</strong> class encapsulates all of the objects used for a simulation. It is defined in 
 the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/Simulation.h"> Simulation.h </a> file. 
 The <strong>Simulation</strong> class does not contain any methods used in the core simulation code. Like the Fortan svFSI code it is just used to pass data to procedures to carry out a series of computational steps.

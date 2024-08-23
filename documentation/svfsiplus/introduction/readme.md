@@ -1,4 +1,4 @@
-## Introduction 
+# Introduction 
 
 svFSIplus is an open-source, parallel, finite element multi-physics solver providing capabilities to simulate 
 the partial differential equations (PDEs) governing solid and fluid mechanics, diffusion, and electrophysiology. Equations 
@@ -20,7 +20,5 @@ used to run a simulation.
 
 Documentation describing building, installing and testing svFSIplus can be found using the following links 
 <br> [Installing and building the solver](https://simvascular.github.io/svFSIplus/index.html)
-<br> [Some details of the C++ implementation](https://simvascular.github.io/svFSIplus/implementation.html)
-<br> [Testing Guide](https://simvascular.github.io/svFSIplus/testing.html)
-
+<br> [Testing Guide](https://simvascular.github.io/svFSIplus/index.html)
 

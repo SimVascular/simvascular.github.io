@@ -1,4 +1,4 @@
-<h3 id="developer_dynamic_arrays"> Dynamic Arrays </h3>
+<h2 id="developer_dynamic_arrays"> Dynamic Arrays </h2>
 An array is a series of elements of the same type placed in contiguous memory locations. A dynamic array is an array whose size is modifiable at runtime.
 
 Dynamic arrays have been implemented using custom C++ class templates 

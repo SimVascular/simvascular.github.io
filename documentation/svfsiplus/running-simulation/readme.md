@@ -25,7 +25,7 @@ Additional files and parameters will be needed for simulations of more complex p
 <!-- ======================= Getting the svFSIplus Program ============= -->
 <!-- =================================================================== -->
 
-<h3 id="run_getting"> Getting the svFSIplus Program </h3>
+<h2 id="run_getting"> Getting the svFSIplus Program </h2>
 The svFSIplus program is a C++ program compiled into an executable named <strong>svfsiplus</strong>. 
 
 The svFSIplus program can be obtained by
@@ -43,7 +43,7 @@ See the <a href=""> svFSIplus </a> GitHub repository for more information about 
 <!-- ========================== Finite Element Mesh ==================== -->
 <!-- =================================================================== -->
 
-<h3 id="run_finite_element_mesh"> Finite Element Mesh </h3>
+<h2 id="run_finite_element_mesh"> Finite Element Mesh </h2>
 
 The finite element mesh used in a simulation subdivides a 2D or 3D physical domain of a problem
 into a discrete set of cells called elements. A finite element mesh consists of 
@@ -74,7 +74,7 @@ The surface mesh represents the 2D faces of the elements in a 3D domain mesh or 
 <!--- ------------- Element Types ---------- --->
 <!--- -------------------------------------- --->
 
-<h4 id="run_finite_element_mesh_types"> Element Types </h4>
+<h3 id="run_finite_element_mesh_types"> Element Types </h3>
 
 Element types are classified based on <a href="https://en.wikipedia.org/wiki/Types_of_mesh"> shape </a> and order. The element order is the number of nodes located on an element edge and in its interior. Elements with an order higher than 1 can model curved edges and provide more accurate results.
 
@@ -96,17 +96,17 @@ svFSIplus supports the folowing element types
 </ul>
 
 <!-- 
-<h5 id="run_finite_element_mesh_line"> Line Element </h4>
+<h4 id="run_finite_element_mesh_line"> Line Element </h4>
 
-<h5 id="run_finite_element_mesh_triangle"> Triangle Element </h4>
+<h4 id="run_finite_element_mesh_triangle"> Triangle Element </h4>
 
-<h5 id="run_finite_element_mesh_quadrilateral"> Quadrilateral Element </h4>
+<h4 id="run_finite_element_mesh_quadrilateral"> Quadrilateral Element </h4>
 
-<h5 id="run_finite_element_mesh_tetrahedron"> Tetrahedron Element </h4>
+<h4 id="run_finite_element_mesh_tetrahedron"> Tetrahedron Element </h4>
 
-<h5 id="run_finite_element_mesh_hexahedron"> Hexahedron Element </h4>
+<h4 id="run_finite_element_mesh_hexahedron"> Hexahedron Element </h4>
 
-<h5 id="run_finite_element_mesh_wedge"> Wedge Element </h4>
+<h4 id="run_finite_element_mesh_wedge"> Wedge Element </h4>
 
 -->
 
@@ -115,11 +115,11 @@ svFSIplus supports the folowing element types
 <!--- ---------- Mesh File Format ---------- --->
 <!--- -------------------------------------- --->
 
-<h4 id="run_finite_element_mesh_vtk"> Mesh File Format </h4>
+<h3 id="run_finite_element_mesh_vtk"> Mesh File Format </h3>
 Finite element mesh files are stored using the
 <a href="#appendix_vtk_file_format"> Visualization Toolkit (VTK)</a> compressed XML file format.
 
-<h5 id="run_finite_element_mesh_vtk_vtu"> VTK VTU File Format </h4>
+<h4 id="run_finite_element_mesh_vtk_vtu"> VTK VTU File Format </h4>
 <pre>
 A VTK VTU finite element mesh domain file contains the following data
 <ul style="list-style-type:disc;">
@@ -131,7 +131,7 @@ indexes range from 0 to <i>number of nodal coordinates</i> - 1.  </li>
 </ul>
 </pre>
 
-<h5 id="run_finite_element_mesh_vtk_vtp"> VTK VTP File Format </h4>
+<h4 id="run_finite_element_mesh_vtk_vtp"> VTK VTP File Format </h4>
 <pre>
 A VTK VTP finite element mesh surface file contains the following data
 <ul style="list-style-type:disc;">
@@ -152,7 +152,7 @@ Finite element mesh files are automatically created by the <a href="#sv-fsi-tool
 <!-- ======================== Initial Condition Data =================== -->
 <!-- =================================================================== -->
 
-<h3 id="run_initial_conditions"> Initial Condition Data </h3>
+<h2 id="run_initial_conditions"> Initial Condition Data </h2>
 Initial condition data is used to set the initial values of state variables on the problem domain at the start of 
 a simulation. Initial values can be set for each domain node using a VTK VTU of VTP file.
 
@@ -167,7 +167,7 @@ list shows the <i>solver input file keywords</i> used to set initial conditions
 <!-- =================================================================== -->
 <!-- ======================== Boundary Condition Data ================== -->
 <!-- =================================================================== -->
-<h3 id="run_boundary_conditions"> Boundary Condition Data </h3>
+<h2 id="run_boundary_conditions"> Boundary Condition Data </h2>
 Boundary condition data is used to set the initial values of state variables on the problem domain boundary at 
 the start of a simulation. Boundary condition data is typicaly set using an ASCII formatted text file.
 However, spatial values for pressure and traction boundary conditions are set using a 
@@ -177,7 +177,7 @@ a <a href="#run_finite_element_mesh_vtk_vtp"> VTK VTP </a> file.
 <!-- ------------------- Spatial Profile Data ------------- -->
 <!-- ------------------------------------------------------ -->
 
-<h4 id="run_bcs_spatial_profile"> Spatial Profile Data </h3>
+<h3 id="run_bcs_spatial_profile"> Spatial Profile Data </h3>
 The shape of user-defined velocty profile can be given in an ASCII text file. The format of the file is
 <pre>
 <i>node_id_1</i>  <i>value_1</i>
@@ -199,7 +199,7 @@ boundary condition file name
 <!-- ------------------- Temporal Values Data ------------- -->
 <!-- ------------------------------------------------------ -->
 
-<h4 id="run_bcs_temporal_values"> Temporal Values Data </h3>
+<h3 id="run_bcs_temporal_values"> Temporal Values Data </h3>
 The time-dependent values of a state variable are provided in an ASCII text file with format 
 <pre>
 <i>nts</i>  <i>nmodes</i>  
@@ -227,7 +227,7 @@ values boundary condition file name
 <!-- --------- Temporal and Spatial Values Data ----------- -->
 <!-- ------------------------------------------------------ -->
 
-<h4 id="run_bcs_temporal_and_spatial_values"> Temporal and Spatial Values Data </h3>
+<h3 id="run_bcs_temporal_and_spatial_values"> Temporal and Spatial Values Data </h3>
 
 The time-dependent and spatial variation of a state variable are provided in an ASCII text file with format 
 <pre>
@@ -294,7 +294,7 @@ spatial values boundary condition file name
 <!-- -------------- Spatial Values Data ------------------- -->
 <!-- ------------------------------------------------------ -->
 
-<h4 id="run_bcs_spatial_values_data"> Spatial Values Data </h3>
+<h3 id="run_bcs_spatial_values_data"> Spatial Values Data </h3>
 The spatial variation of a pressure or traction load applied to a face are provided in
 a <a href="#run_finite_element_mesh_vtk_vtp"> VTK VTP </a> file. This is used for Neumann 
 or Traction boundary condition types.
@@ -315,7 +315,7 @@ boundary condition file name
 <!-- ------------------ CMM Values Data ------------------- -->
 <!-- ------------------------------------------------------ -->
 
-<h4 id="run_bcs_cmm_values_data"> Coupled Momentum Method (CMM) Values Data </h3>
+<h3 id="run_bcs_cmm_values_data"> Coupled Momentum Method (CMM) Values Data </h3>
 In Coupled Momentum Method simulations the vessel wall can be initialized with prestressing or with 
 initial displacements.
 The spatial variation of these values for a face are provided in
@@ -343,7 +343,7 @@ boundary condition file names
 <!-- ====================== Simulation Results Output ================== -->
 <!-- =================================================================== -->
 
-<h3 id="run_simulation_output"> Simulation Results Output </h3>
+<h2 id="run_simulation_output"> Simulation Results Output </h2>
 svFSIplus can write simulation results in the following file formats 
 <ul style="list-style-type:disc;">
 <li> Binary results restart file - Custom format used to store state variables and mesh data. 
@@ -383,10 +383,10 @@ Example:
 </pre>
 
 <!-- =================================================================== -->
-<!-- ======================== Solver Input XML File ==================== -->
+<!-- =================== Creating Solver Input File ==================== -->
 <!-- =================================================================== -->
 
-<h3 id="run_solver_input_xml_file"> Creating a Solver Input File </h3>
+<h2 id="run_solver_input_xml_file"> Creating a Solver Input File </h2>
 A <a href="#solver_input_file"> basic solver input XML file </a> is created by adding the
 <a href="#general_parameters">General Simulation</a>,
 <a href="#mesh_parameters">Mesh</a>,
@@ -411,7 +411,7 @@ It can also be created by customizing a copy of a solver input file from the svF
 <a href="https://github.com/SimVascular/svFSIplus/tree/main/tests/cases"> 
 test/case directory</a> that is similar to the simulation you wish to perform.
 
-<h4> Example solver input file for a fluid simulation </h4>
+<h3> Example solver input file for a fluid simulation </h3>
 An example of a solver input file for a fluid simulation is given below. The simulation
 
 <ul style="list-style-type:disc;">
@@ -532,7 +532,7 @@ An example of a solver input file for a fluid simulation is given below. The sim
 <!-- ======================== Running a Simulation ===================== -->
 <!-- =================================================================== -->
 
-<h3 id="run_run_simulation"> Running a Simulation </h3>
+<h2 id="run_run_simulation"> Running a Simulation </h2>
 The following steps take place when running the <strong>svfsiplus</strong> executable using N 
 processors (cores)
 <ul style="list-style-type:disc;">
@@ -565,7 +565,7 @@ Simulations may be run on a workstation for just a few time steps to verify that
 is setup correctly. 
 </div>
 
-<h4> Running a Simulation from the Command Line </h4>
+<h3> Running a Simulation from the Command Line </h3>
 The svfsiplus program located in the <i>svFSIplusPath</i> directory can be run from a terminal window 
 on a workstation using the mpiexec command
 <pre>
@@ -577,7 +577,7 @@ This will run N svfsiplus programs on N cores.
 <!-- ------------- Simulation History ------------------------ -->
 <!-- --------------------------------------------------------- -->
 
-<h4>Simulation History histor.dat File </h4>
+<h3>Simulation History histor.dat File </h3>
 The svfsiplus program creates a text file named <strong>histor.dat</strong> used to store 
 the information about how a simulation is progressing. The convergence of nonlinear and
 linear numerical algorithms can be used to evaluate the correctness of the solution for
@@ -603,7 +603,7 @@ The histor.dat file contains 10 columns of informaion labeled as
 Eq    N-i    T    dB    Ri/R1    Ri/R0    R/Ri    lsIt    dB    %t
 </pre>
 
-<h5>Eq</h5> 
+<h4>Eq</h4> 
 <i>Eq</i> Is a two-character abbreviation name of the equation being solved. <i>Eq</i> can be </li>
 <ul style="list-style-type:disc;">
 <li> CM - coupled_momentum </li> 
@@ -619,13 +619,13 @@ Eq    N-i    T    dB    Ri/R1    Ri/R0    R/Ri    lsIt    dB    %t
 <li> ST - structural and structural_velocity_pressure</li> 
 </ul>
 
-<h5> <i>N</i>-<i>i</i> </h5>
+<h4> <i>N</i>-<i>i</i> </h4>
 The <i>N</i>-<i>i</i> column shows the current time step <i>N</i> and the nonlinear iteration step <i>i</i>.
 
-<h5> <i>T</i> </h5>
+<h4> <i>T</i> </h4>
 The <i>T</i> column shows the cpu time in seconds counted since the start of the analysis.
 
-<h5> <i>dB</i> </h5>
+<h4> <i>dB</i> </h4>
 The <i>dB</i> column shows the logarithm of the residual change. A large negative value means that
 the size of the residual is rapidly decreasing. 
 <pre>
@@ -633,35 +633,35 @@ the size of the residual is rapidly decreasing.
   dB = (20.0 * log10(norm_ratio))
 </pre>
 
-<h5> <i>Ri/R1</i> </h5>
+<h4> <i>Ri/R1</i> </h4>
 The <i>Ri/R1</i> column shows the ratio of linear and nonlinear norms.
 <pre>
 Ri/R1 = (<i>Initial linear system norm</i> / <i>Initial nonlinear norm</i>) / <i>(First nonlinear iteration norm</i>
 </pre>
 
-<h5> <i>Ri/R0</i> </h5>
+<h4> <i>Ri/R0</i> </h4>
 The <i>Ri/R0</i> column shows the ratio of linear and nonlinear norms.
 <pre>
 Ri/R0 = <i>Initial linear system norm</i> / <i>Initial nonlinear norm</i> 
 </pre>
 
-<h5> <i>R/Ri</i> </h5>
+<h4> <i>R/Ri</i> </h4>
 The <i>R/Ri</i> column shows the ratio linear system norms.
 <pre>
 R/Ri = <i>Final linear system norm</i> / <i>Initial linear system norm</i>
 </pre>
 
-<h5> <i>lsIt</i> </h5>
+<h4> <i>lsIt</i> </h4>
 The <i>lsIt</i> column shows the number of iterations used to solve the linear system.
 
-<h5> <i>dB</i> </h5>
+<h4> <i>dB</i> </h4>
 The <i>dB</i> column shows the logarithm of the residual change for the linear system.
 
-<h5> <i>%t</i> </h5>
+<h4> <i>%t</i> </h4>
 The <i>%t</i> column shows the percentage of cpu time spent in the solution of the linear system.
 
 
-<h5> Example: Fluid simulation histor.dat file  </h5>
+<h4> Example: Fluid simulation histor.dat file  </h4>
 This following text shows the histor.dat file create by a fluid simulation.
 <pre>
 ----------------------------------------------------------------------------
@@ -696,7 +696,7 @@ nonlinear iteration. </li>
 <!-- --------------- Simulation Results ---------------------- -->
 <!-- --------------------------------------------------------- -->
 
-<h4> Simulation Results </h4>
+<h3> Simulation Results </h3>
 Simulation state data is stored in binary files named, by default, stFile_<i>T</i>.bin, where <i>T</i> is 
 the time step. The default name can be changed using the <a href="#gen_Restart_file_name">Restart_file_name</a> parameter. State data files can be used to restart a simulation from a given state (time step).
 
@@ -708,7 +708,7 @@ result_<i>T</i>.vtu, where <i>T</i> is the time step. The default name can be ch
 <!-- ====================== Restarting a Simulation ==================== -->
 <!-- =================================================================== -->
 
-<h3 id="run_restart_simulation"> Restarting a Simulation </h3>
+<h2 id="run_restart_simulation"> Restarting a Simulation </h2>
 A simulation can be continued from a previous state using a state data binary file.
 The <a href="#gen_Continue_previous_simulation"> Continue_previous_simulation </a> and 
 <a href="#gen_Restart_file_name"> Restart_file_name</a> paramters are used to restart the simulation
