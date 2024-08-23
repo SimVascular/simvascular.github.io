@@ -1468,7 +1468,7 @@ abbr[data-original-title] {
 }
 .initialism {
   font-size: 90%;
-  text-transform: uppercase;
+  text-transform: none;
 }
 blockquote {
   padding: 10px 20px;
