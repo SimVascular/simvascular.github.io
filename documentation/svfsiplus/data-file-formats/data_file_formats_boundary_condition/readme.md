@@ -23,7 +23,7 @@ Data is stored using two file formats
 
 <br>
 <h3 id="data_file_formats_boundary_condition_fourier"> Fourier coefficients Data</h3>
-The data file contains the Fourier coefficients interpolating temporal data distribution data for a boundary face. This data will be directly used to represent periodic data at intermediate time values.
+The data file contains the Fourier coefficients interpolating temporal distribution data for a boundary face. This data will be directly used to represent periodic data at intermediate time values.
 
 This file is set using the solver input file <a href="#bc_Fourier_coefficients_file_path"> Fourier_coefficients_file_path</a> keyword. 
 

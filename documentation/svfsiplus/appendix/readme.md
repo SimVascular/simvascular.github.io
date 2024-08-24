@@ -43,7 +43,6 @@ User-defined arrays can have arbitrary names. They can be stored as
 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600">
 VTK software is used to visualize data using C++ and Python languages which index arrays starting from 0.
-The element connectivity array thus data that accesses the <strong>Points</strong> array using 0-based indexing
-(indices range from 0 to NumberOfPoints-1).
+The element connectivity array accesses the <strong>Points</strong> array using 0-based indexing (indices range from 0 to NumberOfPoints-1).
 </div>
 

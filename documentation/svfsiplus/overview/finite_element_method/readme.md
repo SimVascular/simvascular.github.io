@@ -3,7 +3,7 @@
 
 The finite element method (FEM) is used to numerically solve transient PDEs governing the behavior of a physical system in two
 or three space dimensions. FEM approximates the geometry of a physical domain by subdividing it into a collection of discrete
-finite elements called a finite element mesh. The finite elements are used numerical interpolation to approximate field variables 
+finite elements called a finite element mesh. The finite elements use numerical interpolation to approximate field variables 
 (e.g. velocity) within a geometric region of a physical system. Elements can be implemented using a combination of linear, quadratic, 
 and cubic interpolating polynomials.
 
