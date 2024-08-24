@@ -3,7 +3,7 @@
 
 <h1> Running svFSIplus </h1>
 
-This section describes how to set up and run an svFSIplus simulaion. Setting up a simulation requires first creating the base files necessary for the definition of the problem mesh, boundary conditions, physics, properties and solution parameters.
+This section describes how to set up and run an svFSIplus simulation. Setting up a simulation requires first creating the base files necessary for the definition of the problem mesh, boundary conditions, physics, properties and solution parameters.
 
 <ul style="list-style-type:disc;">
 
@@ -51,13 +51,13 @@ into a discrete set of cells called elements. A finite element mesh consists of
 <ul style="list-style-type:disc;">
 <li> nodal coordinates - coordinate locations in 2D or 3D space representing a physical domain </li>
 <li> nodal IDs - global node ID which is unique for each node and which distinguishes it from all other nodes</li>
-<li> elements - define a domain in a physical space connected by specifying nodal connectivity (nodel IDs) at the element boundaries </li>
+<li> elements - define a domain in a physical space connected by specifying nodal connectivity (nodal IDs) at the element boundaries </li>
 </ul>
 
 Each element in a finite element mesh is defined by its nodal connectivity defining the nodal IDs attached to it.
 Element nodal connectivity defines how elements are connected and their nodal coordinates.
 
-A finite element mesh is typically created automatically from a geomatric model using a 
+A finite element mesh is typically created automatically from a geometric model using a 
 <a href="https://en.wikipedia.org/wiki/Mesh_generation"> mesh generator</a>. Most of the finite element 
 meshes used by svFSIplus are tetrahedral meshes created by the open source 
 <a href="https://github.com/libigl/tetgen"> TetGen</a> mesh generator.
@@ -84,7 +84,7 @@ Higher order elements can additionally be classified as
 <li> serendipity - nodes only on the element edges </li>
 </ul>
 
-svFSIplus supports the folowing element types
+svFSIplus supports the following element types
 
 <ul style="list-style-type:disc;">
  <li> <i>line</i> - linear and quadratic </li>
@@ -141,7 +141,7 @@ A VTK VTP finite element mesh surface file contains the following data
 indexes range from 0 to <i>number of nodal coordinates</i> - 1.  </li> 
 <li> Element IDs - An integer array of element IDs. These IDs identify the element the surface element is from in the domain finite element mesh. </li> 
 </ul>
-VTP files can also store float data used to set the values of certain boundary conidtions. 
+VTP files can also store float data used to set the values of certain boundary conditions. 
 </pre>
 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #0000e6; border-left: 6px solid #0000e6">
@@ -169,7 +169,7 @@ list shows the <i>solver input file keywords</i> used to set initial conditions
 <!-- =================================================================== -->
 <h2 id="run_boundary_conditions"> Boundary Condition Data </h2>
 Boundary condition data is used to set the initial values of state variables on the problem domain boundary at 
-the start of a simulation. Boundary condition data is typicaly set using an ASCII formatted text file.
+the start of a simulation. Boundary condition data is typically set using an ASCII formatted text file.
 However, spatial values for pressure and traction boundary conditions are set using a 
 a <a href="#run_finite_element_mesh_vtk_vtp"> VTK VTP </a> file. 
 
@@ -178,7 +178,7 @@ a <a href="#run_finite_element_mesh_vtk_vtp"> VTK VTP </a> file.
 <!-- ------------------------------------------------------ -->
 
 <h3 id="run_bcs_spatial_profile"> Spatial Profile Data </h3>
-The shape of user-defined velocty profile can be given in an ASCII text file. The format of the file is
+The shape of user-defined velocity profile can be given in an ASCII text file. The format of the file is
 <pre>
 <i>node_id_1</i>  <i>value_1</i>
 <i>node_id_2</i>  <i>value_2</i>
@@ -187,7 +187,7 @@ The shape of user-defined velocty profile can be given in an ASCII text file. Th
 </pre>
 
 where <i>node_id</i> is an integer ID for a node on the boundary surface and <i>value</i> is the 
-spatial dependant profile vector data for that node.
+spatial dependent profile vector data for that node.
 
 The following <i>solver input file keyword</i> is used to set the spatial profile 
 boundary condition file name
@@ -348,7 +348,7 @@ svFSIplus can write simulation results in the following file formats
 <ul style="list-style-type:disc;">
 <li> Binary results restart file - Custom format used to store state variables and mesh data. 
 Can be used to continue a simulation from a previous state.  Uses <strong>.bin</strong></i> file extension.  </li>
-<li> <a href="#appendix_vtk_file_format"> VTK </a> format files - VTK format files used to store state variables and any output quantities given in the solver input file <a href="#output_parameters"> Output Subsection</a>. Used for results visualization.  Uses <strong>.vtu</strong> and <strong>.vtp</strong> </i> file extensiosn. </li>
+<li> <a href="#appendix_vtk_file_format"> VTK </a> format files - VTK format files used to store state variables and any output quantities given in the solver input file <a href="#output_parameters"> Output Subsection</a>. Used for results visualization.  Uses <strong>.vtu</strong> and <strong>.vtp</strong> </i> file extension. </li>
 </ul>
 
 There are several keywords in the <a href="#general_parameters"> General Simulation Parameters </a> 
@@ -598,7 +598,7 @@ the nonlinear solution.
 
 In the following definitions the term <i>norm</i> will be used to mean the norm of a residual.
 
-The histor.dat file contains 10 columns of informaion labeled as
+The histor.dat file contains 10 columns of information labeled as
 <pre>
 Eq    N-i    T    dB    Ri/R1    Ri/R0    R/Ri    lsIt    dB    %t
 </pre>
@@ -681,13 +681,13 @@ This following text shows the histor.dat file create by a fluid simulation.
 
 <li>The <i>N-i</i> column shows two time steps with three nonlinear iterations. </li>
 
-<li>The first <i>dB</i> column shows that the nonlinear residual is rapidly decreaing in size for each nonlinear iteration. </li>
+<li>The first <i>dB</i> column shows that the nonlinear residual is rapidly decreasing in size for each nonlinear iteration. </li>
 
 <li>All of the ratio of the residual norms <i>Ri/R1, Ri/R0, R/Ri</i> are small for the last nonlinear iteration. </li> 
 
 <li>The <i>lsIt</i> column shows that linear system at each nonlinear step take 5 or less iterations to solve. </li> 
 
-<li>The last <i>dB</i> column shows that the linear system residual is rapidly decreaing in size for each 
+<li>The last <i>dB</i> column shows that the linear system residual is rapidly decreasing in size for each 
 nonlinear iteration. </li>
 
 </ul>
@@ -711,7 +711,7 @@ result_<i>T</i>.vtu, where <i>T</i> is the time step. The default name can be ch
 <h2 id="run_restart_simulation"> Restarting a Simulation </h2>
 A simulation can be continued from a previous state using a state data binary file.
 The <a href="#gen_Continue_previous_simulation"> Continue_previous_simulation </a> and 
-<a href="#gen_Restart_file_name"> Restart_file_name</a> paramters are used to restart the simulation
+<a href="#gen_Restart_file_name"> Restart_file_name</a> parameters are used to restart the simulation
 from a previous state.
 
 

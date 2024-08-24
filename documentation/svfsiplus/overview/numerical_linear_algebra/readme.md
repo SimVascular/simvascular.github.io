@@ -5,7 +5,7 @@ Numerical linear algebra uses computer algorithms to solve the linear system gen
 Linear algebra libraries provide access to specialized or general purpose routines implementing a significant number of
 computer algorithms useful when solving linear systems.
 
-svFSIplus supports interfaces to the folowing numerical linear algebra packages 
+svFSIplus supports interfaces to the following numerical linear algebra packages 
 
 <ul style="list-style-type:disc;">
  <li> Custom numerical linear algebra routines included in the svFSIplus implementation </li>

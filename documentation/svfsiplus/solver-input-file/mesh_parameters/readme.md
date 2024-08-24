@@ -39,7 +39,7 @@ within a solver parameters input file.
 
 The &lt;<strong>Add_face</strong> name=<i>mesh_face_name</i>&gt; parameters subsection under the 
 &lt;<strong>Add_mesh</strong>&gt; parameter associates the surface mesh named <i>mesh_face_name</i>
-with the volumetric mesh. A surface mesh, refered to as a <i>face</i>, is used to apply boundary conditions.
+with the volumetric mesh. A surface mesh, referred to as a <i>face</i>, is used to apply boundary conditions.
 
 
 <!-- ---------------------------------------- -->

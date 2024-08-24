@@ -10,7 +10,7 @@ solver parameters and input data (e.g. mesh files) needed to set up and execute 
 
 <h2> What is XML </h2>
 
-The XML format is made up of tags, elements and atributes. A tag begins with < and ends with >. 
+The XML format is made up of tags, elements and attributes. A tag begins with < and ends with >. 
 There are two types of tag
 <ul style="list-style-type:disc;">
   <li> start-tag, such as  &ltsection> </li>
@@ -63,7 +63,7 @@ The following XML is an example of these different element types
 The above contains 
 <ul style="list-style-type:disc;">
   <li> six elements: Add_mesh, Mesh_file_path, Add_face, Face_file_path, Domain and Mesh_scale_factor
-  <li> &lt;Add_mesh name="fluid"&gt; has an attibute <strong> name </strong> with value "fluid"</li>
+  <li> &lt;Add_mesh name="fluid"&gt; has an attribute <strong> name </strong> with value "fluid"</li>
   <li> &lt;Add_mesh name="fluid"&gt; element provides a context for the other elements under it: &lt;Add_face name=inlet&gt 
        associates the face named <strong>inlet</strong> to the mesh named <strong>fluid</strong> </li>
   <li> Mesh_file_path is a text element with text <strong>fluid_mesh.vtu</strong>
@@ -92,7 +92,7 @@ svFSIplus defines for each parameter
   <li> Context - parameters can only be found within the context of another parameter </li> 
 </ul>
 
-If a value for a parameter is not valid svFSIplus will display an error message indicating where in the file the error occured. 
+If a value for a parameter is not valid svFSIplus will display an error message indicating where in the file the error occurred. 
 
 Some parameters are optional. There are two types of optional parameters 
 <ul style="list-style-type:disc;">
@@ -104,7 +104,7 @@ Some parameters are optional. There are two types of optional parameters
 <!-- ============================== organizaion of the parameter input file =========================== -->
 <!-- ================================================================================================== -->
 
-<h2> The organizaion of the parameter input file </h2>
+<h2> The organization of the parameter input file </h2>
 
 The parameter input file is organized into six sections used to provide context for the parameters defined under them
 
@@ -189,7 +189,7 @@ The following outlines the basic structure of the parameter input XML file.
 &nbsp;&nbsp;&lt;<strong>/LS</strong>&gt;
 
 &nbsp;&nbsp;&lt;<strong>Output</strong> type=<i>output_type</i>&gt;
-&nbsp;&nbsp[solver output parmeters]
+&nbsp;&nbsp[solver output parameters]
 &nbsp;&nbsp;&lt;<strong>/Output</strong>&gt;
 
 &lt;<strong>/Add_equation</strong>&gt;
@@ -197,7 +197,7 @@ The following outlines the basic structure of the parameter input XML file.
 </pre>
 
 <h2> Parameter Documentation Conventions </h2>
-Parameters are documented using the parameter <strong>Name</strong> and <i>DataType</i>. If the paramater is optional its default value is shown between square brackets
+Parameters are documented using the parameter <strong>Name</strong> and <i>DataType</i>. If the parameter is optional its default value is shown between square brackets
 
 <strong>Example</strong> The optional <strong>Spectral_radius_of_infinite_time_step</strong> parameter with default value 0.5
 <pre>

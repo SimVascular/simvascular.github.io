@@ -37,7 +37,7 @@ The file format is
 ...
 </pre>
 
-where <strong>NDIM</strong> is the number of space dimentions used in the simulation.
+where <strong>NDIM</strong> is the number of space dimensions used in the simulation.
 
 <!-- --------------------------------------------------- -->
 <!-- ----------- Spatial Distribution Data ------------- -->
@@ -69,7 +69,7 @@ For a coupled momentum boundary condition the data file is a
 displacements using PointData arrays named
 <ul style="list-style-type:disc;">
   <li> <strong>Stress</strong> - Initialize stresses </li>
-  <li> <strong>Displacement</strong> - Initialize displacemenits </li>
+  <li> <strong>Displacement</strong> - Initialize displacements </li>
 </ul> 
 
 These spatial data files are set using the solver input file 

@@ -3,7 +3,7 @@
 <!-- --------------------------------------------------- -->
 
 <h2 id="sv_fsi_tool_physics"> Physics Panel </h2> 
-The Physics panel is used to set the equation(s), its physical propertiies, 
+The Physics panel is used to set the equation(s), its physical properties, 
 boundary conditions and linear solver solution strategy needed to numerically 
 solve it in a simulation.
 
@@ -19,9 +19,9 @@ solve it in a simulation.
 
 <h3> Usage </h3> 
 
-**Add or remove equtions** - This GUI control is used to add equations to the simulation. Selecting the equation 
+**Add or remove equations** - This GUI control is used to add equations to the simulation. Selecting the equation 
 name in the left panel and selecting the <strong>&gt;</strong> <i>Button</i> moves it to the right
-pannel and adds that equation to the simulation. Use the <strong>&lt;</strong> <i>Button</i> to remove
+panel and adds that equation to the simulation. Use the <strong>&lt;</strong> <i>Button</i> to remove
 that equation from the simulation.
 
 When an equation is added the <i>Buttons</i> at the bottom of this control (Properties, Output, etc.) are 
@@ -56,7 +56,7 @@ The physical properties displayed in the panel depend of the selected equation.
 <figure>
   <img src="/documentation/svfsiplus/sv-fsi-tool/images/physics-panel-fluid-props.png" style="width: 30%;">
 </figure>
-<strong>Density</strong> <i>TextBox</i> - Fluid denisty
+<strong>Density</strong> <i>TextBox</i> - Fluid density
 <br>
 <strong>Viscosity</strong> <i>TextBox</i> - Fluid viscosity
 
@@ -65,7 +65,7 @@ The physical properties displayed in the panel depend of the selected equation.
 <figure>
   <img src="/documentation/svfsiplus/sv-fsi-tool/images/physics-panel-linear-elasticity-props.png" style="width: 30%;">
 </figure>
-<strong>Density</strong> <i>TextBox</i> - Solid denisty
+<strong>Density</strong> <i>TextBox</i> - Solid density
 <br>
 <strong>Elastic modulus</strong> <i>TextBox</i> - Elastic modulus 
 <br>
@@ -77,7 +77,7 @@ The physical properties displayed in the panel depend of the selected equation.
 <figure>
   <img src="/documentation/svfsiplus/sv-fsi-tool/images/physics-panel-structure-props.png" style="width: 30%;">
 </figure>
-<strong>Density</strong> <i>TextBox</i> - Solid denisty
+<strong>Density</strong> <i>TextBox</i> - Solid density
 <br>
 <strong>Elastic modulus</strong> <i>TextBox</i> - Elastic modulus 
 <br>
@@ -96,11 +96,11 @@ The physical properties displayed in the panel depend of the selected equation.
 <figure>
   <img src="/documentation/svfsiplus/sv-fsi-tool/images/physics-panel-fsi-props.png" style="width: 30%;">
 </figure>
-<strong>Density</strong> <i>TextBox</i> - Fluid denisty
+<strong>Density</strong> <i>TextBox</i> - Fluid density
 <br>
 <strong>Viscosity</strong> <i>TextBox</i> - Fluid viscosity
 <br>
-<strong>Solid Density</strong> <i>TextBox</i> - Solid denisty
+<strong>Solid Density</strong> <i>TextBox</i> - Solid density
 <br>
 <strong>Poisson ratio</strong> <i>TextBox</i> -  Poisson ratio. Value <= 0.5
 <br>
@@ -119,7 +119,7 @@ The physical properties displayed in the panel depend of the selected equation.
 The quantities output by default are displayed in the right sub-panel.
 
 Selecting the output quantity name in the left panel and selecting the <strong>&gt;</strong> <i>Button</i> moves 
-it to the right pannel and adds that quantity for output.
+it to the right panel and adds that quantity for output.
 <figure>
   <img src="/documentation/svfsiplus/sv-fsi-tool/images/physics-panel-output.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   <p style="clear: both;">
@@ -135,7 +135,7 @@ it to the right pannel and adds that quantity for output.
   <img src="/documentation/svfsiplus/sv-fsi-tool/images/physics-panel-bcs.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   <p style="clear: both;">
 </figure>
-<strong>Add</strong> <i>Button</i> - Select to add a boundary condition. A <strong>Boundary Condition Setup</strong> popup window is displayed with a list of mesh boundary faces. Selecing a face name allows for setting the various parameters for a given type of boundary condition.
+<strong>Add</strong> <i>Button</i> - Select to add a boundary condition. A <strong>Boundary Condition Setup</strong> popup window is displayed with a list of mesh boundary faces. Selecting a face name allows for setting the various parameters for a given type of boundary condition.
   <img src="/documentation/svfsiplus/sv-fsi-tool/images/physics-panel-bc-popup.png" style="float: left; width: 50%; margin-right: 1%; margin-bottom: 0.5em;">
   <p style="clear: both;">
 <strong>Boundary Condition Setup Parameters</strong>
@@ -148,7 +148,7 @@ Selecting a face name adds a boundary condition for that face.
 <strong>Directional BC </strong> <i>CheckBox</i> - If selected 
 
 <div style="background-color: #E0E0E0; padding: 10px; border: 1px solid #000000; border-left: 1px solid #d0d0d0">
-<strong>Time dependance</strong> 
+<strong>Time dependence</strong> 
 
 <strong>Steady</strong> <i>CheckBox</i> - If selected 
 
@@ -208,7 +208,7 @@ Selecting a face name adds a boundary condition for that face.
 
 <br>
 <div style="background-color: #E0E0E0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
-<h5 id="advanced_gui_controls"> Advanced <i>Button</i> - Setting advanced solver paramters </h4>
+<h5 id="advanced_gui_controls"> Advanced <i>Button</i> - Setting advanced solver parameters </h4>
   <img src="/documentation/svfsiplus/sv-fsi-tool/images/physics-panel-advanced.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   <p style="clear: both;">
 <strong>Coupled</strong> - <i>CheckBox</i> - If selected

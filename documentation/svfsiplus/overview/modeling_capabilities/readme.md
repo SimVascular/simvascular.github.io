@@ -5,7 +5,7 @@ svFSIplus can numerically solve PDEs governing solid and fluid mechanics, diffus
 Some equations can be coupled and solved simultaneously to simulate the interaction between multiple regions representing 
 different physical system.  
 
-svFSIplus supports the solution of the folowing equations
+svFSIplus supports the solution of the following equations
 
 <li> Solid mechanics equations 
 

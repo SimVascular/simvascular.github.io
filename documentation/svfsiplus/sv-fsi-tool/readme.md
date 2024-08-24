@@ -13,7 +13,7 @@ The following sections describe how to use the SimVascular <strong>SV FSI Tool</
 mesh, boundary conditions, material properties and solver parameters needed for a simulation.
 
 <div style="background-color: #E0E0E0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
-See the <a href="#introduction"> Gettting Started / Introduction </a> documentation for a description of the
+See the <a href="#introduction"> Getting Started / Introduction </a> documentation for a description of the
 SimVascular graphical user interface (GUI) controls and useful application <i>Tools</i> concepts.
 </div>
 

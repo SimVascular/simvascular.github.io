@@ -38,7 +38,7 @@ be defined within a <i>Domain Subsection</i>, they can just be given in the encl
 <!-- --------------------------------- -->
 
 <h5 id="domain_eq_parameters"> Domain Parameters by Equation </h5>
-The following sections list the parameters associated with a domain for a specific equaion. 
+The following sections list the parameters associated with a domain for a specific equation. 
 
 <!-- ---------- advection_diffusion domain Parameters ---------- -->
 
@@ -366,7 +366,7 @@ for a solid is close to 0.5.
 <strong>&lt;Poisson_ratio&gt;</strong> <i>real </i> [0.3] <nobr>
 <strong>&lt;/Poisson_ratio&gt;</strong>
 </nobr><br>
-The Poisson ratio property for a solid. Permissible values are beteen 0.0 and 0.5.
+The Poisson ratio property for a solid. Permissible values are between 0.0 and 0.5.
 <br>
 
 <strong>&lt;Relative_tolerance&gt;</strong> <i>real</i> [1e-4] <nobr>
@@ -418,7 +418,7 @@ The viscosity property for a solid.
 <strong>&lt;Time_step_for_integration&gt;</strong> <i>real</i> [0.0] <nobr>
 <strong>&lt;/Time_step_for_integration&gt;</strong>
 </nobr><br>
-The time step size used to integrate activation models if different from simulaton time step. 
+The time step size used to integrate activation models if different from simulation time step. 
 <br>
 
 </div>

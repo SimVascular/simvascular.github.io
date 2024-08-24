@@ -110,7 +110,7 @@ The solution of a nonlinear system of equations is considered to be converged (s
 <strong>&lt;Use_taylor_hood_type_basis&gt;</strong> <i>boolean [false] </i> <nobr>
 <strong>&lt;/Use_taylor_hood_type_basis&gt;</strong>
 </nobr><br>
-If <i>true</i> then use a Taylor-Hood element pair for increassed stability.
+If <i>true</i> then use a Taylor-Hood element pair for increased stability.
 <br>
 </div>
 
@@ -120,7 +120,7 @@ If <i>true</i> then use a Taylor-Hood element pair for increassed stability.
 
 <h4 id="viscosity_parameters"> Viscosity Subsection </h4>
 The <i>Viscosity Subsection</i> of the <i>Equation Section</i> or <i>Domain Subsection</i> defines 
-the parameters for the viscosty model used by fluid and stokes equations. 
+the parameters for the viscosity model used by fluid and stokes equations. 
 
 The <i>Viscosity Subsection</i> is organized as follows
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">

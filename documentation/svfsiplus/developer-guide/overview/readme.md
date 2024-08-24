@@ -6,6 +6,6 @@ svFSIplus uses a procedural programming paradigm which it inherited from its For
 code is implemented as a set of functions that call each other. The solver program thus executes by 
 passing data to functions to carry out a series of computational steps.
 
-The <i>Second Stage</i> of development will be a reimplementation of the code using an object-oriented architecture. This will be performed incrementally (if possible!) by creating objects representing the fundamental components of the
+The <i>Second Stage</i> of development will be a re-implementation of the code using an object-oriented architecture. This will be performed incrementally (if possible!) by creating objects representing the fundamental components of the
 finite element analysis (e.g. element technology). 
 

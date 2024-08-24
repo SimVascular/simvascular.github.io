@@ -18,12 +18,12 @@ is used by svFSIplus to store
 <li> Simulation results </i>
 </ul>
 
-The VTK XML files store geometry data (points, lines, polygons, polyhedra) as well user-defined arrays
+The VTK XML files store geometry data (points, lines, polygons, polyhedron) as well user-defined arrays
 containing integer and float data
 
 <ul style="list-style-type:disc;">
 <li> Integer arrays - used to associate values (e.g. node and element IDs) with geometric entities </i>
-<li> Float arrays - used to initialize state varaibles and set values for certain types of boundary conditions </i>
+<li> Float arrays - used to initialize state variables and set values for certain types of boundary conditions </i>
 </ul>
 
 The VTK XML file formats used are

@@ -72,17 +72,17 @@ The dimension of the Kyrlov matrix used to approximate a linear system.
 <strong>&lt;Tolerance&gt;</strong> <i>real</i> [0.4]  <nobr>
 <strong>&lt;/Tolerance&gt;</strong>
 </nobr><br>
-The solution of a inear system of equations is considered to be converged (solved) if the linear residual is less than this value. 
+The solution of a linear system of equations is considered to be converged (solved) if the linear residual is less than this value. 
 <br>
 <strong>&lt;Absolute_tolerance&gt;</strong> <i>real</i> [1e-10]  <nobr>
 <strong>&lt;/Absolute_tolerance&gt;</strong>
 </nobr><br>
-The solution of a inear system of equations is considered to be converged (solved) if the linear residual is less than this value.
+The solution of a near system of equations is considered to be converged (solved) if the linear residual is less than this value.
 <br>
 <strong>&lt;NS_GM_max_iterations&gt;</strong> <i>integer</i> [5]  <nobr>
 <strong>&lt;/NS_GM_max_iterations&gt;</strong>
 </nobr><br>
-The solution of a inear system of equations is considered to be converged (solved) if the linear residual is less than this value.
+The solution of a near system of equations is considered to be converged (solved) if the linear residual is less than this value.
 <br>
 <strong>&lt;NS_GM_tolerance&gt;</strong> <i>real</i> [1e-10]  <nobr>
 <strong>&lt;/NS_GM_tolerance&gt;</strong>

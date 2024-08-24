@@ -59,7 +59,7 @@ The Traction boundary condition applies a force on a face. The force can be alon
 <h5 id="temporal_spatial_distribution_bc"> Temporal and spatial values for boundary conditions </h5>
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
 A spatial distribution of values is used for only Neumann or Traction boundary condition types to specify
-a spatially varying load (pressure/traction). The values are stored as nodel values for a face in a VTK VTP format file.
+a spatially varying load (pressure/traction). The values are stored as nodal values for a face in a VTK VTP format file.
 
 A temporal distribution specifies the time-dependent values of a state variable. The values are stored as the value of 
 a state variable integrated over a face stored in a text file.
@@ -109,7 +109,7 @@ Use the VTK VTP-format file to initialize CMM using a prestressed wall under equ
 <strong>&lt;Profile&gt;</strong> <i>string</i> [flat]  <nobr> 
 <strong>&lt;/Profile&gt;</strong>
 </nobr><br>
-Set the spatial distribution of a state varible on the face. Acceptable values: Flat, Parabolic or User_defined
+Set the spatial distribution of a state variable on the face. Acceptable values: Flat, Parabolic or User_defined
 <br>
 <strong>&lt;Ramp_function&gt;</strong> <i>boolean</i> [<i>false</i>]  <nobr> 
 <strong>&lt;/Ramp_function&gt;</strong>
@@ -120,7 +120,7 @@ If <i>true</i> then the first two entries in the file setting an unsteady bounda
 <strong>&lt;Spatial_profile_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Spatial_profile_file_path&gt;</strong>
 </nobr><br>
-Use the given text file to set the spatial distribution of a state varible for a User_defined profile.
+Use the given text file to set the spatial distribution of a state variable for a User_defined profile.
 <br>
 <section id="bc_Spatial_values_file">
 <strong>&lt;Spatial_values_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 

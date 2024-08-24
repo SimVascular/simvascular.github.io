@@ -26,9 +26,9 @@ auto Fi = mat_inv(F, 2);
 </pre>
 
 <h3 id="developer_code_organization_classes"> Classes </h3>
-C++ <i>classes</i> are used to reproduce Fortran modules and user-defined data types. A module is a bit like a C++ class because it can encapsulate both data and procedures. Classes representing Fortan modules are stored in a file using the class name; the A class definition is in an A.h file and its implementation is in a A.cpp file. 
+C++ <i>classes</i> are used to reproduce Fortran modules and user-defined data types. A module is a bit like a C++ class because it can encapsulate both data and procedures. Classes representing Fortran modules are stored in a file using the class name; the A class definition is in an A.h file and its implementation is in a A.cpp file. 
 
-A user-defined data type is implemented as a C++ class and is used primarilally to store data. All member data is public. Some have a <strong>destroy</strong> method used to free memory. These classes are defined in the C++ module classes.
+A user-defined data type is implemented as a C++ class and is used primarily to store data. All member data is public. Some have a <strong>destroy</strong> method used to free memory. These classes are defined in the C++ module classes.
 
 Example
 <pre>

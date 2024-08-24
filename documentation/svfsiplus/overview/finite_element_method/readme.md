@@ -7,7 +7,7 @@ finite elements called a finite element mesh. The finite elements are used numer
 (e.g. velocity) within a geometric region of a physical system. Elements can be implemented using a combination of linear, quadratic, 
 and cubic interpolating polynomials.
 
-svFSIplus supports the folowing element types 
+svFSIplus supports the following element types 
 
 <ul style="list-style-type:disc;">
  <li> <i>line</i> - linear and quadratic </li>
@@ -23,7 +23,7 @@ Depending on the PDE being solved this system of equations can be linear or nonl
 solved to produce an approximation to the actual solution to the PDE. A nonlinear system must be solved using an iterative procedure to 
 generate and solve a series of linear systems of equations converging to an approximation to the actual solution to the nonlinear PDE. 
 
-Most automatic mesh generation software packages produce finite element meshes are composed primarily of tetrahedra.
+Most automatic mesh generation software packages produce finite element meshes are composed primarily of tetrahedron.
 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #0000e6; border-left: 6px solid #0000e6">
 

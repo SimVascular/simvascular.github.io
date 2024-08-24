@@ -58,7 +58,7 @@ The data file is a <a href="#appendix_vtk_file_format"> VTK VTU </a> format file
 State variables and any output quantities given in the solver input file 
 <a href="#output_parameters"> Output Subsection </a> are stored using PointData arrays.
 
-A seperate VTK file is used to store results for a single time step. Results can be visualized using
+A separate VTK file is used to store results for a single time step. Results can be visualized using
 the <a href="https://www.paraview.org/"> ParaView </a> visualization program.
 
 Data from all processors in a parallel simulation are written to the VTK files.

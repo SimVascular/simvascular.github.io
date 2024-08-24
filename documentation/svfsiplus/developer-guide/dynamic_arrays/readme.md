@@ -20,7 +20,7 @@ These templates have been implemented to reproduce much of the functionality of 
 <li> Linear algebra operators </i>
 </ul>
 
-Templates have some common attibutes and methods 
+Templates have some common attributes and methods 
 <ul style="list-style-type:disc;">
 <li> <strong>clear()</strong> method - release array memory </i>
 <li> <strong>data()</strong> method - returns a raw pointer to the array's memory (needed for MPI calls)</i>
@@ -52,10 +52,10 @@ Example: Use <code>double A[3][3]</code> rather than <code>Array&lt;double> A(3,
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600">
 Make sure to use references when accessing array objects unless an explicit copy is needed.
 <br><br>
-// Creates a reference; com_mod.R will be modfified.<br>
+// Creates a reference; com_mod.R will be modified.<br>
 auto& R = com_mod.R;      
 
-// Creates a copy, com_mod.R will not be modfified.<br>
+// Creates a copy, com_mod.R will not be modified.<br>
 auto R = com_mod.R;       
 </div>
 
@@ -98,7 +98,7 @@ The <strong>Array</strong> template has two methods used to get a column of data
 object 
 <ul style="list-style-type:disc;">
 <li> <strong>col</strong> - Returns a new Vector<T> object containing a copy of the column data.
-<li> <strong>rcol</strong> - Returns a new Vector<T> object containing an address pointing into the Array internal data. Modifying the Vector<T> object's data modifies the orginal Array data. 
+<li> <strong>rcol</strong> - Returns a new Vector<T> object containing an address pointing into the Array internal data. Modifying the Vector<T> object's data modifies the original Array data. 
 </i>
 </ul>
 
@@ -133,5 +133,5 @@ slice data is going to be modified. It can also speed up code that repeatedly ex
 <br>
 <h4 id="developer_dynamic_arrays_tensor4"> Tensor4 Template </h4>
 The <a href="https://github.com/SimVascular/svFSIplus/blob/b92add4a33eea4b6632fb323f484f08d3e62a716/Code/Source/svFSI/Tensor4.h#L44"> Tensor4.h </a> template is used to store a 4D array of values. Values are accessed using fours indexes.  
-<strong>Tensor4</strong> objects are primarilty used in material model code.
+<strong>Tensor4</strong> objects are primarily used in material model code.
 

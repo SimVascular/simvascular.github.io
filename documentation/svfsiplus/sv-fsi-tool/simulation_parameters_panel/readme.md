@@ -19,7 +19,7 @@ The Simulation Parameters panel is used to set general solver parameters.
 
 <pre>
 <h5>Time control</h5> 
-<strong>Start from pervious simulation</strong> <i>CheckBox</i> - If selected then start the simulation from 
+<strong>Start from previous simulation</strong> <i>CheckBox</i> - If selected then start the simulation from 
 the saved state of a previous simulation.
 
 <strong>Number of time steps</strong> <i>TextBox</i> - The number of time steps to run the simulation.
@@ -53,11 +53,11 @@ the entire simulation using the using VTU files written during the simulation.
 
 <strong>Spectral radius of infinite time step</strong> <i>TextBox</i> - The spectral radius is used to compute parameters for the generalized alpha method. A value of 0.0 leads to an over-damped system while 1.0 leads to an undamped system.
 
-<strong>Remshing</strong> <i>CheckBox</i> - If selected then the finite element mesh for FSI simulations will be
+<strong>Remeshing</strong> <i>CheckBox</i> - If selected then the finite element mesh for FSI simulations will be
 automatically remeshed during a simulation.
 
 <strong>Warning</strong> <i>CheckBox</i> - If selected then print out warning messages indicating unexpected
-inputs or simulation behaviour.
+inputs or simulation behavior.
 
 <strong>Verbose</strong> <i>CheckBox</i> - If selected print detailed messages when processing input.
 

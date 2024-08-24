@@ -44,7 +44,7 @@ enum class ElementType
 
 </pre>
 
-The <strong>HEX8</strong> value is accesed using <strong>ElementType::HEX8</strong>.
+The <strong>HEX8</strong> value is accessed using <strong>ElementType::HEX8</strong>.
 
 The C++ <strong>constexpr</strong> statement can be used to create a short hand name for a <strong>enum class</strong> value 
 <pre>
@@ -66,7 +66,7 @@ This section outlines some of the details of the finite element method implement
 <!-- --------------------------------------------------------- -->
 <!-- Element properites and shape functions                    -->
 <!-- --------------------------------------------------------- -->
-<h4 id="developer_implementation_finite_element_method_props"> Element properites and shape functions </h4>
+<h4 id="developer_implementation_finite_element_method_props"> Element properties and shape functions </h4>
 The original Fortran code set element properties and shape function data using very large <i>select</i> statements in the NN.f file. The C++ code reproduces this functionality using (very large) <i>std::map</i> data structures implemented in the files with a <i>nn</i> prefix
 
 <br> 
@@ -191,7 +191,7 @@ The <b>PetscLinearAlgebra</b> interface was taken from an implementation for the
 <!-- ========================================================= -->
 
 <h3 id="developer_implementation_material_models"> Material Models </h3>
-Material modesl are implemented using function templates in the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/mat_models_carray.h"> mat_models_carray.h</a> file. The function templates are parameterized by space dimension 2 or 3.
+Material models are implemented using function templates in the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/mat_models_carray.h"> mat_models_carray.h</a> file. The function templates are parameterized by space dimension 2 or 3.
 
 <strong>Example</strong> Calling the <strong>get_pk2cc</strong> function template for dimension 3
 <pre>
@@ -215,9 +215,9 @@ See <a href="#developer_code_organization_svfsi_parallel"> Organization / svFSI 
 <a href="#developer_code_organization_svfsils_parallel"> Organization / FSILS Parallel Processing </a> for a list of the files associated with parallel processing.
 
 MPI is initialized in the <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp#L781"> main </a> 
-svFSIplus function. Each process reads in the solver input XML file. The master process then partitions the simulation mesh and boundary conditions and sends the partiioned data to each process.
+svFSIplus function. Each process reads in the solver input XML file. The master process then partitions the simulation mesh and boundary conditions and sends the partitioned data to each process.
 
-The <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/CmMod.h#L82"> cmType class </a> <strong>bcast</strong> functions wrap <strong>MPI_Bcast</strong> for C++ data types (e.g., bool, double, etc.) and svFSIplu <strong>Vector</strong> objects. C++ <strong>enum</strong> values are sent as <strong>int</strong>s using the <strong>bcast_enum</strong> template function.
+The <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/CmMod.h#L82"> cmType class </a> <strong>bcast</strong> functions wrap <strong>MPI_Bcast</strong> for C++ data types (e.g., bool, double, etc.) and svFSIplus <strong>Vector</strong> objects. C++ <strong>enum</strong> values are sent as <strong>int</strong>s using the <strong>bcast_enum</strong> template function.
 
 <strong>Example</strong> Broadcasting the value of dmn.phys (class enum <strong>EquationType</strong>)
 <pre>
@@ -275,7 +275,7 @@ The <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFS
 <h3 id="developer_implementation_flow_control"> Flow of Control </h3>
 This section outlines the solver flow of control for a simulation.
 
-The code is documented using a text and links to code in GitHub using the followig conventions
+The code is documented using a text and links to code in GitHub using the following conventions
 
 <ul style="list-style-type:disc;">
   <li> A call to a function has the function name shown in square brackets [<i>function_name</i>] </li>
@@ -327,7 +327,7 @@ Create <strong>Simulation</strong> object [ <a href="https://github.com/SimVascu
 <!-- --------------------------------------------------------- -->
 <h4 id="developer_implementation_flow_control_remesh_loop"> Iterate for restarting a simulation after remeshing </h4>
 This code section checks if a remeshing operation is needed while iterating over time. If remeshing is needed then the time
-iteration is interrupted, remshing is performed, new mesh data is distributed and time iteration continues.
+iteration is interrupted, remeshing is performed, new mesh data is distributed and time iteration continues.
 
 <a href="https://github.com/SimVascular/svFSIplus/blob/main/Code/Source/svFSI/main.cpp#L805"> main() in main.cpp </a>
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 6px solid #d0d0d0">

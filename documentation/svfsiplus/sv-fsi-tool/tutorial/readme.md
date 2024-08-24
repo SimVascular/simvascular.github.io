@@ -372,7 +372,7 @@ The flow will have a parabolic spatial profile across the <strong>inflow</strong
     The following actions are then performed to set the appropriate parameters for a resistance boundary condition 
     for the <strong>outflow</strong> face:
     <br><br>
-    Select the <strong>outlow</strong> face name from <strong>Face list</strong> <i>List</i>.
+    Select the <strong>outflow</strong> face name from <strong>Face list</strong> <i>List</i>.
     <br><br>
     Select <strong>Neumann</strong> from the <strong>BC Type</strong> <i>ComboBox</i>.
     <br><br>
