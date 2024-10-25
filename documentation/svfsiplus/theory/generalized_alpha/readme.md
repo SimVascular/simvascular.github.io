@@ -2,17 +2,17 @@
 <h2> Generalized-alpha time integration </h2>
     
     Consider a general system of nonlinear ordinary differential equations (ODEs),
-    \begin{equation}
+    $$
         \dot{\boldsymbol{u}} = \boldsymbol{f}\left(\boldsymbol{u}\right). \label{eqn_general_ode}
-    \end{equation}
+    $$
     This equation can also be written in residual form as 
-    \begin{equation}
+    $$
         \boldsymbol{R}\left(\dot{\boldsymbol{u}}, \boldsymbol{u}\right) = \boldsymbol{0}, \label{eqn_general_ode_residual}
-    \end{equation}
+    $$
     where the residual is defined by moving all terms in \eqref{eqn_general_ode} to the left-hand side of the equation, such that $\boldsymbol{R}\left(\dot{\boldsymbol{u}}, \boldsymbol{u}\right) := \dot{\boldsymbol{u}} - \boldsymbol{f}\left(\boldsymbol{u}\right)$. Our goal is to temporally discretize this system and solve for the solution variables, $\dot{\boldsymbol{u}}_{n+1}$ and $\boldsymbol{u}_{n+1}$, at the next time step, $n+1$, given the solutions, $\dot{\boldsymbol{u}}_{n}$ and $\boldsymbol{u}_{n}$, at the current time step, $n$, for $n \in \left[0, N_{t} - 1\right]$, where $N_{t}$ is the total number of time steps. $\dot{\boldsymbol{u}}_{n=0}$ and $\boldsymbol{u}_{n=0}$ are given by the initial condition. Note that \eqref{eqn_general_ode} and \eqref{eqn_general_ode_residual} may be obtained by some spatially discretizing some partial differential equation with the finite element method. For example, the governing system of ODEs for the unsteady heat equation is
-    \begin{equation}
+    $$
         \boldsymbol{R}\left(\dot{\boldsymbol{u}}, \boldsymbol{u}\right) = \boldsymbol{M}\dot{\boldsymbol{u}} + \boldsymbol{K}\boldsymbol{u} - \boldsymbol{F} = \boldsymbol{0}. \label{eqn_heat_ode}
-    \end{equation}
+    $$
 
     To solve \eqref{eqn_general_ode_residual}, we will use the generalized-$\alpha$ method,
     \begin{align}
@@ -47,16 +47,16 @@
 
             <li> <i>
                 The corrections are then computed by solving 
-                \begin{equation}
+                $$
                     \boldsymbol{J}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right)\Delta\dot{\boldsymbol{u}} = -\boldsymbol{R}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right), \label{eqn_gen_alpha_linear_system}
-                \end{equation}
+                $$
                 where the Jacobian (tangent matrix), $\boldsymbol{J}$, is defined as
-                \begin{equation}
+                $$
                     \begin{split}
                         \boldsymbol{J}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right) &= \frac{\partial \boldsymbol{R}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right)}{\partial \boldsymbol{u}_{n+\alpha_f}} \frac{\partial \boldsymbol{u}_{n+\alpha_f}}{\partial \dot{\boldsymbol{u}}_{n+1}} + \frac{\partial \boldsymbol{R}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right)}{\partial \dot{\boldsymbol{u}}_{n+\alpha_m}} \frac{\partial \dot{\boldsymbol{u}}_{n+\alpha_m}}{\partial \dot{\boldsymbol{u}}_{n+1}} \\
                         &= \alpha_{f}\gamma\Delta t \frac{\partial \boldsymbol{R}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right)}{\partial \boldsymbol{u}_{n+\alpha_f}} + \alpha_{m} \frac{\partial \boldsymbol{R}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right)}{\partial \dot{\boldsymbol{u}}_{n+\alpha_m}}. \label{eqn_gen_alpha_jacobian}
                     \end{split}
-                \end{equation}
+                $$
                 Here, $\Delta\dot{\boldsymbol{u}}$ is defined as $\Delta\dot{\boldsymbol{u}} = \dot{\boldsymbol{u}}_{n+1}^{l} - \dot{\boldsymbol{u}}_{n+1}^{l-1}$ and the gradients get evaluated to $\frac{\partial \boldsymbol{u}_{n+\alpha_f}}{\partial \dot{\boldsymbol{u}}_{n+1}} = \alpha_{f}\gamma\Delta t \boldsymbol{I}$ and $\frac{\partial \dot{\boldsymbol{u}}_{n+\alpha_m}}{\partial \dot{\boldsymbol{u}}_{n+1}} = \alpha_{m} \boldsymbol{I}$. The linear solve in \eqref{eqn_gen_alpha_linear_system} is performed in the \texttt{ls\_solve} function called in \texttt{main.cpp} of \texttt{svFSIplus}. Observe that this approach obtains acceleration-based corrections, similar to \cite{Esmaily2014, bazilevs2007variational}. Other references use velocity-based corrections \cite{jansen2000generalized}.
 
             <li> <i>
