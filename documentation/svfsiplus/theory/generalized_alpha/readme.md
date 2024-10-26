@@ -4,7 +4,7 @@
 Consider a general system of nonlinear ordinary differential equations (ODEs),
 
 $$
-    \dot{\boldsymbol{u}}_{n+1} = \boldsymbol{f}\left(\boldsymbol{u}\right). \label{eqn_general_ode}
+    \dot{\boldsymbol{u}} = \boldsymbol{f}\left(\boldsymbol{u}\right). \label{eqn_general_ode}
 $$
 
 This equation can also be written in residual form as 
@@ -13,7 +13,7 @@ $$
     \boldsymbol{R}\left(\dot{\boldsymbol{u}}, \boldsymbol{u}\right) = \boldsymbol{0}, \label{eqn_general_ode_residual}
 $$
 
-where the residual is defined by moving all terms in \eqref{eqn_general_ode} to the left-hand side of the equation, such that $\boldsymbol{R}\left(\dot{\boldsymbol{u}}, \boldsymbol{u}\right) := \dot{\boldsymbol{u}} - \boldsymbol{f}\left(\boldsymbol{u}\right)$. Our goal is to temporally discretize this system and solve for the solution variables, $\dot{\boldsymbol{u}}_{n+1}$ and $\boldsymbol{u}_{n+1}$, at the next time step, $n+1$, given the solutions, $\dot{\boldsymbol{u}}_{n}$ and $\boldsymbol{u}_{n}$, at the current time step, $n$, for $n \in \left[0, N_{t} - 1\right]$, where $N_{t}$ is the total number of time steps. $\dot{\boldsymbol{u}}_{n=0}$ and $\boldsymbol{u}_{n=0}$ are given by the initial condition. Note that \eqref{eqn_general_ode} and \eqref{eqn_general_ode_residual} may be obtained by some spatially discretizing some partial differential equation with the finite element method. For example, the governing system of ODEs for the unsteady heat equation is
+where the residual is defined by moving all terms in \eqref{eqn_general_ode} to the left-hand side of the equation, such that $\boldsymbol{R}\left(\dot{\boldsymbol{u}}, \boldsymbol{u}\right) := \dot{\boldsymbol{u}} - \boldsymbol{f}\left(\boldsymbol{u}\right)$. Our goal is to temporally discretize this system and solve for the solution variables, $$\dot{\boldsymbol{u}}_{n+1}$$ and $\boldsymbol{u}_{n+1}$, at the next time step, $n+1$, given the solutions, $\dot{\boldsymbol{u}}_{n}$ and $\boldsymbol{u}_{n}$, at the current time step, $n$, for $n \in \left[0, N_{t} - 1\right]$, where $N_{t}$ is the total number of time steps. $\dot{\boldsymbol{u}}_{n=0}$ and $\boldsymbol{u}_{n=0}$ are given by the initial condition. Note that \eqref{eqn_general_ode} and \eqref{eqn_general_ode_residual} may be obtained by some spatially discretizing some partial differential equation with the finite element method. For example, the governing system of ODEs for the unsteady heat equation is
 
 $$
     \boldsymbol{R}\left(\dot{\boldsymbol{u}}, \boldsymbol{u}\right) = \boldsymbol{M}\dot{\boldsymbol{u}} + \boldsymbol{K}\boldsymbol{u} - \boldsymbol{F} = \boldsymbol{0}. \label{eqn_heat_ode}
