@@ -41,8 +41,7 @@ This method iteratively solves for $\dot{\boldsymbol{u}}_{n+1}$ and $\boldsymbol
     Then, the steps below are repeated for $l \in \left[1, N_{l}\right]$, where $N_{l}$ is the total number of iterations, to iteratively correct the predictions. 
 
 <ul>
-    <li> <i>
-        We first calculate the solution variables at intermediate time steps,
+    <li> <i> We first calculate the solution variables at intermediate time steps,
         \begin{align}
             \dot{\boldsymbol{u}}_{n+\alpha_m} &= \dot{\boldsymbol{u}}_{n} + \alpha_{m} \left(\dot{\boldsymbol{u}}_{n+1}^{l-1} - \dot{\boldsymbol{u}}_{n}\right), 
             \label{eqn_gen_alpha_corrector_l_m} \\
@@ -50,8 +49,7 @@ This method iteratively solves for $\dot{\boldsymbol{u}}_{n+1}$ and $\boldsymbol
         \end{align}
         This is performed in the \texttt{pici} function in \texttt{pic.cpp} in \texttt{svFSIplus}. 
 
-    <li> <i>
-        The corrections are then computed by solving 
+    <li> <i> The corrections are then computed by solving 
 
         $$
             \boldsymbol{J}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right)\Delta\dot{\boldsymbol{u}} = -\boldsymbol{R}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right), \label{eqn_gen_alpha_linear_system}
@@ -65,11 +63,10 @@ This method iteratively solves for $\dot{\boldsymbol{u}}_{n+1}$ and $\boldsymbol
                 &= \alpha_{f}\gamma\Delta t \frac{\partial \boldsymbol{R}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right)}{\partial \boldsymbol{u}_{n+\alpha_f}} + \alpha_{m} \frac{\partial \boldsymbol{R}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right)}{\partial \dot{\boldsymbol{u}}_{n+\alpha_m}}. \label{eqn_gen_alpha_jacobian}
             \end{split}
         $$
-        
+
         Here, $\Delta\dot{\boldsymbol{u}}$ is defined as $\Delta\dot{\boldsymbol{u}} = \dot{\boldsymbol{u}}_{n+1}^{l} - \dot{\boldsymbol{u}}_{n+1}^{l-1}$ and the gradients get evaluated to $\frac{\partial \boldsymbol{u}_{n+\alpha_f}}{\partial \dot{\boldsymbol{u}}_{n+1}} = \alpha_{f}\gamma\Delta t \boldsymbol{I}$ and $\frac{\partial \dot{\boldsymbol{u}}_{n+\alpha_m}}{\partial \dot{\boldsymbol{u}}_{n+1}} = \alpha_{m} \boldsymbol{I}$. The linear solve in \eqref{eqn_gen_alpha_linear_system} is performed in the \texttt{ls\_solve} function called in \texttt{main.cpp} of \texttt{svFSIplus}. Observe that this approach obtains acceleration-based corrections, similar to \cite{Esmaily2014, bazilevs2007variational}. Other references use velocity-based corrections \cite{jansen2000generalized}.
 
-    <li> <i>
-        After solving \eqref{eqn_gen_alpha_linear_system}, we update the predictions with
+    <li> <i> After solving \eqref{eqn_gen_alpha_linear_system}, we update the predictions with
         \begin{align}
             \dot{\boldsymbol{u}}_{n+1}^{l} &= \dot{\boldsymbol{u}}_{n+1}^{l-1} + \Delta\dot{\boldsymbol{u}}, \label{eqn_gen_alpha_corrector_update_udot} \\
             \boldsymbol{u}_{n+1}^{l} &= \boldsymbol{u}_{n+1}^{l-1} + \gamma\Delta t \Delta\dot{\boldsymbol{u}}. \label{eqn_gen_alpha_corrector_update_u}
