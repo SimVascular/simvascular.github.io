@@ -20,20 +20,20 @@ $$
 $$
 
 To solve \eqref{eqn_general_ode_residual}, we will use the generalized-$\alpha$ method,
-\begin{align}
+\begin{aligned}
     & \boldsymbol{R}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right) = \dot{\boldsymbol{u}}_{n+\alpha_m} - \boldsymbol{f}\left(\boldsymbol{u}_{n+\alpha_f}\right) = 0, \label{eqn_gen_alpha_corrector_ode} \\
     & \boldsymbol{u}_{n+1} = \boldsymbol{u}_{n} + \Delta t \dot{\boldsymbol{u}}_{n} + \gamma \Delta t \left(\dot{\boldsymbol{u}}_{n+1} - \dot{\boldsymbol{u}}_{n}\right), \label{eqn_gen_alpha_corrector_n} \\
     & \dot{\boldsymbol{u}}_{n+\alpha_m} = \dot{\boldsymbol{u}}_{n} + \alpha_{m} \left(\dot{\boldsymbol{u}}_{n+1} - \dot{\boldsymbol{u}}_{n}\right), \label{eqn_gen_alpha_corrector_m} \\
     & \boldsymbol{u}_{n+\alpha_f} = \boldsymbol{u}_{n} + \alpha_{f} \left(\boldsymbol{u}_{n+1} - \boldsymbol{u}_{n}\right) \label{eqn_gen_alpha_corrector_f}.
-\end{align}
+\end{aligned}
 This method iteratively solves for $\dot{\boldsymbol{u}}_{n+1}$ and $\boldsymbol{u}_{n+1}$ with a single predictor step and multiple corrector steps.
 
 <li> \textbf{Predictor stage}:
     First, the predictions of $\dot{\boldsymbol{u}}_{n+1}$ and $\boldsymbol{u}_{n+1}$ are set to
-    \begin{align}
+    \begin{aligned}
         \boldsymbol{u}_{n+1}^{l=0} &= \boldsymbol{u}_{n}, \label{eqn_gen_alpha_predictor_u} \\
         \dot{\boldsymbol{u}}_{n+1}^{l=0} &= \frac{\gamma - 1}{\gamma}\dot{\boldsymbol{u}}_{n}, \label{eqn_gen_alpha_predictor_udot}
-    \end{align}
+    \end{aligned}
     where $l$ is the iteration number. This is performed in the \texttt{picp} function in \texttt{pic.cpp} in \texttt{svFSIplus}. 
 </li>
 
@@ -43,11 +43,11 @@ This method iteratively solves for $\dot{\boldsymbol{u}}_{n+1}$ and $\boldsymbol
 <ul>
     <li> 
         We first calculate the solution variables at intermediate time steps,
-        \begin{align}
+        \begin{aligned}
             \dot{\boldsymbol{u}}_{n+\alpha_m} &= \dot{\boldsymbol{u}}_{n} + \alpha_{m} \left(\dot{\boldsymbol{u}}_{n+1}^{l-1} - \dot{\boldsymbol{u}}_{n}\right), 
             \label{eqn_gen_alpha_corrector_l_m} \\
             \boldsymbol{u}_{n+\alpha_f} &= \boldsymbol{u}_{n} + \alpha_{f} \left(\boldsymbol{u}_{n+1}^{l-1} - \boldsymbol{u}_{n}\right) \label{eqn_gen_alpha_corrector_l_f}.
-        \end{align}
+        \end{aligned}
         This is performed in the \texttt{pici} function in \texttt{pic.cpp} in \texttt{svFSIplus}. 
     </li>
 
@@ -72,10 +72,10 @@ This method iteratively solves for $\dot{\boldsymbol{u}}_{n+1}$ and $\boldsymbol
 
     <li> 
         After solving \eqref{eqn_gen_alpha_linear_system}, we update the predictions with
-        \begin{align}
+        \begin{aligned}
             \dot{\boldsymbol{u}}_{n+1}^{l} &= \dot{\boldsymbol{u}}_{n+1}^{l-1} + \Delta\dot{\boldsymbol{u}}, \label{eqn_gen_alpha_corrector_update_udot} \\
             \boldsymbol{u}_{n+1}^{l} &= \boldsymbol{u}_{n+1}^{l-1} + \gamma\Delta t \Delta\dot{\boldsymbol{u}}. \label{eqn_gen_alpha_corrector_update_u}
-        \end{align}
+        \end{aligned}
         This is performed in the \texttt{picc} function in \texttt{pic.cpp} in \texttt{svFSIplus}. 
     </li>
         
