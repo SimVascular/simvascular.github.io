@@ -21,7 +21,14 @@ $$
 
 To solve \eqref{eqn_general_ode_residual}, we will use the generalized-$\alpha$ method,
 
-$$ \begin{aligned} & \boldsymbol{R}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right) = \dot{\boldsymbol{u}}_{n+\alpha_m} - \boldsymbol{f}\left(\boldsymbol{u}_{n+\alpha_f}\right) = 0, \\ & \boldsymbol{u}_{n+1} = \boldsymbol{u}_{n} + \Delta t \dot{\boldsymbol{u}}_{n} + \gamma \Delta t \left(\dot{\boldsymbol{u}}_{n+1} - \dot{\boldsymbol{u}}_{n}\right), \\ & \dot{\boldsymbol{u}}_{n+\alpha_m} = \dot{\boldsymbol{u}}_{n} + \alpha_{m} \left(\dot{\boldsymbol{u}}_{n+1} - \dot{\boldsymbol{u}}_{n}\right), \\ & \boldsymbol{u}_{n+\alpha_f} = \boldsymbol{u}_{n} + \alpha_{f} \left(\boldsymbol{u}_{n+1} - \boldsymbol{u}_{n}\right). \end{aligned} $$
+$$
+\begin{aligned}
+    & \boldsymbol{R}\left(\dot{\boldsymbol{u}}_{n+\alpha_m}, \boldsymbol{u}_{n+\alpha_f}\right) = \dot{\boldsymbol{u}}_{n+\alpha_m} - \boldsymbol{f}\left(\boldsymbol{u}_{n+\alpha_f}\right) = 0, \label{eqn_gen_alpha_corrector_ode} \\
+    & \boldsymbol{u}_{n+1} = \boldsymbol{u}_{n} + \Delta t \dot{\boldsymbol{u}}_{n} + \gamma \Delta t \left(\dot{\boldsymbol{u}}_{n+1} - \dot{\boldsymbol{u}}_{n}\right), \label{eqn_gen_alpha_corrector_n} \\
+    & \dot{\boldsymbol{u}}_{n+\alpha_m} = \dot{\boldsymbol{u}}_{n} + \alpha_{m} \left(\dot{\boldsymbol{u}}_{n+1} - \dot{\boldsymbol{u}}_{n}\right), \label{eqn_gen_alpha_corrector_m} \\
+    & \boldsymbol{u}_{n+\alpha_f} = \boldsymbol{u}_{n} + \alpha_{f} \left(\boldsymbol{u}_{n+1} - \boldsymbol{u}_{n}\right) \label{eqn_gen_alpha_corrector_f}.
+\end{aligned}
+$$
 
 This method iteratively solves for $\dot{\boldsymbol{u}}_{n+1}$ and $\boldsymbol{u}_{n+1}$ with a single predictor step and multiple corrector steps.
 
