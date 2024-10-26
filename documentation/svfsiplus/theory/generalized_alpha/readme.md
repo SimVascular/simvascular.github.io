@@ -3,7 +3,7 @@
     
     Consider a general system of nonlinear ordinary differential equations (ODEs),
     ```math
-        \dot{\boldsymbol{u}} = \boldsymbol{f}\left(\boldsymbol{u}\right). \label{eqn_general_ode}
+        \dot{\boldsymbol{u}} = \boldsymbol{f}\left(\boldsymbol{u}\right)
     ```
     This equation can also be written in residual form as 
     $$
