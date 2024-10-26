@@ -2,9 +2,7 @@
 <h2> Generalized-alpha time integration </h2>
     
     Consider a general system of nonlinear ordinary differential equations (ODEs),
-    ```math
-        \dot{\boldsymbol{u}} = \boldsymbol{f}\left(\boldsymbol{u}\right)
-    ```
+    $$\dot{\boldsymbol{u}} = \boldsymbol{f}\left(\boldsymbol{u}\right)$$
     This equation can also be written in residual form as 
     $$
         \boldsymbol{R}\left(\dot{\boldsymbol{u}}, \boldsymbol{u}\right) = \boldsymbol{0}, \label{eqn_general_ode_residual}
