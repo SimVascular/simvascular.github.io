@@ -4,7 +4,7 @@
 Consider a general system of nonlinear ordinary differential equations (ODEs),
 
 $$
-    \dot{\boldsymbol{u}} = \boldsymbol{f}\left(\boldsymbol{u}\right). \label{eqn_general_ode}
+    \dot{\boldsymbol{u}}_{n+1} = \boldsymbol{f}\left(\boldsymbol{u}\right). \label{eqn_general_ode}
 $$
 
 This equation can also be written in residual form as 
