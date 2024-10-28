@@ -16,7 +16,7 @@ where $K$ is the permeability of the porous media. The standard Navier-Stokes eq
 
 The effective dynamic viscosity, $\mu\left(\boldsymbol{u}\right)$, is written generally as a function of velocity here to account for non-Newtonian fluids. For Newtonian fluids, $\mu$ is a simply constant. 
 
-The boundary conditions for \eqref{eqn_nsb_pde_momentum} - \eqref{eqn_nsb_pde_continuity} are 
+The boundary conditions are 
 
 $$
 \begin{aligned}
