@@ -3,29 +3,34 @@
 
 Strong form
 
-The incompressible Navier-Stokes-Brinkman equations governing fluid flow in porous media are 
+The incompressible Navier-Stokes-Brinkman equations governing fluid flow in porous media are
+
 $$
 \begin{aligned}
     \rho\left(\dot{\boldsymbol{u}} + \boldsymbol{u} \cdot \boldsymbol{\nabla} \boldsymbol{u} - \boldsymbol{b}\right) &= \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} - \frac{\mu}{K}\boldsymbol{u}, & \boldsymbol{x} \in \Omega,~t \in \mathbb{R}_{\geq 0}, \\
     \boldsymbol{\nabla} \cdot \boldsymbol{u} &= 0, & \boldsymbol{x} \in \Omega,~t \in \mathbb{R}_{\geq 0},
 \end{aligned}
 $$
+
 where $K$ is the permeability of the porous media. The standard Navier-Stokes equations for general fluid flow can be recovered by simply removing the Darcy component (i.e., $K \rightarrow \infty$). 
 
 The effective dynamic viscosity, $\mu\left(\boldsymbol{u}\right)$, is written generally as a function of velocity here to account for non-Newtonian fluids. For Newtonian fluids, $\mu$ is a simply constant. 
 
 The boundary conditions for \eqref{eqn_nsb_pde_momentum} - \eqref{eqn_nsb_pde_continuity} are 
+
 $$
 \begin{aligned}
     \boldsymbol{u} &= \boldsymbol{g}, & \boldsymbol{x} \in \Gamma_{g}, \\
     \boldsymbol{\sigma} \cdot \boldsymbol{n} &= \boldsymbol{h}, & \boldsymbol{x} \in \Gamma_{h},
 \end{aligned}
 $$
+
 where $\boldsymbol{g}$ is the prescribed velocity and $\boldsymbol{h}$ is the prescribed traction.
 
 Residuals
 
 The per-element momentum and continuity residuals are
+
 $$
 \begin{aligned} % https://tex.stackexchange.com/a/358700
     \begin{split}
@@ -39,6 +44,7 @@ $$
     \end{split}
 \end{aligned}
 $$
+
 where, for the $a^{\text{th}}$ node in a given element, $R_{ai}^{m}$ is the momentum residual in the $i^{\text{th}}$ direction and $R_{a}^{c}$ is continuity residual.
 
 Tangent matrices
@@ -73,6 +79,9 @@ $$
 $$
 
 where 
+
 $$
 \frac{\partial r_{Mi}}{\partial \left[u_{n+\alpha_f}\right]_{bj}} = \left(\rho u_{k} N_{b,k}^{w} - \mu N_{b,kk}^{w} + \frac{\mu}{K} N_{b}^{w} - \frac{\partial \mu}{\partial x_{k}} N_{b,k}^{w} \right)\delta_{ij} - \frac{2}{\gamma} \frac{\partial \mu}{\partial \gamma} \epsilon_{il} N_{b,l}^{w} u_{j, kk} - \frac{\partial \mu}{\partial x_{j}} N_{b,i}^{w}.
 $$
+
+
