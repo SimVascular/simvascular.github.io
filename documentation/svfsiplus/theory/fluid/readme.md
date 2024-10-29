@@ -32,6 +32,36 @@ $$
 
 where $\boldsymbol{g}$ is the prescribed velocity and $\boldsymbol{h}$ is the prescribed traction.
 
+### Standard (Galerkin) weak form
+    
+To derive the Galerkin weak form for the Navier-Stokes-Brinkman equations, we first define our trial and weighting function spaces,
+
+$$
+\begin{aligned}
+    u_{i} \in \tau_{i} &= \{u_{i} \in H^{1}\left(\Omega\right) \mid u_{i} = g_{i} \text{ on } \Gamma_{g_{i}}\}, \\
+    w_{i} \in \nu_{i} &= \{w_{i} \in H^{1}\left(\Omega\right) \mid w_{i} = 0~\text{on}~\Gamma_{g_{i}}\}, \\
+    p, q \in Q &= \{p \in L^{2}\left(\Omega\right)\},
+\end{aligned}
+$$
+
+where $\boldsymbol{w}$ is the weighting function for velocity and $q$ is the weighting function for pressure. We represent these weighting functions discretely on a per-element-basis as
+
+$$
+\begin{aligned}
+    w_{i} &= \sum_{a=1}^{n_{en}} N_{a}^{w}w_{ai}, \\
+    q &= \sum_{a=1}^{n_{en}} N_{a}^{q}q_{a},
+\end{aligned}
+$$
+
+where $N_{a}^{w}$ and $N_{a}^{q}$ are the nodal shape (basis) functions for the velocity and pressure spaces, respectively, and $w_{ai}$ and $q_{a}$ are the associated arbitrary nodal coefficients. Similarly, the trial functions are represented by
+
+$$
+\begin{aligned}
+    u_{i} &= \sum_{a=1}^{n_{en}} N_{a}^{w}u_{ai}, \\
+    p &= \sum_{a=1}^{n_{en}} N_{a}^{q}p_{a}.
+\end{aligned}
+$$
+
 <!---
 Strong form
 
