@@ -110,15 +110,6 @@ $$
 r_{C} = r_{C}\left(\boldsymbol{u}^{h}\right) = \boldsymbol{\nabla} \cdot \boldsymbol{u}^{h}.
 $$
 
-The stabilization parameters are defined as
-
-$$
-\begin{aligned}
-    \tau_{SUPS} = \tau_{M} &= \left(\frac{4}{\Delta t^{2}} + \boldsymbol{u}^{h} \cdot \boldsymbol{G}\boldsymbol{u}^{h} + C_{1}\nu^{2}\boldsymbol{G}:\boldsymbol{G} + \left(\frac{\nu}{K}\right)^{2}\right)^{-1/2}, \\
-    \nu_{LSIC} = \tau_{C} &= \left(\tau_{SUPS}\boldsymbol{g} \cdot \boldsymbol{g}\right)^{-1}
-\end{aligned}
-$$
-
 <!---
 Strong form
 
