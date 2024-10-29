@@ -102,14 +102,6 @@ $$
 
 where $\boldsymbol{r}_{M}$ and $r_{C}$ are the PDE residuals, such that
 
-$$
-\boldsymbol{r}_{M} = \boldsymbol{r}_{M}\left(\boldsymbol{u}^{h}, p^{h}\right) = \rho\left(\frac{d\boldsymbol{u}^{h}}{dt} + \boldsymbol{u}^{h} \cdot \boldsymbol{\nabla} \boldsymbol{u}^{h} - \boldsymbol{b}\right) - \boldsymbol{\nabla} \cdot \boldsymbol{\sigma}^{h} + \frac{\mu}{K}\boldsymbol{u}^{h},
-$$
-
-$$
-r_{C} = r_{C}\left(\boldsymbol{u}^{h}\right) = \boldsymbol{\nabla} \cdot \boldsymbol{u}^{h}.
-$$
-
 <!---
 Strong form
 
