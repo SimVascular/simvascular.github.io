@@ -85,17 +85,17 @@ In VMS, the velocity and pressure terms are separated into coarse-scale and fine
 
 $$
 \begin{aligned}
-    \boldsymbol{u} &= \boldsymbol{u}^{h} + \boldsymbol{u}', \\
-    p &= p^{h} + p',
+    \boldsymbol{u} &= \boldsymbol{u}^{h} + \boldsymbol{u}\', \\
+    p &= p^{h} + p\',
 \end{aligned}
 $$
 
-where the $h$-superscript designates the coarse-scale components and the $'$-superscript denotes the fine-scale components. The fine-scale terms are defined as
+where the $h$-superscript designates the coarse-scale components and the $\'$-superscript denotes the fine-scale components. The fine-scale terms are defined as
 
 $$
 \begin{aligned}
-    \boldsymbol{u}' &= -\frac{\tau_{SUPS}}{\rho}\boldsymbol{r}_{M}\left(\boldsymbol{u}^{h}, p^{h}\right), \\
-    p' &= -\rho\nu_{LSIC}r_{C}\left(\boldsymbol{u}^{h}\right),
+    \boldsymbol{u}\' &= -\frac{\tau_{SUPS}}{\rho}\boldsymbol{r}_{M}\left(\boldsymbol{u}^{h}, p^{h}\right), \\
+    p\' &= -\rho\nu_{LSIC}r_{C}\left(\boldsymbol{u}^{h}\right),
 \end{aligned}
 $$
 
