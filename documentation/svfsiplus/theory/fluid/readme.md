@@ -49,7 +49,7 @@ The following inconsistent tangent matrices are used,
 where 
 
 $$
-\frac{\partial r_{Mi}}{\partial \left[u_{n+\alpha_f}\right]_{bj}}
+\frac{\partial r_{Mi}}{\partial \left[u_{n+\alpha_f}\right]_{bj}} = \left(\rho u_{k} N_{b,k}^{w} - \mu N_{b,kk}^{w} + \frac{\mu}{K} N_{b}^{w} - \frac{\partial \mu}{\partial x_{k}} N_{b,k}^{w} \right)
 $$
 
 
