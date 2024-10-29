@@ -1,7 +1,7 @@
 
 <h2> Fluid mechanics </h2>
 
-###Strong form
+### Strong form
 
 The incompressible Navier-Stokes-Brinkman equations governing fluid flow in porous media are 
 
