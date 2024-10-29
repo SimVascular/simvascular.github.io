@@ -71,14 +71,6 @@ $$
 \end{aligned}
 $$
 
-These two equations can be added together to obtain
-
-$$
-\int qu_{i,i} \,d\Omega + \int \rho w_{i}\dot{u}_{i} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma = 0.
-$$
-
-### Stabilized weak form
-
 
 
 <!---
