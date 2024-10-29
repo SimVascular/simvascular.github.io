@@ -100,13 +100,6 @@ $$
 p' = -\rho\nu_{LSIC}r_{C}\left(\boldsymbol{u}^{h}\right),
 $$
 
-$$
-\begin{aligned}
-\boldsymbol{u}' & = -\frac{\tau_{SUPS}}{\rho}\boldsymbol{r}_{M}\left(\boldsymbol{u}^{h}, p^{h}\right), \\
-p' & = -\rho\nu_{LSIC}r_{C}\left(\boldsymbol{u}^{h}\right),
-\end{aligned}
-$$
-
 where $\boldsymbol{r}_{M}$ and $r_{C}$ are the PDE residuals, such that
 
 $$
