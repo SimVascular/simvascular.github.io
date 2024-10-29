@@ -100,7 +100,7 @@ $$
 p' = -\rho\nu_{LSIC}r_{C}\left(\boldsymbol{u}^{h}\right),
 $$
 
-where $\boldsymbol{r}_{M}$ are the PDE residuals, such that
+where $\boldsymbol{r}_{M}$ and $r_{C}$ are the PDE residuals, such that
 
 <!---
 Strong form
