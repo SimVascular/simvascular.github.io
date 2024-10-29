@@ -49,6 +49,7 @@ The following inconsistent tangent matrices are used,
 $$
 \begin{aligned}
   G_{ac}^{i} = & \alpha_{f}\gamma\Delta t \left(-\int N_{c}^{q}N_{a, i}^{w} \,d\Omega + \int \tau_{SUPS} N_{a, g}^{w} u_{g} N_{c, i}^{q} \,d\Omega - \int N_{a, k}^{w} \frac{\tau_{SUPS}^{2}}{\rho} N_{c, i}^{q} r_{Mk} \,d\Omega \right), \\
+  D_{ab}^{j} = & \alpha_{f}\gamma\Delta t \left(\int N_{a}^{q}N_{b, j}^{w} \,d\Omega - \int \tau_{SUPS}\frac{N_{a, i}^{q}}{\rho}\left(-\frac{\alpha_{m}}{\alpha_{f}\gamma\Delta t}\rho N_{b}^{w}\delta_{ij} - \frac{\partial r_{Mi}}{\partial \left[u_{n+\alpha_f}\right]_{bj}}\right) \,d\Omega\right), \\
   L_{ac} = & \alpha_{f}\gamma\Delta t \int \tau_{SUPS}\frac{N_{a, i}^{q}}{\rho}N_{c, i}^{q} \,d\Omega,
 \end{aligned}
 $$
