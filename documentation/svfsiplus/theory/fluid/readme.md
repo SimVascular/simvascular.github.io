@@ -93,10 +93,11 @@ $$
 where the $h$-superscript designates the coarse-scale components and the $\'$-superscript denotes the fine-scale components. The fine-scale terms are defined as
 
 $$
-\begin{aligned}
-    \boldsymbol{u}\' &= -\frac{\tau_{SUPS}}{\rho}\boldsymbol{r}_{M}\left(\boldsymbol{u}^{h}, p^{h}\right), \\
-    p\' &= -\rho\nu_{LSIC}r_{C}\left(\boldsymbol{u}^{h}\right),
-\end{aligned}
+\boldsymbol{u}\' &= -\frac{\tau_{SUPS}}{\rho}\boldsymbol{r}_{M}\left(\boldsymbol{u}^{h}, p^{h}\right),
+$$
+
+$$
+p\' &= -\rho\nu_{LSIC}r_{C}\left(\boldsymbol{u}^{h}\right),
 $$
 
 <!---
