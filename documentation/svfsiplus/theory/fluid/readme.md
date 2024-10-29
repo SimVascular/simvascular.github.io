@@ -62,7 +62,7 @@ $$
 \end{aligned}
 $$
 
-We then multiply \eqref{eqn_nsb_pde_momentum} and \eqref{eqn_nsb_pde_continuity} by $\boldsymbol{w}$ and $q$, respectively, and integrate by parts to obtain the standard Galerkin momentum and continuity weak forms,
+We then multiply these equations by $\boldsymbol{w}$ and $q$, respectively, and integrate by parts to obtain the standard Galerkin momentum and continuity weak forms,
 
 $$
 \begin{aligned}
