@@ -19,6 +19,16 @@ $$
 \end{aligned}
 $$
 
+The boundary conditions are 
+
+$$
+\begin{aligned}
+    \boldsymbol{u} &= \boldsymbol{g}, \\
+    \boldsymbol{\sigma} \cdot \boldsymbol{n} &= \boldsymbol{h},
+\end{aligned}
+$$
+
+where $\boldsymbol{g}$ is the prescribed velocity and $\boldsymbol{h}$ is the prescribed traction.
 
 <!---
 Strong form
