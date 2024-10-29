@@ -100,7 +100,24 @@ $$
 p' = -\rho\nu_{LSIC}r_{C}\left(\boldsymbol{u}^{h}\right),
 $$
 
-where $\boldsymbol{r}_{M}$ and $r_{C}$ are the PDE residuals, such that
+where the PDE residuals are
+
+$$
+\boldsymbol{r}_{M} = \boldsymbol{r}_{M}\left(\boldsymbol{u}^{h}, p^{h}\right) = \rho\left(\frac{d\boldsymbol{u}^{h}}{dt} + \boldsymbol{u}^{h} \cdot \boldsymbol{\nabla} \boldsymbol{u}^{h} - \boldsymbol{b}\right) - \boldsymbol{\nabla} \cdot \boldsymbol{\sigma}^{h} + \frac{\mu}{K}\boldsymbol{u}^{h},
+$$
+
+$$
+r_{C} = r_{C}\left(\boldsymbol{u}^{h}\right) = \boldsymbol{\nabla} \cdot \boldsymbol{u}^{h}.
+$$
+
+The stabilization parameters are defined as
+
+$$
+\begin{aligned}
+    \tau_{SUPS} = \tau_{M} &= \left(\frac{4}{\Delta t^{2}} + \boldsymbol{u}^{h} \cdot \boldsymbol{G}\boldsymbol{u}^{h} + C_{1}\nu^{2}\boldsymbol{G}:\boldsymbol{G} + \left(\frac{\nu}{K}\right)^{2}\right)^{-1/2}, \\
+    \nu_{LSIC} = \tau_{C} &= \left(\tau_{SUPS}\boldsymbol{g} \cdot \boldsymbol{g}\right)^{-1}
+\end{aligned}
+$$
 
 <!---
 Strong form
