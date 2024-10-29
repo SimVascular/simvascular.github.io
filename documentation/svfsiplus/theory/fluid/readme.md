@@ -79,7 +79,43 @@ $$
 
 ### Stabilized weak form
 
+The standard weak form is generally not stable. Additional terms must be added to stabilize it. We will apply the residual-based variational multiscale (RBVMS / VMS) method for stabilization. 
 
+In VMS, the velocity and pressure terms are separated into coarse-scale and fine-scale components, such that
+
+$$
+\begin{aligned}
+    \boldsymbol{u} &= \boldsymbol{u}^{h} + \boldsymbol{u}', \\
+    p &= p^{h} + p',
+\end{aligned}
+$$
+
+where the $h$-superscript designates the coarse-scale components and the $'$-superscript denotes the fine-scale components. The fine-scale terms are defined as
+
+$$
+\begin{aligned}
+    \boldsymbol{u}' &= -\frac{\tau_{SUPS}}{\rho}\boldsymbol{r}_{M}\left(\boldsymbol{u}^{h}, p^{h}\right), \\
+    p' &= -\rho\nu_{LSIC}r_{C}\left(\boldsymbol{u}^{h}\right),
+\end{aligned}
+$$
+
+where $\boldsymbol{r}_{M}$ and $r_{C}$ are the PDE residuals, such that
+
+$$
+\begin{aligned}
+    \boldsymbol{r}_{M} = \boldsymbol{r}_{M}\left(\boldsymbol{u}^{h}, p^{h}\right) &= \rho\left(\frac{d\boldsymbol{u}^{h}}{dt} + \boldsymbol{u}^{h} \cdot \boldsymbol{\nabla} \boldsymbol{u}^{h} - \boldsymbol{b}\right) - \boldsymbol{\nabla} \cdot \boldsymbol{\sigma}^{h} + \frac{\mu}{K}\boldsymbol{u}^{h}, \\
+    r_{C} = r_{C}\left(\boldsymbol{u}^{h}\right) &= \boldsymbol{\nabla} \cdot \boldsymbol{u}^{h}.
+\end{aligned}
+$$
+
+The stabilization parameters are defined as
+
+$$
+\begin{aligned}
+    \tau_{SUPS} = \tau_{M} &= \left(\frac{4}{\Delta t^{2}} + \boldsymbol{u}^{h} \cdot \boldsymbol{G}\boldsymbol{u}^{h} + C_{1}\nu^{2}\boldsymbol{G}:\boldsymbol{G} + \left(\frac{\nu}{K}\right)^{2}\right)^{-1/2}, \\
+    \nu_{LSIC} = \tau_{C} &= \left(\tau_{SUPS}\boldsymbol{g} \cdot \boldsymbol{g}\right)^{-1}
+\end{aligned}
+$$
 
 <!---
 Strong form
