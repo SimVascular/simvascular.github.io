@@ -207,7 +207,7 @@ $$
 $$
 
 $$
-L_{ac} = \frac{\partial R_{a}^{c}}{\partial \left[\dot{p}_{n+1}\right]_{c}} = \alpha_{f}\gamma\Delta t \frac{\partial R_{a}^{c}}{\partial \left[p_{n+\alpha_f}\right]_{c}}.
+L_{ac} = \frac{\partial R_{a}^{c}}{\partial \left[\dot{p}_{n+1}\right]_{c}}.
 $$
 
 $$
