@@ -180,7 +180,7 @@ where, for the $a^{\text{th}}$ node in a given element, $R_{ai}^{m}$ is the mome
 
 ### Tangent matrices
 
-To compute the elemental tangent matrices, as used in the Newton iterations in the generalized - $\alpha$ method, we plug trial functions into the residuals. We then differentiate the resulting equations with respect to $\frac{d \boldsymbol{u}_{n+1}}{dt}$ and $\frac{dp_{n+1}}{dt}$. This yields the tangent matrix,
+To compute the elemental tangent matrices, as used in the Newton iterations in the generalized - $\alpha$ method, we plug trial functions into the residuals. We then differentiate the resulting equations with respect to $\frac{d u_{n+1}}{dt}$ and $\frac{dp_{n+1}}{dt}$. This yields the tangent matrix,
 
 $$
     \boldsymbol{J} = 
