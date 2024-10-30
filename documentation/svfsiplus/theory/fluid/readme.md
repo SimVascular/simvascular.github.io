@@ -130,6 +130,12 @@ $$
 $$
 
 This is the VMS-stabilized weak form for the Navier-Stokes-Brinkman equations. The first seven terms on the left-hand side correspond to the standard Galerkin weak form. The last five terms are the stabilization terms obtained via VMS. In deriving this equation, we used the continuity equation to obtain $w_{i}u_{k}u_{i,k} = w_{i}\left(u_{k}u_{i}\right)_{,k}$. We also applied the following assumptions,
+<li> $\frac{du'}{dt} = 0$,
+</li>
+<li> $u' = 0$ on $\Gamma_{g}$ and $\Gamma_{h}$,
+</li>
+<li> $\nabla^{s}\boldsymbol{w}:2\mu\nabla^{s}\boldsymbol{u}' = 0$.
+</li>
 
 We then add an additional stabilization term, $\int \frac{\bar{\tau}\tau_{SUPS}^{2}}{\rho} w_{i,k}r_{Mk}r_{Mj}u_{i,j} \,d\Omega$, to obtain
 
