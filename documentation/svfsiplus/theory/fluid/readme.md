@@ -129,6 +129,8 @@ $$
 \end{aligned}
 $$
 
+We then add an additional stabilization term, $\int \frac{\bar{\tau}\tau_{SUPS}^{2}}{\rho} w_{i,k}r_{Mk}r_{Mj}u_{i,j} \,d\Omega$, to obtain
+
 $$
 \begin{aligned}
     \int qu_{i,i} \,d\Omega & + \int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma \\ 
