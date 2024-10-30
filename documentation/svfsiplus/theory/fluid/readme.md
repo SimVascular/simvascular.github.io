@@ -198,15 +198,24 @@ $$
 where 
 
 $$
+$$
+
+$$
+$$
+
+$$
+$$
+
+$$
+L_{ac} = \frac{\partial R_{a}^{c}}{\partial \left[\dot{p}_{n+1}\right]_{c}} = \alpha_{f}\gamma\Delta t \frac{\partial R_{a}^{c}}{\partial \left[p_{n+\alpha_f}\right]_{c}}.
+$$
+
+$$
 \begin{aligned}
-    K_{ab}^{ij} &= \frac{\partial R_{ai}^{m}}{\partial \left[\dot{u}_{n+1}\right]_{bj}} 
-        = \alpha_{m} \frac{\partial R_{ai}^{m}}{\partial \left[\dot{u}_{n+\alpha_m}\right]_{bj}} + \alpha_{f}\gamma\Delta t \frac{\partial R_{ai}^{m}}{\partial \left[u_{n+\alpha_f}\right]_{bj}}, \\
-    G_{ac}^{i} &= \frac{\partial R_{ai}^{m}}{\partial \left[\dot{p}_{n+1}\right]_{c}} 
-        = \alpha_{f}\gamma\Delta t \frac{\partial R_{ai}^{m}}{\partial \left[p_{n+\alpha_f}\right]_{c}}, \\
-    D_{ab}^{j} &= \frac{\partial R_{a}^{c}}{\partial \left[\dot{u}_{n+1}\right]_{bj}} 
-        = \alpha_{m} \frac{\partial R_{a}^{c}}{\partial \left[\dot{u}_{n+\alpha_m}\right]_{bj}} + \alpha_{f}\gamma\Delta t \frac{\partial R_{a}^{c}}{\partial \left[u_{n+\alpha_f}\right]_{bj}}, \\
-    L_{ac} &= \frac{\partial R_{a}^{c}}{\partial \left[\dot{p}_{n+1}\right]_{c}} 
-        = \alpha_{f}\gamma\Delta t \frac{\partial R_{a}^{c}}{\partial \left[p_{n+\alpha_f}\right]_{c}}.
+    K_{ab}^{ij} &= \frac{\partial R_{ai}^{m}}{\partial \left[\dot{u}_{n+1}\right]_{bj}} = \alpha_{m} \frac{\partial R_{ai}^{m}}{\partial \left[\dot{u}_{n+\alpha_m}\right]_{bj}} + \alpha_{f}\gamma\Delta t \frac{\partial R_{ai}^{m}}{\partial \left[u_{n+\alpha_f}\right]_{bj}}, \\
+    G_{ac}^{i} &= \frac{\partial R_{ai}^{m}}{\partial \left[\dot{p}_{n+1}\right]_{c}} = \alpha_{f}\gamma\Delta t \frac{\partial R_{ai}^{m}}{\partial \left[p_{n+\alpha_f}\right]_{c}}, \\
+    D_{ab}^{j} &= \frac{\partial R_{a}^{c}}{\partial \left[\dot{u}_{n+1}\right]_{bj}} = \alpha_{m} \frac{\partial R_{a}^{c}}{\partial \left[\dot{u}_{n+\alpha_m}\right]_{bj}} + \alpha_{f}\gamma\Delta t \frac{\partial R_{a}^{c}}{\partial \left[u_{n+\alpha_f}\right]_{bj}}, \\
+    L_{ac} &= \frac{\partial R_{a}^{c}}{\partial \left[\dot{p}_{n+1}\right]_{c}} = \alpha_{f}\gamma\Delta t \frac{\partial R_{a}^{c}}{\partial \left[p_{n+\alpha_f}\right]_{c}}.
 \end{aligned}
 $$
 
