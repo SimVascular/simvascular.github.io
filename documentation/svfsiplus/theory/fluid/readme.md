@@ -198,7 +198,7 @@ $$
 where 
 
 $$
-L_{ac} = \frac{\partial R_{a}^{c}}{\partial \left[\dot{p}_{n+1}\right]_{c}}.
+L_{ac} = \frac{\partial R_{a}^{c}}{\partial \left(\dot{p}_{n+1}\right)_{c}}.
 $$
 
 <!---
