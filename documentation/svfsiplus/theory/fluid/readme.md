@@ -152,7 +152,7 @@ This equation is the full stabilized weak form used in fluid.cpp in svFSIplus.
 
 ### Residuals
 
-We will temporally discretize the stabilized weak form using the generalized-$\alpha$ method. The resulting nonlinear equation will be linearized and solved iteratively using the Newton-Raphson (Newton) method.
+We will temporally discretize the stabilized weak form using the generalized - $\alpha$ method. The resulting nonlinear equation will be linearized and solved iteratively using the Newton-Raphson (Newton) method.
 
 To compute the residuals for each element in the mesh, we separate the stabilized weak form into momentum and continuity components,
 
@@ -176,7 +176,23 @@ $$
 \end{aligned}
 $$
 
-where, for the $a^{\text{th}}$ node in a given element, $R_{ai}^{m}$ is the momentum residual in the $i^{\text{th}}$ direction and $R_{a}^{c}$ is continuity residual. The full residual vector, as used in the generalized- $\alpha$ method, is $\boldsymbol{R} = \left[R_{ai}^{m}, R_{a}^{c}\right]^{T}$. $R_{ai}^{m}$ and $R_{a}^{c}$ are coded in the fluid\_2d\_m/fluid\_3d\_m and fluid\_2d\_c/fluid\_3d\_c functions, respectively, in fluid.cpp in svFSIplus.
+where, for the $a^{\text{th}}$ node in a given element, $R_{ai}^{m}$ is the momentum residual in the $i^{\text{th}}$ direction and $R_{a}^{c}$ is continuity residual. The full residual vector, as used in the generalized - $\alpha$ method, is $\boldsymbol{R} = \left[R_{ai}^{m}, R_{a}^{c}\right]^{T}$. $R_{ai}^{m}$ and $R_{a}^{c}$ are coded in the fluid\_2d\_m/fluid\_3d\_m and fluid\_2d\_c/fluid\_3d\_c functions, respectively, in fluid.cpp in svFSIplus.
+
+### Tangent matrices
+
+To compute the elemental tangent matrices, as used in the Newton iterations in the generalized - $\alpha$ method, we plug trial functions into the residuals. We then differentiate the resulting equations with respect to $\frac{d\boldsymbol{u}_{n+1}}{dt}$ and $\frac{dp_{n+1}}{dt}$. This yields the tangent matrix,
+$$
+    \boldsymbol{J} = 
+    \begin{bmatrix}
+        \boldsymbol{K} &  \boldsymbol{G} \ \cr
+        \boldsymbol{D} &  \boldsymbol{L}
+    \end{bmatrix} = 
+    \begin{bmatrix}
+        \left[K_{ab}^{ij}\right] &  \left[G_{ac}^{i}\right] \ \cr
+        \left[D_{ab}^{j}\right] &  \left[L_{ac}\right]
+    \end{bmatrix}
+    ,
+$$
 
 <!---
 Strong form
