@@ -231,6 +231,21 @@ $$
 L_{ac} = \alpha_{f}\gamma\Delta t \int \tau_{SUPS}\frac{N_{a, i}^{q}}{\rho}N_{c, i}^{q} \,d\Omega,
 $$
 
+where 
+
+$$
+\frac{\partial r_{Mi}}{\partial u_{n+\alpha_f,bj}} = \left(\rho u_{k} N_{b,k}^{w} - \mu N_{b,kk}^{w} + \frac{\mu}{K} N_{b}^{w} - \frac{\partial \mu}{\partial x_{k}} N_{b,k}^{w} \right)\delta_{ij} - \frac{2}{\gamma} \frac{\partial \mu}{\partial \gamma} \epsilon_{il} N_{b,l}^{w} u_{j, kk} - \frac{\partial \mu}{\partial x_{j}} N_{b,i}^{w}. \label{}
+$$
+
+These inconsistent tangent matrices were derived by using these assumptions:
+
+<li> convective velocities (the $\boldsymbol{u}$ in $\boldsymbol{u} \cdot \boldsymbol{\nabla} u_{i}$) are constant,
+</li>
+<li> stabilization parameters, $\tau_{SUPS}$ and $\nu_{LSIC}$, are constant
+</li>
+
+$K_{ab}^{ij}$ and $G_{ac}^{i}$ are coded in the fluid\_2d\_m/fluid\_3d\_m functions, while $D_{ab}^{j}$ and $L_{ac}$ are coded in the fluid\_2d\_c/fluid\_3d\_c functions.
+
 <!---
 Strong form
 
