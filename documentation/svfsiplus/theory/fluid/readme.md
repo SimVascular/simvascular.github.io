@@ -6,10 +6,11 @@
 The incompressible Navier-Stokes-Brinkman equations governing fluid flow in porous media are 
 
 $$
-\begin{aligned}
-    \rho\left(\frac{d\boldsymbol{u}}{dt} + \boldsymbol{u} \cdot \boldsymbol{\nabla} \boldsymbol{u} - \boldsymbol{b}\right) &= \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} - \frac{\mu}{K}\boldsymbol{u}, \\
-    \boldsymbol{\nabla} \cdot \boldsymbol{u} &= 0,
-\end{aligned}
+\rho\left(\frac{d\boldsymbol{u}}{dt} + \boldsymbol{u} \cdot \boldsymbol{\nabla} \boldsymbol{u} - \boldsymbol{b}\right) = \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} - \frac{\mu}{K}\boldsymbol{u},
+$$
+
+$$
+\boldsymbol{\nabla} \cdot \boldsymbol{u} = 0,
 $$
 
 where $\boldsymbol{u} = \boldsymbol{u}\left(\boldsymbol{x}, t\right)$ is the velocity, $p = p\left(\boldsymbol{x}, t\right)$ is the pressure, $\boldsymbol{b} = \boldsymbol{b}\left(\boldsymbol{x}, t\right)$ is the body force, $\rho$ is the fluid density, and $K$ is the permeability of the porous media. The standard Navier-Stokes equations for general fluid flow can be recovered by simply removing the Darcy component (i.e., $K \rightarrow \infty$). The Cauchy stress tensor is $\boldsymbol{\sigma} = \boldsymbol{\sigma}\left(\boldsymbol{x}, t\right) = -p\boldsymbol{I} + 2\mu\left(\boldsymbol{u}\right)\epsilon$, where  $\epsilon = \epsilon\left(\boldsymbol{u}\right) = \nabla^{s} \boldsymbol{u} = \frac{1}{2}\left(\nabla \boldsymbol{u} + \left(\nabla\boldsymbol{u}\right)^{\text{T}} \right)$ is the strain rate tensor. The effective dynamic viscosity, $\mu\left(\boldsymbol{u}\right)$, is written generally as a function of velocity here to account for non-Newtonian fluids. For Newtonian fluids, $\mu$ is a simply constant. The divergence of the Cauchy stress tensor, written in both vector and index notation, is
@@ -53,28 +54,31 @@ $$
 where $\boldsymbol{w}$ is the weighting function for velocity and $q$ is the weighting function for pressure. We represent these weighting functions discretely on a per-element-basis as
 
 $$
-\begin{aligned}
-    w_{i} &= \sum_{a=1}^{n_{en}} N_{a}^{w}w_{ai}, \\
-    q &= \sum_{a=1}^{n_{en}} N_{a}^{q}q_{a},
-\end{aligned}
+w_{i} = \sum_{a=1}^{n_{en}} N_{a}^{w}w_{ai},
+$$
+
+$$
+q = \sum_{a=1}^{n_{en}} N_{a}^{q}q_{a},
 $$
 
 where $N_{a}^{w}$ and $N_{a}^{q}$ are the nodal shape (basis) functions for the velocity and pressure spaces, respectively, and $w_{ai}$ and $q_{a}$ are the associated arbitrary nodal coefficients. Similarly, the trial functions are represented by
 
 $$
-\begin{aligned}
-    u_{i} &= \sum_{a=1}^{n_{en}} N_{a}^{w}u_{ai}, \\
-    p &= \sum_{a=1}^{n_{en}} N_{a}^{q}p_{a}.
-\end{aligned}
+u_{i} = \sum_{a=1}^{n_{en}} N_{a}^{w}u_{ai},
+$$
+
+$$
+p = \sum_{a=1}^{n_{en}} N_{a}^{q}p_{a}.
 $$
 
 We then multiply the Navier-Stokes-Brinkman equations by $\boldsymbol{w}$ and $q$, respectively, and integrate by parts to obtain the standard Galerkin momentum and continuity weak forms,
 
 $$
-\begin{aligned}
-    \int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma &= 0, \\
-    \int qu_{i,i} \,d\Omega &= 0.
-\end{aligned}
+\int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma = 0,
+$$
+
+$$
+\int qu_{i,i} \,d\Omega = 0.
 $$
 
 These two equations can be added together to obtain
@@ -90,10 +94,11 @@ The standard weak form is generally not stable. Additional terms must be added t
 In VMS, the velocity and pressure terms are separated into coarse-scale and fine-scale components, such that
 
 $$
-\begin{aligned}
-    \boldsymbol{u} &= \boldsymbol{u}^{h} + \boldsymbol{u}', \\
-    p &= p^{h} + p',
-\end{aligned}
+\boldsymbol{u} = \boldsymbol{u}^{h} + \boldsymbol{u}', \\
+$$
+
+$$
+p = p^{h} + p',
 $$
 
 where the $h$-superscript designates the coarse-scale components and the $'$-superscript denotes the fine-scale components. The fine-scale terms are defined as
@@ -119,20 +124,17 @@ $$
 The stabilization parameters are defined as
 
 $$
-\begin{aligned}
-    \tau_{SUPS} = \tau_{M} &= \left(\frac{4}{\Delta t^{2}} + \boldsymbol{u}^{h} \cdot \boldsymbol{G}\boldsymbol{u}^{h} + C_{1}\nu^{2}\boldsymbol{G}:\boldsymbol{G} + \left(\frac{\nu}{K}\right)^{2}\right)^{-1/2}, \\
-    \nu_{LSIC} = \tau_{C} &= \left(\tau_{SUPS}\boldsymbol{g} \cdot \boldsymbol{g}\right)^{-1}
-\end{aligned}
+\tau_{SUPS} = \tau_{M} = \left(\frac{4}{\Delta t^{2}} + \boldsymbol{u}^{h} \cdot \boldsymbol{G}\boldsymbol{u}^{h} + C_{1}\nu^{2}\boldsymbol{G}:\boldsymbol{G} + \left(\frac{\nu}{K}\right)^{2}\right)^{-1/2},
+$$
+
+$$
+\nu_{LSIC} = \tau_{C} = \left(\tau_{SUPS}\boldsymbol{g} \cdot \boldsymbol{g}\right)^{-1}
 $$
 
 Using standard Galerkin momentum and continuity weak forms, and removing the $h$-superscript from the coarse-scale components for notational simplicity (i.e., $\boldsymbol{u}^{h} \rightarrow \boldsymbol{u}$ and $p^{h} \rightarrow p$), we obtain
 
 $$
-\begin{aligned}
-    \int qu_{i,i} \,d\Omega & + \int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma \\ 
-    & + \int \tau_{SUPS}\left(\frac{q_{,i}}{\rho} + w_{i,k}u_{k}\right)r_{Mi} \,d\Omega + \int \rho \nu_{LSIC}r_{C}w_{i,i} \,d\Omega - \int w_{i}\tau_{SUPS}r_{Mk}u_{i,k} \,d\Omega \\
-    & - \int w_{i,k}\frac{\tau_{SUPS}^{2}}{\rho}r_{Mi}r_{Mk} \,d\Omega - \int \frac{\nu}{K}w_{i}\tau_{SUPS}r_{Mi} \,d\Omega = 0.
-\end{aligned}
+\int qu_{i,i} \,d\Omega + \int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma + \int \tau_{SUPS}\left(\frac{q_{,i}}{\rho} + w_{i,k}u_{k}\right)r_{Mi} \,d\Omega + \int \rho \nu_{LSIC}r_{C}w_{i,i} \,d\Omega - \int w_{i}\tau_{SUPS}r_{Mk}u_{i,k} \,d\Omega - \int w_{i,k}\frac{\tau_{SUPS}^{2}}{\rho}r_{Mi}r_{Mk} \,d\Omega - \int \frac{\nu}{K}w_{i}\tau_{SUPS}r_{Mi} \,d\Omega = 0.
 $$
 
 This is the VMS-stabilized weak form for the Navier-Stokes-Brinkman equations. The first seven terms on the left-hand side correspond to the standard Galerkin weak form. The last five terms are the stabilization terms obtained via VMS. In deriving this equation, we used the continuity equation to obtain $w_{i}u_{k}u_{i,k} = w_{i}\left(u_{k}u_{i}\right)_{,k}$. We also applied the following assumptions,
@@ -146,12 +148,7 @@ This is the VMS-stabilized weak form for the Navier-Stokes-Brinkman equations. T
 We then add an additional stabilization term, $\int \frac{\bar{\tau}\tau_{SUPS}^{2}}{\rho} w_{i,k}r_{Mk}r_{Mj}u_{i,j} \,d\Omega$, to obtain
 
 $$
-\begin{aligned}
-    \int qu_{i,i} \,d\Omega & + \int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma \\ 
-    & + \int \tau_{SUPS}\left(\frac{q_{,i}}{\rho} + w_{i,k}u_{k}\right)r_{Mi} \,d\Omega + \int \rho \nu_{LSIC}r_{C}w_{i,i} \,d\Omega - \int w_{i}\tau_{SUPS}r_{Mk}u_{i,k} \,d\Omega \\
-    & - \int w_{i,k}\frac{\tau_{SUPS}^{2}}{\rho}r_{Mi}r_{Mk} \,d\Omega - \int \frac{\nu}{K}w_{i}\tau_{SUPS}r_{Mi} \,d\Omega \\
-    & + \int \frac{\bar{\tau}\tau_{SUPS}^{2}}{\rho} w_{i,k}r_{Mk}r_{Mj}u_{i,j} \,d\Omega = 0.
-\end{aligned}
+\int qu_{i,i} \,d\Omega + \int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma + \int \tau_{SUPS}\left(\frac{q_{,i}}{\rho} + w_{i,k}u_{k}\right)r_{Mi} \,d\Omega + \int \rho \nu_{LSIC}r_{C}w_{i,i} \,d\Omega - \int w_{i}\tau_{SUPS}r_{Mk}u_{i,k} \,d\Omega - \int w_{i,k}\frac{\tau_{SUPS}^{2}}{\rho}r_{Mi}r_{Mk} \,d\Omega - \int \frac{\nu}{K}w_{i}\tau_{SUPS}r_{Mi} \,d\Omega + \int \frac{\bar{\tau}\tau_{SUPS}^{2}}{\rho} w_{i,k}r_{Mk}r_{Mj}u_{i,j} \,d\Omega = 0.
 $$
 
 This equation is the full stabilized weak form used in fluid.cpp in svFSIplus.
@@ -163,12 +160,11 @@ We will temporally discretize the stabilized weak form using the generalized - $
 To compute the residuals for each element in the mesh, we separate the stabilized weak form into momentum and continuity components,
 
 $$
-\begin{aligned}
-    \int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega & + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma \\ 
-    & + \int \tau_{SUPS}w_{i,k}u_{k}r_{Mi} \,d\Omega + \int \rho \nu_{LSIC}r_{C}w_{i,i} \,d\Omega - \int w_{i}\tau_{SUPS}r_{Mk}u_{i,k} \,d\Omega \\
-    & - \int w_{i,k}\frac{\tau_{SUPS}^{2}}{\rho}r_{Mi}r_{Mk} \,d\Omega - \int \frac{\nu}{K}w_{i}\tau_{SUPS}r_{Mi} \,d\Omega + \int \frac{\bar{\tau}\tau_{SUPS}^{2}}{\rho} w_{i,k}r_{Mk}r_{Mj}u_{i,j} \,d\Omega = 0, \\
-    \int qu_{i,i} \,d\Omega & + \int \tau_{SUPS}\frac{q_{,i}}{\rho}r_{Mi} \,d\Omega = 0.
-\end{aligned}
+\int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma + \int \tau_{SUPS}w_{i,k}u_{k}r_{Mi} \,d\Omega + \int \rho \nu_{LSIC}r_{C}w_{i,i} \,d\Omega - \int w_{i}\tau_{SUPS}r_{Mk}u_{i,k} \,d\Omega - \int w_{i,k}\frac{\tau_{SUPS}^{2}}{\rho}r_{Mi}r_{Mk} \,d\Omega - \int \frac{\nu}{K}w_{i}\tau_{SUPS}r_{Mi} \,d\Omega + \int \frac{\bar{\tau}\tau_{SUPS}^{2}}{\rho} w_{i,k}r_{Mk}r_{Mj}u_{i,j} \,d\Omega = 0,
+$$
+
+$$
+\int qu_{i,i} \,d\Omega + \int \tau_{SUPS}\frac{q_{,i}}{\rho}r_{Mi} \,d\Omega = 0.
 $$
 
 Then, by plugging weighting functions into these equations and holding the results true for any arbitrary $w_{ai}$ and $q_{a}$, we obtain the per-element momentum and continuity residuals,
