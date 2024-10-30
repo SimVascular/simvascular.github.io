@@ -213,15 +213,6 @@ $$
 L_{ac} = \frac{\partial R_{a}^{c}}{\partial \dot{p}_{n+1,c}}.
 $$
 
-$$
-\begin{aligned}
-    K_{ab}^{ij} &= \frac{\partial R_{ai}^{m}}{\partial \dot{u}_{n+1,bj}}, \\
-    G_{ac}^{i} &= \frac{\partial R_{ai}^{m}}{\partial \dot{p}_{n+1,c}}, \\
-    D_{ab}^{j} &= \frac{\partial R_{a}^{c}}{\partial \dot{u}_{n+1,bj}}, \\
-    L_{ac} &= \frac{\partial R_{a}^{c}}{\partial \dot{p}_{n+1,c}}.
-\end{aligned}
-$$
-
 <!---
 Strong form
 
