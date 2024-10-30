@@ -176,7 +176,7 @@ $$
 \end{aligned}
 $$
 
-where, for the $a^{\text{th}}$ node in a given element, $R_{ai}^{m}$ is the momentum residual in the $i^{\text{th}}$ direction and $R_{a}^{c}$ is continuity residual. The full residual vector, as used in the generalized-$\alpha$ method, is $\boldsymbol{R} = \left[R_{ai}^{m}, R_{a}^{c}\right]^{T}$. $R_{ai}^{m}$ and $R_{a}^{c}$ are coded in the fluid\_2d\_m/fluid\_3d\_m and fluid\_2d\_c/fluid\_3d\_c functions, respectively, in fluid.cpp in svFSIplus.
+where, for the $a^{\text{th}}$ node in a given element, $R_{ai}^{m}$ is the momentum residual in the $i^{\text{th}}$ direction and $R_{a}^{c}$ is continuity residual. The full residual vector, as used in the generalized-\alpha method, is $\boldsymbol{R} = \left[R_{ai}^{m}, R_{a}^{c}\right]^{T}$. $R_{ai}^{m}$ and $R_{a}^{c}$ are coded in the fluid\_2d\_m/fluid\_3d\_m and fluid\_2d\_c/fluid\_3d\_c functions, respectively, in fluid.cpp in svFSIplus.
 
 <!---
 Strong form
