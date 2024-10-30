@@ -122,16 +122,20 @@ $$
 Using standard Galerkin momentum and continuity weak forms, and removing the $h$-superscript from the coarse-scale components for notational simplicity (i.e., $\boldsymbol{u}^{h} \rightarrow \boldsymbol{u}$ and $p^{h} \rightarrow p$), we obtain
 
 $$
-\int qu_{i,i} \,d\Omega + \int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma + \int \tau_{SUPS}\left(\frac{q_{,i}}{\rho} + w_{i,k}u_{k}\right)r_{Mi} \,d\Omega + \int \rho \nu_{LSIC}r_{C}w_{i,i} \,d\Omega - \int w_{i}\tau_{SUPS}r_{Mk}u_{i,k} \,d\Omega - \int w_{i,k}\frac{\tau_{SUPS}^{2}}{\rho}r_{Mi}r_{Mk} \,d\Omega - \int \frac{\nu}{K}w_{i}\tau_{SUPS}r_{Mi} \,d\Omega = 0.
-$$
-
-$$
 \begin{aligned}
     \int qu_{i,i} \,d\Omega & + \int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma \\ 
     & + \int \tau_{SUPS}\left(\frac{q_{,i}}{\rho} + w_{i,k}u_{k}\right)r_{Mi} \,d\Omega + \int \rho \nu_{LSIC}r_{C}w_{i,i} \,d\Omega - \int w_{i}\tau_{SUPS}r_{Mk}u_{i,k} \,d\Omega \\
     & - \int w_{i,k}\frac{\tau_{SUPS}^{2}}{\rho}r_{Mi}r_{Mk} \,d\Omega - \int \frac{\nu}{K}w_{i}\tau_{SUPS}r_{Mi} \,d\Omega = 0.
 \end{aligned}
 $$
+
+This is the VMS-stabilized weak form for the Navier-Stokes-Brinkman equations. The first seven terms on the left-hand side correspond to the standard Galerkin weak form. The last five terms are the stabilization terms obtained via VMS. In deriving this equation, we used the continuity equation to obtain $w_{i}u_{k}u_{i,k} = w_{i}\left(u_{k}u_{i}\right)_{,k}$. We also applied the following assumptions,
+
+<li> $\dot{u'} = 0$,
+<li> $u' = 0$ on $\Gamma_{g}$ and $\Gamma_{h}$,
+<li> $\nabla^{s}\vc{w}:2\mu\nabla^{s}\vc{u}' = 0$.
+
+
 
 <!---
 Strong form
