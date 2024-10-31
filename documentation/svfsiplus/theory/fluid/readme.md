@@ -13,7 +13,7 @@ $$
 \boldsymbol{\nabla} \cdot \boldsymbol{u} = 0,
 $$
 
-where $\boldsymbol{u} = \boldsymbol{u}\left(\boldsymbol{x}, t\right)$ is the velocity, $p = p\left(\boldsymbol{x}, t\right)$ is the pressure, $\boldsymbol{b} = \boldsymbol{b}\left(\boldsymbol{x}, t\right)$ is the body force, and $\rho$ is the fluid density. The first equation corresponds to the momentum conservation in the flow and the second equation corresponds to mass conservation. The momentum equation can augmented with a Darcy permeability term, $-\frac{\mu}{K}\boldsymbol{u}$, on the right-hand side to yield the Navier-Stokes-Brinkman equation, such that
+where $\boldsymbol{u} = \boldsymbol{u}\left(\boldsymbol{x}, t\right)$ is the velocity, $p = p\left(\boldsymbol{x}, t\right)$ is the pressure, $\boldsymbol{b} = \boldsymbol{b}\left(\boldsymbol{x}, t\right)$ is the body force, and $\rho$ is the fluid density. The first equation corresponds to the momentum conservation in the flow and the second equation corresponds to mass conservation. The momentum equation can augmented with a Darcy permeability term, $-\frac{\mu}{K}\boldsymbol{u}$, on the right-hand side to yield the Navier-Stokes-Brinkman equation <a href="#ref-6">[6]</a> <a href="#ref-7">[7]</a>, such that
 
 $$
 \rho\left(\frac{d\boldsymbol{u}}{dt} + \boldsymbol{u} \cdot \boldsymbol{\nabla} \boldsymbol{u} - \boldsymbol{b}\right) = \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} - \frac{\mu}{K}\boldsymbol{u},
@@ -79,7 +79,7 @@ $$
 p = \sum_{a=1}^{n_{en}} N_{a}^{q}p_{a}.
 $$
 
-We then multiply the Navier-Stokes-Brinkman equations by $\boldsymbol{w}$ and $q$, respectively, and integrate by parts to obtain the standard Galerkin momentum and continuity weak forms,
+We then multiply the Navier-Stokes-Brinkman equations by $\boldsymbol{w}$ and $q$, respectively, and integrate by parts to obtain the standard Galerkin momentum and continuity weak forms <a href="#ref-7">[7]</a> <a href="#ref-5">[5]</a>,
 
 $$
 \int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma = 0,
@@ -97,7 +97,7 @@ $$
 
 ### Stabilized weak form
 
-The standard weak form is generally not stable. Additional terms must be added to stabilize it. We will apply the residual-based variational multiscale (RBVMS / VMS) method for stabilization. 
+The standard weak form is generally not stable. Additional terms must be added to stabilize it. We will apply the residual-based variational multiscale (RBVMS / VMS) method for stabilization <a href="#ref-1">[1]</a> <a href="#ref-5">[5]</a>. 
 
 In VMS, the velocity and pressure terms are separated into coarse-scale and fine-scale components, such that
 
@@ -145,7 +145,7 @@ $$
 \int qu_{i,i} \,d\Omega + \int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma + \int \tau_{SUPS}\left(\frac{q_{,i}}{\rho} + w_{i,k}u_{k}\right)r_{Mi} \,d\Omega + \int \rho \nu_{LSIC}r_{C}w_{i,i} \,d\Omega - \int w_{i}\tau_{SUPS}r_{Mk}u_{i,k} \,d\Omega - \int w_{i,k}\frac{\tau_{SUPS}^{2}}{\rho}r_{Mi}r_{Mk} \,d\Omega - \int \frac{\nu}{K}w_{i}\tau_{SUPS}r_{Mi} \,d\Omega = 0.
 $$
 
-This is the VMS-stabilized weak form for the Navier-Stokes-Brinkman equations. The first seven terms on the left-hand side correspond to the standard Galerkin weak form. The last five terms are the stabilization terms obtained via VMS. In deriving this equation, we used the continuity equation to obtain $w_{i}u_{k}u_{i,k} = w_{i}\left(u_{k}u_{i}\right)_{,k}$. We also applied the following assumptions,
+This is the VMS-stabilized weak form for the Navier-Stokes-Brinkman equations <a href="#ref-7">[7]</a> <a href="#ref-5">[5]</a> <a href="#ref-6">[6]</a>. The first seven terms on the left-hand side correspond to the standard Galerkin weak form. The last five terms are the stabilization terms obtained via VMS. In deriving this equation, we used the continuity equation to obtain $w_{i}u_{k}u_{i,k} = w_{i}\left(u_{k}u_{i}\right)_{,k}$. We also applied the following assumptions <a href="#ref-5">[5]</a>,
 <li> $\frac{du'}{dt} = 0$,
 </li>
 <li> $u' = 0$ on $\Gamma_{g}$ and $\Gamma_{h}$,
@@ -153,7 +153,7 @@ This is the VMS-stabilized weak form for the Navier-Stokes-Brinkman equations. T
 <li> $\nabla^{s}\boldsymbol{w}:2\mu\nabla^{s}\boldsymbol{u}' = 0$.
 </li>
 
-We then add an additional stabilization term, $\int \frac{\bar{\tau}\tau_{SUPS}^{2}}{\rho} w_{i,k}r_{Mk}r_{Mj}u_{i,j} \,d\Omega$, to obtain
+We then add an additional stabilization term, $\int \frac{\bar{\tau}\tau_{SUPS}^{2}}{\rho} w_{i,k}r_{Mk}r_{Mj}u_{i,j} \,d\Omega$ <a href="#ref-3">[3]</a> <a href="#ref-4">[4]</a> <a href="#ref-2">[2]</a>, to obtain
 
 $$
 \int qu_{i,i} \,d\Omega + \int \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int w_{i, j}\sigma_{ij} \,d\Omega + \int \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma + \int \tau_{SUPS}\left(\frac{q_{,i}}{\rho} + w_{i,k}u_{k}\right)r_{Mi} \,d\Omega + \int \rho \nu_{LSIC}r_{C}w_{i,i} \,d\Omega - \int w_{i}\tau_{SUPS}r_{Mk}u_{i,k} \,d\Omega - \int w_{i,k}\frac{\tau_{SUPS}^{2}}{\rho}r_{Mi}r_{Mk} \,d\Omega - \int \frac{\nu}{K}w_{i}\tau_{SUPS}r_{Mi} \,d\Omega + \int \frac{\bar{\tau}\tau_{SUPS}^{2}}{\rho} w_{i,k}r_{Mk}r_{Mj}u_{i,j} \,d\Omega = 0.
