@@ -3,17 +3,25 @@
 
 ### Strong form
 
-The incompressible Navier-Stokes-Brinkman equations governing fluid flow in porous media are 
+The incompressible Navier-Stokes equations governing fluid flow are 
 
 $$
-\rho\left(\frac{d\boldsymbol{u}}{dt} + \boldsymbol{u} \cdot \boldsymbol{\nabla} \boldsymbol{u} - \boldsymbol{b}\right) = \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} - \frac{\mu}{K}\boldsymbol{u},
+\rho\left(\frac{d\boldsymbol{u}}{dt} + \boldsymbol{u} \cdot \boldsymbol{\nabla} \boldsymbol{u} - \boldsymbol{b}\right) = \boldsymbol{\nabla} \cdot \boldsymbol{\sigma},
 $$
 
 $$
 \boldsymbol{\nabla} \cdot \boldsymbol{u} = 0,
 $$
 
-where $\boldsymbol{u} = \boldsymbol{u}\left(\boldsymbol{x}, t\right)$ is the velocity, $p = p\left(\boldsymbol{x}, t\right)$ is the pressure, $\boldsymbol{b} = \boldsymbol{b}\left(\boldsymbol{x}, t\right)$ is the body force, $\rho$ is the fluid density, and $K$ is the permeability of the porous media. The standard Navier-Stokes equations for general fluid flow can be recovered by simply removing the Darcy component (i.e., $K \rightarrow \infty$). The Cauchy stress tensor is $\boldsymbol{\sigma} = \boldsymbol{\sigma}\left(\boldsymbol{x}, t\right) = -p\boldsymbol{I} + 2\mu\left(\boldsymbol{u}\right)\epsilon$, where  $\epsilon = \epsilon\left(\boldsymbol{u}\right) = \nabla^{s} \boldsymbol{u} = \frac{1}{2}\left(\nabla \boldsymbol{u} + \left(\nabla\boldsymbol{u}\right)^{\text{T}} \right)$ is the strain rate tensor. The effective dynamic viscosity, $\mu\left(\boldsymbol{u}\right)$, is written generally as a function of velocity here to account for non-Newtonian fluids. For Newtonian fluids, $\mu$ is a simply constant. The divergence of the Cauchy stress tensor, written in both vector and index notation, is
+where $\boldsymbol{u} = \boldsymbol{u}\left(\boldsymbol{x}, t\right)$ is the velocity, $p = p\left(\boldsymbol{x}, t\right)$ is the pressure, $\boldsymbol{b} = \boldsymbol{b}\left(\boldsymbol{x}, t\right)$ is the body force, and $\rho$ is the fluid density. The first equation corresponds to the momentum conservation in the flow and the second equation corresponds to mass conservation. The momentum equation can augmented with a Darcy permeability term, $-\frac{\mu}{K}\boldsymbol{u}$, on the right-hand side to yield the Navier-Stokes-Brinkman equation, such that
+
+$$
+\rho\left(\frac{d\boldsymbol{u}}{dt} + \boldsymbol{u} \cdot \boldsymbol{\nabla} \boldsymbol{u} - \boldsymbol{b}\right) = \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} - \frac{\mu}{K}\boldsymbol{u},
+$$
+
+This equation models incompressible fluid flow in porous media. Here $K$ is the permeability of the porous media. With this equation, we can of course recover the Navier-Stokes equations by simply removing the Darcy component (i.e., $K \rightarrow \infty$). 
+
+The Cauchy stress tensor is $\boldsymbol{\sigma} = \boldsymbol{\sigma}\left(\boldsymbol{x}, t\right) = -p\boldsymbol{I} + 2\mu\left(\boldsymbol{u}\right)\epsilon$, where  $\epsilon = \epsilon\left(\boldsymbol{u}\right) = \nabla^{s} \boldsymbol{u} = \frac{1}{2}\left(\nabla \boldsymbol{u} + \left(\nabla\boldsymbol{u}\right)^{\text{T}} \right)$ is the strain rate tensor. The effective dynamic viscosity, $\mu\left(\boldsymbol{u}\right)$, is written generally as a function of velocity here to account for non-Newtonian fluids. For Newtonian fluids, $\mu$ is a simply constant. The divergence of the Cauchy stress tensor, written in both vector and index notation, is
 
 $$
 \boldsymbol{\nabla} \cdot \boldsymbol{\sigma} = -\boldsymbol{\nabla}p + 2\boldsymbol{\epsilon}\boldsymbol{\nabla}\mu + \mu\nabla^{2}\boldsymbol{u},
