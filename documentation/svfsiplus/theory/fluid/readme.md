@@ -43,9 +43,11 @@ $$
 
 where $\boldsymbol{g}$ is the prescribed velocity and $\boldsymbol{h}$ is the prescribed traction.
 
+We will solve the Navier-Stokes and Navier-Stokes-Brinkman equations numerically, using the finite element method for spatial discretization <a href="#ref-8">[8]</a>.
+
 ### Standard (Galerkin) weak form
     
-To derive the Galerkin weak form for the Navier-Stokes-Brinkman equations, we first define our trial and weighting function spaces,
+For the finite element method, we will first derive the Galerkin weak form for the Navier-Stokes-Brinkman equations. We define our trial and weighting function spaces,
 
 $$
 u_{i} \in \tau_{i} = \{u_{i} \in H^{1}\left(\Omega\right) \mid u_{i} = g_{i} \text{ on } \Gamma_{g_{i}}\},
