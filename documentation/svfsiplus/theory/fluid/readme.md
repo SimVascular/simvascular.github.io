@@ -28,7 +28,7 @@ $$
 $$
 
 $$
-\sigma_{ij,j} = -p_{,i} + 2\epsilon_{ij}\frac{\partial \mu}{\partial x_{j}} + \mu\nabla^{2}u_{i},
+\sigma_{ij,j} = -p_{,i} + 2\epsilon_{ij}\frac{\partial \mu}{\partial x_{j}} + \muu_{i,kk},
 $$
 
 The boundary conditions are 
