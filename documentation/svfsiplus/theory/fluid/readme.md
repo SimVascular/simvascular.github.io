@@ -177,7 +177,7 @@ $$
 \int_{\Omega} qu_{i,i} d\Omega + \int_{\Omega} \tau_{SUPS}\frac{q_{,i}}{\rho}r_{Mi} d\Omega = 0.
 $$
 
-Then, by plugging weighting functions into these equations and holding the results true for any arbitrary $w_{ai}$ and $q_{a}$, we obtain the per-element momentum and continuity residuals,
+Then, by plugging weighting functions into these equations and holding the results true for any arbitrary $w_{ai}$ and $q_{a}$, we obtain the momentum and continuity residuals,
 
 $$
 R_{ai}^{m} = \int_{\Omega} \rho N_{a}^{w}\frac{du_{i}}{dt} d\Omega + \int_{\Omega} \rho N_{a}^{w}u_{k}u_{i, k} d\Omega - \int_{\Omega} pN_{a, i}^{w} d\Omega + \int_{\Omega} N_{a, j}^{w}2\mu\epsilon_{ij} d\Omega + \int_{\Omega} \frac{\mu}{K}N_{a}^{w}u_{i} d\Omega - \int_{\Omega} N_{a}^{w} \rho b_{i} d\Omega + \int_{\Omega} \tau_{SUPS}N_{a, k}^{w}u_{k}r_{Mi} d\Omega + \int_{\Omega} \rho \nu_{LSIC}r_{C}N_{a, i}^{w} d\Omega - \int_{\Omega} N_{a}^{w}\tau_{SUPS}r_{Mk}u_{i,k} d\Omega - \int_{\Omega} N_{a, k}^{w}\frac{\tau_{SUPS}^{2}}{\rho}r_{Mi}r_{Mk} d\Omega - \int_{\Omega} \frac{\nu}{K}\tau_{SUPS}N_{a}^{w}r_{Mi} d\Omega + \int_{\Omega} \frac{\bar{\tau}\tau_{SUPS}^{2}}{\rho} N_{a, k}^{w}r_{Mk}r_{Mj}u_{i,j} d\Omega,
