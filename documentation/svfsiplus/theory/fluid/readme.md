@@ -47,10 +47,10 @@ We will solve the Navier-Stokes and Navier-Stokes-Brinkman equations numerically
 
 ### Standard (Galerkin) weak form
     
-For the finite element method, we will first derive the Galerkin weak form for the Navier-Stokes-Brinkman equations. We define our trial and weighting function spaces, $\{a\}$
+For the finite element method, we will first derive the Galerkin weak form for the Navier-Stokes-Brinkman equations. We define our trial and weighting function spaces, ${a}$
 
 $$
-\{a\}
+{a}
 $$
 
 $$
