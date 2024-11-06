@@ -138,8 +138,10 @@ $$
 $$
 
 $$
-\nu_{LSIC} = \tau_{C} = \left(\tau_{SUPS}\boldsymbol{g} \cdot \boldsymbol{g}\right)^{-1}
+\nu_{LSIC} = \tau_{C} = \left(\tau_{SUPS} \text{tr}\boldsymbol{G} \right)^{-1},
 $$
+
+where $\boldsymbol{G}$ is the element metric tensor and $\text{tr}\boldsymbol{G}$ is the trace of the metric tensor <a href="#ref-1">[1]</a>.
 
 Using standard Galerkin momentum and continuity weak forms, and removing the $h$-superscript from the coarse-scale components for notational simplicity (i.e., $\boldsymbol{u}^{h} \rightarrow \boldsymbol{u}$ and $p^{h} \rightarrow p$), we obtain
 
