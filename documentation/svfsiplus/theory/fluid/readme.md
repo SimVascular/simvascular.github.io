@@ -47,22 +47,18 @@ We will solve the Navier-Stokes and Navier-Stokes-Brinkman equations numerically
 
 ### Standard (Galerkin) weak form
     
-For the finite element method, we will first derive the Galerkin weak form for the Navier-Stokes-Brinkman equations. We define our trial and weighting function spaces, $\\{a\\}$
+For the finite element method, we will first derive the Galerkin weak form for the Navier-Stokes-Brinkman equations. We define our trial and weighting function spaces,
 
 $$
-{a}
-$$
-
-$$
-u_{i} \in \tau_{i} : \{ u_{i} \in H^{1}\left(\Omega\right) \mid u_{i} = g_{i} \text{ on } \Gamma_{g_{i}} \},
+u_{i} \in \tau_{i} : \\{u_{i} \in H^{1}\left(\Omega\right) \mid u_{i} = g_{i} \text{ on } \Gamma_{g_{i}}\\},
 $$
 
 $$
-w_{i} \in \nu_{i} : \{w_{i} \in H^{1}\left(\Omega\right) \mid w_{i} = 0 \text{ on } \Gamma_{g_{i}}\},
+w_{i} \in \nu_{i} : \\{w_{i} \in H^{1}\left(\Omega\right) \mid w_{i} = 0 \text{ on } \Gamma_{g_{i}}\\},
 $$
 
 $$
-p, q \in Q = \{p \in L^{2}\left(\Omega\right)\},
+p, q \in Q : \\{p \in L^{2}\left(\Omega\right)\\},
 $$
 
 where $\boldsymbol{w}$ is the weighting function for velocity and $q$ is the weighting function for pressure. We represent these weighting functions discretely on a per-element-basis as
