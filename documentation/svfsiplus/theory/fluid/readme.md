@@ -84,17 +84,17 @@ $$
 We then multiply the Navier-Stokes-Brinkman equations by $\boldsymbol{w}$ and $q$, respectively, and integrate by parts to obtain the standard Galerkin momentum and continuity weak forms <a href="#ref-7">[7]</a> <a href="#ref-5">[5]</a>,
 
 $$
-\int_{\Omega} \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int_{\Omega} \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int_{\Omega} w_{i, j}\sigma_{ij} \,d\Omega + \int_{\Omega} \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int_{\Omega} w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma = 0,
+\int_{\Omega} \rho w_{i}\frac{du_{i}}{dt} d\Omega + \int_{\Omega} \rho w_{i}u_{k}u_{i, k} d\Omega + \int_{\Omega} w_{i, j}\sigma_{ij} d\Omega + \int_{\Omega} \frac{\mu}{K}w_{i}u_{i} d\Omega - \int_{\Omega} w_{i}\rho b_{i} d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} d\Gamma = 0,
 $$
 
 $$
-\int_{\Omega} qu_{i,i} \,d\Omega = 0.
+\int_{\Omega} qu_{i,i} d\Omega = 0.
 $$
 
 These two equations can be added together to obtain
 
 $$
-\int_{\Omega} qu_{i,i} \,d\Omega + \int_{\Omega} \rho w_{i}\frac{du_{i}}{dt} \,d\Omega + \int_{\Omega} \rho w_{i}u_{k}u_{i, k} \,d\Omega + \int_{\Omega} w_{i, j}\sigma_{ij} \,d\Omega + \int_{\Omega} \frac{\mu}{K}w_{i}u_{i} \,d\Omega - \int_{\Omega} w_{i}\rho b_{i} \,d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} \,d\Gamma = 0.
+\int_{\Omega} qu_{i,i} d\Omega + \int_{\Omega} \rho w_{i}\frac{du_{i}}{dt} d\Omega + \int_{\Omega} \rho w_{i}u_{k}u_{i, k} d\Omega + \int_{\Omega} w_{i, j}\sigma_{ij} d\Omega + \int_{\Omega} \frac{\mu}{K}w_{i}u_{i} d\Omega - \int_{\Omega} w_{i}\rho b_{i} d\Omega - \int_{\Gamma_{h}} w_{i}h_{i} d\Gamma = 0.
 $$
 
 ### Stabilized weak form
@@ -227,7 +227,7 @@ $$
 In fluid.cpp of svFSIplus, the following inconsistent tangent matrices are used,
 
 $$
-K_{ab}^{ij} = \alpha_{m}\left( \int \rho N_{a}^{w}N_{b}^{w} \delta_{ij} \,d\Omega + \int \tau_{SUPS} N_{a,g}^{w} u_{g} \rho N_{b}^{w} \delta_{ij} \,d\Omega - \int N_{a,k}^{w} \tau_{SUPS}^{2} N_{b}^{w} \delta_{ij} r_{Mk} \,d\Omega \right) + \alpha_{f}\gamma\Delta t \left(\int \rho N_{a}^{w} u_{k} N_{b, k}^{w} \delta_{ij} \,d\Omega + \int N_{a, l}^{w} \mu N_{b, l}^{w} \delta_{ij} \,d\Omega + \int N_{a, j}^{w} \mu N_{b, i}^{w} \,d\Omega \right. + \left. \int \frac{\mu}{K} N_{a}^{w} N_{b}^{w} \delta_{ij} \,d\Omega + \int \tau_{SUPS} N_{a,g}^{w} u_{g} \frac{\partial r_{Mi}}{\partial u_{n+\alpha_f,bj}} \,d\Omega + \int \rho \nu_{LSIC} N_{b,j}^{w} N_{a,i}^{w} \,d\Omega \right. - \left. \int N_{a}^{w} \tau_{SUPS} N_{b,k}^{w} \delta_{ij} r_{Mk} \,d\Omega - \int N_{a,k}^{w} \frac{\tau_{SUPS}^{2}}{\rho} \frac{\partial r_{Mi}}{\partial u_{n+\alpha_f,bj}} r_{Mk} \,d\Omega \right. + \left. \int_{\Omega} \frac{4}{\gamma} \frac{\partial \mu}{\partial \gamma} \epsilon_{jk} N_{b,k}^{w} \epsilon_{il} N_{a,l}^{w} \,d\Omega + \int_{\Omega} \frac{\bar{\tau}\tau_{SUPS}^{2}}{\rho} N_{a,k}^{w} N_{b,z}^{w} r_{Mk} r_{Mz} \delta_{ij} \,d\Omega \right),
+K_{ab}^{ij} = \alpha_{m}\left( \int \rho N_{a}^{w}N_{b}^{w} \delta_{ij} \,d\Omega + \int \tau_{SUPS} N_{a,g}^{w} u_{g} \rho N_{b}^{w} \delta_{ij} \,d\Omega - \int N_{a,k}^{w} \tau_{SUPS}^{2} N_{b}^{w} \delta_{ij} r_{Mk} \,d\Omega \right) + \alpha_{f}\gamma\Delta t \left(\int \rho N_{a}^{w} u_{k} N_{b, k}^{w} \delta_{ij} \,d\Omega + \int N_{a, l}^{w} \mu N_{b, l}^{w} \delta_{ij} \,d\Omega + \int N_{a, j}^{w} \mu N_{b, i}^{w} \,d\Omega \right. + \left. \int \frac{\mu}{K} N_{a}^{w} N_{b}^{w} \delta_{ij} \,d\Omega + \int \tau_{SUPS} N_{a,g}^{w} u_{g} \frac{\partial r_{Mi}}{\partial u_{n+\alpha_f,bj}} \,d\Omega + \int \rho \nu_{LSIC} N_{b,j}^{w} N_{a,i}^{w} \,d\Omega \right. - \left. \int N_{a}^{w} \tau_{SUPS} N_{b,k}^{w} \delta_{ij} r_{Mk} \,d\Omega - \int N_{a,k}^{w} \frac{\tau_{SUPS}^{2}}{\rho} \frac{\partial r_{Mi}}{\partial u_{n+\alpha_f,bj}} r_{Mk} \,d\Omega \right. + \left. \int \frac{4}{\gamma} \frac{\partial \mu}{\partial \gamma} \epsilon_{jk} N_{b,k}^{w} \epsilon_{il} N_{a,l}^{w} \,d\Omega + \int \frac{\bar{\tau}\tau_{SUPS}^{2}}{\rho} N_{a,k}^{w} N_{b,z}^{w} r_{Mk} r_{Mz} \delta_{ij} \,d\Omega \right),
 $$
 
 $$
