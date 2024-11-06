@@ -50,7 +50,7 @@ We will solve the Navier-Stokes and Navier-Stokes-Brinkman equations numerically
 For the finite element method, we will first derive the Galerkin weak form for the Navier-Stokes-Brinkman equations. We define our trial and weighting function spaces,
 
 $$
-u_{i} \in \tau_{i} : \bigl\{ u_{i} \in H^{1}\left(\Omega\right) \mid u_{i} = g_{i} \text{ on } \Gamma_{g_{i}} \bigl\},
+u_{i} \in \tau_{i} : \bigl\{ u_{i} \in H^{1}\left(\Omega\right) \mid u_{i} = g_{i} \text{ on } \Gamma_{g_{i}} \bigr\},
 $$
 
 $$
