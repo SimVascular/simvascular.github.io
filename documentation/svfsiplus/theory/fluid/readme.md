@@ -227,7 +227,7 @@ $$
 In fluid.cpp of svFSIplus, the following inconsistent tangent matrices are used,
 
 $$
-K_{ab}^{ij} = \alpha_{m} A_{ab}^{ij} + \alpha_{f}\gamma\Delta t 
+K_{ab}^{ij} = \alpha_{m} A_{ab}^{ij} + \alpha_{f}\gamma\Delta t B_{ab}^{ij}
 $$
 
 $$
