@@ -25,8 +25,11 @@ importing pysvzerod:
 
 ```python
 import pysvzerod
+import json
 
-my_unoptimized_config = {...}
+with open("steadyFlow_calibration.json") as fname:
+    my_unoptimized_config = json.load(fname)
+
 my_optimized_config = pysvzerod.calibrate(my_unoptimized_config)
 ```
 
