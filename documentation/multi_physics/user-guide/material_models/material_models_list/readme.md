@@ -160,7 +160,7 @@ $$\lambda$$ and $$\kappa$$ are set to zero if the material is incompressible, i.
 **Neo-Hookean model**
 $$ \Psi_{iso} = C_{10} (\bar{I}_1 - 3) $$
 
-<div class="stvk">
+<div class="nhk">
 &lt;<strong>Constitutive_model</strong> <i>type="neoHookean"</i> &gt; &lt;/<strong>Constitutive_model</strong>&gt;
 </div>
 
@@ -170,3 +170,87 @@ $$ C_{10} = \frac{\mu}{2} $$
 
 **Holzapfel-Gasser-Ogden model**
 $$ \Psi_{aniso} = \frac{a_4}{b_4} \[ exp\{ b_4( \kappa \bar{I}_1 + (1-3\kappa)\bar{I}_{4} - 1)^2 \} - 1\] + \frac{a_6}{b_6} \[ exp\{ b_6( \kappa \bar{I}_1 + (1-3\kappa)\bar{I}_{6} - 1)^2 \} - 1\] $$
+
+<div class="HGO">
+&lt;<strong>Constitutive_model</strong> <i>type="HGO"</i> &gt; 
+&lt;<strong>a4&gt;</strong> <i>9.966e5</i> &lt;/<strong>a4</strong>&gt;
+&lt;<strong>b4&gt;</strong> <i>524.6</i> &lt;/<strong>b4</strong>&gt;
+&lt;<strong>a6&gt;</strong> <i>9.966e5</i> &lt;/<strong>a6</strong>&gt;
+&lt;<strong>b6&gt;</strong> <i>524.6</i> &lt;/<strong>b6</strong>&gt;
+&lt;<strong>kappa&gt;</strong> <i>0.1</i> &lt;/<strong>kappa</strong>&gt;
+&lt;/<strong>Constitutive_model</strong>&gt;
+</div>
+
+The isotropic part is the same as neoHookean - the parameters are automatically assigned from elasticity modulus and poisson’s ratio.
+
+Apart from this, need to add fiber direction file path under Add_mesh for the solid domain:
+
+<div class="fibers">
+&lt;<strong>Fiber_direction_file_path&gt;</strong> <i>mesh/fibersLong.vtu</i> &lt;/<strong>Fiber_direction_file_path</strong>&gt;
+&lt;<strong>Fiber_direction_file_path&gt;</strong> <i>mesh/fibersSheet.vtu</i> &lt;/<strong>Fiber_direction_file_path</strong>&gt;
+</div>
+
+**Guccione model**
+	
+$$\Psi = \frac{c}{2} \{ exp\( Q(\bar{\mathbf{E}})\) - 1\} $$
+
+where $$\bar{\mathbf{E}}$$ is the local Green-Lagrange strain tensor, and
+
+$$ Q(\mathbf{E}) = b_{ff} \bar{E}_{ff}^2 + b_{ss} \( \bar{E}_{ss}^2 + \bar{E}_{nn}^2+ \bar{E}_{sn}^2 \) + 2b_{fs} \( \bar{E}_{fs}^2 + \bar{E}_{fn}^2 \)$$
+
+In the code, $$b_f = b_{ff}$$ and $$b_t = b_{ss}$$.
+
+<div class="Gucci">
+&lt;<strong>Constitutive_model</strong> <i>type="Gucci"</i> &gt; 
+&lt;<strong>c&gt;</strong> <i>880</i> &lt;/<strong>c</strong>&gt;
+&lt;<strong>bf&gt;</strong> <i>8</i> &lt;/<strong>bf</strong>&gt;
+&lt;<strong>bt&gt;</strong> <i>6</i> &lt;/<strong>bt</strong>&gt;
+&lt;<strong>bfs&gt;</strong> <i>12</i> &lt;/<strong>bfs</strong>&gt;
+&lt;/<strong>Constitutive_model</strong>&gt;
+</div>
+
+**Holzapfel-Ogden model** 
+
+$$ \Psi_{iso} = \frac{a}{2b} exp \{  b (\bar{I}_1 - 3)\} + \sum_{i \in f,s} \frac{a_i}{2b_i} \chi (\bar{I}_{4i}) \{exp \{ b_i (\bar{I}_{4i} - 1)^2 \} - 1\} + \frac{a_{fs}}{2b_{fs}} \( exp \{ b_{fs} \bar{I}_{8fs}^2 \} - 1 \)$$
+
+where $$\chi (\eta)$$ is the smoother heaviside function defined as
+$$ \chi(\eta) = \frac{1}{1 + exp\{ -k_{\chi} (\eta -1)\} } $$
+
+The heaviside function is multiplied as a switching function to turn off the fibers during contraction. This is useful for modeling collagen in cardiac mechanics for example which does not support contraction.
+
+<div class="HO">
+&lt;<strong>Constitutive_model</strong> <i>type="HolzapfelOgden"</i> &gt; 
+&lt;<strong>a&gt;</strong> <i>590.0</i> &lt;/<strong>a</strong>&gt;
+&lt;<strong>b&gt;</strong> <i>8.023</i> &lt;/<strong>b</strong>&gt;
+&lt;<strong>a4f&gt;</strong> <i>184720.0</i> &lt;/<strong>a4f</strong>&gt;
+&lt;<strong>b4f&gt;</strong> <i>16.026</i> &lt;/<strong>b4f</strong>&gt;
+&lt;<strong>a4s&gt;</strong> <i>24810.0</i> &lt;/<strong>a4s</strong>&gt;
+&lt;<strong>b4s&gt;</strong> <i>11.12</i> &lt;/<strong>b4s</strong>&gt;
+&lt;<strong>afs&gt;</strong> <i>2160.0</i> &lt;/<strong>afs</strong>&gt;
+&lt;<strong>bfs&gt;</strong> <i>11.436</i> &lt;/<strong>bfs</strong>&gt;
+&lt;<strong>k&gt;</strong> <i>100.0</i> &lt;/<strong>k</strong>&gt;
+&lt;/<strong>Constitutive_model</strong>&gt;
+</div>
+
+**Holzapfel-Ogden Modified Anisotropy model**
+
+This model is very similar to the Holzapfel Ogden model - the only difference is the use of full invariants instead of isochoric.
+	
+$$ \Psi_{iso} = \frac{a}{2b} exp \{  b (\bar{I}_1 - 3)\} + \sum_{i \in f,s} \frac{a_i}{2b_i} \chi(I_{4i}) \{exp \{ b_i (I_{4i} - 1)^2 \} - 1\} + \frac{a_{fs}}{2b_{fs}} \( exp \{ b_{fs} I_{8fs}^2 \} - 1 \)$$
+
+where f and s are the fiber and sheet directions and the smoothed heaviside function is:
+$$ \chi(\eta) = \frac{1}{1 + exp\{ -k_{\chi} (\eta -1)\} } $$
+
+<div class="HO">
+&lt;<strong>Constitutive_model</strong> <i>type="HolzapfelOgden-ModifiedAnisotropy"</i> &gt; 
+&lt;<strong>a&gt;</strong> <i>590.0</i> &lt;/<strong>a</strong>&gt;
+&lt;<strong>b&gt;</strong> <i>8.023</i> &lt;/<strong>b</strong>&gt;
+&lt;<strong>a4f&gt;</strong> <i>184720.0</i> &lt;/<strong>a4f</strong>&gt;
+&lt;<strong>b4f&gt;</strong> <i>16.026</i> &lt;/<strong>b4f</strong>&gt;
+&lt;<strong>a4s&gt;</strong> <i>24810.0</i> &lt;/<strong>a4s</strong>&gt;
+&lt;<strong>b4s&gt;</strong> <i>11.12</i> &lt;/<strong>b4s</strong>&gt;
+&lt;<strong>afs&gt;</strong> <i>2160.0</i> &lt;/<strong>afs</strong>&gt;
+&lt;<strong>bfs&gt;</strong> <i>11.436</i> &lt;/<strong>bfs</strong>&gt;
+&lt;<strong>k&gt;</strong> <i>100.0</i> &lt;/<strong>k</strong>&gt;
+&lt;/<strong>Constitutive_model</strong>&gt;
+</div>
