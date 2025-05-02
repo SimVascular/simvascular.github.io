@@ -43,29 +43,29 @@ Isochoric constitutive models for struct/ustruct equations.
   </tr>
 
   <tr>
-    <td> Holzapfel-Gasser-Ogden model </td>
+    <td> Holzapfel-Gasser-Ogden model <a href="#ref-3_hgo">[3]</a></td>
     <td> "HGO" </td>
   </tr>
 
   <tr>
-    <td> Guccione model </td>
+    <td> Guccione model <a href="#ref-4_guccione">[4]</a></td>
     <td> "Guccione", "Gucci" </td>
   </tr>
 
   <tr>
-    <td> Holzapfel-Ogden model </td>
+    <td> Holzapfel-Ogden model <a href="#ref-5_ho">[5]</a></td>
     <td> "HO", "HolzapfelOgden" </td>
   </tr>
 
   <tr>
-    <td> Holzapfel-Ogden Modified Anisotropy model </td>
+    <td> Holzapfel-Ogden Modified Anisotropy model<a href="#ref-6_ho-ma">[6]</a> </td>
     <td> “HO_ma”, “HolzapfelOgden-ModifiedAnisotropy” </td>
   </tr>
 </table>
 
 $$\dag$$ : These models are not available for ustruct.
 
-svMultiPhysics has two options for solving the solid equations - struct and ustruct. “Struct” uses a displacement based formulation i.e. the unknowns that we are solving for in each element are displacements. “Ustruct” uses a mixed formulation where the unknowns are displacements and pressures. 
+svMultiPhysics has two options for solving the solid equations - struct and ustruct. “Struct” uses a displacement based formulation i.e. the unknowns that we are solving for in each element are displacements. “Ustruct” uses a mixed formulation where the unknowns are displacements and pressures.<a href="#ref-1_ustruct_formulation">[1]</a> 
 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
 &lt;<strong>Add_equation</strong> type=<i>"struct"</i>&gt; // or "ustruct"

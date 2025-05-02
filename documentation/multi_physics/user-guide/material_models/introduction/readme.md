@@ -9,7 +9,7 @@ where
 
 $$\boldsymbol{\epsilon} = \frac{1}{2} [\nabla \mathbf{u} + (\nabla \mathbf{u})^T]$$
 
-This relationship holds well for metals which experience small deformations. Soft biological tissues on the other hand undergo large nonlinear deformations and are better represented by a class of material models called hyperelastic models. The passive material behavior for hyperelastic materials can be described through the strain energy function $$\Psi$$. Various stress measures can be obtained from the strain energy function by taking a tensor derivative. svMultiPhysics uses the 2nd Piola Kirchhoff Stress $$\mathbf{S}$$.
+This relationship holds well for metals which experience small deformations. Soft biological tissues on the other hand undergo large nonlinear deformations and are better represented by a class of material models called hyperelastic models. The passive material behavior for hyperelastic materials can be described through the strain energy function $$\Psi$$. Various stress measures can be obtained from the strain energy function by taking a tensor derivative <a href="#ref-2_derive_stress_elasticity">[2]</a>. svMultiPhysics uses the 2nd Piola Kirchhoff Stress $$\mathbf{S}$$.
 
 $$ \mathbf{S} = 2\frac{\partial \Psi}{\partial \mathbf{C}} $$
 
