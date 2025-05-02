@@ -7,10 +7,12 @@ Blood is a complex mixture that consists of plasma, blood cells and platelets. T
 
 Currently, **svMultiPhysics** supports three viscosity models: Newtonian, Carreau-Yasuda and Casson <a href="#ref-2">[2]</a>.
 
+<br>
 <figure>
-  <img class="svImg svImgSm" src="/documentation/svfsi/fluid/imgs/non-newtonian.png" style="width:100%;height:auto;max-width: 30vw;">
-  <figcaption class="svCaption" >Non-Newtonian viscosity model<a href="#ref-1">[1]</a>.</figcaption>
+  <img src="/documentation/multi_physics/user-guide/hemodynamics/imgs/non-newtonian.png" style="float: left; width: 50%; margin-right: 1%; margin-bottom: 0.5em;">
+  <p style="clear: both;">
 </figure>
+<br>
 
 Carreau-Yassuda model is defined as
 
@@ -35,36 +37,34 @@ Here, $k\_0 ( c )$ and $k\_1 ( c )$ are functions of the hematocrit $c$.
 
 
 <h4> Input file </h4>
-Some specific input options are discussed below:
+Input options for different viscosity models are discussed below:
 
 For Newtonian fluid:
 
 ```
-   Viscosity: Constant {
-      Vsalue: 0.04
-   }
+   <Viscosity model="Constant" >
+      <Value> 0.04 </Value>
+   </Viscosity>
 ```
 
 For Casson fluid
 
 ```
-   Viscosity: Cassons {
-      Asymptotic viscosity parameter: 0.3953
-      Yield stress parameter: 0.22803
-      Low shear-rate threshold: 0.5
-   }
+   <Viscosity model="Cassons" >
+      <Asymptotic_viscosity_parameter> 0.3953 </Asymptotic_viscosity_parameter> 
+      <Yield_stress_parameter> 0.22803 </Yield_stress_parameter> 
+      <Low_shear_rate_threshold> 0.5 </Low_shear_rate_threshold> 
+   </Viscosity>
 ```
 
 For Carreau-Yasuda fluid
 
 ```
-   Viscosity: Carreau-Yasuda {
-      Limiting high shear-rate viscosity: 0.022
-      Limiting low shear-rate viscosity: 0.22
-      Shear-rate tensor multiplier (lamda): 0.11
-      Shear-rate tensor exponent (a): 0.644
-      Power-law index (n): 0.392
-   }
+   <Viscosity model="Carreau-Yasuda" >
+      <Limiting_high_shear_rate_viscosity> 0.022 </Limiting_high_shear_rate_viscosity> 
+      <Limiting_low_shear_rate_viscosity> 0.22 </Limiting_low_shear_rate_viscosity> 
+      <Shear_rate_tensor_multiplier> 0.11 </Shear_rate_tensor_multiplier> 
+      <Shear_rate_tensor_exponent> 0.644 </Shear_rate_tensor_exponent> 
+      <Power_law_index> 0.392 </Power_law_index> 
+   </Viscosity>
 ```
-
-
