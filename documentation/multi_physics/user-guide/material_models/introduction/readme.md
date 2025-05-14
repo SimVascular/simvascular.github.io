@@ -9,15 +9,15 @@ where
 
 $$\boldsymbol{\epsilon} = \frac{1}{2} [\nabla \mathbf{u} + (\nabla \mathbf{u})^T]$$
 
-This relationship holds well for metals which experience small deformations. Soft biological tissues on the other hand undergo large nonlinear deformations and are better represented by a class of material models called hyperelastic models. The passive material behavior for hyperelastic materials can be described through the strain energy function $$\Psi$$. Various stress measures can be obtained from the strain energy function by taking a tensor derivative <a href="#ref-2_derive_stress_elasticity">[2]</a>. svMultiPhysics uses the 2nd Piola Kirchhoff Stress $$\mathbf{S}$$.
+This relationship holds well for metals which experience small deformations. Soft biological tissues on the other hand undergo large nonlinear deformations and are better represented by a class of material models called hyperelastic models. The passive material behavior for hyperelastic materials can be described through the strain energy function $\Psi$. Various stress measures can be obtained from the strain energy function by taking a tensor derivative <a href="#ref-2_derive_stress_elasticity">[2]</a>. svMultiPhysics uses the 2nd Piola Kirchhoff Stress $\mathbf{S}$.
 
 $$ \mathbf{S} = 2\frac{\partial \Psi}{\partial \mathbf{C}} $$
 
-where $$\mathbf{C}$$ is the right Cauchy-green tensor. The general constitutive relation for these materials can be written as
+where $\mathbf{C}$ is the right Cauchy-green tensor. The general constitutive relation for these materials can be written as
 
 $$ \mathbf{S} = \mathbb{C}:\mathbf{E}$$
 
-where $$\mathbf{E}$$ is the Green-Lagrange strain tensor. The small strain tensor used for linear elasticity is a linearized form of this strain tensor.
+where $\mathbf{E}$ is the Green-Lagrange strain tensor. The small strain tensor used for linear elasticity is a linearized form of this strain tensor.
 
 The strain energy function consists of two parts - the isochoric (volume preserving) and the volumetric parts. 
 
