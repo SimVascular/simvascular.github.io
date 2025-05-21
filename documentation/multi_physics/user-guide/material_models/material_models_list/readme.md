@@ -206,12 +206,15 @@ $$ \Psi = \frac{c}{2} \left( \exp\left( Q(\bar{\mathbf{E}}) \right) - 1 \right) 
 
 where $\bar{\mathbf{E}}$ is the local Green-Lagrange strain tensor, and
 
-$$ 
-Q(\mathbf{E}) = b_{ff} \bar{E}_{ff}^2 + b_{ss} \left( \bar{E}_{ss}^2 + \bar{E}_{nn}^2 + \bar{E}_{sn}^2 \right) + 2b_{fs} \left( \bar{E}_{fs}^2 + \bar{E}_{fn}^2 \right)
+<p>
 $$
+Q(\bar{\mathbf{E}}) = b_{ff} \left( \bar{E}_{ff} \right)^2 + b_{ss} \left( \bar{E}_{ss}^2 + \bar{E}_{nn}^2 + \bar{E}_{sn}^2 \right) + 2b_{fs} \left( \bar{E}_{fs}^2 + \bar{E}_{fn}^2 \right)
+$$
+</p>
 
 
-In the code, $b_f = b_{ff}$$ and $$b_t = b_{ss}$.
+
+In the code, $b_f = b_{ff}$ and $b_t = b_{ss}$.
 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 4px solid #d0d0d0; font-family: monospace;">
 &lt;<strong>Constitutive_model</strong> <i>type="Gucci"</i>&gt;<br>
@@ -225,9 +228,14 @@ In the code, $b_f = b_{ff}$$ and $$b_t = b_{ss}$.
 
 **Holzapfel-Ogden model** 
 
-$$
-\Psi_{iso} = \frac{a}{2b} \exp \left( b (\bar{I}_1 - 3) \right) + \sum_{i \in \{f,s\}} \frac{a_i}{2b_i} \chi (\bar{I}_{4i}) \left( \exp \left( b_i (\bar{I}_{4i} - 1)^2 \right) - 1 \right) + \frac{a_{fs}}{2b_{fs}} \left( \exp \left( b_{fs} \bar{I}_{8fs}^2 \right) - 1 \right)
-$$
+<p>
+  \( 
+  \Psi_{\text{iso}} = \frac{a}{2b} \exp\left( b (\bar{I}_1 - 3) \right)
+  + \sum_{i \in \{f,s\}} \frac{a_i}{2b_i} \, \chi(\bar{I}_{4i})
+  \left( \exp\left( b_i (\bar{I}_{4i} - 1)^2 \right) - 1 \right)
+  + \frac{a_{fs}}{2b_{fs}} \left( \exp\left( b_{fs} \bar{I}_{8fs}^2 \right) - 1 \right)
+  \)
+</p>
 
 
 
@@ -255,7 +263,14 @@ The heaviside function is multiplied as a switching function to turn off the fib
 
 This model is very similar to the Holzapfel Ogden model - the only difference is the use of full invariants instead of isochoric.
 	
-$$ \Psi_{iso} = \frac{a}{2b} \exp \left\{  b (\bar{I}_1 - 3)\right\} + \sum_{i \in f,s} \frac{a_i}{2b_i} \chi(I_{4i}) \left\{\exp \left\{ b_i (I_{4i} - 1)^2 \right\} - 1\right\} + \frac{a_{fs}}{2b_{fs}} \left( \exp \left\{ b_{fs} I_{8fs}^2 \right\} - 1 \right) $$
+<p>
+\[
+\Psi_{\text{iso}} = \frac{a}{2b} \exp\left( b (\bar{I}_1 - 3) \right)
++ \sum_{i \in \{f,s\}} \frac{a_i}{2b_i} \, \chi(I_{4i})
+\left( \exp\left( b_i (I_{4i} - 1)^2 \right) - 1 \right)
++ \frac{a_{fs}}{2b_{fs}} \left( \exp\left( b_{fs} I_{8fs}^2 \right) - 1 \right)
+\]
+</p>
 
 
 where f and s are the fiber and sheet directions and the smoothed heaviside function is:
