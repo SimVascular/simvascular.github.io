@@ -19,3 +19,18 @@
     --lightblue: lightblue;
 
 }
+
+/*Added to adjust the size of the acknowledgements logos*/
+.creditImage {
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+.simtkLogo {
+  max-width: 180px;
+}

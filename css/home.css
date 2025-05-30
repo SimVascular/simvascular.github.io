@@ -1094,3 +1094,21 @@ th:hover {
     padding: 8px;
     color: var(--black)
 }
+
+/*------------------------------------------ 
+
+           SUITE OF APPLICATIONS LINKS
+
+---------------------------------------------*/
+
+.application-link {
+    color: inherit;
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+}
+
+.application-link:hover {
+    color: #0056b3;
+    text-decoration: underline;  /* underline  */
+}
