@@ -47,6 +47,8 @@ If you still have questions after reading through this documentation, you can co
 
 When updating the documentation (see below), you can build it locally on your computer. If you're using Visual Studio Code, you can download the [Live Server Plugin](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer). Then, right-click anywhere in `index.html` and select `Open with Live Server`.
 
+[Caddy](https://caddyserver.com/docs/) can also be used as an HTTPS server to locally view the HTML documentation. Once Caddy is installed change directories to your simvascular.github.io clone and run `caddy file-server --listen :2015` from the command line. You can then open a web browser with `localhost:2015` to view the results of edits of your local HTML files. You will need to [disable caching](https://developer.chrome.com/blog/devtools-tips-36) in your browser to see your changes.
+
 ## Updating the documentation
 
 Thank you for updating SimVascular's documentation.
