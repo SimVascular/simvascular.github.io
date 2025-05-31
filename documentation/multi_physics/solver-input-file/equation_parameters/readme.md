@@ -49,6 +49,19 @@ The <i>Equation Section</i> is organized as follows
 &lt;<strong>Output</strong>&gt;
 <br>
 
+&lt;<strong>svZeroDSolver_interface</strong> name=<i>svzerod_interface_name</i>&gt;<br>
+[<a href="#svzerodsolver_interface_parameters"> svZeroDSolver Interface Subsection </a>]
+<br>
+&lt;<strong>svZeroDSolver_interface</strong>&gt;
+<br>
+
+&lt;<strong>Add_BC</strong> name=<i>bc_name</i>&gt;<br>
+[<a href="#boundary_condition_parameters"> Boundary Condition Subsection </a>]
+<br>
+&lt;<strong>Add_BC</strong>&gt;
+<br>
+
+
 &lt;<strong>Add_equation</strong>&gt;
 
 </div>
