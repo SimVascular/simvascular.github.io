@@ -28,6 +28,12 @@ The <i>Equation Section</i> is organized as follows
 <br>
 &lt;<strong>/ECGLeads</strong>&gt;
 
+&lt;<strong>svZeroDSolver_interface</strong>&gt;
+<br>
+[<a href="#svzerodsolver_interface_subsection"> svZeroDSolver Interface Subsection </a> ]
+<br>
+&lt;<strong>/svZeroDSolver_interface</strong>&gt;
+
 &lt;<strong>Variable_wall_properties</strong> mesh_name=<i>mesh_name</i>&gt;<br>
 [<a href="#Variable_wall_properties_subsection"> Variable wall properties Subsection </a> ]
 <br>
@@ -48,6 +54,19 @@ The <i>Equation Section</i> is organized as follows
 <br>
 &lt;<strong>Output</strong>&gt;
 <br>
+
+&lt;<strong>svZeroDSolver_interface</strong> name=<i>svzerod_interface_name</i>&gt;<br>
+[<a href="#svzerodsolver_interface_parameters"> svZeroDSolver Interface Subsection </a>]
+<br>
+&lt;<strong>svZeroDSolver_interface</strong>&gt;
+<br>
+
+&lt;<strong>Add_BC</strong> name=<i>bc_name</i>&gt;<br>
+[<a href="#boundary_condition_parameters"> Boundary Condition Subsection </a>]
+<br>
+&lt;<strong>Add_BC</strong>&gt;
+<br>
+
 
 &lt;<strong>Add_equation</strong>&gt;
 

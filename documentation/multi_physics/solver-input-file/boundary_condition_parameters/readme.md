@@ -11,7 +11,7 @@ The Boundary Condition Parameters section is organized as follows
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
 &lt;<strong>Add_BC</strong> name=<i>face_name</i>&gt;
 <br><br>
-[Boundary Condition Parameter]
+[<a href="#general_boundary_condition_parameters"> General Boundary Condition Parameters </a> ]
 <br><br>
 &lt;<strong>RCR_values</strong>&gt;<br>
 [<a href="#rcr_boundary_condition_parameters"> RCR Parameters </a> ]
@@ -71,16 +71,16 @@ in a text file.
 
 <!-- ---------- G e n e r a l  P a r a m e t e r s ---------- -->
 <br>
-<h4> General Parameters </h4>
-<div class="bc_param_div">
+<h4 id="general_boundary_condition_parameters"> General Parameters </h4>
+<div class="bc_param_div"><nobr>
 <strong>&lt;Bct_file_path&gt;</strong> <i>string</i> [none]  <nobr> 
 <strong>&lt;/Bct_file_path&gt;</strong>
-</nobr><br>
+<br><br>
 Load a file used to set the spatial and temporal values for a boundary condition. The file can be a VTK VTP-format file or a text file. 
-<br>
+<br> <br>
 <strong>&lt;CST_shell_bc_type&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/CST_shell_bc_type&gt;</strong>
-</nobr><br>
+<br><br>
 Constrain the degrees of freedom of a Constant Strain Triangle (CST) of a triangular shell element. 
 condition. Permissible values are:
 <ul style="list-style-type:disc;">
@@ -88,101 +88,107 @@ condition. Permissible values are:
   <li> hinged - Allow rotation about an edge </li>
   <li> free - Allow free motion about an edge </li>
 </ul>
-<strong>&lt;Impose_on_state_variable_integral&gt;</strong> <i>boolean</i> [<i>false</i>]  <nobr> 
+<br>
 <strong>&lt;Impose_flux&gt;</strong> <i>boolean</i> [<i>false</i>]  <nobr> 
 <strong>&lt;/Impose_flux&gt;</strong>
-</nobr><br>
+<br><br>
 If <i>true</i> then normalize the spatial profile with the area of the face so that the imposed flux value is converted into the state variable.
-<br>
+<br><br>
 <strong>&lt;Impose_on_state_variable_integral&gt;</strong> <i>boolean</i> [<i>false</i>]  <nobr> 
 <strong>&lt;/Impose_on_state_variable_integral&gt;</strong>
-</nobr><br>
+<br><br>
 If <i>true</i> then used for applying a Dirichlet boundary condition on the displacement degrees of freedom when velocity is the state variable (e.g. fluid, CMM, FSI).
-<br>
+<br><br>
 <section id="bc_Initial_displacements_file_path">
 <strong>&lt;Initial_displacements_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Initial_displacements_file_path&gt;</strong>
-</nobr><br>
+<br><br>
 Use the VTK VTU-format file to initialize CMM using an inflation method resulting from a diastolic or time-averaged fluid traction.
-<br>
+<br><br>
 <strong>&lt;Penalty_parameter&gt;</strong> <i>real</i> [0.0]  <nobr> 
 <strong>&lt;/Penalty_parameter&gt;</strong>
-</nobr><br> 
+<br><br> 
 If the Poisson ratio for a given case is close to 0.5, then calculated bulk modulus used for dilational penalty model can be extremely high leading to poor linear solver convergence. The users may then override the physical bulk modulus with a penalty constant sufficiently large enough for the linear solver to converge.
-<br>
+<br><br>
 <section id="bc_Prestress_file_path">
 <strong>&lt;Prestress_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Prestress_file_path&gt;</strong>
-</nobr><br>
+<br><br>
 Use the VTK VTP-format file to initialize CMM using a prestressed wall under equilibrium with fluid traction.
-<br>
+<br><br>
 <section id="bc_Profile">
 <strong>&lt;Profile&gt;</strong> <i>string</i> [flat]  <nobr> 
 <strong>&lt;/Profile&gt;</strong>
-</nobr><br>
+<br><br>
 Set the spatial distribution of a state variable on the face. Acceptable values: Flat, Parabolic or User_defined
-<br>
+<br><br>
 <strong>&lt;Ramp_function&gt;</strong> <i>boolean</i> [<i>false</i>]  <nobr> 
 <strong>&lt;/Ramp_function&gt;</strong>
-</nobr><br>
+<br><br>
 If <i>true</i> then the first two entries in the file setting an unsteady boundary is used to linearly increment from the first value to the second value, and maintains a steady value thereafter.
-<br>
+<br><br>
 <section id="bc_Spatial_profile_file_path">
 <strong>&lt;Spatial_profile_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Spatial_profile_file_path&gt;</strong>
-</nobr><br>
+<br><br>
 Use the given text file to set the spatial distribution of a state variable for a User_defined profile.
-<br>
+<br><br>
 <section id="bc_Spatial_values_file">
 <strong>&lt;Spatial_values_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Spatial_values_file_path&gt;</strong>
-</nobr><br>
+<br><br>
 The path to the VTK VTP-format file used to set the spatially varying body force to a face.
-<br>
+<br><br>
+<section id="bc_svZeroDSolver_block"> 
+<strong>&lt;svZeroDSolver_block&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
+<strong>&lt;/svZeroDSolver_block&gt;</strong>
+<br><br>
+The name of the svZeroDSolver block this boundary face is coupled to.
+<br><br>
 <section id="bc_Temporal_and_spatial_values_file_path">
 <strong>&lt;Temporal_and_spatial_values_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Temporal_and_spatial_values_file_path&gt;</strong>
-</nobr><br>
+<br><br>
 The path to the text file containing temporal and spatial values. 
-<br>
+<br><br>
 <section id="bc_Temporal_values_file_path">
 <strong>&lt;Temporal_values_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Temporal_values_file_path&gt;</strong>
-</nobr><br>
+<br><br>
 The path to the text file containing temporal values.
-<br>
+<br><br>
 <strong>&lt;Time_dependence&gt;</strong> <i>string</i> [steady]  <nobr> 
 <strong>&lt;/Time_dependence&gt;</strong>
-</nobr><br>
+<br><br>
 The time dependence of a boundary condition. Permissible values are:
    &middot;general - Spatial and temporal variations are provided from a file
    &middot;spatial - Spatially varying values
    &middot;steady - A constant value is imposed
    &middot;unsteady - Time-dependent values are provide from a file
-<br>
+<br><br>
 <strong>&lt;Traction_values_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Traction_values_file_path&gt;</strong>
-</nobr><br>
+<br><br>
 The path to the VTK VTP-format file containing nodally varying traction values.
-<br>
+<br><br>
 <strong>&lt;Traction_multiplier&gt;</strong> <i>real</i> [1.0]  <nobr> 
 <strong>&lt;/Traction_multiplier&gt;</strong>
-</nobr><br>
+<br><br>
 The value used to scale the traction values read from from a file.
-<br>
+<br><br>
 <strong>&lt;Type&gt;</strong> <i>string</i> <nobr> 
 <strong>&lt;/Type&gt;</strong>
-</nobr><br>
+<br><br>
 The boundary condition type. Permissible values are:
    &middot;Coupled Momentum - Identifies the face to be treated using the coupled momentum method
    &middot;Dirichlet - Identifies the face to be treated as a Dirichlet boundary condition
    &middot;Neumann - Identifies the face to be treated as a Neumann boundary condition
    &middot;Robin - Identifies the face to be treated as a Robin boundary condition
    &middot;Traction - Identifies the face to be treated as a Traction boundary condition
-<br>
+<br><br>
 <strong>&lt;Value&gt;</strong> <i>real</i> <nobr> 
 <strong>&lt;/Value&gt;</strong>
-</nobr><br>
+<br><br>
 The value of the state variable.
 <br>
 </div>
