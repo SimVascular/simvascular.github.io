@@ -1,4 +1,4 @@
-# Creating a Job for Simulation
+# Creating a Simulation Job
 
 Let's try Example 1. The files for Example 1 can be found from the link on the left "Cylinder Example". Download and open the project. Now we assume you already have the model and mesh for it.
 
@@ -11,12 +11,12 @@ Let's try Example 1. The files for Example 1 can be found from the link on the l
     Click "OK"
 
 <figure>
-  <img class="svImg svImgSm"  src="/documentation/flowsolver/imgs/createemptyjob.png"> 
+  <img class="svImg svImgSm"  src="/documentation/cfd_simulation/imgs/createemptyjob.png"> 
   <figcaption class="svCaption" ></figcaption>
 </figure>
 
 <figure>
-  <img class="svImg svImgSm"  src="/documentation/flowsolver/imgs/createjobdialog.png"> 
+  <img class="svImg svImgSm"  src="/documentation/cfd_simulation/imgs/createjobdialog.png"> 
   <figcaption class="svCaption" ></figcaption>
 </figure>
 
