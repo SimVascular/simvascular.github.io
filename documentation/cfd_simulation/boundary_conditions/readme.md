@@ -17,7 +17,7 @@ Boundary conditions are applied to the finite element mesh walls and inlet/outle
 The boundaries of a computational domain $\Omega$ are classified as (Fig. 1)
 
 <ol>
- <li> <strong>inflow</strong> boundary $\Gamma_g$ - Surfaces where a volumetric flow rate of fluid entering the domain is prescribed. It is used to derive a Dirichlet velocity boundary condition applied in the direction normal to the surface.
+ <li> <strong>inlet</strong> boundary $\Gamma_g$ - Surfaces where a volumetric flow rate of fluid entering the domain is prescribed. It is used to derive a Dirichlet velocity boundary condition applied in the direction normal to the surface.
  <li> <strong>wall</strong> boundary $\Gamma_s$ - This boundary represents the interface between the fluid domain and the vessel wall. Blood flow simulations typically assume a <strong>rigid wall assumption</strong> where a zero velocity condition is applied to vessel surfaces. 
 </li>
  <li> <strong>outflow</strong> boundary $\Gamma_h$ - Surfaces where a uniform pressure value is prescribed. 
@@ -25,8 +25,8 @@ The boundaries of a computational domain $\Omega$ are classified as (Fig. 1)
 
 <br> <br>
 <figure>
-  <img class="svImg svImgMd" src="/documentation/cfd_simulation/imgs/Fig_15.png">
-  <figcaption class="svCaption" >Fig. 1 &nbsp Boundaries of a fluid domain: inflow ($\Gamma_g$), wall ($\Gamma_s$), and outlet ($\Gamma_h$). </figcaption>
+  <img class="svImg svImgMd" src="/documentation/cfd_simulation/images/Fig_1.png">
+  <figcaption class="svCaption" >Fig. 1 &nbsp Boundaries of a fluid domain: inlet ($\Gamma_g$), wall ($\Gamma_s$), and outlet ($\Gamma_h$). </figcaption>
 </figure>
 
 
@@ -46,7 +46,7 @@ There are several boundary conditions that can be used to represent the pressure
 
 <br><br>
 <figure>
-  <img class="svImg svImgMd" src="/documentation/cfd_simulation/imgs/Fig_18.png">
+  <img class="svImg svImgMd" src="/documentation/cfd_simulation/images/Fig_2.png">
   <figcaption class="svCaption" >Fig. 2 &nbsp An RCR 3-element lumped parameter network </figcaption>
 </figure>
 

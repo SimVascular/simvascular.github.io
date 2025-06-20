@@ -17,10 +17,6 @@ Some sections of the documentation are incomplete and are actively being updated
 
 The **CFD Simulation Tool** is used to setup and run a computationalal fluid dynamics (CFD) simulation of the three-dimensional incompressible Navier-Stokes equations using the <a href="https://github.com/SimVascular/svMultiPhysics"> svMultiPhysics </a> finite element solver.
 
-CFD simulation _jobs_ with user-defined names can be created using different finite element meshes, boundary conditions and solver 
-parameters. Each _job_ is stored using its user-defined name under the _SVPROJECT/Simulations/JOBNAME_ directory. The values of the
-GUI parameters set for each _job_ are stored in an XML _SVPROJECT/Simulations/JOBNAME.sjb_ file.
-
 In contrast with the <a href="https://simvascular.github.io/documentation/multi_physics.html#sv-fsi-tool"> MultiPhysics Tool</a>, 
 the **CFD Simulation Tool** graphical user interface (GUI) provides a simple interface used only to set the physical constants, boundary conditions and solver parameters needed for simulations of blood flow in models of the human vasculature. 
 
