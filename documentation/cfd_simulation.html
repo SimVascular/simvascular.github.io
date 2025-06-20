@@ -1,55 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" class="html">
-  <head>
-    <!-- This corresponds to a fontawesome kit but can be customized -->
-    <script src="https://kit.fontawesome.com/48644805cd.js" crossorigin="anonymous"></script>
-    
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<head>
+  <!-- This corresponds to a fontawesome kit but can be customized -->
+  <script src="https://kit.fontawesome.com/48644805cd.js" crossorigin="anonymous"></script>
   
-    <!-- Custom Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="//vjs.zencdn.net/4.8/video-js.css" rel="stylesheet">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="//vjs.zencdn.net/4.8/video-js.css" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- This applies styling to the elements that aren't generated from markdown -->
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/grayscale.css">
+  <link rel="stylesheet" href="../css/standards.css">
+  <link rel="stylesheet" href="../css/documentation.css">
   
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    
-    <!-- This applies styling to the elements that aren't generated from markdown -->
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/grayscale.css">
-    <link rel="stylesheet" href="../css/standards.css">
-    <link rel="stylesheet" href="../css/documentation.css">
-    
-    <!-- This applies styling to the markdown that is generated with the <zero-md> element -->
-    <script>
-      window.ZeroMd = {
-        config: {
-          cssUrls: ["../css/bootstrap.css","../css/grayscale.css","../css/standards.css","../css/shop-item.css","../css/documentation.css"]
-        }
+  <!-- This applies styling to the markdown that is generated with the <zero-md> element -->
+  <script>
+    window.ZeroMd = {
+      config: {
+        cssUrls: ["../css/bootstrap.css","../css/grayscale.css","../css/standards.css","../css/shop-item.css","../css/documentation.css"]
       }
-    </script>
+    }
+  </script>
+
   
-    
-    <script>
-      MathJax = {
-          tex: {
-            inlineMath: [
-              ['$', '$'],
-              ['\\(', '\\)'],
-            ],
-          },
-        };
-    </script>
-  
+  <script>
+    MathJax = {
+        tex: {
+          inlineMath: [
+            ['$', '$'],
+            ['\\(', '\\)'],
+          ],
+        },
+      };
+  </script>
+
   <!-- This is the CDN that imports the code for the <zero-md> element -->
   <script
       type="module"
       src="https://cdn.jsdelivr.net/gh/zerodevx/zero-md@1/src/zero-md.min.js"
   ></script>
-  
-      <!-- browser tab labels -->
+
+    <!-- browser tab labels -->
     <link rel="shortcut icon" type="image/jpg" href="../img/svlogo/svIcon.png"></link>
     <title>SimVascular Docs</title>
 
@@ -97,10 +97,10 @@
                     <div class="navSubLink">
                       <a href="modeling.html">Modeling</a> 
                     </div>
-                    <div class="navSubLink active">
+                    <div class="navSubLink">
                       <a href="meshing.html">Meshing</a> 
                     </div>
-                    <div class="navSubLink">
+                    <div class="navSubLink active">
                       <a href="cfd_simulation.html">CFD Simulation</a> 
                     </div>
                     <div class="navSubLink">
@@ -149,42 +149,41 @@
       </div>
     </section>
 
-  <section class="mainSection">
+    <section class="mainSection">
     <!-- The following code defines the navigation section on the left of the page -->
     <section class="navigationSection" style="float: left">
       <!-- The link after the class "clickLink" is what will open
       if someone clicks on the <h4> element -->
       <div>
         <h3>Download</h3>
-          <h4 class="clickLink https://simtk.org/frs/download_confirm.php/file/5113/DemoProject.zip?group_id=930">Demo Project</h4>
+          <h4 class="clickLink https://simtk.org/frs/download_confirm.php/file/5114/CylinderProject.zip?group_id=930">Cylinder Example Project</h4>
       </div>
       <div style="padding: 0">
-        <h3>Meshing Guide</h3>
+        <h3>CFD Simulation Guide</h3>
       </div>
       <!-- The second class after "skipTo" is the ID of the <span> element
-        of the <zero-md> element that renders the markdown file -->
+      of the <zero-md> element that renders the markdown file -->
       <div>
         <h4 class="skipTo introduction">Introduction</h4>
       </div>
       <div>
-        <h4 class="skipTo tetgenoverview">TetGen Meshing</h4>
-        <div>
-          <p class="skipTo tetgencreatemesh">Create Mesh</p>
-          <p class="skipTo tetgeniso">Isotropic Meshing</p>
-          <p class="skipTo tetgenboundarylayer">Boundary Layer Meshing</p>
-          <p class="skipTo tetgetnradiusbased">Radius-Based Meshing</p>
-          <p class="skipTo tetgenlocalmeshing">Local Mesh Size Application</p>
-          <p class="skipTo tetgensphericalrefinement">Spherical Refinement</p>
-          <p class="skipTo tetgenflags">Advanced Flags</p>
-          <p class="skipTo tetgenadapt">Adaptive Meshing</p>
-          <p class="skipTo loadingmesh">Unloading/Loading Mesh Data</p>
-          <p class="skipTo exportingmesh">Exporting Mesh</p>
-          <p class="skipTo tetgenerrors">TetGen Errors</p>
-        </div>
+        <h4 class="skipTo simulation_input_data">Simulation Input Data</h4>
       </div>
       <div>
-        <h4 class="skipTo inspectingmeshes">Inspecting Meshes</h4>
+        <h4 class="skipTo boundary_conditions">Boundary Conditions</h4>
       </div>
+
+      <!-- ==================== CFD Simulation Tool ==================== -->
+      <div>
+        <h4 class="skipTo cfd_simulation_tool"> CFD Simulation Tool </h4>
+        <div>
+          <p class="skipTo basic_parameters_panel"> Basic Parameters panel </p>
+          <p class="skipTo inlet_outlet_bcs_panel"> Inlet and Outlet BCs panel </p>
+          <p class="skipTo solver_parameters_panel"> Solver parameters panel </p>
+          <p class="skipTo create_files_and_run_simulation_panel"> Create Files and Run Simulation panel </p>
+        <div>
+      </div>
+
     </section>
 
     <!-- The following code defines the place where the markdown files are rendered -->
@@ -197,47 +196,36 @@
       <!-- The first <zero-md> element should have the id="math" attribute -->
       <!-- All <zero-md> elements should have the "no-shadow" attribute -->
       <span id="introduction">
-        <zero-md id="math" src="meshing/intro/readme.md" no-shadow></zero-md>
+        <zero-md id="math" src="cfd_simulation/introduction/readme.md" no-shadow></zero-md>
       </span>
-      <span id="tetgenoverview">
-        <zero-md src="meshing/tetgen_overview/readme.md" no-shadow></zero-md>
+      <span id="simulation_input_data">
+        <zero-md  src="cfd_simulation/simulation_input_data/readme.md" no-shadow></zero-md>
       </span>
-      <span id="tetgencreatemesh">
-        <zero-md src="meshing/tetgen_create_mesh/readme.md" no-shadow></zero-md>
+      <span id="boundary_conditions">
+        <zero-md src="cfd_simulation/boundary_conditions/readme.md" no-shadow></zero-md>
       </span>
-      <span id="tetgeniso">
-        <zero-md src="meshing/tetgen_isotropic_meshing/readme.md" no-shadow></zero-md>
+
+      <!-- ==================== CFD Simulation Tool ==================== -->
+      <span id="cfd_simulation_tool">
+        <zero-md src="cfd_simulation/cfd_simulation_tool/readme.md" no-shadow></zero-md>
       </span>
-      <span id="tetgenboundarylayer">
-        <zero-md src="meshing/tetgen_boundary_layer/readme.md" no-shadow></zero-md>
+
+      <span id="basic_parameters_panel">
+        <zero-md src="cfd_simulation/cfd_simulation_tool/basic_parameters_panel/readme.md" no-shadow></zero-md>
       </span>
-      <span id="tetgetnradiusbased">
-        <zero-md src="meshing/tetgen_radius_based_meshing/readme.md" no-shadow></zero-md>
+
+      <span id="inlet_outlet_bcs_panel">
+        <zero-md src="cfd_simulation/cfd_simulation_tool/inlet_outlet_bcs_panel/readme.md" no-shadow></zero-md>
       </span>
-      <span id="tetgenlocalmeshing">
-        <zero-md src="meshing/tetgen_local_size/readme.md" no-shadow></zero-md>
+
+      <span id="solver_parameters_panel">
+        <zero-md src="cfd_simulation/cfd_simulation_tool/solver_parameters_panel/readme.md" no-shadow></zero-md>
       </span>
-      <span id="tetgensphericalrefinement">
-        <zero-md src="meshing/tetgen_sphere_refinement/readme.md" no-shadow></zero-md>
+
+      <span id="create_files_and_run_simulation_panel">
+        <zero-md src="cfd_simulation/cfd_simulation_tool/create_files_and_run_simulation_panel/readme.md" no-shadow></zero-md>
       </span>
-      <span id="tetgenflags">
-        <zero-md src="meshing/tetgen_flags/readme.md" no-shadow></zero-md>
-      </span>
-      <span id="tetgenadapt">
-        <zero-md src="meshing/tetgen_adapt/readme.md" no-shadow></zero-md>
-      </span>
-      <span id="loadingmesh">
-        <zero-md src="meshing/loading_mesh/readme.md" no-shadow></zero-md>
-      </span>
-      <span id="exportingmesh">
-        <zero-md src="meshing/exporting_mesh/readme.md" no-shadow></zero-md>
-      </span>
-      <span id="tetgenerrors">
-        <zero-md src="meshing/tetgen_errors/readme.md" no-shadow></zero-md>
-      </span>
-      <span id="inspectingmeshes">
-        <zero-md src="meshing/inspecting_meshes/readme.md" no-shadow></zero-md>
-      </span>
+
     </section>
   </section>
   <section class="skipToTopSection">
