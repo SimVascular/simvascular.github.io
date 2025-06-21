@@ -8,8 +8,6 @@ Some sections of the documentation are incomplete and are actively being updated
 
 All User Guide sections are being updated. 
 
-The SimVascular FSI Tool does not yet support writing svMultiPhysics solver XML files.
-
 </div>
 
 # Introduction 

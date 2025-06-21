@@ -9,7 +9,7 @@ The Simulation Parameters panel is used to set general solver parameters.
 
 <br>
 <figure>
-  <img src="/documentation/multi_physics/sv-fsi-tool/images/simulation-parameters-panel.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img src="/documentation/multi_physics/sv-multiphysics-tool/images/simulation-parameters-panel.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   <p style="clear: both;">
 </figure>
 <br>

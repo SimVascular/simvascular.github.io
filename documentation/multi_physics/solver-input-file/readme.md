@@ -128,20 +128,20 @@ The parameter input XML file must start with the following two lines
 <pre>
 &lt;?xml version="1.0" encoding="UTF-8" ?&gt;
 <br>
-&lt;svFSIFile version="0.1"&gt;
+&lt;svMultiPhysicsFile version="0.1"&gt;
 </pre>
 
 and end with the single line
 
 <pre>
-&lt;/svFSIFile&gt;
+&lt;/svMultiPhysicsFile&gt;
 </pre>
 
 where 
 
 <ul style="list-style-type:disc;">
   <li> <strong>&lt;?xml</strong> - identifies the file as an XML format file </li>
-  <li> <strong>&lt;svFSIFile</strong> - identifies the file as an svMultiPhysics XML format file </li>
+  <li> <strong>&lt;svMultiPhysicsFile</strong> - identifies the file as an svMultiPhysics XML format file </li>
 </ul>
 
 </div>
