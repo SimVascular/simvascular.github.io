@@ -2,7 +2,7 @@
 <!-- ------------------- Domains Panel ----------------- -->
 <!-- --------------------------------------------------- -->
 
-<h2 id="sv_fsi_tool_domains"> Domains Panel </h2> 
+<h2 id="sv_multiphysics_tool_domains"> Domains Panel </h2> 
 The Domains panel is used to assign a finite element mesh to a physical domain used in the simulation.
 Files are assumed to be stored in a <strong>mesh-complete</strong> directory containing the finite 
 element volume and boundary faces mesh files.
@@ -11,7 +11,7 @@ element volume and boundary faces mesh files.
 
 <br>
 <figure>
-  <img src="/documentation/multi_physics/sv-fsi-tool/images/domains-panel.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img src="/documentation/multi_physics/sv-multiphysics-tool/images/domains-panel.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   <p style="clear: both;">
 </figure>
 <br>

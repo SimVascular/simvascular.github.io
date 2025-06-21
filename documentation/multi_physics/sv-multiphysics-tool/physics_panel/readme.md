@@ -2,7 +2,7 @@
 <!-- ------------------- Physics Panel ----------------- -->
 <!-- --------------------------------------------------- -->
 
-<h2 id="sv_fsi_tool_physics"> Physics Panel </h2> 
+<h2 id="sv_multiphysics_tool_physics"> Physics Panel </h2> 
 The Physics panel is used to set the equation(s), its physical properties, 
 boundary conditions and linear solver solution strategy needed to numerically 
 solve it in a simulation.
@@ -11,7 +11,7 @@ solve it in a simulation.
 
 <br>
 <figure>
-  <img src="/documentation/multi_physics/sv-fsi-tool/images/physics-panel.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img src="/documentation/multi_physics/sv-multiphysics-tool/images/physics-panel.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   <p style="clear: both;">
 </figure>
 <br>
@@ -54,7 +54,7 @@ The physical properties displayed in the panel depend of the selected equation.
 
 <strong> Fluid equation properties </strong>
 <figure>
-  <img src="/documentation/multi_physics/sv-fsi-tool/images/physics-panel-fluid-props.png" style="width: 30%;">
+  <img src="/documentation/multi_physics/sv-multiphysics-tool/images/physics-panel-fluid-props.png" style="width: 30%;">
 </figure>
 <strong>Density</strong> <i>TextBox</i> - Fluid density
 <br>
@@ -63,7 +63,7 @@ The physical properties displayed in the panel depend of the selected equation.
 <br> <br> 
 <strong> Linear elasticity equation properties </strong>
 <figure>
-  <img src="/documentation/multi_physics/sv-fsi-tool/images/physics-panel-linear-elasticity-props.png" style="width: 30%;">
+  <img src="/documentation/multi_physics/sv-multiphysics-tool/images/physics-panel-linear-elasticity-props.png" style="width: 30%;">
 </figure>
 <strong>Density</strong> <i>TextBox</i> - Solid density
 <br>
@@ -75,7 +75,7 @@ The physical properties displayed in the panel depend of the selected equation.
 <br> <br> 
 <strong> Structure equation properties </strong>
 <figure>
-  <img src="/documentation/multi_physics/sv-fsi-tool/images/physics-panel-structure-props.png" style="width: 30%;">
+  <img src="/documentation/multi_physics/sv-multiphysics-tool/images/physics-panel-structure-props.png" style="width: 30%;">
 </figure>
 <strong>Density</strong> <i>TextBox</i> - Solid density
 <br>
@@ -94,7 +94,7 @@ The physical properties displayed in the panel depend of the selected equation.
 <br><br>
 <strong> FSI equation properties </strong>
 <figure>
-  <img src="/documentation/multi_physics/sv-fsi-tool/images/physics-panel-fsi-props.png" style="width: 30%;">
+  <img src="/documentation/multi_physics/sv-multiphysics-tool/images/physics-panel-multiphysics-props.png" style="width: 30%;">
 </figure>
 <strong>Density</strong> <i>TextBox</i> - Fluid density
 <br>
@@ -121,7 +121,7 @@ The quantities output by default are displayed in the right sub-panel.
 Selecting the output quantity name in the left panel and selecting the <strong>&gt;</strong> <i>Button</i> moves 
 it to the right panel and adds that quantity for output.
 <figure>
-  <img src="/documentation/multi_physics/sv-fsi-tool/images/physics-panel-output.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img src="/documentation/multi_physics/sv-multiphysics-tool/images/physics-panel-output.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   <p style="clear: both;">
 </figure>
 </div>
@@ -132,11 +132,11 @@ it to the right panel and adds that quantity for output.
 <div style="background-color: #E0E0E0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
 <h5 id="bcs_gui_controls"> BCs <i>Button</i> - Adding Boundary Conditions </h4>
 <figure>
-  <img src="/documentation/multi_physics/sv-fsi-tool/images/physics-panel-bcs.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img src="/documentation/multi_physics/sv-multiphysics-tool/images/physics-panel-bcs.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   <p style="clear: both;">
 </figure>
 <strong>Add</strong> <i>Button</i> - Select to add a boundary condition. A <strong>Boundary Condition Setup</strong> popup window is displayed with a list of mesh boundary faces. Selecting a face name allows for setting the various parameters for a given type of boundary condition.
-  <img src="/documentation/multi_physics/sv-fsi-tool/images/physics-panel-bc-popup.png" style="float: left; width: 50%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img src="/documentation/multi_physics/sv-multiphysics-tool/images/physics-panel-bc-popup.png" style="float: left; width: 50%; margin-right: 1%; margin-bottom: 0.5em;">
   <p style="clear: both;">
 <strong>Boundary Condition Setup Parameters</strong>
 <br>
@@ -209,7 +209,7 @@ Selecting a face name adds a boundary condition for that face.
 <br>
 <div style="background-color: #E0E0E0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
 <h5 id="advanced_gui_controls"> Advanced <i>Button</i> - Setting advanced solver parameters </h4>
-  <img src="/documentation/multi_physics/sv-fsi-tool/images/physics-panel-advanced.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img src="/documentation/multi_physics/sv-multiphysics-tool/images/physics-panel-advanced.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   <p style="clear: both;">
 <strong>Coupled</strong> - <i>CheckBox</i> - If selected
 
@@ -232,7 +232,7 @@ Selecting a face name adds a boundary condition for that face.
 <br>
 <div style="background-color: #E0E0E0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
 <h5 id="linear_solver_gui_controls"> Linear solver<i>Button</i> - Setting linear solver parameters </h4>
-  <img src="/documentation/multi_physics/sv-fsi-tool/images/physics-panel-linear-solver.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
+  <img src="/documentation/multi_physics/sv-multiphysics-tool/images/physics-panel-linear-solver.png" style="float: left; width: 30%; margin-right: 1%; margin-bottom: 0.5em;">
   <p style="clear: both;">
 <strong>Coupled</strong> - <i>CheckBox</i> - If selected
 

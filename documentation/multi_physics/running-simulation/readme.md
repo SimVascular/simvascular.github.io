@@ -145,7 +145,7 @@ VTP files can also store float data used to set the values of certain boundary c
 </pre>
 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #0000e6; border-left: 6px solid #0000e6">
-Finite element mesh files are automatically created by the <a href="#sv-fsi-tool"> SimVascular FSI Tool</a>.
+Finite element mesh files are automatically created by the <a href="#sv-fsi-tool"> SimVascular MultiPhysics Tool</a>.
 </div>
 
 <!-- =================================================================== -->
@@ -406,7 +406,7 @@ and <a href="#equation_parameters"> Equation </a> parameters required to perform
   </ul>
 </ul>
 
-A solver input file is automatically created by the <a href="#sv-fsi-tool"> SimVascular FSI Tool</a>.
+A solver input file is automatically created by the <a href="#sv-fsi-tool"> SimVascular MultiPhysics Tool</a>.
 It can also be created by customizing a copy of a solver input file from the svMultiPhysics 
 <a href="https://github.com/SimVascular/svMultiPhysics/tree/main/tests/cases"> 
 test/case directory</a> that is similar to the simulation you wish to perform.
@@ -426,7 +426,7 @@ An example of a solver input file for a fluid simulation is given below. The sim
 
 <pre>
 &lt;?xml version="1.0" encoding="UTF-8" ?&gt;
-&lt;svFSIFile version="0.1"&gt;
+&lt;svMultiPhysicsFile version="0.1"&gt;
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #F0F0F0; border-left: 1px solid #F0F0F0">
 &lt;!--- General Simulation Parameters --->
 
@@ -525,7 +525,7 @@ An example of a solver input file for a fluid simulation is given below. The sim
    <a href="#boundary_condition_parameters">&lt;/Add_BC&gt;</a>
 <a href="#equation_parameters">&lt;/Add_equation&gt;</a>
 </div>
-&lt;/svFSIFile&gt;
+&lt;/svMultiPhysicsFile&gt;
 </pre>
 
 <!-- =================================================================== -->
@@ -552,7 +552,7 @@ Save_results_in_folder parameter</a>.
 
 The svmultiphysics program can be run on a workstation using
 <ul style="list-style-type:disc;">
-<li> <a href="#sv-fsi-tool"> SimVascular FSI Tool</a> </li>
+<li> <a href="#sv-fsi-tool"> SimVascular MultiPhysics Tool</a> </li>
 <li> Command line in a terminal </li>
 </ul>
 
