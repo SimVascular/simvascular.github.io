@@ -5,7 +5,7 @@ models of the human vasculature. CFD solvers used for such simulations must acco
 conditions, physiologic models and physics specific to cardiovascular modeling.
 
 The <i>Simulations Tool</i> has functionality to assign boundary conditions, material properties, and set parameters for the
-SimVascular <i>svSolver</i> CFD solver. <i>svSolver</i> can be run through the GUI for testing a simulation setup. However,
+SimVascular <i>svMultiPhysics</i> solver. The <i>svMultiPhysics</i> can be run through the GUI for testing a simulation setup. However,
 for simulating physiological relevant time scales the simulation files are generated on a desktop, copied to a high performance
 computing (HPC) cluster, and run in parallel there.
 
@@ -18,14 +18,14 @@ complete.
 
 <br>
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600">
-The <i>svSolver</i> CFD solver does not use any predefined units. All values used for physical parameters (e.g. fluid density)
+The <i>svMultiPhysics</i> solver does not use any predefined units. All values used for physical parameters (e.g. fluid density)
 and boundary conditions must be consistent with the spatial dimensions of the finite element mesh.
 </div>
 
 <br>
-The following sections demonstrate how to setup a CFD simulation for <i>svSolver</i> using the <b>aorta-iliacs</b> solid model
+The following sections demonstrate how to setup a CFD simulation for <i>svMultiPhysics</i> using the <b>aorta-iliacs</b> solid model
 and finite element mesh. A detailed discussion about CFD simulations can be found in the SimVascular
-<a href="flowsolver.html">Simulation Guide</a> documentation.
+<a href="flowsolver.html">CFD Simulation Guide</a> documentation.
 
 <h3 id="tutorial_create_simulation_1"> Create an instance of a <i>Simulations Tool</i> for the <b>aorta-iliacs</b> model.  </h3>
 
@@ -213,7 +213,7 @@ A detailed discussion about solver parameters can be found in the SimVascular
 
  <tr>
     <td><img src="/documentation/getting_started/tutorial/images/create-simulation-12.png" width="512" height="360"> </td>
-    <td> The <i>ToolBox</i> <b>Solver Parameters</b> page is used to set the parameters controlling <i>svSolver</i>
+    <td> The <i>ToolBox</i> <b>Solver Parameters</b> page is used to set the parameters controlling <i>svMultiPhysics</i>
          solution and output. Parameter values are entered by clicking with the left mouse button on the appropriate
          <i>TextBox</i>. 
          <br><br>
@@ -237,14 +237,14 @@ A detailed discussion about solver parameters can be found in the SimVascular
 <h3 id="tutorial_create_simulation_4"> Run the simulation.  </h3>
 This section demonstrates how run the simulation.
 
-The <i>svSolver</i> program can be run as a single process using one processor (core) or in parallel using two or more processors.
-<i>svSolver</i> uses the <i>Open MPI</i> implementation of the Message Passing Interface (MPI) to run in parallel. The <i>Open MPI</i>
-libraries must be installed in order to run <i>svSolver</i> in parallel. In this demonstration the <i>svSolver</i> program is run
+The <i>svMultiPhysics</i> program can be run as a single process using one processor (core) or in parallel using two or more processors.
+<i>svMultiPhysics</i> uses the <i>Open MPI</i> implementation of the Message Passing Interface (MPI) to run in parallel. The <i>Open MPI</i>
+libraries must be installed in order to run <i>svMultiPhysics</i> in parallel. In this demonstration the <i>svMultiPhysics</i> program is run
 on a single processor.
 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 6px solid #d0d0d0">
-The SimVascular <i>svSolver</i> program is included in the Windows SimVascular application installer. For MacOS and Ubuntu 
-platforms it must be installed using a separate <i>svSolver</i> installer downloaded from 
+The SimVascular <i>svMultiPhysics</i> program is included in the Windows SimVascular application installer. For MacOS and Ubuntu 
+platforms it must be installed using a separate <i>svMultiPhysics</i> installer downloaded from 
 <a href="https://simtk.org/frs/?group_id=188"> SimTK </a>
 </div>
 
@@ -258,7 +258,7 @@ platforms it must be installed using a separate <i>svSolver</i> installer downlo
 
   <tr>
     <td><img src="/documentation/getting_started/tutorial/images/create-simulation-13.png" width="512" height="360"> </td>
-    <td> The <i>ToolBox</i> <b>Create Files and Run Simulation</b> page is used to run <i>svSolver</i>.
+    <td> The <i>ToolBox</i> <b>Create Files and Run Simulation</b> page is used to run <i>svMultiPhysics</i>.
          <br><br>
          Select the <b>aorta-iliacs</b> from the <b>Choose Mesh:</b> <i>ComboBox</i>. 
          <br><br>
@@ -274,10 +274,10 @@ platforms it must be installed using a separate <i>svSolver</i> installer downlo
          <br><br>
          Press the <b>Run Simulation</b> <i>Button</i>. 
          <br><br>
-         The <i>svSolver</i> program is run on a single processor and should take several minutes to complete.
+         The <i>svMultiPhysics</i> program is run on a single processor and should take several minutes to complete.
          <br><br>
          <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 6px solid #d0d0d0">
-         The <i>svSolver</i> program can be run in parallel by selecting the <b>Use MPI</b> <i>CheckBox</i> and setting the 
+         The <i>svMultiPhysics</i> program can be run in parallel by selecting the <b>Use MPI</b> <i>CheckBox</i> and setting the 
          <b>Number of Processors</b> <i>Slider</i> to 2 or larger.
          </div> 
     </td>
@@ -318,7 +318,7 @@ This section demonstrates how to convert the simulation results into VTK format 
 
   <tr>
     <td><img src="/documentation/getting_started/tutorial/images/create-simulation-17.png" width="512" height="360"> </td>
-    <td> The <i>ToolBox</i> <b>Convert Results</b> page is used to convert <i>svSolver</i> results files into VTK format files.
+    <td> The <i>ToolBox</i> <b>Convert Results</b> page is used to convert <i>svMultiPhysics</i> results files into VTK format files.
          <br><br>
          GUI controls:
          <br><br>
