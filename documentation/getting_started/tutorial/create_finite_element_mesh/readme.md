@@ -1,7 +1,6 @@
 <h2 id="tutorial_create_finite_element_mesh">Create Finite Element Mesh</h2>
 The continuous volume enclosed by a solid model of vascular anatomy is subdivided into discrete tetrahedral elements using mesh 
-generation software. This finite element mesh is used by the SimVascular <i>svSolver</i> and <i>svFsi</i> computational fluid 
-dynamics programs to simulate blood flow in a vascular network.
+generation software. This finite element mesh is used by the SimVascular <i>svMultiPhysics</i> program to simulate blood flow in a vascular network.
 
 A good mesh is integral to finite element CFD simulation techniques. It enables computers to numerically solve the
 underlying governing fluid equations and simulate physical effects. The mesh quality influences the accuracy, convergence,

@@ -1,8 +1,6 @@
 <h1 id="tutorial"> Tutorial </h1>
 
-This section demonstrates how to use the SimVascular image-based modeling pipeline to create a patient-specific geometric model
-of the human vasculature and perform a finite element computational fluid dynamics (CFD) simulation of blood flow for that model.
-A model of an aorta with left and right iliac arteries is created from an MR image volume.
+This section demonstrates how to use the SimVascular image-based modeling pipeline to create a patient-specific geometric model of the human vasculature. A finite element mesh is then created from that model that can later be used for a computational fluid dynamics (CFD) simulation of blood flow for that model. A model of an aorta with left and right iliac arteries is created from an MR image volume.
 
 <!-- The following lists the sections in this tutorial
 
