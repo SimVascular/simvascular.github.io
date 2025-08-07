@@ -433,22 +433,29 @@ th:hover {
 
 .creditContainer {
     margin: auto;
-    /* height: 90px; */
-    width: 90px;
-    padding-left: 20px;
-    padding-bottom: 10px;
-
+    height: 120px;
+    width: auto;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .creditsRow {
     padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .creditImage {
-    height: 100%;
-    max-height: 120px;
-    width: 100%;
+    max-height: 100px;
+    max-width: 250px;
+    width: auto;
+    height: auto;
     object-fit: contain;
+    display: block;
 }
 
 @media only screen and (max-width: 576px) {
