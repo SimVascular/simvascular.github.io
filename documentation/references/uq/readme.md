@@ -7,3 +7,5 @@ J. S. Tran, D. E. Schiavazzi, A. B. Ramachandra, A. M. Kahn and A. L. Marsden, *
 D. E. Schiavazzi, A. Doostan, G. Iaccarino and A. L. Marsden, **A Generalized Multi-resolution Expansion for Uncertainty Propagation with Application to Cardiovascular Modeling**, _Computer Methods in Applied Mechanics and Engineering_, 314(1):196-221, 2017. [Link](http://www.sciencedirect.com/science/article/pii/S0045782516311951)
 
 A.L. Marsden, **Optimization in cardiovascular modeling**, _Annual Review of Fluid Mechanics_, 46:519-546, 2014. [Link](http://www.annualreviews.org/doi/abs/10.1146/annurev-fluid-010313-141341)
+
+C.M. Fleeter, G. Geraci, D.E. Schiavazzi, A.M. Kahn and A.L. Marsden, **Multilevel and multifidelity uncertainty quantification for cardiovascular hemodynamics**, _Computer Methods in Applied Mechanics and Engineering_, 365:113030, 2020. [Link](https://www.sciencedirect.com/science/article/pii/S0045782520302140)
