@@ -3,10 +3,6 @@
 
 <h1 id="sv_multiphysics_tool" style="text-align:center;"> SimVascular MultiPhysics Tool </h1>
 
-<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600">
-The SimVascular MultiPhysics Tool does not yet support writing svMultiPhysics solver XML files.
-</div>
-
 The SimVascular <strong>SV MultiPhysics Tool</strong> is used to interactively create the mesh and solver XML input files
 needed to run an svMultiPhysics simulation.
 
@@ -36,17 +32,23 @@ menu item displays a file browser used to select to location to store the locati
 <!--- ---------- Creating an MultiPhysics Tool Instance ---------- --->
 <!--- ------------------------------------------------------------ --->
 
-<h2 id="sv_multiphysics_tool_create_instance"> Creating an MultiPhysics Tool Instance </h2> 
-A <strong>MultiPhysics Tool</strong> instance is created by right-clicking on the <strong>MultiPhysics</strong> node 
-under the SV Data Manager. Selecting the <strong>Create MultiPhysics job</strong> menu item displays a popup window.
+<h2 id="sv_multiphysics_tool_create_instance"> Creating a MultiPhysics Tool Instance </h2> 
+
+Creating a <strong>MultiPhysics Tool</strong> is performed differently than the other Tools. 
+
+First select the <strong>MultiPhysics Icon</strong> 
+<img src="/documentation/multi_physics/sv-multiphysics-tool/images/multiphysics-icon.png" height="20" width="20"> locationed in the SimVascular Window Toolbar. This will bring up an uninitialized <strong>MultiPhysics Tool</strong> panel 
+<img class="svImg svImgSm" src="/documentation/multi_physics/sv-multiphysics-tool/images/multiphysics-blank-panel.png">
+
+Next select the <img src="/documentation/multi_physics/sv-multiphysics-tool/images/multiphysics-new-job-button.png" width="10%"> button at the top of the <strong>MultiPhysics Tool</strong> panel. This will display a <strong>Create MultiPhysics Job</strong> popup window.
 
 <figure>
 <img class="svImg svImgSm" src="/documentation/multi_physics/sv-multiphysics-tool/images/create-job-popup.png">
-<figcaption class="svCaption"> The <strong>Create MultiPhysics Simulation Job </strong> popup menu.  
+<figcaption class="svCaption"> The <strong>Create MultiPhysics Job </strong> popup menu.  
 </figcaption>
 </figure>
 
-Type <strong>fluid_simulation</strong> into the <strong>job Name</strong> <i>DialogBox</i>. This names is used 
+Type <strong>fluid_simulation</strong> into the <strong>Job Name</strong> <i>DialogBox</i>. This names is used 
 to identify the <strong>MultiPhysics Tool</strong> instance and to name the files and directories stored under the 
 SimVascular project's MultiPhysics directory. Selecting OK creates an <strong>MultiPhysics Tool</strong> instance node under 
 the SV Data Manager. Selecting this instance displays the <strong>MultiPhysics Tool</strong> panel.

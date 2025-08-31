@@ -146,7 +146,7 @@ The following steps demonstrate how to create an instance of an <strong>MultiPhy
   <tr>
     <td><img src="/documentation/multi_physics/sv-multiphysics-tool/tutorial/images/create-select-icon.png" width="597" height="412"> </td>
     <td>
-    Select the <strong>MultiPhysics Icon</strong> <img src="/documentation/multi_physics/sv-multiphysics-tool/tutorial/images/multiphysics-icon.png"width="5%" height="5%">
+    Select the <strong>MultiPhysics Icon</strong> <img src="/documentation/multi_physics/sv-multiphysics-tool/tutorial/images/multiphysics-icon.png"width="20" height="20">
     located on the SimVascular window <i>Toolbar</i>.
     <br>This displays an <strong>MultiPhysics Tool</strong> panel.
     </td>
