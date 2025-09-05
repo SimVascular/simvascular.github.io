@@ -12,6 +12,7 @@ The SimVascular application is distributed using installers downloaded from the 
 
 The SimVascular application uses the <a href="https://www.mitk.org/wiki/The_Medical_Imaging_Interaction_Toolkit_(MITK)"> Medical Imaging Interaction Toolkit (MITK)<a/> framework for medical imaging applications incorporating a plugin architecture. This framework uses several software packages
 <ul style="list-style-type:none;">
+  <li> <b> MITK </b> - Medical imaging plugin framework </li>
   <li> <b> Qt6 </b> - GUI </li>
   <li> <b> VTK </b> - Graphics and visualization </li>
   <li> <b> ITK </b> - Image processing </li>
@@ -19,19 +20,22 @@ The SimVascular application uses the <a href="https://www.mitk.org/wiki/The_Medi
   <li> <b> HDF5 </b> - Hierarchical Data Format Version 5 </li>
 </ul>
 
-All of these software packages are built from source for each platform and depend on the versions of libraries they are built against. The SimVascular application is then built using MITK and these software packages. Running SimVascular on a platform it was not specifically built for can fail due to missing libraries or incompatible library versions.
+All of these software packages are built from source for each platform and depend on the versions of libraries they are built against. The SimVascular application is then built with these software packages. Running SimVascular on a platform it was not specifically built for can fail due to missing libraries or incompatible library versions.
 
-Running SimVascular requires at the minimum that C++ and graphics libraries (e.g. OpenGL) to be installed. It is difficult to get SimVascular running on an HPC cluster because of the graphics library requirements and other required software, local and remote, needed to view graphics images created remotely. 
+Running SimVascular requires that C++ and graphics libraries (e.g. OpenGL) be installed. It is difficult to get SimVascular running on an HPC cluster because of the graphics library requirements and other required software, local and remote, needed to view graphics images created remotely. 
 
 Other platform-specific libraries may also be required. The notes under each SimVascular installer describe which additional libraries need to be installed.
 
 ### Ubuntu 
-Most Ubuntu workstations will have the required C++ and graphics libraries installed. Ubuntu uses OpenGL and the X Window System (X11) for graphics. The Qt software package uses several X protocol C-language Binding (XCB) libraries that may not be installed by default.
+Most Ubuntu workstations will have the required C++ and graphics libraries installed. Ubuntu uses OpenGL and the X Window System (X11) for graphics. The Qt software package uses several X protocol C-language Binding (XCB) libraries that may not be installed by default. These libraries can be installed using
+<pre>
+    sudo apt install '^libxcb.*-dev' libx11-xcb-dev 
+</pre>
 
 If SimVascular fails at start-up then running it from the command-line will show a message explaining which library can't be found. You can then install the missing library using 
 
 <pre>
-    sudo apt install LIBRAY_NAME
+    sudo apt install MISSING_LIBRAY_NAME
 </pre>
 
 
@@ -42,7 +46,7 @@ by running the following command in a terminal
     xcode-select --install 
 </pre>
 
-The latest versions of SimVascular now require that <a href="https://www.openmp.org/"> OpenMP </a> library be installed for shared-memory multiprocessing. It can be installed using
+The latest versions of SimVascular now require that the <a href="https://www.openmp.org/"> OpenMP </a> library be installed for shared-memory multiprocessing. It can be installed using
 <pre>
     brew install libomp 
 </pre>
@@ -50,7 +54,7 @@ The latest versions of SimVascular now require that <a href="https://www.openmp.
 If SimVascular fails at start-up then running it from the command-line will show a message explaining which library can't be found. You can then install the missing library using
 
 <pre>
-    brew install LIBRAY_NAME 
+    brew install MISSING_LIBRAY_NAME 
 </pre>
 
 
