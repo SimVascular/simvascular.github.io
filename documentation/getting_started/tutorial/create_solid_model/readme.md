@@ -93,16 +93,12 @@ Create an instance of a <i>Models Tool</i> named <b>aorta-iliacs</b> used to cre
          <ul style="list-style-type:none;">
            <li> <img src="/documentation/getting_started/tutorial/images/model-gui-delete.png" width="114" height="25"> - Delete the selected
                 face(s). </li> <br>
-
            <li> <img src="/documentation/getting_started/tutorial/images/model-gui-fill-holes.png" width="114" height="25"> - Fill holes in the
                 surface with faces. </li> <br>
-
            <li> <img src="/documentation/getting_started/tutorial/images/model-gui-est-size.png" width="114" height="25"> - Estimate a good
                 size triangle edge size used to remesh the model's triangular surface.  </li> <br>
-
            <li> <img src="/documentation/getting_started/tutorial/images/model-gui-size.png" width="114" height="25"> - The
                 triangle edge size <i>TextBox</i> used to remesh the model's triangular surface. </li> <br>
-
            <li> <img src="/documentation/getting_started/tutorial/images/model-gui-remesh.png" width="114" height="25"> - Remesh the model's
                 triangular surface mesh using the traingle edge size given in the <i>TextBox</i>. </li> <br>
          </ul>
@@ -134,19 +130,15 @@ This section demonstrates how to create a <i>PolyData</i> solid model from the <
     <td><img src="/documentation/getting_started/tutorial/images/create-model-7.png" width="512" height="360"> </td>
     <td> Select the <img src="/documentation/getting_started/tutorial/images/model-gui-create-model.png" width="114" height="25"> 
          <i>Button</i> in the upper right of the <i>SV Modeling Panel</i>.
-
          <br><br>
          A <b>Create Solid Model</b> <i>DiaglogBox</i> appears. This displays the names of the <b>aorta</b> and <b>left-iliac</b>
          <i>Segmentations Data Nodes</i> with a <i>CheckBox</i>. The <i>CheckBox</i>s are used to select the segmentation
          lofted surfaces that will be joined together to create a solid model.
-
          <br><br>
          Select the <i>CheckBox</i> for the <b>aorta</b> and <b>left-iliac</b> segmentations.
-
          <br><br>
          Press the <b>Create Solid Model</b> <i>DiaglogBox</i> <b>OK</b> <i>Button</i>.
     </td>
-
   </tr>
 
   <tr>
@@ -167,7 +159,6 @@ This section demonstrates how to create a <i>PolyData</i> solid model from the <
     <td><img src="/documentation/getting_started/tutorial/images/create-model-9.png" width="512" height="360"> </td>
     <td> The <b>Face List</b> <i>Table</i> lists the four <i>Faces</i> created by joining the <b>aorta</b> and 
          <b>left-iliac</b> segmentations into a complete solid model. 
-       
         <br><br>
         The <b>Face List</b> <i>Table</i> columns define <i>Face</i> attributes
           <ul style="list-style-type:none;">

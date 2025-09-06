@@ -57,18 +57,14 @@ Create an instance of a <i>Meshes Tool</i> named <b>aorta-iliacs</b> used to cre
     <td> <img src="/documentation/getting_started/tutorial/images/create-mesh-3.png" width="512" height="360"> </td>
     <td> A <i>Data Node</i> named <b>aorta-iliacs</b> (an instance of a <i>Meshes Tool</i>) is created under the
          <i>Data Manager</i> <i>Meshes Tool</i> type.
-
          <br><br>
          Select the <i>Data Manager</i> <i>Models</i> <i>CheckBox</i> to toggle off the visibility of the solid model segmentation geometry.
-
          <br><br>
          Close the <i>SV Modeling Panel</i> by selected the <b>X</b> in its <i>Tab</i>.
-
          <br><br>
          Double-click on the <i>Data Manager</i> <b>Meshes / aorta-iliacs</b> <i>Data Node</i> with the left mouse
          button to bring up the <i>SV Meshing Panel</i>.
     </td>
-
   </tr>
 </table>
 
