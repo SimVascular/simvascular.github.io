@@ -255,9 +255,7 @@ The following table lists each <i>Tool Type</i> with a brief description of each
       A model can be imported into a <i>Project</i> without an image volume. After importing the model select the
       <b>Global Reinit</b> <i>Data Manager Menu</i> option to view the model.  
       </div>
-
     </td>
-
   </tr>
 
   <tr>
@@ -270,9 +268,7 @@ The following table lists each <i>Tool Type</i> with a brief description of each
       <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600">
       A mesh cannot be imported into a <i>Project</i>.
       </div>
-
     </td>
-
   </tr>
 
   <tr>

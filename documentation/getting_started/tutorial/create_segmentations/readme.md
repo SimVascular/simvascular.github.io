@@ -71,25 +71,19 @@ for the main aorta and right iliac vessels.
   <tr>
     <td><img src="/documentation/getting_started/tutorial/images/create-seg-4.png" width="512" height="360"> </td>
     <td> Close the <i>SV Path Planning Panel</i> by selected the <b>X</b> in its <i>Tab</i>. <br><br>
-         Double-click on the <i>Data Manager</i> <b>Segmentations / aorta</b> <i>Data Node</i> with the left mouse 
-         button to bring up the <i>SV 2D Segmentation Panel</i>. The <i>Display</i> layout is changed to two 2D views 
-         on the left and one 3D view on the right. <br><br>
-
+         Double-click on the <i>Data Manager</i> <b>Segmentations / aorta</b> <i>Data Node</i> with the left mouse button to bring up the <i>SV 2D Segmentation Panel</i>. The <i>Display</i> layout is changed to two 2D views on the left and one 3D view on the right. <br><br>
          The 3D view displays geometry from any <i>Tool</i> that is selected to be visible using the
          <img src="/documentation/getting_started/tutorial/images/visible-toggle-box.png" width="20" height="18"> control.
-         The <b>aorta</b> and <b>left-iliac</b> paths are shown as yellow lines with blue markers.
-
+         The <b>aorta</b> and <b>left-iliac</b> paths are shown as yellow lines with blue markers.<br><br>
          The red rectangular region
          <img src="/documentation/getting_started/tutorial/images/create-seg-5.png" width="32" height="21">
          in the 3D view displays the 2D image slice extracted from the image volume. The slice is positioned and oriented
          using <b>aorta</b> <i>Path</i> geometry. The slice is moved along a <i>Path</i> using the <b>Reslice</b> <i>Slider</i>.
-         <br> <br>
-
+         <br><br>
          The upper left 2D view displays the 2D image slice; the lower the gradient of the 2D image slice used to visualize image edges.
          Image points and intensity values used for segmentation are interactively selected from the 2D views using the left mouse
          button.
     </td>
-
   </tr>
 
   <tr>
@@ -110,7 +104,6 @@ for the main aorta and right iliac vessels.
            <li> <img src="/documentation/getting_started/tutorial/images/seg-gui-paste.png" width="100" height="25"> - Create a new 
              segmentation at the current path location (slice plane location) from a copy of a segmentation. </li><br>
         </ul>
-
         <br>
         Segmentation methods: <br><br>
         <ul style="list-style-type:none;">
@@ -159,12 +152,10 @@ using the <i>Level Set</i> segmentation method.
          <br> <br>
          The level set contour is displayed in all three views as a closed red curve segmenting the vessel lumen from 
          surrounding tissue.
-
          <br><br>
          The contour is added to the <b>Contour List</b> <i>Table</i> as <b>0:SplinePolygon,LevelSet</b>, where <i>0</i> is
          the contour ID, <i>SplinePolygon</i> is geometric representation and <i>LevelSet</i> the segmentation method.
     </td>
-
   </tr>
 
   <tr>
@@ -261,13 +252,11 @@ for the aorta/right iliac bifurcation to the end of the left iliac artery.
     <td> Double-click on the <i>Data Manager</i> <b>Segmentations / left-iliac</b> <i>Data Node</i> with the left mouse
          button to bring up the <i>SV 2D Segmentation Panel</i>. The <i>Display</i> layout is changed to two 2D views
          on the left and one 3D view on the right. <br><br>
-
          The red rectangular region
          <img src="/documentation/getting_started/tutorial/images/create-seg-5.png" width="32" height="21">
          in the 3D view displays the 2D image slice extracted from the image volume. The slice is positioned and oriented
          using <b>left-iliac</b> <i>Path</i> geometry. The slice is moved along a <i>Path</i> using the <b>Reslice</b> <i>Slider</i>.
          <br> <br>
-
          The upper left 2D view displays the 2D image slice; the lower the gradient of the 2D image slice used to visualize image edges.
          Image points and intensity values used for segmentation are interactively selected from the 2D views using the left mouse
          button.
@@ -335,7 +324,6 @@ using the <i>Level Set</i> segmentation method.
     <td><img src="/documentation/getting_started/tutorial/images/create-left-iliac-seg-5.png" width="512" height="360"> </td>
     <td> Select the outer control point of the <b>Contour Manipulator</b> to reduce the size of the first contour until
          it completely fits in the </b>aorta</b>.
-
          <br><br>
          Press the <img src="/documentation/getting_started/gui/images/gui-save-icon.png" width="40" height="35">
          icon in the  <i>ToolBar</i> to save the <i>Project</i>. <br><br>
