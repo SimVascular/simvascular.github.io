@@ -7,6 +7,22 @@ The <i>svZeroDSolver Interface Subsection</i> of the <i>Equation Section</i> def
 
 The SimVascular <a href="/documentation/rom_simulation.html#0d-solver"> svZeroDSolver </a> simulates bulk cardiovascular flow rates and pressures using an arbitrary  zero-dimensional (0D) lumped parameter model (LPM) of a discrete network of components analogous to electrical circuits. It provides an Application Programming Interface (API) that allows it to communicate and interact with external software applications directly using function calls to programmatically define custom inflow and outflow boundary conditions for a CFD simulation. The svMultiPhysics solver can directly access the svZeroDSolver API by loading the svZeroDSolver as a shared (dynamic) library available after installing the svZeroDSolver. In order to couple svMultiPhysics with the svZeroDSolver, you will need to provide a json file containing the LPN to couple the 3D domain to. Documentation on how to structure this json file can be found in the <a href="/documentation/rom_simulation.html#0d-solver-user-guide-svMP-coupling"> svZeroDSolver documentation </a>
 
+<p>
+For a concrete example of how to set up and use 3D–0D coupling in practice, see the
+<a href="https://github.com/SimVascular/svMultiPhysics/tree/main/tests/cases/fluid/pipe_RCR_sv0D" target="_blank">
+svMultiPhysics 3D–0D coupling example case
+</a>.
+</p>
+
+<p>
+If you would like to create your own custom 0D blocks, please refer to the
+<a href="https://simvascular.github.io/svZeroDSolver/developer_guide.html" target="_blank">
+svZeroDSolver developer guide
+</a>.
+</p>
+
+
+
 The <i>svZeroDSolver Interface Subsection </i> is organized as follows
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
 &lt;<strong>svZeroDSolver_interface</strong>&gt;<br>
