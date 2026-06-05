@@ -67,7 +67,32 @@ Parameter key &emsp;                      | Description &emsp;                  
 `tolerance_gradient` &emsp;               | Gradient tolerance for calibration &emsp;                              | $10^{-5}$ &emsp;
 `tolerance_increment` &emsp;              | Increment tolerance for calibration &emsp;                             | $10^{-10}$ &emsp;
 `maximum_iterations` &emsp;               | Maximum calibration iterations &emsp;                                  | 100 &emsp;
-`calibrate_stenosis_coefficient` &emsp;   | Toggle whether stenosis coefficient should be calibrated &emsp;        | True &emsp;
-`set_capacitance_to_zero` &emsp;          | Toggle whether all capacitances should be manually set to zero &emsp;  | False &emsp;
 `initial_damping_factor` &emsp;           | Initial damping factor for Levenberg-Marquardt optimization &emsp;     | 1.0 &emsp;
 
+#### Selecting which parameters to calibrate
+
+Each vessel and multi-outlet junction must declare which of its parameters
+the calibrator should optimize via a `calibrate` field listing the
+parameter names. Parameters that are not listed are held constant at the
+value found in the input file. The names must match the parameter names
+the block exposes (e.g. `R_poiseuille`, `C`, `L`, `stenosis_coefficient`
+for a `BloodVessel`; `R_poiseuille`, `L`, `stenosis_coefficient` per outlet
+for a `BloodVesselJunction`).
+
+```json
+{
+  "vessel_name": "branch0_seg0",
+  "zero_d_element_type": "BloodVessel",
+  "zero_d_element_values": {
+    "R_poiseuille": 0.0,
+    "C": 1.2e-6,
+    "L": 0.25,
+    "stenosis_coefficient": 1.06e-5
+  },
+  "calibrate": ["R_poiseuille"]
+}
+```
+
+If a block has no `calibrate` field (or an empty list), every parameter of
+that block is held at its input value. The calibrator errors out if no
+parameter ends up selected anywhere in the model.
