@@ -65,14 +65,13 @@ The Navier-Stokes linear solver based on the partitioned method for fluid equati
       <Linear_algebra type="fsils" >
          <Preconditioner> fsils </Preconditioner>
       </Linear_algebra>
-      <Max_iterations> 15 </Max_iterations>
-      <NS_GM_max_iterations> 10 </NS_GM_max_iterations>
-      <NS_CG_max_iterations> 300 </NS_CG_max_iterations>
-      <Tolerance> 1e-3 </Tolerance>
-      <NS_GM_tolerance> 1e-3 </NS_GM_tolerance>
-      <NS_CG_tolerance> 1e-3 </NS_CG_tolerance>
-      <Absolute_tolerance> 1e-17 </Absolute_tolerance>
-      <Krylov_space_dimension> 250 </Krylov_space_dimension>
+      <Max_iterations> 10 </Max_iterations>
+      <NS_GM_max_iterations> 200 </NS_GM_max_iterations>
+      <NS_CG_max_iterations> 500 </NS_CG_max_iterations>
+      <Tolerance> 0.4 </Tolerance>
+      <NS_GM_tolerance> 0.01 </NS_GM_tolerance>
+      <NS_CG_tolerance> 0.2 </NS_CG_tolerance>
+      <Krylov_space_dimension> 300 </Krylov_space_dimension>
    </LS>
 ```
 
