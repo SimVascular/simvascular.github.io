@@ -466,7 +466,8 @@ The <i>Spatial Bounds Subsection</i> is organized as follows
 &lt;<strong>/Spatial_bounds</strong>&gt;
 </div>
 
-Either or both of the <strong>Box</strong> and <strong>Sphere</strong> subsections may be specified.
+At most one <strong>Box</strong> and one <strong>Sphere</strong> subsection may be specified.
+Either or both of the <strong>Box</strong> and <strong>Sphere</strong> subsections may be used.
 When both are given the stimulus is applied only to nodes that lie within their intersection.
 
 <h6 id="stimulus_Box_parameters"> Box Parameters </h6>
