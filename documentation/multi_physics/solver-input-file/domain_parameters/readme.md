@@ -405,6 +405,10 @@ The <i>Stimulus Subsection</i> is organized as follows
 <br>
 [<a href="#stimulus_parameters"> Stimulus Parameters </a> ]
 <br><br>
+&lt;<strong>Spatial_bounds</strong>&gt;<br>
+[<a href="#stimulus_Spatial_bounds_subsection"> Spatial Bounds Subsection </a> ]<br>
+&lt;<strong>/Spatial_bounds</strong>&gt;
+<br><br>
 &lt;<strong>/Stimulus</strong>&gt;
 </div>
 
@@ -436,5 +440,59 @@ The stimulus duration.
 <strong>&lt;/Start_time&gt;</strong>
 </nobr><br>
 The stimulus start time.
+<br>
+</div>
+
+<!-- -------------------------------------------------- -->
+<!-- ---------- Spatial Bounds Subsection ------------- -->
+<!-- -------------------------------------------------- -->
+
+<h5 id="stimulus_Spatial_bounds_subsection"> Spatial Bounds Subsection </h5>
+The optional <i>Spatial Bounds Subsection</i> restricts the stimulus to nodes that lie within
+one or more geometric regions. When omitted the stimulus is applied to all nodes in the domain.
+
+The <i>Spatial Bounds Subsection</i> is organized as follows
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
+&lt;<strong>Spatial_bounds</strong>&gt;<br>
+<br>
+&lt;<strong>Box</strong>&gt;<br>
+[<a href="#stimulus_Box_parameters"> Box Parameters </a> ]<br>
+&lt;<strong>/Box</strong>&gt;
+<br><br>
+&lt;<strong>Sphere</strong>&gt;<br>
+[<a href="#stimulus_Sphere_parameters"> Sphere Parameters </a> ]<br>
+&lt;<strong>/Sphere</strong>&gt;
+<br><br>
+&lt;<strong>/Spatial_bounds</strong>&gt;
+</div>
+
+Either or both of the <strong>Box</strong> and <strong>Sphere</strong> subsections may be specified.
+When both are given the stimulus is applied only to nodes that lie within their intersection.
+
+<h6 id="stimulus_Box_parameters"> Box Parameters </h6>
+<div class="bc_param_div">
+<strong>&lt;Minimum&gt;</strong> <i>vector</i> <nobr>
+<strong>&lt;/Minimum&gt;</strong>
+</nobr><br>
+The minimum corner of the axis-aligned bounding box. One coordinate value per spatial dimension.
+<br>
+<strong>&lt;Maximum&gt;</strong> <i>vector</i> <nobr>
+<strong>&lt;/Maximum&gt;</strong>
+</nobr><br>
+The maximum corner of the axis-aligned bounding box. Must have the same number of coordinates as <strong>Minimum</strong>.
+<br>
+</div>
+
+<h6 id="stimulus_Sphere_parameters"> Sphere Parameters </h6>
+<div class="bc_param_div">
+<strong>&lt;Center&gt;</strong> <i>vector</i> <nobr>
+<strong>&lt;/Center&gt;</strong>
+</nobr><br>
+The center of the sphere. One coordinate value per spatial dimension.
+<br>
+<strong>&lt;Radius&gt;</strong> <i>real</i> <nobr>
+<strong>&lt;/Radius&gt;</strong>
+</nobr><br>
+The radius of the sphere. Must be non-negative.
 <br>
 </div>
