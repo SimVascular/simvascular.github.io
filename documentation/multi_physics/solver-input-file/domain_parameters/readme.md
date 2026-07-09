@@ -466,21 +466,19 @@ The <i>Spatial Bounds Subsection</i> is organized as follows
 &lt;<strong>/Spatial_bounds</strong>&gt;
 </div>
 
-At most one <strong>Box</strong> and one <strong>Sphere</strong> subsection may be specified.
-Either or both of the <strong>Box</strong> and <strong>Sphere</strong> subsections may be used.
-When both are given the stimulus is applied only to nodes that lie within their intersection.
+Specifying both a Box and Sphere subsections restricts nodes to the intersection of those geometric regions.
 
 <h6 id="stimulus_Box_parameters"> Box Parameters </h6>
 <div class="bc_param_div">
 <strong>&lt;Minimum&gt;</strong> <i>vector</i> <nobr>
 <strong>&lt;/Minimum&gt;</strong>
 </nobr><br>
-The minimum corner of the axis-aligned bounding box. One coordinate value per spatial dimension.
+The minimum point of the bounding box. One coordinate value per spatial dimension.
 <br>
 <strong>&lt;Maximum&gt;</strong> <i>vector</i> <nobr>
 <strong>&lt;/Maximum&gt;</strong>
 </nobr><br>
-The maximum corner of the axis-aligned bounding box. Must have the same number of coordinates as <strong>Minimum</strong>.
+The maximum point of the bounding box. Must have the same number of coordinates as <strong>Minimum</strong>.
 <br>
 </div>
 
