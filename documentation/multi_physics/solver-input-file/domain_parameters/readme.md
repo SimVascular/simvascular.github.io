@@ -17,7 +17,7 @@ The <i>Domain Subsection</i> is organized as follows
 <br>
 &lt;<strong>Viscosity</strong>&gt;
 <br><br>
-&lt;<strong>Stimulus</strong> type=<i>stimulus_type</i>&gt;<br>
+&lt;<strong>Stimulus</strong> type=<i>stimulus_type</i>&gt; <i>(repeatable)</i><br>
 [<a href="#domain_Stimulus_subsection"> Stimulus Subsection </a> ]
 <br>
 &lt;<strong>Stimulus</strong>&gt;
@@ -419,17 +419,24 @@ The <strong>Stimulus</strong> keyword adds stimulus settings to the enclosing do
   <li> "Istim" - the applied stimulus is a source current and not a voltage source </li>
 </ul>
 
+Multiple <strong>&lt;Stimulus&gt;</strong> elements may be placed within the same explicit
+<strong>&lt;Domain&gt;</strong> subsection, or under the equation-level default domain when no
+explicit domain subsection is used. Each stimulus is evaluated independently using its own
+amplitude, timing parameters, and optional spatial bounds. When multiple stimuli are active at
+the same node and time, their amplitudes are summed. Defining no <strong>&lt;Stimulus&gt;</strong>
+elements produces no applied stimulus; defining one applies only that stimulus.
+
 <h5 id="stimulus_parameters"> Parameters </h5>
 <div class="bc_param_div">
 <strong>&lt;Amplitude&gt;</strong> <i>real</i> [0.0] <nobr>
 <strong>&lt;/Amplitude&gt;</strong>
 </nobr><br>
-The stimulus amplitude.
+The stimulus amplitude. An omitted or zero-valued amplitude contributes no stimulus.
 <br>
-<strong>&lt;Cycle_length&gt;</strong> <i>real</i> [0.0] <nobr>
+<strong>&lt;Cycle_length&gt;</strong> <i>real</i> [total simulation duration] <nobr>
 <strong>&lt;/Cycle_length&gt;</strong>
 </nobr><br>
-The stimulus cycle length. 
+The stimulus cycle length. When omitted, the total simulation duration is used. For a stimulus with a nonzero amplitude, the cycle length must be greater than zero.
 <br>
 <strong>&lt;Duration&gt;</strong> <i>real</i> [0.0] <nobr>
 <strong>&lt;/Duration&gt;</strong>
