@@ -1,9 +1,0 @@
-
-## Example 1: Steady Fluids Simulation on Descending Aorta with Rigid Walls
-
-This first example will go through the steps needed to set up a steady fluids simulation on a patient-specific geometry with rigid walls and connect these with the associated commands and settings in the svMultiPhysics .xml file. All conditions in this example are assumed to be steady, meaning that they do not change with time. The flowrate of blood coming into the model will be constant as well as all other boundary conditions. Rigid walls mean that the vessel walls are assumed to be fixed with time and thus have zero velocity for the entire simulation. Both of these assumptions are not physiologically consistent with blood flow in a real patient. Flowrates and pressures fluctuate with time in a real patient due to the pulsatility of cardiac contraction and blood vessel walls are flexible that inflate and deflate along with the oscillating pressures. But we choose to start with the simplest example possible to introduce the process and format of using *svMultiPhysics*. Even for other cases, running a steady and rigid wall simulation is still useful to help debug other issues with the model or simulation setup. The subject for this example is the following patient-specific model of the descending aorta and iliac arteries. The figure below also includes the names of the exterior surfaces that we will use when assigning boundary conditions:
-
-<figure>
-  <img class="svImg svImgMd" src="/documentation/svmp_user_guide/img/svmp_ug_ex1_model_and_surfaces.png">
-  <figcaption class="svCaption" >Descending Aorta model with mesh surfaces labeled.</figcaption>
-</figure>
