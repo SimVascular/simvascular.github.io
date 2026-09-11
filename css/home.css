@@ -780,6 +780,73 @@ th:hover {
     padding: 15px;
 }
 
+.documentationTeaser {
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.documentationTeaserInner {
+    max-width: 1080px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(280px, 0.8fr);
+    gap: 28px;
+    align-items: center;
+    background-color: var(--lightbluegrey);
+    border: 1px solid #aebbd0;
+    border-top: 5px solid var(--darkblue);
+    border-radius: 6px;
+    padding: 28px;
+}
+
+.documentationTeaserText h2 {
+    text-align: left;
+    text-transform: none;
+    margin: 0;
+    padding-top: 0;
+}
+
+.documentationTeaserText p,
+.documentationTeaserAction p {
+    text-align: left;
+    line-height: 1.6;
+}
+
+.documentationTeaserAction {
+    text-align: center;
+}
+
+.documentationTocButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+    max-width: 360px;
+    padding: 14px 18px;
+    background-color: var(--verydarkblue);
+    border: 1.5px solid var(--verydarkblue);
+    color: white;
+    border-radius: 4px;
+    font-size: 18px;
+    font-family: "Montserrat","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-weight: bold;
+}
+
+.documentationTocButton:hover {
+    background-color: var(--darkblue);
+    border-color: var(--darkblue);
+    color: white;
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 767px) {
+    .documentationTeaserInner {
+        grid-template-columns: 1fr;
+        padding: 22px;
+    }
+}
+
 /*------------------------------------------ 
 
             SUPPORT SECTION

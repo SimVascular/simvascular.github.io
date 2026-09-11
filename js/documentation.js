@@ -22,6 +22,42 @@ function clickLink(hrefTag, targetBlank = true)
     a.click();
 }
 
+// Reapply a direct subsection link after all Markdown content has rendered.
+// Otherwise, content loaded above the target can push it down after the
+// browser performs its initial fragment navigation.
+function scrollToHashAfterMarkdownRender()
+{
+    var hash = decodeURIComponent(window.location.hash.substring(1));
+
+    if (!hash)
+    {
+        return;
+    }
+
+    var markdownElements = Array.from(document.querySelectorAll("zero-md"));
+    var renderPromises = markdownElements.map(function(element) {
+        if (element.children.length > 0)
+        {
+            return Promise.resolve();
+        }
+
+        return new Promise(function(resolve) {
+            element.addEventListener("zero-md-rendered", resolve, {once: true});
+        });
+    });
+
+    Promise.all(renderPromises).then(function() {
+        var target = document.getElementById(hash);
+
+        if (target)
+        {
+            target.scrollIntoView();
+        }
+    });
+}
+
+scrollToHashAfterMarkdownRender();
+
 // listener for clicking on the logo
 $("#logo").click(function() {
     clickLink("/index.html", false);

@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en" class="html">
+<head>
+  <!-- This corresponds to a fontawesome kit but can be customized -->
+  <script src="https://kit.fontawesome.com/48644805cd.js" crossorigin="anonymous"></script>
+
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="description" content="A table of contents for SimVascular documentation, tutorials, user guides, solver references, clinical cases, and developer resources.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Custom Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+  <link href="//vjs.zencdn.net/4.8/video-js.css" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <!-- This applies styling to the elements that aren't generated from markdown -->
+  <link rel="stylesheet" href="../css/bootstrap.css">
+  <link rel="stylesheet" href="../css/grayscale.css">
+  <link rel="stylesheet" href="../css/standards.css">
+  <link rel="stylesheet" href="../css/documentation.css">
+
+  <!-- browser tab labels -->
+  <link rel="shortcut icon" type="image/jpg" href="../img/svlogo/svIcon.png"></link>
+  <title>SimVascular Documentation</title>
+
+  <!-- Google Analytics Manager -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-PQXFMVS01C"
+  ></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+
+    gtag("config", "G-PQXFMVS01C");
+  </script>
+</head>
+<body>
+  <section class="header">
+    <div class="row navRow">
+      <div class="col-6 topLeftLogo">
+        <!-- logo top left -->
+        <div class="headerLogoContainer">
+          <img id="logo" class="headerLogoImage" src="../img/svlogo/svLogoTitle.png" alt="SimVascular Logo"></img>
+        </div>
+      </div>
+      <div class="col-6 topRightBars">
+        <!-- The following code defines the navigation bar in the header -->
+        <div id="headerNavBar">
+          <details>
+            <summary><i class="fa-solid fa-bars" id="iconForSkip"></i></summary>
+            <div class="navBarSection">
+              <div class="navLink">
+                <a href="../index.html">
+                  <i class="iconInHeader fa-solid fa-house"></i>Home
+                </a>
+              </div>
+              <div class="navLink active">
+                <a href="index.html">
+                  <i class="iconInHeader fa-solid fa-map"></i>Documentation TOC
+                </a>
+              </div>
+              <details>
+                <summary class="navTitle"><i class="iconInHeader fa-solid fa-user"></i>User Guides</summary>
+                <div>
+                  <div class="navSubLink">
+                    <a href="getting_started.html">Getting Started</a>
+                  </div>
+                  <div class="navSubLink">
+                    <a href="modeling.html">Modeling</a>
+                  </div>
+                  <div class="navSubLink">
+                    <a href="meshing.html">Meshing</a>
+                  </div>
+                  <div class="navSubLink">
+                    <a href="cfd_simulation.html">CFD Simulation</a>
+                  </div>
+                  <div class="navSubLink">
+                    <a href="multi_physics.html">MultiPhysics</a>
+                  </div>
+                  <div class="navSubLink">
+                    <a href="simcardio.html">SimCardio</a>
+                  </div>
+                  <div class="navSubLink">
+                    <a href="rom_simulation.html">ROM Simulation</a>
+                  </div>
+                  <div class="navSubLink">
+                    <a href="genbc.html">General B.C.</a>
+                  </div>
+                  <div class="navSubLink">
+                    <a href="python_interface.html">Python Interface</a>
+                  </div>
+                  <div class="navSubLink">
+                    <a href="references.html">References</a>
+                  </div>
+                </div>
+              </details>
+              <details>
+                <summary class="navTitle"><i class="iconInHeader fa-solid fa-stethoscope" style="padding-right: 15px"></i>Clinical Cases</summary>
+                <div>
+                  <div class="navSubLink">
+                    <a href="../clinical/coronary.html">Coronary Normal</a>
+                  </div>
+                  <div class="navSubLink">
+                    <a href="../clinical/aortofemoral1.html">Aortofemoral Normal - 1</a>
+                  </div>
+                  <div class="navSubLink">
+                    <a href="../clinical/aortofemoral2.html">Aortofemoral Normal - 2</a>
+                  </div>
+                  <div class="navSubLink">
+                    <a href="../clinical/pulmonary.html">Healthy Pulmonary</a>
+                  </div>
+                  <div class="navSubLink">
+                    <a href="https://simtk.org/projects/sv_tests">All Demo Projects</a>
+                  </div>
+                </div>
+              </details>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mainSection">
+    <!-- The following code defines the navigation section on the left of the page -->
+    <section class="navigationSection tocNavigationSection" style="float: left">
+      <div>
+        <h3>Documentation</h3>
+      </div>
+      <div>
+        <h4 class="skipTo first-project">Create SimVascular Project</h4>
+      </div>
+      <div>
+        <h4 class="skipTo documentation-pages">Documentation Pages</h4>
+      </div>
+      <div>
+        <h4 class="skipTo clinical-examples">Clinical Examples</h4>
+      </div>
+    </section>
+
+    <section class="docsSection tocDocsSection" style="float: right">
+      <section id="start-here" class="tocSection tocIntro">
+        <div class="tocLead">
+          <h1>SimVascular Documentation</h1>
+          <p>Learn SimVascular, build cardiovascular models, run simulations, and find technical details.</p>
+        </div>
+        <aside class="tocRecommendation">
+          <h2>New Users</h2>
+          <p>Welcome! Start with this tutorial to experience the basic features of SimVascular.</p>
+          <a href="getting_started.html">Getting Started</a>
+        </aside>
+      </section>
+
+      <section id="first-project" class="tocSection tocBand">
+        <div class="tocSectionHeading">
+          <h2>Create SimVascular Project</h2>
+          <p>Use this sequence to become familiar with the software, create a first image-based geometric model of the vascular anatomy, and run a hemodynamic simulation.</p>
+        </div>
+        <ol class="tocSteps">
+          <li>
+            <span>1</span>
+            <div>
+              <a href="getting_started.html#installing">Install SimVascular and learn the interface</a>
+              <p>Install the application, understand projects, and become familiar with the graphical user interface.</p>
+            </div>
+          </li>
+          <li>
+            <span>2</span>
+            <div>
+              <a href="getting_started.html#tutorial">Create an image-based geometric model of the vascular anatomy</a>
+              <p>Follow the tutorial to work with medical image data, vessel paths, lumen segmentations, a solid model, and a finite element mesh.</p>
+            </div>
+          </li>
+          <li>
+            <span>3</span>
+            <div>
+              <a href="cfd_simulation.html">Set up a CFD simulation</a>
+              <p>Continue from geometric model construction to boundary conditions, solver inputs, and simulation results.</p>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section id="documentation-pages" class="tocSection">
+        <div class="tocSectionHeading">
+          <h2>Documentation Pages</h2>
+        </div>
+        <div class="tocPageGrid">
+          <article class="tocPageSummary">
+            <h3><a href="getting_started.html">Getting Started</a></h3>
+            <p>Use the tutorial to install SimVascular, learn how projects and the graphical interface work, and construct a first cardiovascular model.</p>
+          </article>
+          <article class="tocPageSummary">
+            <h3><a href="modeling.html">Geometric Modeling</a></h3>
+            <p>Create vessel paths and lumen segmentations from image data, then construct a three-dimensional vascular model.</p>
+          </article>
+          <article class="tocPageSummary">
+            <h3><a href="meshing.html">Meshing</a></h3>
+            <p>Generate and inspect finite element meshes, control local refinement, and add boundary layers for simulation.</p>
+          </article>
+          <article class="tocPageSummary">
+            <h3><a href="cfd_simulation.html">CFD Simulation</a></h3>
+            <p>Assign boundary conditions, generate solver input files, run blood-flow simulations, and review results.</p>
+          </article>
+          <article class="tocPageSummary">
+            <h3><a href="multi_physics.html">svMultiPhysics</a></h3>
+            <p>Configure and run three-dimensional multiphysics simulations, understand solver inputs and data formats, and consult theory and developer guidance.</p>
+          </article>
+          <article class="tocPageSummary">
+            <h3><a href="genbc.html">General Boundary Conditions</a></h3>
+            <p>Define custom boundary conditions, prepare required files, compile the model, and run it with a simulation.</p>
+          </article>
+          <article class="tocPageSummary">
+            <h3><a href="rom_simulation.html">ROM Simulation</a></h3>
+            <p>Create and run computationally efficient 0D and 1D models, calibrate parameters, and visualize reduced-order model results.</p>
+          </article>
+          <article class="tocPageSummary">
+            <h3><a href="python_interface.html">Python Interface</a></h3>
+            <p>Automate SimVascular tasks and work programmatically with projects, geometry, modeling, segmentation, and meshing.</p>
+          </article>
+          <article class="tocPageSummary">
+            <h3><a href="references.html">References</a></h3>
+            <p>Literature on boundary conditions, solvers, modeling, meshing, validation, clinical applications, and uncertainty quantification</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="clinical-examples" class="tocSection tocBand">
+        <div class="tocSectionHeading">
+          <h2>Clinical Examples</h2>
+          <p>Review complete cardiovascular cases that connect clinical data, modeling choices, boundary conditions, and simulation results.</p>
+        </div>
+        <div class="tocPageGrid">
+          <article class="tocPageSummary">
+            <h3><a href="../clinical/coronary.html">Coronary Normal</a></h3>
+            <p>Coronary anatomy, model construction, simulation setup, parameters, and results</p>
+          </article>
+          <article class="tocPageSummary">
+            <h3><a href="../clinical/aortofemoral1.html">Aortofemoral Normal - 1</a></h3>
+            <p>Clinical data, model description, boundary conditions, and simulation results for an aortofemoral model</p>
+          </article>
+          <article class="tocPageSummary">
+            <h3><a href="../clinical/aortofemoral2.html">Aortofemoral Normal - 2</a></h3>
+            <p>A second aortofemoral example with model description, inflow and outflow setup, and results</p>
+          </article>
+          <article class="tocPageSummary">
+            <h3><a href="../clinical/pulmonary.html">Healthy Pulmonary</a></h3>
+            <p>Pulmonary clinical data, model description, boundary conditions, and simulation results</p>
+          </article>
+        </div>
+        <p class="tocNote">Additional demonstration projects are available from <a href="https://simtk.org/projects/sv_tests">SimTK</a>.</p>
+      </section>
+    </section>
+  </section>
+
+  <section class="skipToTopSection">
+    <p id="skipToTop"><i class="fa-solid fa-arrow-up"></i></p>
+  </section>
+
+  <!-- Optional JavaScript -->
+  <script src="../js/jquery-2.1.1.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.3/dist/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <script src="../js/documentation.js"></script>
+</body>
+</html>

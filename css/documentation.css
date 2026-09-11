@@ -462,3 +462,222 @@ zero-md {
     font-size: 38px;
     color: white;
 }
+
+/*------------------------------------------
+
+            DOCUMENTATION TOC PAGE
+
+---------------------------------------------*/
+
+.tocDocsSection {
+    padding: 0;
+    background-color: var(--lightbluegrey);
+}
+
+.tocSection {
+    padding: 35px 45px;
+    background-color: var(--lightbluegrey);
+}
+
+.tocBand {
+    background-color: var(--white);
+}
+
+.tocIntro {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.65fr);
+    gap: 28px;
+    align-items: stretch;
+    padding-top: 45px;
+    padding-bottom: 45px;
+}
+
+.tocLead {
+    padding: 30px;
+    background-color: var(--white);
+    border-top: 6px solid var(--darkblue);
+    border-radius: 6px;
+}
+
+.tocLead h1 {
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 12px;
+    text-align: left;
+}
+
+.tocLead p {
+    max-width: 800px;
+    margin: 0;
+    padding: 0;
+    font-family: "Lora", Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.tocRecommendation {
+    padding: 24px;
+    background-color: var(--verydarkblue);
+    color: white;
+    border-radius: 6px;
+}
+
+.tocRecommendation h2 {
+    margin: 0;
+    padding: 0 0 12px;
+    color: white;
+    text-transform: none;
+    font-size: 27px;
+    line-height: 1.25;
+}
+
+.tocRecommendation p {
+    margin: 0;
+    padding: 0;
+    color: white;
+    line-height: 1.55;
+}
+
+.tocRecommendation a {
+    display: block;
+    margin-top: 18px;
+    padding: 12px 14px;
+    border: 1px solid var(--blue);
+    border-radius: 4px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+.tocRecommendation a:hover {
+    background-color: var(--darkblue);
+    color: white;
+    text-decoration: none;
+}
+
+.tocSectionHeading {
+    padding-bottom: 10px;
+}
+
+.tocSectionHeading h2,
+.tocSectionHeading p {
+    margin: 0;
+}
+
+.tocSectionHeading p {
+    color: var(--verydarkblue);
+    font-size: 18px;
+    line-height: 1.55;
+}
+
+.tocPageGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    padding-top: 15px;
+}
+
+.tocPageSummary {
+    padding: 18px;
+    min-height: 100%;
+    background-color: var(--white);
+    border-left: 5px solid var(--darkblue);
+    border-radius: 4px;
+}
+
+.tocBand .tocPageSummary,
+.tocBand .tocSteps li {
+    background-color: var(--lightbluegrey);
+}
+
+.tocPageSummary h3 {
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 8px;
+    text-transform: none;
+    font-size: 21px;
+    line-height: 1.25;
+}
+
+.tocPageSummary p,
+.tocSteps p,
+.tocNote {
+    margin: 0;
+    padding-top: 0;
+    line-height: 1.55;
+}
+
+.tocPageSummary p {
+    font-family: "Lora", Georgia, "Times New Roman", serif;
+}
+
+.tocSteps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+    margin: 0;
+    padding: 15px 0 0 0;
+    list-style: none;
+}
+
+.tocSteps li {
+    display: grid;
+    grid-template-columns: 44px minmax(0, 1fr);
+    gap: 12px;
+    padding: 15px;
+    background-color: var(--white);
+    border: 1px solid #c4cdd9;
+    border-radius: 6px;
+}
+
+.tocSteps span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--verydarkblue);
+    color: white;
+    font-weight: bold;
+}
+
+.tocSteps a {
+    display: block;
+    padding-top: 4px;
+    padding-bottom: 6px;
+    font-weight: bold;
+}
+
+.tocNote {
+    margin-top: 18px;
+    padding: 16px;
+    background-color: var(--lightbluegrey);
+    border-radius: 4px;
+}
+
+@media only screen and (max-width: 1000px) {
+    .tocIntro,
+    .tocPageGrid,
+    .tocSteps {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .tocSection {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+
+    .tocIntro {
+        gap: 18px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .tocLead,
+    .tocRecommendation {
+        padding: 22px;
+    }
+}
