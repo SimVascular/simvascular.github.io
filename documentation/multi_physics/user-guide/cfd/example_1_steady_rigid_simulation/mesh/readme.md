@@ -1,8 +1,16 @@
 
+### Finite element mesh files
 
-### Loading Mesh and Geometry into svMultiPhysics
+The finite element mesh used for the simulation comprises 
+- volume mesh defining the 3D computational domain: tetraheda stored in a VTK VTU file
+- surface meshes for each 2D boundary surface: triangles stored in a VTK VTP file
 
-The first step to running an *svMultiPhysics* simulation is to establish your geometry and mesh. You will need a volumetric mesh file (typically .vtu format) that contains the coordinates of all the nodes in the mesh as well as the element connectivity. You will also need separate mesh files for each of the exterior surfaces (typically .vtp format) that will be used to identify regions to apply boundary conditions. In the .xml input file, reading the mesh takes place in the `<Add_mesh>` section:
+These files are stored under the **demomesh-mesh-complete** folder that is typically created by the SimVascular Simulation Tool with the 
+following organization
+
+<img src="/documentation/multi_physics/user-guide/cfd/img/svmp_mesh_files.png">
+
+The <b>\<Add_mesh\></b> parameter section defines the name associated with each mesh file and the path to the file
 
     <Add_mesh name="demomesh-mesh-complete">
 
@@ -28,12 +36,17 @@ The first step to running an *svMultiPhysics* simulation is to establish your ge
             <Face_file_path>demomesh-mesh-complete/mesh-surfaces/wall_right_iliac.vtp</Face_file_path>
         </Add_face>
 
-        <Domain>0</Domain>
-
     </Add_mesh>
 
-First, the .vtu file for the volumetric mesh is loaded using the `<Mesh_file_path>` command. This loads in all of the nodal coordinates and connectivities for the mesh nodes and elements. Next, each of the exterior face meshes are loaded with `<Add_face>` commands. These are used to label certain exterior surfaces on the mesh so that we can apply boundary conditions on them later on. Notice how each of these commands references a specific file inside a folder called “mesh-complete”. When running *svMultiPhysics*, it is important that the relative path to the mesh files stays consistent with how they are defined in the .xml file. In other words, if you wish to run the simulation from a different directory on your system, you must move BOTH the .xml file and the folder with all required input files.
+The <b>\<Mesh_file_path\></b> parameter sets the path to the volume mesh file used to define the 3D computational domain. 
+A series of <b>\<Add_face\></b> parameters are then used to set names of the 2D boundary surfaces used for boundary conditions. 
+The <b>\<Face_file_path\></b> parameter sets the location of the mesh files. 
 
-The last command in this section labels this section of the domain as “0”. For a pure fluids simulation, there is only one domain where the fluid resides. In multi-physics problems that have different domains for the solid and fluid, you can label different domains accordingly.
+<p>
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 6px solid #0000e6">
+The svMultiPhysics XML file is used to just set parameter values; no action is performed when a parameter is read.
+Therefore the XML file is completely read in before there is any attempt to read in mesh files.
+</div>
+</p>
 
-At this point, we pause to discuss units. The unit system used by *svMultiPhysics* is determined by the units used when creating the geometric model and mesh. To be more specific, the units of the coordinates of all of the nodes in the mesh determine what units you should use for the rest of the parameters in *svMultiPhysics*. For example, if your model and mesh were created using centimeters as the unit of length, then you should use CGS (centimeters-grams-seconds) for all other parameters in *svMultiPhysics*.
+
