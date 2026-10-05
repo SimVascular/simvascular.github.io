@@ -34,7 +34,7 @@ A detailed discussion about segmentation can be found in the SimVascular
 
 <h3 id="tutorial_create_segs_1"> Create an instance of a <i>Segmentations Tool</i> for the aorta/right iliac </h3>
 
-Create an instance of a <i>Segmentations Tool</i> named <b>aorta</b> used to define a <i>Contour Group</i>
+Create an instance of a <i>Segmentations Tool</i> named <b>aorta</b>, used to define a <i>Contour Group</i>
 for the abdominal aorta and right iliac artery.
 
 <table class="table table-bordered" style="width:100%">
@@ -46,18 +46,18 @@ for the abdominal aorta and right iliac artery.
 
   <tr>
     <td><img src="/documentation/getting_started/tutorial/images/create-seg-1.png" width="512" height="360"> </td>
-    <td> Select the <i>Segmentations</i> <i>Tool</i> in the <i>Data Manager</i> with the right mouse button. <br><br>
+    <td> Right-click the <i>Segmentations</i> <i>Tool</i> in the <i>Data Manager</i>. <br><br>
          Select the <b>Create Contour Group</b> menu option.
     </td>
   </tr>
 
   <tr>
-    <td><img src="/documentation/getting_started/tutorial/images/create-seg-2.png" width="512" height="360"> <br><br>
+    <td><img src="/documentation/getting_started/tutorial/images/create-seg-2.png" width="512" height="360">
     </td>
     <td> A <b>Create Contour Group</b> <i>DialogBox</i> appears. <br><br>
          Select <b>aorta</b> for the <i>Path</i> name from the <b>Select Path:</b> <i>ComboBox</i>. <br><br>
          Enter <b>aorta</b> for the <i>Contour Group</i> name in the <b>Group Name:</b> <i>TextBox</i>. <br><br>
-         Press the <b>Create Contour Group</b> <i>DialogBox</i> <b>OK</b> <i>Button</i>. <br><br>
+         Press the <b>Create Contour Group</b> <i>DialogBox</i> <b>OK</b> <i>Button</i>.
     </td>
   </tr>
 
@@ -71,8 +71,8 @@ for the abdominal aorta and right iliac artery.
 
   <tr>
     <td><img src="/documentation/getting_started/tutorial/images/create-seg-4.png" width="512" height="360"> </td>
-    <td> Close the <i>SV Path Planning Panel</i> by selected the <b>X</b> in its <i>Tab</i>. <br><br>
-         Double-click on the <i>Data Manager</i> <b>Segmentations / aorta</b> <i>Data Node</i> with the left mouse button to bring up the <i>SV 2D Segmentation Panel</i>. The <i>Display</i> layout is changed to three 2D views on the left and one 3D view on the right. <br><br>
+    <td> Close the <i>SV Path Planning Panel</i> by selecting the <b>&times;</b> on its tab. <br><br>
+         Double-click the <i>Data Manager</i> <b>Segmentations / aorta</b> <i>Data Node</i> with the left mouse button to bring up the <i>SV 2D Segmentation Panel</i>. The <i>Display</i> layout is changed to three 2D views on the left and one 3D view on the right. <br><br>
          The 3D view displays geometry from any <i>Tool</i> that is selected to be visible using the
          <img src="/documentation/getting_started/tutorial/images/visible-toggle-box.png" width="20" height="18"> control.
          The <b>aorta</b> and <b>left-iliac</b> paths are shown as yellow lines with blue markers.<br><br>
@@ -81,7 +81,7 @@ for the abdominal aorta and right iliac artery.
          in the 3D view displays the 2D image slice extracted from the image volume. The slice is positioned and oriented
          using <b>aorta</b> <i>Path</i> geometry. The slice is moved along a <i>Path</i> using the <b>Reslice</b> <i>Slider</i>.
          <br><br>
-         The upper left 2D view displays the 2D image slice; the lower the gradient of the 2D image slice used to visualize image edges.
+         The upper left 2D view displays the 2D image slice; the lower view displays the gradient of the 2D image slice used to visualize image edges.
          Image points and intensity values used for segmentation are interactively selected from the 2D views using the left mouse
          button.
     </td>
@@ -155,7 +155,7 @@ using the <i>Level Set</i> segmentation method.
          surrounding tissue.
          <br><br>
          The contour is added to the <b>Contour List</b> <i>Table</i> as <b>0:SplinePolygon,LevelSet</b>, where <i>0</i> is
-         the contour ID, <i>SplinePolygon</i> the geometric representation, and <i>LevelSet</i> the segmentation method.
+         the contour ID, <i>SplinePolygon</i> is the geometric representation, and <i>LevelSet</i> is the segmentation method.
     </td>
   </tr>
 
@@ -164,7 +164,7 @@ using the <i>Level Set</i> segmentation method.
     <td> The upper left <i>Axial</i> view shows the level set contour as a closed red curve with square green markers
          enclosing a straight red line with two green markers located in the contour center.
          <br><br>
-         The blue and yellow markers in the center of the contour represent the location of a point on a path from 
+         The blue and yellow markers in the center of the contour represent the location of a point on the <i>Path</i> from
          which the 2D image is extracted. 
          <br><br>
          The 10 green markers represent the control points used to control the shape of the interpolating spline. Moving
@@ -187,7 +187,7 @@ using the <i>Level Set</i> segmentation method.
          <img src="/documentation/getting_started/tutorial/images/seg-gui-levelset.png" width="50" height="18"> <i>Button</i>.
          <br><br>
          Press the <img src="/documentation/getting_started/gui/images/gui-save-icon.png" width="40" height="35">
-         icon in the  <i>ToolBar</i> to save the <i>Project</i>. <br><br>
+         icon in the  <i>ToolBar</i> to save the <i>Project</i>.
     </td>
   </tr>
 
@@ -196,7 +196,7 @@ using the <i>Level Set</i> segmentation method.
     <td> Contours can be selected from the <b>Contour List:</b> <i>Table</i> or from the 3D view using the left 
          mouse button. 
          <br><br>
-         Once selected, a contour can be modified (e.g. change its segmentation method or parameters), copied/pasted, or deleted. 
+         Once selected, a contour can be modified (e.g., change its segmentation method or parameters), copied/pasted, or deleted.
     </td>
   </tr>
 
@@ -213,7 +213,7 @@ using the <i>Level Set</i> segmentation method.
 <br>
 <h3 id="tutorial_create_segs_3"> Create an instance of a <i>Segmentations Tool</i> for the left iliac </h3>
 
-Create an instance of a <i>Segmentations Tool</i> named <b>left-iliac</b> used to define a <i>Contour Group</i>
+Create an instance of a <i>Segmentations Tool</i> named <b>left-iliac</b>, used to define a <i>Contour Group</i>
 for the aorta/right iliac bifurcation to the end of the left iliac artery.
 
 <table class="table table-bordered" style="width:100%">
@@ -225,18 +225,18 @@ for the aorta/right iliac bifurcation to the end of the left iliac artery.
 
   <tr>
     <td><img src="/documentation/getting_started/tutorial/images/create-seg-6.png" width="512" height="360"> </td>
-    <td> Select the <i>Segmentations</i> <i>Tool</i> in the <i>Data Manager</i> with the right mouse button. <br><br>
+    <td> Right-click the <i>Segmentations</i> <i>Tool</i> in the <i>Data Manager</i>. <br><br>
          Select the <b>Create Contour Group</b> menu option.
     </td>
   </tr>
 
   <tr>
-    <td><img src="/documentation/getting_started/tutorial/images/create-seg-7.png" width="512" height="360"> <br><br>
+    <td><img src="/documentation/getting_started/tutorial/images/create-seg-7.png" width="512" height="360">
     </td>
     <td> A <b>Create Contour Group</b> <i>DialogBox</i> appears. <br><br>
          Select <b>left-iliac</b> for the <i>Path</i> name from the <b>Select Path:</b> <i>ComboBox</i>. <br><br>
          Enter <b>left-iliac</b> for the <i>Contour Group</i> name in the <b>Group Name:</b> <i>TextBox</i>. <br><br>
-         Press the <b>Create Contour Group</b> <i>DialogBox</i> <b>OK</b> <i>Button</i>. <br><br>
+         Press the <b>Create Contour Group</b> <i>DialogBox</i> <b>OK</b> <i>Button</i>.
     </td>
   </tr>
 
@@ -250,7 +250,7 @@ for the aorta/right iliac bifurcation to the end of the left iliac artery.
 
   <tr>
     <td><img src="/documentation/getting_started/tutorial/images/create-seg-9.png" width="512" height="360"> </td>
-    <td> Double-click on the <i>Data Manager</i> <b>Segmentations / left-iliac</b> <i>Data Node</i> with the left mouse
+    <td> Double-click the <i>Data Manager</i> <b>Segmentations / left-iliac</b> <i>Data Node</i> with the left mouse
          button to bring up the <i>SV 2D Segmentation Panel</i>. The <i>Display</i> layout is changed to three 2D views
          on the left and one 3D view on the right. <br><br>
          The red rectangular region
@@ -258,7 +258,7 @@ for the aorta/right iliac bifurcation to the end of the left iliac artery.
          in the 3D view displays the 2D image slice extracted from the image volume. The slice is positioned and oriented
          using <b>left-iliac</b> <i>Path</i> geometry. The slice is moved along a <i>Path</i> using the <b>Reslice</b> <i>Slider</i>.
          <br> <br>
-         The upper left 2D view displays the 2D image slice; the lower the gradient of the 2D image slice used to visualize image edges.
+         The upper left 2D view displays the 2D image slice; the lower view displays the gradient of the 2D image slice used to visualize image edges.
          Image points and intensity values used for segmentation are interactively selected from the 2D views using the left mouse
          button.
     </td>
@@ -268,7 +268,7 @@ for the aorta/right iliac bifurcation to the end of the left iliac artery.
 
 <br> 
 <h3 id="tutorial_create_segs_4"> Create segmentations for the left iliac </h3>
-This section demonstrates how to create a set of segmentations from the aorta/right iliac bifurcation to the end of the left iliac artery.
+This section demonstrates how to create a set of segmentations from the aorta/right iliac bifurcation to the end of the left iliac artery
 using the <i>Level Set</i> segmentation method.
 
 <table class="table table-bordered" style="width:100%">
@@ -297,7 +297,7 @@ using the <i>Level Set</i> segmentation method.
          <img src="/documentation/getting_started/tutorial/images/seg-gui-levelset.png" width="50" height="18"> <i>Button</i>.
          <br><br>
          Press the <img src="/documentation/getting_started/gui/images/gui-save-icon.png" width="40" height="35">
-         icon in the  <i>ToolBar</i> to save the <i>Project</i>. <br><br>
+         icon in the  <i>ToolBar</i> to save the <i>Project</i>.
     </td>
   </tr>
 
@@ -327,7 +327,7 @@ using the <i>Level Set</i> segmentation method.
          it completely fits in the <b>aorta</b>.
          <br><br>
          Press the <img src="/documentation/getting_started/gui/images/gui-save-icon.png" width="40" height="35">
-         icon in the  <i>ToolBar</i> to save the <i>Project</i>. <br><br>
+         icon in the  <i>ToolBar</i> to save the <i>Project</i>.
     </td>
 
   </tr>

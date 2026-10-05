@@ -11,23 +11,23 @@ Image data is added to the <i>Project</i> using the <i>Data Manager</i> <i>Image
 
   <tr>
     <td><img src="/documentation/getting_started/tutorial/images/add-image-1.png" width="512" height="360"> </td>
-    <td> Select the <i>Images<i> <i>Tool</i> in the <i>Data Manager</i> with the right mouse button. 
+    <td> Right-click the <i>Images</i> <i>Tool</i> in the <i>Data Manager</i>.
          <br><br>
          Select the <b>Add/Replace image</b> menu option. 
          <br><br>
          <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600"> 
-         Only one image series may be displayed in SimVascular. Adding another image will overwrite the current image. 
+         Only one image series may be displayed in SimVascular. Adding another image series will overwrite the current image series.
          </div>
     </td> 
   </tr>
 
   <tr>
     <td><img src="/documentation/getting_started/tutorial/images/add-image-2.png" width="512" height="360"> </td>
-    <td> Select the I.002.dcm file from the <i>File Browser</i>. 
+    <td> Select the <b>I.002.dcm</b> file from the <i>File Browser</i>.
          <br><br>
          Press the <b>Open</b> <i>Button</i>. 
          <br><br>
-         The series of DICOM files is read in. <br><br>
+         The series of DICOM files is loaded.
     </td> 
   </tr>
 
@@ -39,7 +39,7 @@ Image data is added to the <i>Project</i> using the <i>Data Manager</i> <i>Image
 
   <tr>
     <td><img src="/documentation/getting_started/tutorial/images/add-image-4.png" width="512" height="360"> </td>
-    <td> Press the <b>Yes</b> <i>Button</i> in the <i>QuestionPopup</i> to scale the image. <br><br>
+    <td> Press the <b>Yes</b> <i>Button</i> in the <i>QuestionPopup</i> to scale the image.
     </td> 
   </tr>
 
@@ -48,11 +48,10 @@ Image data is added to the <i>Project</i> using the <i>Data Manager</i> <i>Image
     <td> Press the <b>OK</b> <i>Button</i> to use the default 0.1 scaling factor. 
          <br><br>
          The image is scaled by 0.1. 
-         <br><br>
          <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600">
          SimVascular does not have any explicit units. However, the geometry created in the pipeline does depend on the
          image scale: a smaller scale creates smaller geometry. This is only important when performing simulations: the model 
-         size must match the units used for certain simulation parameters and data (e.g. inlet flow rate). 
+         size must match the units used for certain simulation parameters and data (e.g., inlet flow rate).
          </div>
     </td> 
   </tr>

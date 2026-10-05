@@ -1,4 +1,3 @@
-<br>
 <h2 id="image_windowing"> Image Windowing </h2>
 
 The <i>Image Windowing</i> tool is used to adjust image brightness and contrast using a technique called <i>Windowing</i>,
@@ -7,7 +6,7 @@ also known as gray-level mapping, contrast stretching, histogram modification or
 image to highlight particular structures. The image brightness is adjusted by changing the <i>window center</i>.
 The image contrast is adjusted by changing the <i>window width</i>.
 
-A blue region in the <i>Image Windowing</i> tool shows then <i>window center</i> and <i>window width</i>.
+A blue region in the <i>Image Windowing</i> tool shows the <i>window center</i> and <i>window width</i>.
 
 <figure>
   <img class="svImg svImgXs"  src="/documentation/getting_started/gui/images/image-window-level-tool.png">
@@ -40,36 +39,35 @@ The <i>window width</i> is changed non-uniformly about the <i>window center</i> 
 
   <tr>
     <td> Move the <i>window center</i> up by placing the mouse cursor in the center of the <i>Image Windowing</i> tool 
-         blue region holding the left mouse button down while moving the mouse cursor up </td>
+         blue region, holding the left mouse button down while moving the mouse cursor up </td>
     <td> <img src="/documentation/getting_started/gui/images/image-window-level-demo-2.png" width="612" height="410"> </td>
   </tr>
 
   <tr>
     <td> Move the <i>window center</i> down by placing the mouse cursor in the center of the <i>Image Windowing</i> tool
-         blue region holding the left mouse button down while moving the mouse cursor down 
+         blue region, holding the left mouse button down while moving the mouse cursor down
     </td>
     <td> <img src="/documentation/getting_started/gui/images/image-window-level-demo-3.png" width="612" height="410"> </td>
   </tr>
 
   <tr>
     <td> Reduce the <i>window width</i> uniformly around the <i>window center</i> by placing the mouse cursor in the upper 
-         boundary of the <i>Image Windowing</i> tool blue region holding and mouse button down while moving the mouse cursor down 
+         boundary of the <i>Image Windowing</i> tool blue region, holding the left mouse button down while moving the mouse cursor down
     </td>
     <td> <img src="/documentation/getting_started/gui/images/image-window-level-demo-4.png" width="612" height="410"> </td>
   </tr>
 
   <tr>
-    <td> Reduce the <i>window width</i> non-informally around the <i>window center</i> by placing the mouse cursor in the upper 
-         boundary of the <i>Image Windowing</i> tool blue region holding and pressing shift-left mouse button down while 
-         moving the mouse cursor down 
+    <td> Reduce the <i>window width</i> non-uniformly around the <i>window center</i> by placing the mouse cursor in the upper
+         boundary of the <i>Image Windowing</i> tool blue region, holding the shift key and left mouse button down while
+         moving the mouse cursor down
     </td>
     <td> <img src="/documentation/getting_started/gui/images/image-window-level-demo-5.png" width="612" height="410"> </td>
   </tr>
 
 </table>
-<br>
 
-Selecting the <i>Image Window Level</i> tool with the right mouse button pops up the following menu
+Selecting the <i>Image Window Level</i> tool with the right mouse button pops up the following menu:
 
 <figure>
   <img class="svImg svImgSm"  src="/documentation/getting_started/gui/images/image-window-level-menu-1.png"> 
@@ -85,7 +83,7 @@ Selecting the <i>Image Window Level</i> tool with the right mouse button pops up
 
   <tr>
     <td> Hide Scale </td>
-    <td> Hide the <i>Image Windowing</i> tool scale  </td>
+    <td> Hide the <i>Image Windowing</i> tool scale. </td>
   </tr>
 
   <tr>
@@ -95,7 +93,7 @@ Selecting the <i>Image Window Level</i> tool with the right mouse button pops up
   
   <tr>
     <td> Use whole image grey values  </td>
-    <td> Set the <i>Image Windowing</i> tool use the entire range of image values. </td>
+    <td> Set the <i>Image Windowing</i> tool to use the entire range of image values. </td>
   </tr>
 
   <tr>

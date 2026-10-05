@@ -1,7 +1,7 @@
 <h2 id="gui_toolbar"> ToolBar </h2>
 
 The <i>ToolBar</i> is composed of three sections. The first section contains icons used to save a <i>Project</i>, undo an operation, hide/show
-the <i>Image Navigator</i> and toggle the <b>A</b>xial, <b>S</b>agittal and <b>C</b>oronal image scan slices.
+the <i>Image Navigator</i>, and toggle the <b>A</b>xial, <b>S</b>agittal, and <b>C</b>oronal image scan slices.
 
 <figure>
   <img class="svImg svImgMd"  src="/documentation/getting_started/gui/images/toolbar-1.png"> 
@@ -48,18 +48,17 @@ the <i>Image Navigator</i> and toggle the <b>A</b>xial, <b>S</b>agittal and <b>C
 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600">
 SimVascular does not automatically save data created by a <i>Tool</i> to the <i>Project</i>. If a <i>Project</i> is closed without
-being saved all newly added data will be lost. 
+being saved, all newly added data will be lost.
 </div>
-<br>
 
-The second section duplicates the _Tools_ menu using icons.
+The second section duplicates the upper part of the _Tools_ menu using icons.
 
 <figure>
   <img class="svImg svImgMd"  src="/documentation/getting_started/gui/images/toolbar-2.png">
   <figcaption class="svCaption"> The second ToolBar section</figcaption>
 </figure>
 
-The third second section duplicates the _Tools_ menu using icons.
+The third section duplicates the lower part of the _Tools_ menu using icons.
 
 <figure>
   <img class="svImg svImgMd"  src="/documentation/getting_started/gui/images/toolbar-3.png"> 

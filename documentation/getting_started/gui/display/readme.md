@@ -1,18 +1,17 @@
 <h2 id="display"> Display </h2>
 
-The GUI main window <i>Display</i> area uses a four-window view to display 2D and 3D views of image and geometry data as
-the standard layout. The four-window view provides an interactive environment to view geometry data created by <i>Tools</i> in
+The <i>Display</i> area of the GUI main window uses a standard four-window layout to show 2D and 3D views of image and geometry data.
+The four-window view provides an interactive environment to view geometry data created by <i>Tools</i> in
 context with medical image data. This enables matching geometric data (e.g. models) to anatomical features present in the imaging data.
 
-The layout of the <i>Display</i> windows and its GUI components are shown in Fig. 5.
+The layout and GUI components of the <i>Display</i> area are shown in Fig. 5.
 
 <figure>
   <img class="svImg svImgMd"  src="/documentation/getting_started/gui/images/display.png"> 
-  <figcaption class="svCaption"> Fig. 5 &nbsp The standard four-window view comprising three 2D and one 3D views.
+  <figcaption class="svCaption"> Fig. 5 &nbsp The standard four-window view comprising three 2D and one 3D views</figcaption>
 </figure>
 
-The three 2D views represent the principal planes used in medical imaging to describe the location of anatomical
-structures defined as
+The three 2D views represent the principal planes used in medical imaging to describe the locations of anatomical structures:
 
 <ul style="list-style-type:none;">
 
@@ -23,20 +22,25 @@ structures defined as
   <li> <b>sagittal</b> - Divides the body into left and right sections. Lower left 2D window. </li>
 
 </ul>
-<br>
 
 <h3 id="navigation"> Navigation </h3>
 
 The principal plane slices are represented by pairs of crosshairs in each of the 2D view windows. Selecting a point with the left
 mouse button in a 2D view centers the crosshair on that point. Pressing the right mouse button and moving the mouse zooms
-in and out. Scrolling the mouse wheel changes the principal plane slice for which the mouse cursor is in.
+in and out. Scrolling the mouse wheel changes the principal plane slice in the view containing the mouse cursor.
 
 Changing the principal planes slice changes the values displayed in the <a href="#gui_image_navigator"> Image Navigator </a>
 and vice versa.
 
 The function of the mouse buttons depends on the window the mouse cursor is in.
 
+The mouse controls for the 2D views are listed below.
+
 <table class="table table-bordered" style="width:100%">
+  <colgroup>
+    <col style="width:30%">
+    <col style="width:70%">
+  </colgroup>
   <caption> <b> 2D View </b> </caption>
   <tr>
     <th>Mouse Button </th>
@@ -50,17 +54,23 @@ The function of the mouse buttons depends on the window the mouse cursor is in.
 
   <tr>
     <td> Right </td>
-    <td> Zooms the 2D view 
+    <td> Zooms the 2D view </td>
   </tr>
 
   <tr>
     <td> Mouse Wheel Scrolling </td>
-    <td> Changes the principal plane slice
+    <td> Changes the principal plane slice </td>
   </tr>
 
 </table>
 
+The mouse controls for the 3D view are listed below.
+
 <table class="table table-bordered" style="width:100%">
+  <colgroup>
+    <col style="width:30%">
+    <col style="width:70%">
+  </colgroup>
   <caption> <b> 3D View </b> </caption>
   <tr>
     <th> Mouse Button </th>
@@ -73,12 +83,12 @@ The function of the mouse buttons depends on the window the mouse cursor is in.
 
   <tr>
     <td> Right </td>
-    <td> Zooms the 3D view 
+    <td> Zooms the 3D view </td>
   </tr>
 
   <tr>
     <td> Shift-left </td>
-    <td> Translates the 3D view 
+    <td> Translates the 3D view </td>
   </tr>
 
 </table>
@@ -87,13 +97,11 @@ The function of the mouse buttons depends on the window the mouse cursor is in.
 Pressing the <b>F</b> key in the 3D view changes the center of rotation and zoom to be the point under 
 the mouse cursor. 
 </div>
-
-<br>
 <h3 id="window_menus"> Window Menus</h3>
 
 The three icons
-<img src="/documentation/getting_started/gui/images/display_icon_menu.png" width="70" height="30"> </td> displayed in the upper right
-corner each window provides options to customize the view and crosshair behavior when selected using the left mouse button.
+<img src="/documentation/getting_started/gui/images/display_icon_menu.png" width="70" height="30"> displayed in the upper-right
+corner of each window provide options for customizing the view and crosshair behavior when clicked.
 
 <table class="table table-bordered" style="width:100%">
   <tr>
@@ -113,8 +121,8 @@ corner each window provides options to customize the view and crosshair behavior
         <li> <b> Show crosshair </b> - Select to toggle showing crosshairs </li>
         <li> <b> No crosshair rotation </b> - Select to toggle using crosshairs to position planes orthogonal to image axes </li>
         <li> <b> Crosshair rotation </b> - Select to toggle using crosshairs to rotate two planes </li>
-        <li> <b> Coupled crosshair rotation </b> - Select to toggle using crosshairs to rotate planes both planes </li>
-        <li> <b> Swivel mode </b> - Select to toggle using crosshairs to rotate planes in about all three axes </li>
+        <li> <b> Coupled crosshair rotation </b> - Select to toggle using crosshairs to rotate both planes </li>
+        <li> <b> Swivel mode </b> - Select to toggle using crosshairs to rotate planes about all three axes </li>
         <li> <img src="/documentation/getting_started/gui/images/window-ts-slider.png" width="140" height="30"> 
              - The <b>T</b>hicker <b>S</b>lices slider controls how many slices around the current one are used for a maximum intensity projection </li>
       </ul>
@@ -124,16 +132,23 @@ corner each window provides options to customize the view and crosshair behavior
 
   <tr>
     <td><img src="/documentation/getting_started/gui/images/window-icon-2.png" width="28" height="24"> </td>
-    <td> Changes the view layout </td>
-    <td> The view is changed to a full-screen layout for the window and plane the mouse cursor is in.
-         When selected, it changes to <img src="/documentation/getting_started/gui/images/window-icon-4.png" width="28" height="24">
-     </td>
+    <td> Maximizes the view </td>
+    <td>
+      <ul style="list-style-type:none;">
+        <li> Expands the view under the mouse cursor to fill the Display area.
+             The icon then changes to <img src="/documentation/getting_started/gui/images/window-icon-4.png" width="28" height="24"> </li>
+      </ul>
+    </td>
   </tr>
 
   <tr>
     <td><img src="/documentation/getting_started/gui/images/window-icon-4.png" width="28" height="24"> </td>
-    <td> Changes the view layout </td>
-    <td> Expands the corresponding window to full screen within the four window view </td>
+    <td> Restores the standard layout </td>
+    <td>
+      <ul style="list-style-type:none;">
+        <li> Restores the standard four-view layout </li>
+      </ul>
+    </td>
   </tr>
 
   <tr>
@@ -145,7 +160,7 @@ corner each window provides options to customize the view and crosshair behavior
       <ul style="list-style-type:none;"> 
         <li> <b> standard layout </b> - Resets the display to the four-window view  </li>
         <li> <b> 2D images top, 3D bottom </b> - Sets the display to all three 2D views on top of the 3D view
-        <li> <b> 2D images top, 3D right </b> - Sets the display to all 2D and 3D views on top 
+        <li> <b> 2D images left, 3D right </b> - Sets the display to all three 2D views to the left of the 3D view
         <li> <b> Big 3D </b> - Sets the display to a single 3D view
         <li> <b> Axial plane </b> - Sets the display to a single 2D axial plane view
         <li> <b> Sagittal plane </b> - Sets the display to a single 2D sagittal plane view
@@ -155,6 +170,7 @@ corner each window provides options to customize the view and crosshair behavior
         <li> <b> Sagittal top, Coronal n 3D bottom </b> - Sets the display to the 2D sagittal view on top of the coronal and 3D view 
         <li> <b> Axial n Sagittal left, 3D right </b> - Sets the display to the 2D axial and sagittal views on top and 3D view right
         <li> <b> Axial n 3D left, Sagittal right </b> - Sets the display to the 2D axial and 3D view to the left of the sagittal view
+      </ul>
     </td>
   </tr>
 

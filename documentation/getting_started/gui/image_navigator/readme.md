@@ -1,7 +1,7 @@
 <h2 id="image_navigator"> Image Navigator </h2>
 
-<i>Image Navigator</i> tool uses <i>Sliders</i> and <i>Spinboxes</i> to set the scan slice for each sagittal, coronal and axial planes.
-Changing the principal planes scan slice changes the location of the crosshairs in the 2D views and vice versa.
+The <i>Image Navigator</i> tool uses <i>Sliders</i> and <i>Spinboxes</i> to set the scan slice for the sagittal, coronal, and axial planes.
+Changing a principal plane's scan slice changes the location of the crosshairs in the 2D views and vice versa.
 
 <figure>
   <img class="svImg svImgSm"  src="/documentation/getting_started/gui/images/image-navigator.png"> 
@@ -9,7 +9,7 @@ Changing the principal planes scan slice changes the location of the crosshairs 
 </figure>
 
 <table class="table table-bordered" style="width:100%">
-  <caption> <b> Image Navigator Controls </b> </caption>
+  <caption> <b> Image Navigator controls </b> </caption>
   <tr>
     <th> Control </th>
     <th> Description </th>
@@ -51,13 +51,11 @@ Changing the principal planes scan slice changes the location of the crosshairs 
   </tr>
 </table>
 
-<br>
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600">
 SimVascular does not support time-resolved image data.
 </div>
 
-<br>
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #e6e600; border-left: 6px solid #e6e600">
-Although the <i>Image Navigator</i> label <b>Loc: (mm)</b> implies image units are in mm, SimVascular does not have
+Although the <i>Image Navigator</i> label <b>Loc: (mm)</b> implies image units are in millimeters, SimVascular does not have
 any explicit units. Units are only important when specifying simulation parameters and data.
 </div>

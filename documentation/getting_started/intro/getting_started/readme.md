@@ -1,7 +1,7 @@
 # Getting Started
 
 This document provides beginning users with the basic knowledge needed to get started using the SimVascular suite of software
-applications. The SimVascular software suite comprises the following applications
+applications. The SimVascular software suite comprises the following applications:
 
 <ul style="list-style-type:none;">
   <li> <b> SimVascular </b> - Interactive image-based modeling pipeline application </li>
@@ -20,9 +20,9 @@ from medical image data segmentation to patient-specific blood flow simulation. 
 arteries is created from medical imaging data. A finite element mesh is then generated from the model and used in a
 CFD simulation of blood flow in the aorta and iliac arteries.
 
-Another useful resource for learning how to use SimVascular are the
-<a href="https://www.youtube.com/playlist?list=PL1CBZ8Wh-xvSKUsuBA4MM4Jba-psVdxXT">SimVascular Online Tutorials</a>. This series
-of recent videos demonstrate all the steps in the modeling pipeline presented in the <a href="#tutorial"> Tutorial</a> below.
+Another useful resource for learning how to use SimVascular is the
+<a href="https://www.youtube.com/playlist?list=PL1CBZ8Wh-xvSKUsuBA4MM4Jba-psVdxXT">SimVascular Online Tutorials</a> video series. This series
+of videos demonstrates all the steps in the modeling pipeline presented in the <a href="#tutorial"> Tutorial</a> below.
 
 Images taken of the
 <a href="https://simtk.org/frs/download_confirm.php/file/7077/DemoProject.zip?group_id=930"> Demo Project </a>

@@ -25,7 +25,7 @@ SimVascular has two solid modelers.
   <li> <b>OpenCASCADE</b> - Faces are represented as a NURBS surface.
 </ul>
 
-The <b>PolyData</b> is the solid modeler most often used to build solid models.
+<b>PolyData</b> is the solid modeler most often used to build solid models.
 
 The following sections demonstrate how to create a <i>PolyData</i> solid model from the <b>aorta</b> and <b>left-iliac</b> segmentations.
 A detailed discussion about modeling can be found in the SimVascular
@@ -33,7 +33,7 @@ A detailed discussion about modeling can be found in the SimVascular
 
 <h3 id="tutorial_create_model_1"> Create an instance of a <i>Models Tool</i> for the aorta and iliacs </h3>
 
-Create an instance of a <i>Models Tool</i> named <b>aorta-iliacs</b> used to create a model for the main aorta and iliac vessels.
+Create an instance of a <i>Models Tool</i> named <b>aorta-iliacs</b>, used to create a model for the main aorta and iliac vessels.
 
 <table class="table table-bordered" style="width:100%">
   <caption> Create a <i>Models Tool</i> instance named <b>aorta-iliacs</b> </caption>
@@ -44,14 +44,14 @@ Create an instance of a <i>Models Tool</i> named <b>aorta-iliacs</b> used to cre
 
   <tr>
     <td><img src="/documentation/getting_started/tutorial/images/create-model-1.png" width="512" height="360"> </td>
-    <td> Select the <i>Models</i> <i>Tool</i> in the <i>Data Manager</i> with the right mouse button. 
+    <td> Right-click the <i>Models</i> <i>Tool</i> in the <i>Data Manager</i>.
          <br><br>
          Select the <b>Create Model</b> menu option.
     </td>
   </tr>
 
   <tr>
-    <td><img src="/documentation/getting_started/tutorial/images/create-model-2.png" width="512" height="360"> <br><br>
+    <td><img src="/documentation/getting_started/tutorial/images/create-model-2.png" width="512" height="360">
     </td>
     <td> A <b>Create New Model</b> <i>DialogBox</i> appears. 
          <br><br>
@@ -59,8 +59,7 @@ Create an instance of a <i>Models Tool</i> named <b>aorta-iliacs</b> used to cre
          <br><br>
          Enter <b>aorta-iliacs</b> for the <i>Model</i> name in the <b>Model Name:</b> <i>TextBox</i>.
          <br><br>
-         Press the <b>Create New Model</b> <i>DialogBox</i> <b>OK</b> <i>Button</i>. <br><br>
-         <br><br>
+         Press the <b>Create New Model</b> <i>DialogBox</i> <b>OK</b> <i>Button</i>.
     </td>
   </tr>
 
@@ -80,9 +79,9 @@ Create an instance of a <i>Models Tool</i> named <b>aorta-iliacs</b> used to cre
 
   <tr>
     <td><img src="/documentation/getting_started/tutorial/images/create-model-5.png" width="512" height="360"> </td>
-    <td> Close the <i>SV 2D Segmentation Panel</i> by selecting the <b>X</b> in its <i>Tab</i>. 
+    <td> Close the <i>SV 2D Segmentation Panel</i> by selecting the <b>&times;</b> on its tab.
          <br><br>
-         Double-click on the <i>Data Manager</i> <b>Models / aorta-iliacs</b> <i>Data Node</i> with the left mouse
+         Double-click the <i>Data Manager</i> <b>Models / aorta-iliacs</b> <i>Data Node</i> with the left mouse
          button to bring up the <i>SV Modeling Panel</i>. 
     </td>
   </tr>
@@ -100,7 +99,7 @@ Create an instance of a <i>Models Tool</i> named <b>aorta-iliacs</b> used to cre
            <li> <img src="/documentation/getting_started/tutorial/images/model-gui-size.png" width="114" height="25"> - The
                 triangle edge size <i>TextBox</i> used to remesh the model's triangular surface. </li> <br>
            <li> <img src="/documentation/getting_started/tutorial/images/model-gui-remesh.png" width="114" height="25"> - Remesh the model's
-                triangular surface mesh using the traingle edge size given in the <i>TextBox</i>. </li> <br>
+                triangular surface mesh using the triangle edge size given in the <i>TextBox</i>. </li> <br>
          </ul>
     </td>
 
@@ -134,7 +133,7 @@ This section demonstrates how to create a <i>PolyData</i> solid model from the <
          <i>Segmentations Data Nodes</i> with a <i>CheckBox</i>. The <i>CheckBox</i>es are used to select the segmentation
          lofted surfaces that will be joined together to create a solid model.
          <br><br>
-         Select the <i>CheckBox</i> for the <b>aorta</b> and <b>left-iliac</b> segmentations.
+         Select the <i>CheckBox</i>es for the <b>aorta</b> and <b>left-iliac</b> segmentations.
          <br><br>
          Press the <b>Create Solid Model</b> <i>DialogBox</i> <b>OK</b> <i>Button</i>.
     </td>
@@ -146,8 +145,8 @@ This section demonstrates how to create a <i>PolyData</i> solid model from the <
         <br><br>
         Select <img src="/documentation/getting_started/gui/images/gui-a-plane-icon.png" width="20" height="20">, 
         <img src="/documentation/getting_started/gui/images/gui-s-plane-icon.png" width="20" height="20">, and 
-        <img src="/documentation/getting_started/gui/images/gui-c-plane-icon.png" width="20" height="20"> icons to hide the
-        axial,  sagittal, and, coronal image scan slices. 
+        <img src="/documentation/getting_started/gui/images/gui-c-plane-icon.png" width="20" height="20"> to hide the
+        axial, sagittal, and coronal image scan slices.
         <br><br>
         Press the <img src="/documentation/getting_started/gui/images/gui-save-icon.png" width="40" height="35">
         icon in the  <i>ToolBar</i> to save the <i>Project</i>. 
@@ -166,8 +165,8 @@ This section demonstrates how to create a <i>PolyData</i> solid model from the <
             <li> <b>V</b> - The <i>Face</i> visibility.  </li>
             <li> <b>C</b> - The <i>Face</i> color.  </li>
           </ul> 
-        Each of these attributes can be changed by double-clicking the left mouse button on the appropriate row for the <b>Face</b> 
-        and column for the specific attribute.
+        Each of these attributes can be changed by double-clicking the appropriate row for the <b>Face</b>
+        and column for the specific attribute with the left mouse button.
     </td>
   </tr>
 

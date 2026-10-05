@@ -1,16 +1,16 @@
 # Installing SimVascular
 
-The SimVascular application is distributed using installers downloaded from the <a href="https://simtk.org/frs/?group_id=188"> SimTK SimVascular Downloads </a> website. Installers are provided for the following platforms
+The SimVascular application is distributed using installers downloaded from the <a href="https://simtk.org/frs/?group_id=188"> SimTK SimVascular Downloads </a> website. Installers are provided for the following platforms:
 
 <ul style="list-style-type:none;">
   <li> <b> Ubuntu 22 </b> - Intel 64-bit architecture (x86_64) </li>
   <li> <b> Ubuntu 24 </b> - Intel 64-bit architecture (x86_64) </li>
-  <li> <b> MacOS Ventura </b> - ARM 64-bit architecture (Silicon) </li>
-  <li> <b> MacOS Ventura </b> - Intel 64-bit architecture (x86_64) </li>
+  <li> <b> macOS Ventura </b> - ARM 64-bit architecture (Silicon) </li>
+  <li> <b> macOS Ventura </b> - Intel 64-bit architecture (x86_64) </li>
   <li> <b> Windows 11 </b> - Windows Subsystem for Linux (WSL) Ubuntu 24 </li>
 </ul>
 
-The SimVascular application uses the <a href="https://www.mitk.org/wiki/The_Medical_Imaging_Interaction_Toolkit_(MITK)"> Medical Imaging Interaction Toolkit (MITK)<a/> framework for medical imaging applications incorporating a plugin architecture. This framework uses several software packages
+The SimVascular application uses the <a href="https://www.mitk.org/wiki/The_Medical_Imaging_Interaction_Toolkit_(MITK)"> Medical Imaging Interaction Toolkit (MITK)</a> framework for medical imaging applications incorporating a plugin architecture. This framework uses several software packages:
 
 <ul style="list-style-type:none;">
   <li> <b> MITK </b> - Medical imaging plugin framework </li>
@@ -35,31 +35,35 @@ Most Ubuntu workstations will have the required C++ and graphics libraries insta
     sudo apt install '^libxcb.*-dev' libx11-xcb-dev 
 </pre>
 
-If SimVascular fails at start-up, then running it from the command-line will show a message explaining which library can't be found. You can then install the missing library using
+If SimVascular fails at startup, running it from the command line will show a message identifying the missing library. You can then install the missing library using
 
 <pre>
-    sudo apt install MISSING_LIBRAY_NAME
+    sudo apt install MISSING_LIBRARY_NAME
 </pre>
 
-### MacOS
+### macOS
 
-MacOS does not come with C++ libraries fully installed by default. The libraries are installed by installing the Xcode Command Line Tools
-by running the following command in a terminal
+macOS does not include all required C++ libraries by default. Install the Xcode Command Line Tools by running the following command in a terminal.
 
 <pre>
     xcode-select --install 
 </pre>
 
-The latest versions of SimVascular now require that the <a href="https://www.openmp.org/"> OpenMP </a> library be installed for shared-memory multiprocessing. It can be installed using
+The latest versions of SimVascular require the <a href="https://www.openmp.org/"> OpenMP </a> library for shared-memory
+multiprocessing. Running an <i>svMultiPhysics</i> simulation from the SimVascular application also requires
+<a href="https://www.open-mpi.org/"> OpenMPI </a>. If <a href="https://brew.sh/">Homebrew</a> is available, install both using the following command.
 
 <pre>
-    brew install libomp 
+    brew install libomp open-mpi
 </pre>
 
-If SimVascular fails at start-up then running it from the command-line will show a message explaining which library can't be found. You can then install the missing library using
+Homebrew typically installs <b>mpiexec</b> at <b>/opt/homebrew/bin/mpiexec</b>. The CFD simulation portion of this
+tutorial describes how to select the executable in SimVascular.
+
+If SimVascular fails at startup, running it from the command line will show a message identifying the missing library. You can then install the missing library using
 
 <pre>
-    brew install MISSING_LIBRAY_NAME 
+    brew install MISSING_LIBRARY_NAME
 </pre>
 
 ### Windows
@@ -67,7 +71,7 @@ If SimVascular fails at start-up then running it from the command-line will show
 There is currently no native Windows 11 release of the latest version of SimVascular. However, SimVascular can be run on a Windows 11 computer in an Ubuntu 24 terminal using <a href="https://learn.microsoft.com/en-us/windows/wsl"> Windows Subsystem for Linux (WSL) </a>. The SimVascular application runs just as fast as a native Windows build. You can also run all of the SimVascular solvers there using all of the processors of your Windows computer. The following steps describe how to install SimVascular and set up your Ubuntu environment to run it.
 
 <strong> Download and install SimVascular </strong><br>
-After you have created a WSL user account a terminal will open to your Ubuntu home directory. You can then download the SimVascular-Ubuntu-24-2025.12.21.deb installer from a browser and move it to your Ubuntu home directory (your Ubuntu home directory can be seen from the Windows File Explorer app).
+After you have created a WSL user account, a terminal will open to your Ubuntu home directory. You can then download the SimVascular-Ubuntu-24-2025.12.21.deb installer from a browser and move it to your Ubuntu home directory (your Ubuntu home directory can be seen from the Windows File Explorer app).
 
 Run the following command in your Ubuntu terminal to install SimVascular
 
@@ -82,7 +86,7 @@ This will install SimVascular in
 </pre>
 
 <strong> Install additional libraries </strong><br>
-To set up your Ubuntu environment run the following commands in your terminal
+To set up your Ubuntu environment, run the following commands in your terminal
 
 <pre>
     sudo apt update

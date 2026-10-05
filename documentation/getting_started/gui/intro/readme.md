@@ -1,10 +1,10 @@
 <h1 id="gui"> Graphical User Interface </h1>
 
 The SimVascular GUI provides an interface for interactively managing the input of data needed for each step in the
-image-based modeling pipeline. The GUI provides different graphical controls (aka widgets) used to input data values
+image-based modeling pipeline. The GUI provides different graphical controls (a.k.a. widgets) used to input data values
 and methods to interact with and query image and geometrical data in a graphics window.
 
-The following table lists the controls used by the SimVascular GUI
+The following table lists the controls used by the SimVascular GUI:
 
 <table class="table table-bordered" style="width:100%">
   <tr>
@@ -16,14 +16,14 @@ The following table lists the controls used by the SimVascular GUI
   <tr>
     <td> Button </td>
     <td> A rectangular region that typically displays a text label describing its action. 
-         A button performs an action when pressed (clicked on)</td>
+         A button performs an action when pressed (clicked on).</td>
     <td><img src="/documentation/getting_started/gui/images/gui-button.png" width="100" height="25"> </td>
   </tr>
 
   <tr>
     <td> CheckBox </td>
     <td> A rectangular region that permits the user to make a binary choice, i.e. a choice between one of two possible mutually 
-         exclusive options </td>
+         exclusive options. </td>
     <td><img src="/documentation/getting_started/gui/images/gui-check-box.png" width="100" height="20"> </td>
   </tr>
 
@@ -65,7 +65,7 @@ The following table lists the controls used by the SimVascular GUI
 
   <tr>
     <td> MenuBar </td> 
-    <td> A thin, horizontal bar containing the text labels for a group of menus. 
+    <td> A thin, horizontal bar containing the text labels for a group of menus. </td>
     <td> <img src="/documentation/getting_started/gui/images/gui-menu-bar.png" width="200" height="20"> </td>
   </tr>
 
@@ -85,7 +85,7 @@ The following table lists the controls used by the SimVascular GUI
   <tr>
     <td> SpinBox </td> 
     <td> A rectangular region used to choose a value by clicking the up/down buttons or pressing up/down on the keyboard 
-         to increase/decrease the value currently displayed.
+         to increase/decrease the value currently displayed. </td>
     <td> <img src="/documentation/getting_started/gui/images/gui-spin-box.png" width="200" height="25">  </td>
   </tr>
 
@@ -98,28 +98,26 @@ The following table lists the controls used by the SimVascular GUI
 
   <tr>
     <td> TextBox </td> 
-    <td> A rectangular region used to entry string, integer or float values. </td>
+    <td> A rectangular region used to enter string, integer, or float values. </td>
     <td> <img src="/documentation/getting_started/gui/images/gui-text-box.png" width="130" height="24">  </td>
   </tr>
 
   <tr>
     <td> ToolBar </td> 
-    <td> A row of buttons at the top of window that controls software functions. </td>
+    <td> A row of buttons at the top of the window that controls software functions. </td>
     <td> <img src="/documentation/getting_started/gui/images/gui-tool-bar.png" width="250" height="20">  </td>
   </tr>
 
   <tr>
     <td> ToolBox </td> 
-    <td> An area of a <i>Tool</i> panel that contains multiple pages of GUI widgets identified by a section 
-         of rectangles with text at the Toolbox bottom. <br> Selecting a rectangle shows another page. </td>
+    <td> An area of a <i>Tool</i> panel that contains multiple pages of GUI widgets identified by a set
+         of labeled rectangles at the bottom of the ToolBox. <br> Selecting a rectangle shows another page. </td>
     <td> <img src="/documentation/getting_started/gui/images/gui-tool-box.png" width="200" height="300">  </td>
   </tr>
 
 </table>
 
-<br> <br>
-
-The SimVascular main window GUI is composed of a _MenuBar_, _ToolBar_, _Data Manager_, _Image Navigator_ and _Display_.
+The SimVascular main window GUI is composed of a _MenuBar_, _ToolBar_, _Data Manager_, _Image Navigator_, and _Display_.
 An additional _Tool Panel_ is displayed on the right side of the window when a <i>Tool</i> is active.
 
 <figure>
@@ -130,6 +128,5 @@ An additional _Tool Panel_ is displayed on the right side of the window when a <
 <br>
 
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 6px solid #d0d0d0">
-The SimVascular GUI may look slightly different on MacOS, Ubuntu and Windows platforms.
+The SimVascular GUI may look slightly different on macOS, Ubuntu and Windows platforms.
 </div>
-<br> <br>
