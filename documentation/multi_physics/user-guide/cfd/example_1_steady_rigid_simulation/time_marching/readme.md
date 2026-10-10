@@ -1,15 +1,21 @@
 
-### Time Marching Parameters ###
+### Time Step Parameters ###
 
-Our next step is to specify the time marching parameters. This is done in the `<GeneralSimulationParameters>` section at the top of the .xml file. *svMultiPhysics* simulations are solved one discrete timestep at a time, with each timestep separated by a fixed amount of time. This is analogous to how a digital video is shown one frame at a time where each frame is separated by a fixed amount of time. We need to specify how many timesteps we wish to solve in our simulation as well as the timestep size:
+The transient (unsteady) Navier-Stokes equations are solved to describe how the velocity and pressure of the fluid evolves 
+over time. The time step is the increment of time used by numerical procedures to advance a transient (time-dependent) finite 
+element simulation from one time instance: the time step between two consecutive computed solutions.
+
+The `<GeneralSimulationParameters>` section of the XML fule contains parameters to set the time step and the number of time
+steps for a simulation:
 
     <GeneralSimulationParameters>
 
-        <Number_of_spatial_dimensions>3</Number_of_spatial_dimensions>
-        <Number_of_time_steps>100</Number_of_time_steps>
-        <Time_step_size>1e-3</Time_step_size>
+        <Number_of_time_steps> 100 </Number_of_time_steps>
 
-The timestep size specifies how much time will pass in between timesteps. This parameter should be chosen to give enough time resolution for the results. It should also be sufficiently small to ensure accurate simulation results. Similar to the mesh size, simulation accuracy goes up as the timestep size decreases (at additional computational time and cost). We choose a timestep size of $1 \ ms$ ($0.001 \ seconds$) for this example, which is a good starting point for cardiovascular simulations. Another good rule of thumb for selecting the timestep size is to use the CFL condition:
+        <Time_step_size> 1e-3 </Time_step_size>
+
+It is important to select a `<Time_step_size>` value that will produce a stable and accurate solution. 
+Similar to the mesh size, simulation accuracy goes up as the timestep size decreases (at additional computational time and cost). We choose a timestep size of $1 \ ms$ ($0.001 \ seconds$) for this example, which is a good starting point for cardiovascular simulations. Another good rule of thumb for selecting the timestep size is to use the CFL condition:
 
 $$ CFL = v * \Delta t / \Delta x < 1 $$
 

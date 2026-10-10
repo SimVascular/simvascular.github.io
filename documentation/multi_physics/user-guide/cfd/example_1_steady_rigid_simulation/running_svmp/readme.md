@@ -1,11 +1,13 @@
 
-### Running svMultiPhysics from Terminal
+### Running svMultiPhysics from the Command Line in a Terminal
 
-When the .xml input file is ready, you can run your simulation from the command line terminal by running the *svMultiPhysics* application. If you have installed *svMultiPhysics* from the .deb installation package, the application should be found in the following location:
+A simulation can be run from the command line by running the *svMultiPhysics* application binary in a terminal. 
+If you have installed *svMultiPhysics* on Mac or Ubuntu the `svmultiphysics` application binary should be found 
+in the following location:
 
-    /usr/local/sv/svMultiPhysics/2026-06-11/bin/svmultiphysics
+    /usr/local/sv/svMultiPhysics/DATE/bin/svmultiphysics
 
-This example uses the version of *svMultiPhysics* published on 2026-06-11. Note that if you installed a different version of *svMultiPhysics*, the path to the executable will have a different date. If you are having trouble locating your *svMultiPhysics* executable, you can try the following command to search for the installation folder:
+where DATE is the build date (e.g., 2026-06-11). Note that if you installed a different version of *svMultiPhysics*, the path to the executable will have a different date. If you are having trouble locating your *svMultiPhysics* executable, you can try the following command to search for the installation folder:
 
     ls /usr/local/sv/svMultiPhysics/
 
@@ -16,3 +18,9 @@ This should show you the installation folders for the version of *svMultiPhysics
 For example, if your input file were called `demo_simulation.xml` and if you are using the 2026-06-11 version, the command to run the simulation would be:
 
     /usr/local/sv/svMultiPhysics/2026-06-11/bin/svmultiphysics demo_simulation.xml
+
+The OpenMPI-installed `mpiexec` program is used run a simulation on N cores 
+
+    mpiexec -n N /usr/local/sv/svMultiPhysics/2026-06-11/bin/svmultiphysics demo_simulation.xml
+
+

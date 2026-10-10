@@ -1,7 +1,8 @@
 
 ### Output Control and File Management
 
-The final batch of settings that need to be set for a CFD simulation have to do with file management and control. *svMultiPhysics* simulations can produce a lot of output files, so it is important to specify the type and number of output files produced. These settings are located in the `<GeneralSimulationParameters>` section at the top of the .xml file:
+The `<GeneralSimulationParameters>` section contains several parameters used to control the frequency to write the 
+solver state and VTK results files:
 
     <GeneralSimulationParameters>
 
@@ -35,7 +36,7 @@ The final batch of settings that need to be set for a CFD simulation have to do 
 
     </GeneralSimulationParameters>
 
-Because of the amount and variety of settings in this section, the most useful and important settings for a general user will be listed below:
+The most useful and important settings are:
 
 1. `<Increment_in_saving_restart_files>` - This specifies how often you want to save simulation outputs in terms of number of timesteps. Usually, you do not want to save results too often otherwise it will take up too much space and overwhelm a file system. But you also want to have enough time resolution to adequately analyze your results. This setting is more relevant for unsteady cases since for a steady case like this, we only need the results at the final timestep.
 2. `<Start_saving_after_time_step>` - Allows the simulation to skip saving results for the first few timesteps. Usually, the first few timesteps only contain initial conditions or transient results so you can skip some to save a bit of space.
