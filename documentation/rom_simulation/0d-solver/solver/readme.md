@@ -8,8 +8,11 @@ svZeroDSolver is an application for performing 0D simulations of cardiovascular 
 
 <ul style="list-style-type:disc;">
 <li> It is completely modular. Users can create custom flow models by arranging blocks corresponding to blood vessels, junctions, different types of boundary conditions, etc. </li>
-<li> It is written in C++ to enable high-performance applications. </li>
-<li> svZeroDSolver offers both a Python API and a C++ shared library to interface with other Python or C++-based applications. This allows it to be used in a fully coupled manner with other multi-physics solvers, and for parameter estimation, uncertainty quantification, etc. </li>
+<li> It is written in C++ to enable high-performance applications and can be run as a C++ executable. 
+<Li> A C++ shared library is also built that can be used to interface with other Python or C++-based applications. This allows svZeroDSolver to be used in a fully coupled manner from other C++ solvers, and for parameter estimation, uncertainty quantification, etc. 
+</li>
+<li> The C++ code is wrapped for Python so it can be run from a Python script using a Python API. It can can be downloaded from 
+PyPi using <b>pip install svzerod</b>.
 <li> The svZeroDCalibrator application, which is included in svZeroDSolver, optimizes 0D blood vessel parameters to recapitulate given time-varying flow and pressure measurements (for example, from a high-fidelity 3D simulation). This allows users to build accurate 0D models that reflect observed hemodynamics. </li>
 <li> The svZeroDVisualization application enables users to visualize their 0D network and interactively select nodes to view simulation results. </li>
 <li> The svZeroDGUI application allows users to generate input files for svZeroDSolver by drawing the network on an easy-to-use GUI. This provides an alternative to manually creating files and is useful for users without access to a 3D model. </li>
