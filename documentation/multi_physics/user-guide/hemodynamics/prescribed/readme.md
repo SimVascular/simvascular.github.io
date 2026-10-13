@@ -1,4 +1,6 @@
-## Input file for fluid simulations
+## Prescribed Motion
+
+### Input file for fluid simulations
 
 In this example, the abdominal aortic aneurysm (AAA) model is used as the fluid domain to perform the hemodynamics simulation, as shown in the figure below. 
 
@@ -104,12 +106,12 @@ Notably, boundary conditions need to be defined on the surfaces of the AAA mesh.
 </Add_equation>
 ```
 
-## Prescribed Wall Motion
+### Prescribing wall motion
 
 In this section, we discuss how to set up a simulation with prescribed wall motion. For example, one may wish to extract the motion of the walls of the ventricle from CT/MR scans, and reconstruct the flow fields by solving the Navier-Stokes equations. This is accomplished by computing the displacement trajectory of the endocardial surface and prescribed it as the boundary condition. This must be done offline by the user for their specific problem. This is typically done for a small subset of the total times, and displacements between the specified times are prescribed by using a piece-wise linear interpolant. Some researchers refer to this method as the one-way coupled fluid-structure interaction modeling. But since only fluid equation is solved here, we categorize it as flow simulation. 
 
 
-<h3> Wall motion </h3>
+<h4> Wall motion data </h4>
 
 There are many established pipelines to obtain the wall motion from CT/MR scans<a href="#ref-3">[3-5]</a>. Here, we would recommend using the [cardiac geometric modeling tool](simcardio.html#automatic-cardiac-modeling) developed in the **SimCardio** project.
 
