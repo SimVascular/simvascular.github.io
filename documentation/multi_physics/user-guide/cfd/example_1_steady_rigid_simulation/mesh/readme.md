@@ -1,16 +1,25 @@
 
-### Finite element mesh files
+### Finite Element Mesh Files
 
-The finite element mesh used for the simulation comprises 
-- volume mesh defining the 3D computational domain: tetraheda stored in a VTK VTU file
-- surface meshes for each 2D boundary surface: triangles stored in a VTK VTP file
+The finite element mesh used for the simulation comprises:
 
-These files are stored under the **demomesh-mesh-complete** folder that is typically created by the SimVascular Simulation Tool with the 
-following organization
+- a volume mesh of tetrahedral elements defining the three-dimensional computational domain, stored in a VTK VTU file
+- surface meshes of triangular elements defining the two-dimensional boundary surfaces, stored in VTK VTP files
 
-<img src="/documentation/multi_physics/user-guide/cfd/img/svmp_mesh_files.png">
+The following directory structure shows the mesh files referenced by this example's `solver.xml` input file:
 
-The <b>\<Add_mesh\></b> parameter section defines the name associated with each mesh file and the path to the file
+```text
+demomesh-mesh-complete/
+├── mesh-complete.mesh.vtu
+└── mesh-surfaces/
+    ├── cap_aorta.vtp
+    ├── cap_aorta_2.vtp
+    ├── cap_right_iliac.vtp
+    ├── wall_aorta.vtp
+    └── wall_right_iliac.vtp
+```
+
+The `<Add_mesh>` section in `solver.xml` associates a mesh name with its volume-mesh file and identifies the boundary surfaces and their surface-mesh files.
 
     <Add_mesh name="demomesh-mesh-complete">
 
@@ -38,14 +47,11 @@ The <b>\<Add_mesh\></b> parameter section defines the name associated with each 
 
     </Add_mesh>
 
-The <b>\<Mesh_file_path\></b> parameter sets the path to the volume mesh file used to define the 3D computational domain. 
-A series of <b>\<Add_face\></b> parameters are then used to set names of the 2D boundary surfaces used for boundary conditions. 
-The <b>\<Face_file_path\></b> parameter sets the location of the mesh files. 
+The `<Mesh_file_path>` parameter sets the path to the volume mesh file used to define the 3D computational domain. A series of `<Add_face>` parameters are then used to assign names to the 2D boundary surfaces used for boundary conditions. The `<Face_file_path>` parameter specifies the path to each surface mesh file.
 
 <p>
 <div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 6px solid #0000e6">
-The svMultiPhysics XML file is used to just set parameter values; no action is performed when a parameter is read.
-Therefore the XML file is completely read in before there is any attempt to read in mesh files.
+The svMultiPhysics XML file defines parameter values; no action is performed as individual parameters are read. The entire XML file is read before svMultiPhysics attempts to load the mesh files.
 </div>
 </p>
 

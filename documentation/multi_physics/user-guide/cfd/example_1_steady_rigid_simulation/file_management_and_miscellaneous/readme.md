@@ -1,8 +1,7 @@
 
 ### Output Control and File Management
 
-The `<GeneralSimulationParameters>` section contains several parameters used to control the frequency to write the 
-solver state and VTK results files:
+The `<GeneralSimulationParameters>` section contains several parameters that control how frequently restart files (for resuming simulations) and VTK results files (for visualization) are written. See [Simulation Results Output](https://simvascular.github.io/documentation/multi_physics.html#run_simulation_output) for details.
 
     <GeneralSimulationParameters>
 
@@ -38,9 +37,12 @@ solver state and VTK results files:
 
 The most useful and important settings are:
 
-1. `<Increment_in_saving_restart_files>` - This specifies how often you want to save simulation outputs in terms of number of timesteps. Usually, you do not want to save results too often otherwise it will take up too much space and overwhelm a file system. But you also want to have enough time resolution to adequately analyze your results. This setting is more relevant for unsteady cases since for a steady case like this, we only need the results at the final timestep.
-2. `<Start_saving_after_time_step>` - Allows the simulation to skip saving results for the first few timesteps. Usually, the first few timesteps only contain initial conditions or transient results so you can skip some to save a bit of space.
+1. `<Increment_in_saving_restart_files>` - This specifies the number of time steps between saved restart files. Usually, restart files should not be saved too often, because they can take up too much space and overwhelm a file system. However, saving them periodically allows a simulation to be resumed from a recent state.
+2. `<Start_saving_after_time_step>` - This specifies the earliest time step eligible for saving VTK results. Files are written at eligible steps that also satisfy the VTK output interval. This setting does not delay restart files or every text-output history.
 3. `<Save_averaged_results>` - This flag will tell *svMultiPhysics* to save one file that contains time-averaged results. This can be convenient if you wish to perform time averaging across all timesteps in an unsteady simulation.
-4. `<Save_results_to_VTK_format>` - This flag will tell *svMultiPhysics* to automatically convert simulation results to VTK format which is convenient for viewing in Paraview.
+4. `<Save_results_to_VTK_format>` - This flag instructs *svMultiPhysics* to save simulation results in VTK format for visualization in ParaView.
+5. `<Increment_in_saving_VTK_files>` - This specifies the number of time steps between saved VTK results files.
+
+For this steady-flow example, the results at the final time steps are of primary interest. Examining several of these results can help determine whether transient effects have subsided. For an unsteady simulation, results should be saved at sufficiently frequent intervals to capture changes over time.
 
 The other settings in this section can be adjusted for more niche cases, but these are the most useful to know for a general *svMultiPhysics* simulation.

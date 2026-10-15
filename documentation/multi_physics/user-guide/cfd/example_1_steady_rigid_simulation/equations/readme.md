@@ -1,10 +1,7 @@
 
 ### Adding the equation to solve
 
-The `<Add_equation>` section of the solver XML file is used to specify the equation to solve and the parameters
-used to define its physical properties, boundary conditions, output, etc. This section also contains the 
-parameters that govern the numerical solution of the underlying system of linear and nonlinear equations
-of finite element problem. Setting `type="fluid"` specifies to solve the incompressible Navier-Stokes equations. 
+The `<Add_equation>` section of `solver.xml` specifies the governing equation and its physical properties, boundary conditions, output settings, and numerical solution parameters. Setting `type="fluid"` selects the incompressible Navier-Stokes equations.
 
 
 The `<Add_equation>` section used for a steady simulation is: 
@@ -27,6 +24,6 @@ The `<Add_equation>` section used for a steady simulation is:
             <Value>0.04</Value>
         </Viscosity>
 
-The **fluid** equation only requires three properties to be defined: (1) fluid density, (2) fluid viscosity, and (3) backflow stabilization coefficient. The fluid density is assumed to be $1 \ g/cm^3$. Note that all numerical parameters in the XML file are assumed to be consistent with each other, which should be consistent with the unit of measure established in the mesh. Based on the input mesh data for this example, we are using the CGS unit of measure. The fluid viscosity is defined within its own section where users are also able to select the viscosity model. For this simulation, we use a simple constant viscosity model with a value of $0.04 \ Poise$ for simplicity. Blood flow in the large arteries like this model can be safely assumed to be Newtonian with a constant viscosity. Blood is considered to be a non-Newtonian fluid, but the non-Newtonian behavior is typically only observed in the microvasculature where the diameter of the vessel becomes comparable to the size of the blood cells. The backflow stabilization coefficient is a parameter unique to the *svMultiPhysics* flow solver and should be kept at $0.3$.
+For this simulation, the `<Add_equation>` section specifies a fluid density of $1\ \mathrm{g/cm^3}$, a `Constant` viscosity of $0.04\ \mathrm{Poise}$, and a backflow stabilization coefficient of $0.3$ to help control flow reversal at outlet boundaries. This Newtonian, constant-viscosity approximation is appropriate for the large arteries modeled here, although blood can exhibit non-Newtonian behavior. The mesh coordinates and dimensional input values use a consistent centimeter-gram-second (CGS) system of units in this example.
 
-The other parameters in this section specify settings for the nonlinear solution of the fluids governing equations. `<Min_iterations>` and `<Max_iterations>` specify how many nonlinear iterations you wish the solver to perform in each timestep. Specifying a larger amount of iterations can help the solver converge on a solution at the cost of additional simulation time. `<Tolerance>` defines the threshold for the solution residual needed for the solver to reach convergence. If the solver achieves a solution residual at or below the tolerance, it can move onto the next timestep before reaching the maximum nonlinear iterations. Making the tolerance a smaller number will produce more accurate simulation results at the cost of additional simulation time, and vice-versa for increasing the tolerance.
+`<Min_iterations>` and `<Max_iterations>` bound the nonlinear iterations within each time step, while `<Tolerance>` specifies a relative residual stopping criterion. A smaller tolerance can require more work, but does not by itself guarantee a more accurate physical solution. Reaching the maximum iteration count does not establish that the tolerance was satisfied. For more information about residuals and convergence, see [Simulation Results Output](https://simvascular.github.io/documentation/multi_physics.html#run_simulation_output).

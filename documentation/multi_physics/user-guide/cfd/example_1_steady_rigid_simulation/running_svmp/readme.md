@@ -1,25 +1,25 @@
 
 ### Running svMultiPhysics from the Command Line in a Terminal
 
-A simulation can be run from the command line by running the *svMultiPhysics* application binary in a terminal. 
-If you have installed *svMultiPhysics* on Mac or Ubuntu the `svmultiphysics` application binary should be found 
+A simulation can be run from the command line by executing the *svMultiPhysics* application binary in a terminal.
+For installations of *svMultiPhysics* on macOS or Ubuntu, the `svmultiphysics` application binary should be found
 in the following location:
 
     /usr/local/sv/svMultiPhysics/DATE/bin/svmultiphysics
 
-where DATE is the build date (e.g., 2026-06-11). Note that if you installed a different version of *svMultiPhysics*, the path to the executable will have a different date. If you are having trouble locating your *svMultiPhysics* executable, you can try the following command to search for the installation folder:
+where DATE is the build date (e.g., 2026-06-11). Different installed versions have different build dates in their executable paths. The following command lists the installation folders:
 
     ls /usr/local/sv/svMultiPhysics/
 
-This should show you the installation folders for the version of *svMultiPhysics* that you have. If you have multiple versions, they should be denoted by their dates. Replace the date in your application path to the appropriate one. After you have identified your *svMultiPhysics* application, you can run the simulation by running it from the folder where the .xml input file is located. Navigate to the folder where your .xml file is, then run the following command:
+This should show the *svMultiPhysics* installation folders. If multiple versions are installed, their folders should be identified by build date. The date in the executable path should match the appropriate build date. After identifying the executable, navigate to the folder containing the XML input file and run:
 
     [svmultiphysics_executable] [name_of_xml_input_file]
 
-For example, if your input file were called `demo_simulation.xml` and if you are using the 2026-06-11 version, the command to run the simulation would be:
+For example, to run `demo_simulation.xml` using the 2026-06-11 version of *svMultiPhysics*, use:
 
     /usr/local/sv/svMultiPhysics/2026-06-11/bin/svmultiphysics demo_simulation.xml
 
-The OpenMPI-installed `mpiexec` program is used run a simulation on N cores 
+To run the simulation on `N` cores using Open MPI, use `mpiexec`:
 
     mpiexec -n N /usr/local/sv/svMultiPhysics/2026-06-11/bin/svmultiphysics demo_simulation.xml
 
