@@ -1,7 +1,8 @@
 
-## Example 1: Steady Rigid Simulation with Resistance Outlet Boundary Conditions
+## Example 1: Steady Simulation with Resistance Boundary Conditions
 
-This example introduces a rigid-wall CFD simulation with a constant inlet flow rate and resistance boundary conditions at the outlets. The goal is a steady solution, but completing the specified number of time steps does not by itself establish that steady flow has been reached. svMultiPhysics advances the transient Navier-Stokes equations in time, allowing the effects of the initial conditions to subside.
+A steady CFD simulation models a fluid whose velocity and pressure do not change with time throughout the computational domain.
+The simulation will require to run for a number of time steps for the flow to reach a steady state.
 
 The data required for this simulation comprise:
 
