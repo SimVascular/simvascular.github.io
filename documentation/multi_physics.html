@@ -251,12 +251,39 @@
       </div>
 
 
-      <!-- ==================== User Guide ==================== 
+      <!-- ==================== User Guide ==================== -->
       <div>
         <h4 class="skipTo user-guide"> User Guide </h4>
         <div>
+            <h4 class="skipTo cfd_ug_introduction">Computational Fluid Dynamics (CFD)</h4>
+        </div>
+        <div>
+            <h4 class="skipTo cfd_ug_example_1_intro">Example 1: Steady Rigid Simulation</h4>
+            <div>
+                <p class="skipTo cfd_ug_meshing">Loading Mesh and Geometry into svMultiPhysics</p>
+                <p class="skipTo cfd_ug_equations">Defining Equations and Fluid Properties</p>
+                <p class="skipTo cfd_ug_boundary_conditions">Assigning Boundary Conditions</p>
+                <p class="skipTo cfd_ug_output_quantities">Specifying Output Quantities</p>
+                <p class="skipTo cfd_ug_time_marching">Time Marching Parameters</p>
+                <p class="skipTo cfd_ug_linear_solver">Linear Solver Parameters</p>
+                <p class="skipTo cfd_ug_file_management_and_miscellaneous">Output Control and File Management</p>
+                <p class="skipTo cfd_ug_running_svmp">Running svMultiPhysics from Terminal</p>
+                <p class="skipTo cfd_ug_runtime">Checking Simulation during Runtime</p>
+                <p class="skipTo cfd_ug_sim_outputs">Checking Simulation Outputs</p>
+            </div>
+            <h4 class="skipTo cfd_ug_example_2_intro">Example 2: Unsteady Rigid Simulation with RCR Outlets</h4>
+            <div>
+                <p class="skipTo cfd_ug_example_2_unsteady_inflow">Unsteady Inflow Boundary Conditions</p>
+                <p class="skipTo cfd_ug_example_2_rcr_outlets">RCR Outlet Boundary Conditions</p>
+                <p class="skipTo cfd_ug_example_2_other">Other Parameters</p>
+                <p class="skipTo cfd_ug_example_2_run_in_parallel">Running svMultiPhysics in Parallel</p>
+                <p class="skipTo cfd_ug_example_2_sim_outputs">Simulation Outputs</p>
+            </div>
+        </div>
+        <div>
           <p class="skipTo user_guide_cardiac_electrophysiology"> Cardiac electrophysiology  </p>
-          <p class="skipTo user_guide_computational_hemodynamics"> Computational Hemodynamics </p>
+          <p class="skipTo user_guide_non_newtonian_flow"> Non-Newtonian Flow </p>
+          <p class="skipTo user_guide_prescribed_motion"> Prescribed Motion </p>
           <p class="skipTo user_guide_fluid_solid_interaction"> Fluid Solid Interaction </p>
           <p class="skipTo user_guide_material_models"> Material Models </p>
           <div>
@@ -266,7 +293,9 @@
           <p class="skipTo user_guide_nonlinear_solid_dynamics"> Nonlinear Solid Dynamics </p>
         </div>
       </div>
-      -->
+      
+
+
 
       <!-- ==================== Developer Guide ==================== -->
       <div>
@@ -470,6 +499,63 @@
         <zero-md src="multi_physics/user-guide/readme.md" no-shadow></zero-md>
       </span>
 
+      <!-- ==================== Computational Fluid Dynamics User Guide ==================== -->
+
+      <span id="cfd_ug_introduction">
+        <zero-md src="multi_physics/user-guide/cfd/introduction/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_example_1_intro">
+        <zero-md  src="multi_physics/user-guide/cfd/example_1_steady_rigid_simulation/intro/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_meshing">
+        <zero-md  src="multi_physics/user-guide/cfd/example_1_steady_rigid_simulation/mesh/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_equations">
+        <zero-md src="multi_physics/user-guide/cfd/example_1_steady_rigid_simulation/equations/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_boundary_conditions">
+        <zero-md src="multi_physics/user-guide/cfd/example_1_steady_rigid_simulation/boundary_conditions/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_output_quantities">
+        <zero-md src="multi_physics/user-guide/cfd/example_1_steady_rigid_simulation/outputs/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_time_marching">
+        <zero-md src="multi_physics/user-guide/cfd/example_1_steady_rigid_simulation/time_marching/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_linear_solver">
+        <zero-md src="multi_physics/user-guide/cfd/example_1_steady_rigid_simulation/linear_solver/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_file_management_and_miscellaneous">
+        <zero-md src="multi_physics/user-guide/cfd/example_1_steady_rigid_simulation/file_management_and_miscellaneous/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_running_svmp">
+        <zero-md src="multi_physics/user-guide/cfd/example_1_steady_rigid_simulation/running_svmp/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_runtime">
+        <zero-md src="multi_physics/user-guide/cfd/example_1_steady_rigid_simulation/runtime/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_sim_outputs">
+        <zero-md src="multi_physics/user-guide/cfd/example_1_steady_rigid_simulation/sim_outputs/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_example_2_intro">
+        <zero-md  src="multi_physics/user-guide/cfd/example_2_unsteady_rigid_simulation/intro/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_example_2_unsteady_inflow">
+        <zero-md  src="multi_physics/user-guide/cfd/example_2_unsteady_rigid_simulation/unsteady_inflow/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_example_2_rcr_outlets">
+        <zero-md  src="multi_physics/user-guide/cfd/example_2_unsteady_rigid_simulation/rcr_outlets/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_example_2_other">
+        <zero-md  src="multi_physics/user-guide/cfd/example_2_unsteady_rigid_simulation/other_parameters/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_example_2_run_in_parallel">
+        <zero-md  src="multi_physics/user-guide/cfd/example_2_unsteady_rigid_simulation/running_svmp_in_parallel/readme.md" no-shadow></zero-md>
+      </span>
+      <span id="cfd_ug_example_2_sim_outputs">
+        <zero-md  src="multi_physics/user-guide/cfd/example_2_unsteady_rigid_simulation/sim_outputs/readme.md" no-shadow></zero-md>
+      </span>
+
       <!-- -------------------- Cardiac electrophysiology -------------------- -->
 
       <span id="user_guide_cardiac_electrophysiology">
@@ -506,21 +592,23 @@
         <zero-md src="multi_physics/user-guide/fluid_solid_interaction/references/readme.md" no-shadow></zero-md>
       </span>
 
-      <!-- -------------------- hemodynamics -------------------- -->
+      <!-- -------------------- Non-Newtonian flow -------------------- -->
 
-      <span id="user_guide_hemodynamics">
-        <zero-md src="multi_physics/user-guide/hemodynamics/introduction/readme.md" no-shadow></zero-md>
-      </span>
+      <!-- Preserve links to the former combined section. -->
+      <span id="user_guide_hemodynamics"></span>
+      <span id="user_guide_computational_hemodynamics"></span>
 
-      <span id="user_guide_hemodynamics">
+      <span id="user_guide_non_newtonian_flow">
         <zero-md src="multi_physics/user-guide/hemodynamics/non_newtonian/readme.md" no-shadow></zero-md>
       </span>
 
-      <span id="user_guide_hemodynamics">
+      <!-- -------------------- Prescribed motion -------------------- -->
+
+      <span id="user_guide_prescribed_motion">
         <zero-md src="multi_physics/user-guide/hemodynamics/prescribed/readme.md" no-shadow></zero-md>
       </span>
 
-      <span id="user_guide_hemodynamics">
+      <span id="user_guide_hemodynamics_references">
         <zero-md src="multi_physics/user-guide/hemodynamics/references/readme.md" no-shadow></zero-md>
       </span>
 
