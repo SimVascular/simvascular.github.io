@@ -1,18 +1,18 @@
 
 ### Other Parameter Changes for Unsteady Simulation
 
-Besides the boundary conditions, minor adjustments to a couple other settings are required for an unsteady simulation. First, the `<Number_of_time_steps>` and `<Time_step_size>` must be set to capture multiple cardiac cycles in the simulation. When a new *svMultiPhysics* simulation is started, all velocity and pressure values in the domain are set to initial values of zero. Due to the inertia of the fluid in the 3D domain, the velocities and pressures do not immediately “react” to changes in the boundary conditions. That is why we had to run our steady simulation for 100 timesteps in the previous example. This initial phase of a flow simulation is often called the *transient* part and is merely an artifact of the numerical procedure, not representative of physiological behavior.
+Besides the boundary conditions, the simulation duration and output settings must be considered. `<Number_of_time_steps>` and `<Time_step_size>` determine how much simulated time is covered. A fresh simulation starts from its specified initial conditions, which need not represent the established pulsatile solution. Initial-condition effects must diminish before the repeating response is analyzed; these effects are distinct from the physiological changes that should remain within each cardiac cycle.
 
-Because the boundary conditions for unsteady simulations are changing rapidly with time, the transient part of the solution persists for longer. More specifically, it often takes several cardiac cycles for an unsteady simulation to represent true physiologic conditions. It is thus recommended to run at least **four** cardiac cycles in the simulation to ensure the transient part of the solution does not affect our results. Then the results are analyzed for only the last cycle. Note that for deformable wall simulations, transient effects take even longer to decay so more cycles are recommended for those.
+This example runs for **four** cardiac cycles, with the final cycle intended for analysis. Four cycles are a starting choice, not a guarantee that initial-condition effects have subsided. Compare pressure or flow at corresponding phases of successive cycles to check whether appreciable cycle-to-cycle changes remain. A longer run may be needed. If earlier-cycle VTK results are not retained, this comparison requires suitable saved boundary histories or a run that retains additional cycles.
 
-Based on the .flow file used for the inlet boundary conditions, this patient has a heart period of one second (i.e. heart rate of 60 bpm). If we set the timestep size to $1 \ ms$ as we typically do, then we need to run at least $4000$ timesteps to simulate four full cardiac cycles:
+The example `.flow` file spans one second, corresponding to 60 cycles per minute. With a time-step size of $1 \ ms$, $4000$ time steps simulate four full cardiac cycles:
 
     …
         <Number_of_time_steps>4000</Number_of_time_steps>
         <Time_step_size>1e-3</Time_step_size>
     …
 
-Since we will be running many more timesteps compared to our steady simulation, it is even more important to confirm the frequency *svMultiPhysics* is saving results. The save frequency needs to be often enough to give adequate time resolution for results but not too often otherwise too many files will be produced:
+The output interval must provide enough temporal resolution for analysis without producing unnecessarily many files. As in Example 1, restart files and VTK results have separate saving intervals:
 
     …
 
@@ -28,4 +28,4 @@ Since we will be running many more timesteps compared to our steady simulation, 
 
     …
 
-Since we only want to save results for the final cycle, we do not save results until after timestep $3000$. We also make sure to activate the flag for saving averaged results which will be convenient when doing our analysis.
+The restart and VTK saving intervals remain 10 time steps, as in Example 1. `<Start_saving_after_time_step>` is changed to $3000$ to limit VTK output to the final simulated cycle; it does not delay restart files. With a time-step size of 0.001 seconds, VTK snapshots are spaced 0.01 seconds apart. A one-second cycle spans 100 snapshot intervals; the number of saved files depends on whether both endpoints are included. Saving averaged results remains enabled, which can be convenient for analysis.
