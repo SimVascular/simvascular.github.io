@@ -35,7 +35,7 @@ In order to represent the effects of vessels distal to the CFD model, a three-el
 **Windkessel Model:**
 
 <figure>
-  <img class="svImg svImgMd" src="/clinical/aortofemoral2/imgs/windkessel.jpg"> 
+  <img class="svImg" src="/img/rcr-boundary-condition.svg" alt="Red vessel supplying flow Q to an RCR circuit with proximal resistance Rp, capacitance C, and distal resistance Rd." width="520" height="143" style="width: 520px; max-width: 100%; height: auto; color-scheme: light;">
   <figcaption class="svCaption" ></figcaption>
 </figure>
 

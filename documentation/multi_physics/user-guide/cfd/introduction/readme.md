@@ -18,7 +18,7 @@ The mesh files used for this section model the descending abdominal aorta with t
 The files can be downloaded from the [SimVascular DemoProject](https://simtk.org/frs/?group_id=930) located on the SimTK website.
 
 <figure>
-  <img class="svImg svImgMd" src="/documentation/multi_physics/user-guide/cfd/img/svmp_demo_mesh.png">
+  <img class="svImg svImgMd svImgWide" src="/documentation/multi_physics/user-guide/cfd/img/svmp_demo_mesh.png">
   <figcaption class="svCaption">Surface mesh of the descending abdominal aorta showing the five surfaces used to define boundary conditions.</figcaption>
 </figure>
 

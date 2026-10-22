@@ -3,7 +3,7 @@
 For the aortic outlet, we will specify a Windkessel RCR boundary condition. There are three elements that make up the Windkessel model: a proximal resistance modeling the viscous resistance of the arterial vasculature just downstream the of the model, a capacitor which models the vessel compliance of all the downstream vasculature, and the distal resistance which models the resistance of the capillaries and venous circulation.
 
 <figure>
-  <img class="svImg svImgMd" src="/clinical/coronary/imgs/windkessel.jpg">
+  <img class="svImg" src="/img/rcr-boundary-condition.svg" alt="Red vessel supplying flow Q to an RCR circuit with proximal resistance Rp, capacitance C, and distal resistance Rd." width="520" height="143" style="width: 520px; max-width: 100%; height: auto; color-scheme: light;">
   <figcaption class="svCaption" >Figure 10: RCR Windkessel model</figcaption>
 </figure>
 

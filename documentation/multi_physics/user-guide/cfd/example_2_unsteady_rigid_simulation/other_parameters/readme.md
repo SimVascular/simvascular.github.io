@@ -1,7 +1,7 @@
 
 ### Other Parameter Changes for Unsteady Simulation
 
-Besides the boundary conditions, the simulation duration and output settings must be considered. `<Number_of_time_steps>` and `<Time_step_size>` determine how much simulated time is covered. A fresh simulation starts from its specified initial conditions, which need not represent the established pulsatile solution. Initial-condition effects must diminish before the repeating response is analyzed; these effects are distinct from the physiological changes that should remain within each cardiac cycle.
+The simulation duration and output settings are specified in the `<GeneralSimulationParameters>` section. `<Number_of_time_steps>` and `<Time_step_size>` determine how much simulated time is covered. A fresh simulation starts from its specified initial conditions, which need not represent the established pulsatile solution. Initial-condition effects must diminish before the repeating response is analyzed; these effects are distinct from the physiological changes that should remain within each cardiac cycle.
 
 This example runs for **four** cardiac cycles, with the final cycle intended for analysis. Four cycles are a starting choice, not a guarantee that initial-condition effects have subsided. Compare pressure or flow at corresponding phases of successive cycles to check whether appreciable cycle-to-cycle changes remain. A longer run may be needed. If earlier-cycle VTK results are not retained, this comparison requires suitable saved boundary histories or a run that retains additional cycles.
 
