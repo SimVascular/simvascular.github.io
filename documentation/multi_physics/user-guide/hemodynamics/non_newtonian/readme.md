@@ -1,9 +1,9 @@
-<h3> Non-Newtonian flow </h3>
+<h2> Non-Newtonian Flow </h2>
 
 Blood is a complex mixture that consists of plasma, blood cells and platelets. The blood viscosity is a complicated subject. It is strongly dependent on several factors such as temperature, hematocrit and, especially, the shear rate. From experimental studies, it is determined that the blood behaves like Newtonian flow at high shear rate ($>100 s^{-1}$). In most large arteries such as aorta, coronary arteries, the shear rate is well above this number and blood can be treated as a Newtonian fluid, that is the viscosity is a constant. On the other hand, when the shear rate is below this threshold, blood presents strong shear thinning behavior, i.e. the viscosity decreases with increasing shear rate. Many viscosity models have been proposed to represent this non-Newtonian behavior <a href="#ref-1">[1]</a>.
 
 
-<h4> Viscosity models </h4>
+<h3> Viscosity models </h3>
 
 Currently, **svMultiPhysics** supports three viscosity models: Newtonian, Carreau-Yasuda and Casson <a href="#ref-2">[2]</a>.
 
@@ -36,7 +36,7 @@ $$\eta=\frac{1}{\dot{\gamma}}\left[ k\_0 ( c ) + k\_1 ( c )\sqrt{\dot{\gamma}} \
 Here, $k\_0 ( c )$ and $k\_1 ( c )$ are functions of the hematocrit $c$.
 
 
-<h4> Input file </h4>
+<h3> Input file </h3>
 Input options for different viscosity models are discussed below:
 
 For Newtonian fluid:

@@ -126,6 +126,9 @@ footer {
 /* line 127,  */
 img.svImg {
   display: block;
+  /* Text-relative limits keep figures compact when readers reduce text/zoom. */
+  max-width: min(100%, 40em);
+  height: auto;
   margin-left: auto;
   margin-right: auto;
   /* margin-top: 20px; */
@@ -145,28 +148,28 @@ figcaption.svCaption {
 /* IMAGE SIZE */
 /* line 146,  */
 img.svImgXs {
-  max-height: 300px;
+  max-height: 18em;
   width: 100%;
   object-fit: contain; 
 }
 
 /* line 149,  */
 img.svImgSm {
-  max-height: 400px;
+  max-height: 24em;
   width: 100%;
   object-fit: contain; 
 }
 
 /* line 152,  */
 img.svImgMd {
-  max-height: 600px;
+  max-height: 35em;
   width: 100%;
   object-fit: contain; 
 }
 
 /* line 155,  */
 img.svImgLg {
-  max-height: 800px;
+  max-height: 47em;
   width: 100%;
   object-fit: contain; 
 }
@@ -181,4 +184,14 @@ img.svImgXl {
 .bs-docs-sidebar > ul {
   overflow-y: auto;
   height: 100%; 
+}
+
+/* Opt-in reading sizes for selected documentation figures. */
+img.svImgWide {
+  max-width: min(100%, 52em);
+}
+img.svImgCompact {
+  width: auto;
+  max-width: min(100%, 28em);
+  max-height: 26em;
 }

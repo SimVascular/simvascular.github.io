@@ -27,7 +27,7 @@ steps needed to implement GenBC boundary conditions. A graphical representation 
 is shown in the figure below.
 
 <figure>
-  <img class="svImg svImgMd" src="/documentation/genbc/imgs/rcr_cylinder.jpeg">
+  <img class="svImg" src="/img/rcr-boundary-condition.svg" alt="Red vessel supplying flow Q to an RCR circuit with proximal resistance Rp, capacitance C, and distal resistance Rd." width="520" height="143" style="width: 520px; max-width: 100%; height: auto; color-scheme: light;">
   <figcaption class="svCaption" >Cylinder with sinusoidal inflow and RCR outflow.</figcaption>
 </figure>
 
