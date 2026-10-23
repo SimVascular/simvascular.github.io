@@ -2,12 +2,30 @@
 ### Assigning Boundary Conditions
 
 Boundary conditions specify how the fluid interacts with its bounding surfaces (faces) and are used to prescribe known
-values to drive fluid flow. Recall from the `<Add_mesh>` section that we labeled each of the exterior surfaces according to the .vtp surface mesh files. We can now use these labels to define the boundary conditions. The figure below shows the boundary conditions we wish to specify for this model:
+values to drive fluid flow. Recall from the `<Add_mesh>` section that we labeled each of the exterior surfaces according to the .vtp surface mesh files. We can now use these labels to define an inflow and two outflow resistance boundary conditions as 
 
-<figure>
-  <img class="svImg svImgMd" src="/documentation/multi_physics/user-guide/cfd/img/svmp_ug_ex1_model_and_bc.png">
-  <figcaption class="svCaption" >Descending Aorta model with inflow and outflow boundary conditions labeled.</figcaption>
-</figure>
+<table class="table table-bordered" style="width:100%">
+  <tr>
+    <th> Face name </th>
+    <th> Boundary condition </th>
+    <th> Value </th>
+  </tr>
+  <tr>
+    <td>cap_aorta </td>
+    <td>Steady</td>
+    <td>100 mL/s </td>
+  </tr>
+  <tr>
+    <td>cap_aorta_2 </td>
+    <td>Resistance</td>
+    <td>2600 dyne . s / cm<sup>5</sup> </td>
+  </tr>
+  <tr>
+    <td>cap_right_iliac</td>
+    <td>Resistance</td>
+    <td>2600 dyne . s / cm<sup>5</sup> </td>
+  </tr>
+</table>
 
 Boundary conditions are specified using the `<Add_BC>` parameter:
 
@@ -28,30 +46,24 @@ Boundary conditions are specified using the `<Add_BC>` parameter:
             <Type>Neumann</Type>
             <Time_dependence>Resistance</Time_dependence>
             <Value>2600</Value>
-            <Profile>Flat</Profile>
         </Add_BC>
 
         <Add_BC name="cap_right_iliac">
             <Type>Neumann</Type>
             <Time_dependence>Resistance</Time_dependence>
             <Value>2600</Value>
-            <Profile>Flat</Profile>
         </Add_BC>
 
         <Add_BC name="wall_aorta">
             <Type>Dirichlet</Type>
             <Time_dependence>Steady</Time_dependence>
             <Value>0</Value>
-            <Profile>Flat</Profile>
-            <Zero_out_perimeter>true</Zero_out_perimeter>
         </Add_BC>
 
         <Add_BC name="wall_right_iliac">
             <Type>Dirichlet</Type>
             <Time_dependence>Steady</Time_dependence>
             <Value>0</Value>
-            <Profile>Flat</Profile>
-            <Zero_out_perimeter>true</Zero_out_perimeter>
         </Add_BC>
 
 Each `<Add_BC>` section specifies a condition for one of the named surfaces. The inlet face is `cap_aorta`, where a flow rate of $100\ \mathrm{mL/s}$ is prescribed for this example. Boundary-condition values should be chosen to match the available physiologic data and the region being modeled.

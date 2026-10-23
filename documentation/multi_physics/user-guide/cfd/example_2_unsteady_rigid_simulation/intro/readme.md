@@ -1,8 +1,27 @@
-## Example 2: Pulsatile Rigid-Wall Simulation with RCR Outlet Boundary Conditions
+## Example 2: Unsteady Simulation with RCR Outlet Boundary Conditions
 
-Building on Example 1, this example models pulsatile blood flow using a time-varying inlet flow rate and RCR outlet boundary conditions that provide a simple lumped-parameter representation of the flow impedance of the vasculature downstream of the 3D model. Resolving multiple cardiac cycles, sometimes requiring a smaller time-step size, can make these simulations orders of magnitude more computationally expensive than steady simulations. The following sections describe the changes to the existing XML input file. The fluid properties and wall boundary conditions are retained. The geometry and face names are repeated below for clarity:
+This example models unsteady blood flow using a time-varying inlet flow rate and RCR outlet boundary conditions modeling the impedance of the vasculature downstream of the 3D model. As with Example 1 we use face labels to define an inflow and two outflow RCR boundary conditions as
 
-<figure>
-  <img class="svImg svImgMd" src="/documentation/multi_physics/user-guide/cfd/img/svmp_ug_ex1_model_and_surfaces.png">
-  <figcaption class="svCaption" >Descending aorta model with mesh surfaces labeled.</figcaption>
-</figure>
+<table class="table table-bordered" style="width:100%">
+  <tr>
+    <th> Face name </th>
+    <th> Boundary condition </th>
+    <th> Value </th>
+  </tr>
+  <tr>
+    <td>cap_aorta </td>
+    <td>Unsteady</td>
+    <td>cap_aorta.flow</td>
+  </tr>
+  <tr>
+    <td>cap_aorta_2 </td>
+    <td>RCR </td>
+    <td> 332.47 1e-4  2992.2  </td>
+  </tr>
+  <tr>
+    <td>cap_right_iliac</td>
+    <td>RCR </td>
+    <td>269.45 1e-4 2425.1 </td>
+  </tr>
+</table>
+

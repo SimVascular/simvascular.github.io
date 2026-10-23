@@ -1,5 +1,5 @@
 
-### Checking Unsteady Simulation Outputs
+### Visualizing Simulation Results 
 
 Once the simulation finishes, load the saved VTK snapshots as a time series in ParaView. In this example, a snapshot is saved every ten solver time steps, not at every time step. Click “Open” in ParaView, and navigate to the results folder. The `results_*.vtu` files are grouped together; the down arrow expands the group to show individual files. Select the group header and click “OK” to load the complete series.
 

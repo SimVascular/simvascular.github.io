@@ -1,7 +1,7 @@
 
-### Checking Simulation Outputs
+### Visualizing Simulation Results
 
-When a simulation finishes, the results can be viewed by loading the `.vtu` result files into ParaView, an open-source application for visualizing 3D data. More information about downloading and running ParaView can be found on its [website](https://www.paraview.org/). To view the results from this example, open ParaView and click “Open”. Navigate to the simulation results folder (typically `1-procs` for a single-process run) and open the file `results_100.vtu`. This file contains the results from the final time step. As discussed earlier, examining several of the final time steps can help determine whether transient effects have subsided. After opening the file, click the green “Apply” button on the left-hand side of the screen to load the results. The geometry should now be visible in the 3D viewing window:
+When a simulation finishes, the results can be viewed by loading the `.vtu` result files into ParaView, an open-source application for visualizing 3D data. More information about downloading and running ParaView can be found on its [website](https://www.paraview.org/). To view the results from this example, open ParaView and click “Open”. Navigate to the simulation results N-procs folder and open the file `results_100.vtu`. This file contains the results from the final time step. As discussed earlier, examining several of the final time steps can help determine whether transient effects have subsided. After opening the file, click the green “Apply” button on the left-hand side of the screen to load the results. The geometry should now be visible in the 3D viewing window:
 
 <figure>
   <img class="svImg svImgMd svImgWide" src="/documentation/multi_physics/user-guide/cfd/img/svmp_ug_ex1_paraview_interface.png">

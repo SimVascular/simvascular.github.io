@@ -1,26 +1,33 @@
-### Unsteady Inflow Boundary Conditions
+### Unsteady Inflow Boundary Condition
 
-Our model in this example assumes that the inflow repeats with each cardiac cycle. A `.flow` file supplies time and volumetric flow-rate pairs over one cycle which svMultiPhysics uses to prescribe an inlet velocity profile consistent with that periodic flow. The file has the following format:
+The data for the unsteady inflow boundary condition is provided in a text file as a time series of volumetric flow values
+representing a periodic flow.
 
-    N_datapoints n_fourier_modes
-    T0 Q0
+The flow values are used to create the velocity vector data defining the fluid flowing into a face.
+
+The flow file has the following format:
+
+    NumData  NumModes
     T1 Q1
     T2 Q2
     …
     Tn Qn
 
-The first line of a `.flow` file contains two integers. The first, `N_datapoints`, specifies the number of time-flow pairs that follow. The second, `n_fourier_modes`, specifies the number of Fourier modes used to represent the waveform, 10 in this example. The supplied waveform contains 1,001 pairs spanning one second, so its header is `1001 10`.
+where<br>
+   NumData: number of time-flow pairs T1 Q1, T2 Q2, ..., Tn Qn in the file<br>
+   NumModes: number Fourier of modes used to represent the flow as a periodic waveform
 
-The user is responsible for supplying a periodic inflow waveform in the `.flow` file. svMultiPhysics uses a Fourier approximation to represent this waveform and evaluate flow at the times required by the simulation. Inflow waveforms can be obtained from measurements such as phase-contrast MRI, which can be used to measure blood-flow velocity and derive volumetric flow rate.
+The flow for each time step is evaluated using a periodic waveform approximated using a Fourier series. Inflow data can be 
+obtained from clinical measurements such as phase-contrast MRI. 
 
-Each line after the first in the `.flow` file contains a time value in seconds and the corresponding volumetric flow rate. The units must be consistent with the rest of the simulation. This example uses the centimeter-gram-second (CGS) system, with flow expressed in mL/s (equivalently, cm³/s). The figure below shows the example inlet waveform:
+The time values in the file are in seconds. The corresponding volumetric flow rates must be in units consistent with the rest of the simulation. This example uses the centimeter-gram-second (CGS) system, with flow expressed in mL/s (equivalently, cm³/s). The figure below shows the example inlet waveform:
 
 <figure>
   <img class="svImg svImgSm" style="width: auto; max-width: min(100%, 20em); max-height: 18em;" src="/documentation/multi_physics/user-guide/cfd/img/svmp_ug_ex2_flow_waveform.png">
-  <figcaption class="svCaption">Example pulsatile inlet flow waveform.</figcaption>
+  <figcaption class="svCaption">Example unsteady inlet flow waveform.</figcaption>
 </figure>
 
-In svMultiPhysics, flow across the boundaries of the computational domain is considered positive when directed outward. Accordingly, the inflow values in this `.flow` file are negative. The example waveform spans one second, corresponding to 60 cycles per minute. The waveform shown above is available as this sample: [`cap_aorta.flow`](/documentation/multi_physics/user-guide/cfd/files/cap_aorta.flow).
+The flow into a surface face is represented using a negative value. The [`cap_aorta.flow`](/documentation/multi_physics/user-guide/cfd/files/cap_aorta.flow) inlet flow file used in this example spans one second, corresponding to 60 cycles per minute.
 
 To specify this unsteady inlet boundary condition in svMultiPhysics, modify the `<Add_BC>` section of the XML input file corresponding to the inlet surface.
 
@@ -44,4 +51,3 @@ Compared with the steady inlet boundary condition:
 
 This example also uses a `Flat` spatial inlet profile instead of the `Parabolic` profile used in Example 1. Temporal variation and spatial profile are separate settings; selecting `Unsteady` does not require a flat profile.
 
-The `.flow` file does not have to be named `cap_aorta.flow`. A model-specific file name can help distinguish waveforms, especially when there are multiple inlets with prescribed unsteady flow.

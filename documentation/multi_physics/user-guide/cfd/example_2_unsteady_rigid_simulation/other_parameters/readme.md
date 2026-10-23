@@ -5,7 +5,7 @@ The simulation duration and output settings are specified in the `<GeneralSimula
 
 This example runs for **four** cardiac cycles, with the final cycle intended for analysis. Four cycles are a starting choice, not a guarantee that initial-condition effects have subsided. Compare pressure or flow at corresponding phases of successive cycles to check whether appreciable cycle-to-cycle changes remain. A longer run may be needed. If earlier-cycle VTK results are not retained, this comparison requires suitable saved boundary histories or a run that retains additional cycles.
 
-The example `.flow` file spans one second, corresponding to 60 cycles per minute. With a time-step size of $1 \ ms$, $4000$ time steps simulate four full cardiac cycles:
+The example `cap_aorta.flow` file spans one second, corresponding to 60 cycles per minute. With a time-step size of $1 \ ms$, $4000$ time steps simulate four full cardiac cycles:
 
     …
         <Number_of_time_steps>4000</Number_of_time_steps>
