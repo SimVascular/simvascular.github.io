@@ -32,11 +32,20 @@ $$ \mathbf{\sigma} = \sigma_f \mathbf{f}\otimes \mathbf{f} + \sigma_s (\mathbf{I
 
 where $\sigma\_f$ and $\sigma\_s$ are the conductivities along the fiber direction and in the transverse plane. $\mathbf{f}$ is the fiber direction vector.
 
-In <strong>svMultiPhysics</strong>, we directly specify $\mathbf{D}$ in the input file. We choose a slightly different form to enforce the transverse isotropy of the conductivity tensor,
+In <strong>svMultiPhysics</strong>, the diffusivity tensor is specified as an isotropic contribution
+plus optional contributions along the fiber, sheet, and sheet-normal directions:
 
-$$ \mathbf{D} = D\_{iso}\mathbf{I} + \sum\_{n=1}^{nsd}D\_{ani,n}\mathbf{fN}\_n\otimes\mathbf{fN}\_n $$
+$$
+\mathbf{D} = D\_{iso}\mathbf{I}
+ + D_f\mathbf{f}\otimes\mathbf{f}
+ + D_s\mathbf{s}\otimes\mathbf{s}
+ + D_n\mathbf{n}\otimes\mathbf{n}
+$$
 
-Here, $nsd$ is the dimension, and $\mathbf{fN\_n}$ is the local orthonormal coordinate system built by fiber direction and sheet direction. To connect with the previous expression, we have $D\_f=D\_{iso}+D\_{ani}$ and $D\_s=D\_{iso}$.
+The corresponding inputs are <strong>Isotropic_conductivity</strong>,
+<strong>Fiber_conductivity</strong>, <strong>Sheet_conductivity</strong>, and
+<strong>Sheet_normal_conductivity</strong>. At least the isotropic or fiber term is required. Sheet
+and sheet-normal terms require the preceding directional terms and an orthonormal fiber basis.
 
 
 <h4> Cellular Activation Models </h4>

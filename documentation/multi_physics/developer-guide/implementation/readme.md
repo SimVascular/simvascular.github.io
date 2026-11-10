@@ -415,7 +415,7 @@ Process projection faces [ <a href="https://github.com/SimVascular/svMultiPhysic
 
 Set domain IDs [ <a href="https://github.com/SimVascular/svMultiPhysics/blob/main/Code/Source/svFSI/read_msh.cpp#L1457"> .  </a> ]
 
-Read fiber orientation [ <a href="https://github.com/SimVascular/svMultiPhysics/blob/main/Code/Source/svFSI/read_msh.cpp#L1542"> .  </a> ]
+Read fiber orientations [ <a href="https://github.com/SimVascular/svMultiPhysics/blob/main/Code/Source/solver/Fibers.cpp"> . </a> ]
 
 Read prestress data [ <a href="https://github.com/SimVascular/svMultiPhysics/blob/main/Code/Source/svFSI/read_msh.cpp#L1603"> .  </a> ]
 

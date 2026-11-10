@@ -52,10 +52,13 @@ The following sections list the parameters associated with a domain for a specif
 
 <h5 id="cardiac_electrophysiology_domain_parameters"> Cardiac Electrophysiology Domain Parameters </h5>
 <pre>
-<a href="#domain_Anisotropic_conductivity"> Anisotropic_conductivity <a>
 <a href="#domain_Electrophysiology_model"> Electrophysiology_model <a>
+<a href="#domain_Fiber_conductivity"> Fiber_conductivity <a>
+<a href="#domain_Isotropic_conductivity"> Isotropic_conductivity <a>
 <a href="#domain_Myocardial_zone"> Myocardial_zone <a>
 <a href="#domain_ODE_solver"> ODE_solver <a>
+<a href="#domain_Sheet_conductivity"> Sheet_conductivity <a>
+<a href="#domain_Sheet_normal_conductivity"> Sheet_normal_conductivity <a>
 <a href="#domain_Stimulus_subsection"> Stimulus <a>
 <a href="#domain_Time_step_for_integration"> Time_step_for_integration <a>
 </pre>
@@ -179,12 +182,6 @@ make sense when used in a domain defined for a specific type of equation.
 </nobr><br>
 Convergence is deemed to occur when the size of the residual becomes sufficiently small compared with this value. 
 <br>
-<section id="domain_Anisotropic_conductivity">
-<strong>&lt;Anisotropic_conductivity&gt;</strong> <i>vector</i> <nobr>
-<strong>&lt;/Anisotropic_conductivity&gt;</strong>
-</nobr><br>
-The anisotropic conductivity constant used to model the directional dependence of conduction velocity in cardiac tissue.
-<br>
 <section id="domain_Backflow_stabilization_coefficient">
 <strong>&lt;Backflow_stabilization_coefficient&gt;</strong> <i>real</i> [0.2] <nobr>
 <strong>&lt;/Backflow_stabilization_coefficient&gt;</strong>
@@ -298,10 +295,29 @@ The maximal transient outward current conductance used in the TenTusscher-Panfil
 </nobr><br>
 Sets the inverse darcy permeability constant.
 <br>
-<strong>&lt;Isotropic_conductivity&gt;</strong> <i>real</i> [0.0] <nobr>
+<section id="domain_Isotropic_conductivity">
+<strong>&lt;Isotropic_conductivity&gt;</strong> <i>real [0.0]</i> <nobr>
 <strong>&lt;/Isotropic_conductivity&gt;</strong>
 </nobr><br>
-Sets the isotropic conductivity constant.
+Sets the isotropic conductivity contribution for cardiac electrophysiology.
+<br>
+<section id="domain_Fiber_conductivity">
+<strong>&lt;Fiber_conductivity&gt;</strong> <i>real [0.0]</i> <nobr>
+<strong>&lt;/Fiber_conductivity&gt;</strong>
+</nobr><br>
+Sets the conductivity contribution along the fiber direction for cardiac electrophysiology.
+<br>
+<section id="domain_Sheet_conductivity">
+<strong>&lt;Sheet_conductivity&gt;</strong> <i>real [0.0]</i> <nobr>
+<strong>&lt;/Sheet_conductivity&gt;</strong>
+</nobr><br>
+Sets the conductivity contribution along the sheet direction for cardiac electrophysiology.
+<br>
+<section id="domain_Sheet_normal_conductivity">
+<strong>&lt;Sheet_normal_conductivity&gt;</strong> <i>real [0.0]</i> <nobr>
+<strong>&lt;/Sheet_normal_conductivity&gt;</strong>
+</nobr><br>
+Sets the conductivity contribution along the sheet-normal direction for cardiac electrophysiology.
 <br>
 <strong>&lt;Mass_damping&gt;</strong> <i>real</i> [0.0] <nobr>
 <strong>&lt;/Mass_damping&gt;</strong>
