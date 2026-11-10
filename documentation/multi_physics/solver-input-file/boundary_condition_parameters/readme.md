@@ -18,6 +18,11 @@ The Boundary Condition Parameters section is organized as follows
 <br>
 &lt;<strong>RCR_values</strong>&gt;<br>
 <br>
+&lt;<strong>Coupling_interface</strong>&gt;<br>
+[<a href="#coupling_interface_parameters"> Coupling Interface Parameters </a> ]
+<br>
+&lt;<strong>Coupling_interface</strong>&gt;<br>
+<br>
 &lt;<strong>Add_BC</strong>&gt;
 </div>
 
@@ -72,15 +77,15 @@ in a text file.
 <!-- ---------- G e n e r a l  P a r a m e t e r s ---------- -->
 <br>
 <h4 id="general_boundary_condition_parameters"> General Parameters </h4>
-<div class="bc_param_div"><nobr>
+<div class="bc_param_div">
 <strong>&lt;Bct_file_path&gt;</strong> <i>string</i> [none]  <nobr> 
 <strong>&lt;/Bct_file_path&gt;</strong>
-<br><br>
+</nobr><br><br>
 Load a file used to set the spatial and temporal values for a boundary condition. The file can be a VTK VTP-format file or a text file. 
 <br> <br>
 <strong>&lt;CST_shell_bc_type&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/CST_shell_bc_type&gt;</strong>
-<br><br>
+</nobr><br><br>
 Constrain the degrees of freedom of a Constant Strain Triangle (CST) of a triangular shell element. 
 condition. Permissible values are:
 <ul style="list-style-type:disc;">
@@ -91,76 +96,79 @@ condition. Permissible values are:
 <br>
 <strong>&lt;Impose_flux&gt;</strong> <i>boolean</i> [<i>false</i>]  <nobr> 
 <strong>&lt;/Impose_flux&gt;</strong>
-<br><br>
+</nobr><br><br>
 If <i>true</i> then normalize the spatial profile with the area of the face so that the imposed flux value is converted into the state variable.
+Must be <i>true</i> for a Dirichlet boundary condition coupled to the svZeroDSolver, which receives a volumetric flow rate rather than a velocity.
 <br><br>
 <strong>&lt;Impose_on_state_variable_integral&gt;</strong> <i>boolean</i> [<i>false</i>]  <nobr> 
 <strong>&lt;/Impose_on_state_variable_integral&gt;</strong>
-<br><br>
+</nobr><br><br>
 If <i>true</i> then used for applying a Dirichlet boundary condition on the displacement degrees of freedom when velocity is the state variable (e.g. fluid, CMM, FSI).
 <br><br>
 <section id="bc_Initial_displacements_file_path">
 <strong>&lt;Initial_displacements_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Initial_displacements_file_path&gt;</strong>
-<br><br>
+</nobr><br><br>
 Use the VTK VTU-format file to initialize CMM using an inflation method resulting from a diastolic or time-averaged fluid traction.
 <br><br>
 <strong>&lt;Penalty_parameter&gt;</strong> <i>real</i> [0.0]  <nobr> 
 <strong>&lt;/Penalty_parameter&gt;</strong>
-<br><br> 
+</nobr><br><br> 
 If the Poisson ratio for a given case is close to 0.5, then calculated bulk modulus used for dilational penalty model can be extremely high leading to poor linear solver convergence. The users may then override the physical bulk modulus with a penalty constant sufficiently large enough for the linear solver to converge.
 <br><br>
 <section id="bc_Prestress_file_path">
 <strong>&lt;Prestress_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Prestress_file_path&gt;</strong>
-<br><br>
+</nobr><br><br>
 Use the VTK VTP-format file to initialize CMM using a prestressed wall under equilibrium with fluid traction.
 <br><br>
 <section id="bc_Profile">
 <strong>&lt;Profile&gt;</strong> <i>string</i> [flat]  <nobr> 
 <strong>&lt;/Profile&gt;</strong>
-<br><br>
+</nobr><br><br>
 Set the spatial distribution of a state variable on the face. Acceptable values: Flat, Parabolic or User_defined
 <br><br>
 <strong>&lt;Ramp_function&gt;</strong> <i>boolean</i> [<i>false</i>]  <nobr> 
 <strong>&lt;/Ramp_function&gt;</strong>
-<br><br>
+</nobr><br><br>
 If <i>true</i> then the first two entries in the file setting an unsteady boundary is used to linearly increment from the first value to the second value, and maintains a steady value thereafter.
 <br><br>
 <section id="bc_Spatial_profile_file_path">
 <strong>&lt;Spatial_profile_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Spatial_profile_file_path&gt;</strong>
-<br><br>
+</nobr><br><br>
 Use the given text file to set the spatial distribution of a state variable for a User_defined profile.
 <br><br>
 <section id="bc_Spatial_values_file">
 <strong>&lt;Spatial_values_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Spatial_values_file_path&gt;</strong>
-<br><br>
+</nobr><br><br>
 The path to the VTK VTP-format file used to set the spatially varying body force to a face.
 <br><br>
 <section id="bc_svZeroDSolver_block"> 
 <strong>&lt;svZeroDSolver_block&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/svZeroDSolver_block&gt;</strong>
-<br><br>
-The name of the svZeroDSolver block this boundary face is coupled to.
+</nobr><br><br>
+The name of the svZeroDSolver block this boundary face is coupled to. This parameter now goes inside the
+<a href="#coupling_interface_parameters">&lt;Coupling_interface&gt;</a> element. Versions of svMultiPhysics before May 2026 read it directly inside &lt;<strong>Add_BC</strong>&gt;.
 <br><br>
 <section id="bc_Temporal_and_spatial_values_file_path">
 <strong>&lt;Temporal_and_spatial_values_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Temporal_and_spatial_values_file_path&gt;</strong>
-<br><br>
+</nobr><br><br>
 The path to the text file containing temporal and spatial values. 
 <br><br>
 <section id="bc_Temporal_values_file_path">
 <strong>&lt;Temporal_values_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Temporal_values_file_path&gt;</strong>
-<br><br>
+</nobr><br><br>
 The path to the text file containing temporal values.
 <br><br>
 <strong>&lt;Time_dependence&gt;</strong> <i>string</i> [steady]  <nobr> 
 <strong>&lt;/Time_dependence&gt;</strong>
-<br><br>
+</nobr><br><br>
 The time dependence of a boundary condition. Permissible values are:
+   &middot;coupled - Values are exchanged with a coupled 0D or 1D solver, for example the svZeroDSolver (see <a href="#coupling_interface_parameters">Coupling Interface Parameters</a>)
    &middot;general - Spatial and temporal variations are provided from a file
    &middot;spatial - Spatially varying values
    &middot;steady - A constant value is imposed
@@ -168,17 +176,17 @@ The time dependence of a boundary condition. Permissible values are:
 <br><br>
 <strong>&lt;Traction_values_file_path&gt;</strong> <i>string</i> [<i>none</i>]  <nobr> 
 <strong>&lt;/Traction_values_file_path&gt;</strong>
-<br><br>
+</nobr><br><br>
 The path to the VTK VTP-format file containing nodally varying traction values.
 <br><br>
 <strong>&lt;Traction_multiplier&gt;</strong> <i>real</i> [1.0]  <nobr> 
 <strong>&lt;/Traction_multiplier&gt;</strong>
-<br><br>
+</nobr><br><br>
 The value used to scale the traction values read from from a file.
 <br><br>
 <strong>&lt;Type&gt;</strong> <i>string</i> <nobr> 
 <strong>&lt;/Type&gt;</strong>
-<br><br>
+</nobr><br><br>
 The boundary condition type. Permissible values are:
    &middot;Coupled Momentum - Identifies the face to be treated using the coupled momentum method
    &middot;Dirichlet - Identifies the face to be treated as a Dirichlet boundary condition
@@ -188,8 +196,53 @@ The boundary condition type. Permissible values are:
 <br><br>
 <strong>&lt;Value&gt;</strong> <i>real</i> <nobr> 
 <strong>&lt;/Value&gt;</strong>
-<br><br>
+</nobr><br><br>
 The value of the state variable.
+<br>
+</div>
+
+<!-- ---------- C o u p l i n g  I n t e r f a c e  P a r a m e t e r s ---------- -->
+
+<h4 id="coupling_interface_parameters"> Coupling Interface Parameters </h4>
+The &lt;<strong>Coupling_interface</strong>&gt; element couples a boundary condition with &lt;<strong>Time_dependence</strong>&gt; Coupled &lt;<strong>&#47;Time_dependence</strong>&gt; to the svZeroDSolver.
+The enclosing equation must also define an <a href="#svzerodsolver_interface_parameters">svZeroDSolver Interface Subsection</a>. For example
+<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 1px solid #d0d0d0">
+&lt;<strong>Add_BC</strong> name="lumen_outlet"&gt;<br>
+&nbsp;&nbsp;&lt;<strong>Type</strong>&gt; Neu &lt;<strong>&#47;Type</strong>&gt;<br>
+&nbsp;&nbsp;&lt;<strong>Time_dependence</strong>&gt; Coupled &lt;<strong>&#47;Time_dependence</strong>&gt;<br>
+&nbsp;&nbsp;&lt;<strong>Coupling_interface</strong>&gt;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&lt;<strong>svZeroDSolver_block</strong>&gt; RCR_coupling &lt;<strong>&#47;svZeroDSolver_block</strong>&gt;<br>
+&nbsp;&nbsp;&lt;<strong>&#47;Coupling_interface</strong>&gt;<br>
+&lt;<strong>&#47;Add_BC</strong>&gt;
+</div>
+<br>
+<div class="bc_param_div">
+<strong>&lt;svZeroDSolver_block&gt;</strong> <i>string</i> [<i>none</i>] <nobr>
+<strong>&lt;/svZeroDSolver_block&gt;</strong>
+</nobr><br>
+The <i>name</i> of the svZeroDSolver external coupling block this boundary face is coupled to.
+See the <a href="/documentation/rom_simulation.html#0d-solver-user-guide-svMP-coupling">svZeroDSolver documentation</a> for how to define it.
+<br><br>
+<strong>&lt;Chamber_cap_surface&gt;</strong> <i>string</i> [<i>none</i>] <nobr>
+<strong>&lt;/Chamber_cap_surface&gt;</strong>
+</nobr><br>
+The path to a VTK VTP-format file of a cap surface that closes the coupled face, used to compute the flow rate of a cavity such as a heart chamber in a structural simulation.
+Coupling a struct or ustruct equation to the svZeroDSolver also requires &lt;<strong>Follower_pressure_load</strong>&gt; true &lt;<strong>&#47;Follower_pressure_load</strong>&gt;.
+<br><br>
+<strong>&lt;Ramp_steps&gt;</strong> <i>integer</i> [0] <nobr>
+<strong>&lt;/Ramp_steps&gt;</strong>
+</nobr><br>
+Linearly ramp the coupled pressure over this many time steps at the start of the simulation. For a Dirichlet boundary condition the pressure sent to the svZeroDSolver is ramped from <i>Ramp_ref_pressure</i> to the 3D pressure. For a Neumann boundary condition the pressure returned by the svZeroDSolver is ramped before it is applied to the 3D domain. A value of 0 disables ramping.
+<br><br>
+<strong>&lt;Ramp_ref_pressure&gt;</strong> <i>real</i> [0.0] <nobr>
+<strong>&lt;/Ramp_ref_pressure&gt;</strong>
+</nobr><br>
+The reference pressure the ramp starts from.
+<br><br>
+<strong>&lt;Relax_factor&gt;</strong> <i>real</i> [1.0] <nobr>
+<strong>&lt;/Relax_factor&gt;</strong>
+</nobr><br>
+Under-relaxation factor $\omega$ in (0, 1] for the value sent to the svZeroDSolver: the pressure for a Dirichlet boundary condition, or the flow rate for a Neumann boundary condition. The value sent is $\omega$ times the new value plus $(1-\omega)$ times the previous value sent. A value of 1.0 disables relaxation.
 <br>
 </div>
 
