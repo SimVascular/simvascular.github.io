@@ -59,7 +59,10 @@ MeshParameters::MeshParameters()
   set_parameter("Domain", 0,  !required, domain_id);
   set_parameter("Domain_file_path", "", !required, domain_file_path);
  
-  set_parameter("Fiber_direction_file_path", {}, !required, fiber_direction_file_paths);
+  set_parameter("Fiber_direction_from_file_points", {}, !required,
+                fiber_direction_file_paths_points);
+  set_parameter("Fiber_direction_from_file_cells", {}, !required,
+                fiber_direction_file_paths_cells);
  
   set_parameter("Mesh_file_path", "", required, mesh_file_path);
   set_parameter("Mesh_scale_factor", 1.0, !required, mesh_scale_factor);

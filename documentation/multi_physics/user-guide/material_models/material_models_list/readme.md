@@ -182,6 +182,8 @@ $$
 
 **Holzapfel-Gasser-Ogden model**
 
+Requires two fiber directions. 
+
 $$
 \Psi_{aniso} = \frac{a_4}{2b_4} \left( \exp\left( b_4\left( \kappa \bar{I}_1 + (1-3\kappa)\bar{I}_4 - 1\right)^2 \right) - 1 \right) + \frac{a_6}{2b_6} \left( \exp\left( b_6\left( \kappa \bar{I}_1 + (1-3\kappa)\bar{I}_6 - 1 \right)^2 \right) - 1 \right)
 $$
@@ -198,14 +200,9 @@ $$
 
 The isotropic part is the same as neoHookean - the parameters are automatically assigned from elasticity modulus and poisson’s ratio. The parameters $a_4$ and $b_4$ correspond to $k_1$and $k_2$ from the original paper (applied to the $\bar I_4$ fiber family), and $a_6$ and $b_6$ correspond to $k_1$ and $k_2$ (applied to the $\bar I_6$fiber family). In the original Gasser–Ogden–Holzapfel formulation both fiber families share identical $k_1,k_2$ values (i.e. $a_4=a_6=k_1, b_4=b_6=k_2$); this implementation generalizes the model by allowing each family its own pair of stiffness parameters.
 
-Apart from this, need to add fiber direction file path under Add_mesh for the solid domain:
-
-<div style="background-color: #F0F0F0; padding: 10px; border: 1px solid #d0d0d0; border-left: 4px solid #d0d0d0; font-family: monospace;">
-<<strong>Fiber_direction_file_path</strong>> <i>mesh/fibersLong1.vtu</i> </<strong>Fiber_direction_file_path</strong>><br>
-<<strong>Fiber_direction_file_path</strong>> <i>mesh/fibersLong2.vtu</i> </<strong>Fiber_direction_file_path</strong>>
-</div>
-
 **Guccione model**
+
+Requires an orthonormal fiber basis. The user needs to pass at least two orthonormal fiber directions.
 
 $$
 \Psi = \frac{c}{2} \left( \exp\left( Q(\bar{\mathbf{E}}) \right) - 1 \right)
@@ -231,6 +228,8 @@ In the code, $b_f = b_{ff}$ and $b_t = b_{ss}$.
 </div>
 
 **Holzapfel-Ogden model**
+
+Requires an orthonormal fiber basis. The user needs to pass at least two orthonormal fiber directions.
 
 <p>
   \( 
@@ -264,6 +263,8 @@ The heaviside function is multiplied as a switching function to turn off the fib
 </div>
 
 **Holzapfel-Ogden Modified Anisotropy model**
+
+Requires an orthonormal fiber basis. The user needs to pass at least two orthonormal fiber directions.
 
 This model is very similar to the Holzapfel Ogden model - the only difference is the use of full invariants instead of isochoric.
 

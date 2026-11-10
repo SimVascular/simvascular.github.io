@@ -95,11 +95,27 @@ The name of the VTK VTU file used to initialize simulation displacement values o
 </nobr><br>
 The name of the VTK VTU file used to initialize simulation stress values on a solid domain. See <a href="#data_file_formats_initial_condition"> Initial Condition Data</a>.
 <br>
-<section id="mesh_params_Fiber_direction_file_path">
-<strong>&lt;Fiber_direction_file_path&gt;</strong> <i>string [none] </i> <nobr>
-<strong>&lt;/Fiber_direction_file_path&gt;</strong>
+<section id="mesh_params_Fiber_direction_constant">
+<strong>&lt;Fiber_direction_constant&gt;</strong> <i>vector [none] (repeatable)</i> <nobr>
+<strong>&lt;/Fiber_direction_constant&gt;</strong>
 </nobr><br>
-The name of the VTK VTU file used to define the fiber directions for a solid domain. See <a href="#data_file_formats_fiber_direction"> Fiber and Sheet Direction Data</a>.
+Defines a unit direction that is constant over the mesh. Repeat for each direction family.
+<br>
+<section id="mesh_params_Fiber_direction_from_file_cells">
+<strong>&lt;Fiber_direction_from_file_cells&gt;</strong> <i>string [none] (repeatable)</i> <nobr>
+<strong>&lt;/Fiber_direction_from_file_cells&gt;</strong>
+</nobr><br>
+The name of a VTK VTU file containing one unit direction in a CellData array named
+<strong>FIB_DIR</strong>. Repeat for each direction family.
+<br>
+<section id="mesh_params_Fiber_direction_from_file_points">
+<strong>&lt;Fiber_direction_from_file_points&gt;</strong> <i>string [none] (repeatable)</i> <nobr>
+<strong>&lt;/Fiber_direction_from_file_points&gt;</strong>
+</nobr><br>
+The name of a VTK VTU file containing one unit direction in a PointData array named
+<strong>FIB_DIR</strong>. Repeat for each direction family.
+<br>
+The three fiber input types cannot be mixed.
 <br>
 <strong>&lt;Set_mesh_as_fibers&gt;</strong> <i>boolean [false] </i> <nobr>
 <strong>&lt;/Set_mesh_as_fibers&gt;</strong>

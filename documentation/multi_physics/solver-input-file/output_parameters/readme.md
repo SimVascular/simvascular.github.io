@@ -53,6 +53,9 @@ Below is a list of all quantity names available for output for the corresponding
        Divergence</li>
 </ul>
 
+<strong>Fiber_direction</strong> writes one vector field per supplied direction family, named
+<strong>Fiber_direction1</strong>, <strong>Fiber_direction2</strong>, and so on.
+
 
 <h4> Example </h4>
 <div class="bc_param_div">
