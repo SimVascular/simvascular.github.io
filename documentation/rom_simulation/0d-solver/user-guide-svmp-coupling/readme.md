@@ -82,6 +82,13 @@ The keys inside an `external_solver_coupling_block` control how a 3D boundary ex
 | `name` &emsp; | Yes &emsp; | Unique identifier for the coupling block; used to label exchanged interface results. |
 | `type` &emsp; | Yes &emsp; | Quantity sent from the 0D solver to the 3D solver; currently `FLOW` or `PRESSURE` are supported. |
 | `location` &emsp; | Yes &emsp; | Boundary location **with respect to the 0D model** (`inlet`, `outlet`) that the coupling block represents. For example, an outlet BC for the 3D model would use an `inlet` coupling block.  |
-| `connected_block` &emsp; | Yes &emsp; | `name` of the svZeroDSolver boundary condition or block that supplies the coupled data. |
+| `connected_block` &emsp; | Yes &emsp; | The 0D block on the other side of the coupling block: a boundary condition's `bc_name`, a vessel's `vessel_name`, or `ClosedLoopHeartAndPulmonary`. |
 | `periodic` &emsp; | Optional &emsp; | Set `true` if the provided waveform should repeat when the 3D solver requests multiple cycles. |
 | `values` &emsp; | Yes &emsp; | Populated by the solver for data handling between 3D and 0D simulation, leave at default values {"t": [0.0, 1.0], "Q": [1.0, 1.0]} |
+
+With `location` set to `inlet`, flow goes from the coupling block into `connected_block`. With `outlet`, flow goes from `connected_block` into the coupling block. Only some connected blocks are supported at each location. The type of a connected block is its `bc_type` for a boundary condition, or `BloodVessel` for any vessel.
+
+| `location` &emsp; | Supported connected block types &emsp; |
+|---|---|
+| `inlet` &emsp; | `RESISTANCE`, `RCR`, `IMPEDANCE`, `ClosedLoopRCR`, `CORONARY`, `ClosedLoopCoronaryLeft`, `ClosedLoopCoronaryRight`, `BloodVessel` &emsp; |
+| `outlet` &emsp; | `ClosedLoopRCR`, `ClosedLoopHeartAndPulmonary`, `BloodVessel` &emsp; |

@@ -31,7 +31,7 @@ Every block in the input file is created from a *type* string. The key that hold
 | `vessels` &emsp; | `zero_d_element_type` &emsp; | [`BloodVessel`](https://simvascular.github.io/svZeroDSolver/class_blood_vessel.html), [`BloodVesselCRL`](https://simvascular.github.io/svZeroDSolver/class_blood_vessel_c_r_l.html), [`BloodVesselRC`](https://simvascular.github.io/svZeroDSolver/class_blood_vessel_r_c.html) &emsp; |
 | `junctions` &emsp; | `junction_type` &emsp; | [`NORMAL_JUNCTION`](https://simvascular.github.io/svZeroDSolver/class_junction.html), [`resistive_junction`](https://simvascular.github.io/svZeroDSolver/class_resistive_junction.html), [`BloodVesselJunction`](https://simvascular.github.io/svZeroDSolver/class_blood_vessel_junction.html) &emsp; |
 | `boundary_conditions` &emsp; | `bc_type` &emsp; | See [Boundary conditions](#boundary-conditions) below &emsp; |
-| `external_solver_coupling_blocks` &emsp; | `type` &emsp; | The same values as `bc_type`; in practice `FLOW` or `PRESSURE`. See [External coupling blocks](#external-coupling-blocks) below &emsp; |
+| `external_solver_coupling_blocks` &emsp; | `type` &emsp; | The same values as `bc_type`; in practice `FLOW` or `PRESSURE`. See <a href="#0d-solver-user-guide-svMP-coupling">Coupling to svMultiPhysics</a> &emsp; |
 | `closed_loop_blocks` &emsp; | `closed_loop_type` &emsp; | [`ClosedLoopHeartAndPulmonary`](https://simvascular.github.io/svZeroDSolver/class_closed_loop_heart_pulmonary.html) &emsp; |
 | `valves` &emsp; | `type` &emsp; | [`ValveTanh`](https://simvascular.github.io/svZeroDSolver/class_valve_tanh.html), [`PiecewiseValve`](https://simvascular.github.io/svZeroDSolver/class_piecewise_valve.html) &emsp; |
 | `chambers` &emsp; | `type` &emsp; | [`ChamberSphere`](https://simvascular.github.io/svZeroDSolver/class_chamber_sphere.html), [`ChamberElastanceInductor`](https://simvascular.github.io/svZeroDSolver/class_chamber_elastance_inductor.html), [`ChamberElastanceInductorExponential`](https://simvascular.github.io/svZeroDSolver/class_chamber_elastance_inductor_exponential.html), [`LinearElastanceChamber`](https://simvascular.github.io/svZeroDSolver/class_linear_elastance_chamber.html) &emsp; |
@@ -166,32 +166,3 @@ Values of the boundary condition can be specified as a function of time as follo
 },
 ```
 See `svZeroDSolver/tests/cases/pulsatileFlow_R_RCR.json` for an example.
-
-#### External coupling blocks
-
-An entry in `external_solver_coupling_blocks` is the boundary through which an external solver (for example, a 3D solver such as svMultiPhysics) exchanges flow and pressure with the 0D model. Below is a template external coupling block that couples a 3D outlet to the inlet of a `RCR` boundary condition named `RCR_0`.
-
-```python
-{
-    "name": "RCR_coupling", # Name of the coupling block
-    "type": "FLOW", # Type of the coupling block, usually FLOW or PRESSURE
-    "location": "inlet", # Side of connected_block the coupling block attaches to: inlet or outlet
-    "connected_block": "RCR_0", # Name of the 0D block on the other side of the coupling block
-    "periodic": False, # Optional: Whether the prescribed values are periodic (default: true)
-    "values": {...} # Values for configuration parameters, as for the corresponding bc_type
-}
-```
-
-The coupling block keys are:
-
-<ul>
-<li> <code>connected_block</code>: the 0D block on the other side of the coupling block, given as a boundary condition's <code>bc_name</code>, a vessel's <code>vessel_name</code>, or <code>ClosedLoopHeartAndPulmonary</code>. </li>
-<li> <code>location</code>: <code>inlet</code> or <code>outlet</code>, the side of <code>connected_block</code> the coupling block attaches to. With <code>inlet</code>, flow goes from the coupling block into <code>connected_block</code>. With <code>outlet</code>, flow goes from <code>connected_block</code> into the coupling block. </li>
-</ul>
-
-Only some connected blocks are supported at each location. The type of a connected block is its `bc_type` for a boundary condition, or `BloodVessel` for any vessel.
-
-| `location` &emsp; | Supported connected block types &emsp; |
-|---|---|
-| `inlet` &emsp; | `RESISTANCE`, `RCR`, `IMPEDANCE`, `ClosedLoopRCR`, `CORONARY`, `ClosedLoopCoronaryLeft`, `ClosedLoopCoronaryRight`, `BloodVessel` &emsp; |
-| `outlet` &emsp; | `ClosedLoopRCR`, `ClosedLoopHeartAndPulmonary`, `BloodVessel` &emsp; |
