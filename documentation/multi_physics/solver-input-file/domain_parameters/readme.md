@@ -299,6 +299,8 @@ Sets the inverse darcy permeability constant.
 <strong>&lt;Isotropic_conductivity&gt;</strong> <i>real [0.0]</i> <nobr>
 <strong>&lt;/Isotropic_conductivity&gt;</strong>
 </nobr><br>
+Sets the isotropic conductivity contribution for cardiac electrophysiology.
+<br>
 <section id="domain_Fiber_conductivity">
 <strong>&lt;Fiber_conductivity&gt;</strong> <i>real [0.0]</i> <nobr>
 <strong>&lt;/Fiber_conductivity&gt;</strong>
@@ -316,8 +318,6 @@ Sets the conductivity contribution along the sheet direction for cardiac electro
 <strong>&lt;/Sheet_normal_conductivity&gt;</strong>
 </nobr><br>
 Sets the conductivity contribution along the sheet-normal direction for cardiac electrophysiology.
-<br>
-Sets the isotropic conductivity contribution for cardiac electrophysiology.
 <br>
 <strong>&lt;Mass_damping&gt;</strong> <i>real</i> [0.0] <nobr>
 <strong>&lt;/Mass_damping&gt;</strong>
