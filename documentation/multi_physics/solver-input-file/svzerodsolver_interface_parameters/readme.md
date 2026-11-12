@@ -32,9 +32,10 @@ The <strong>svZeroDSolver_interface</strong> keyword activates coupling for boun
 <!-- ------------------------------------------- -->
 
 <h4 id="svzerodsolver_interface_parameters_desc"> svZeroDSolver Interface Parameters </h4>
-<div class="bc_param_div"><nobr>
+<div class="bc_param_div">
 <strong>&lt;Coupling_type&gt;</strong> <i>string</i> [none] <nobr>
-<strong>&lt;/Coupling_type&gt;</strong><br><br>
+<strong>&lt;/Coupling_type&gt;</strong>
+</nobr><br><br>
 The type of coupling used between the svMultiPhysics and svZeroDSolve solvers. The coupling type determines how contributions from the coupled svZeroDSolver are added to the svMultiPhysics solver tangent matrix.<br><br>
 The value of the coupling type can be
 <ul style="list-style-type:disc;">
@@ -45,12 +46,12 @@ The value of the coupling type can be
 </ul>
 <strong>&lt;Configuration_file&gt;</strong> <i>string</i> [none] <nobr>
 <strong>&lt;/Configuration_file&gt;</strong>
-<br><br>
+</nobr><br><br>
 The name of the svZeroDSolver JSON configuration file containing the description of the components of a lumped parameter network and various simulation parameters.
 <br><br>
 <strong>&lt;Shared_library&gt;</strong> <i>string</i> [none] <nobr>
 <strong>&lt;/Shared_library&gt;</strong>
-<nobr><br><br>
+</nobr><br><br>
 The path and name of the svZeroDSolver shared library used to access the svZeroDSolver API. The name of the library is specific to the computer platform you are using 
 <ul style="list-style-type:disc;">
   <li> Linux - libsvzero_interface.so </li>
@@ -61,13 +62,27 @@ On MacOS and Linux this library will be installed in the directory /usr/local/sv
 <br><br>
 <strong>&lt;Initial_flows&gt;</strong> <i>real</i> [0.0] <nobr>
 <strong>&lt;/Initial_flows&gt;</strong>
-<br><br>
+</nobr><br><br>
 Initialize the flows for all coupling blocks with the given value. If this parameter is not given then flows will not be initialized.<br>
 <br>
 <strong>&lt;Initial_pressures&gt;</strong> <i>real</i> [0.0] <nobr>
 <strong>&lt;/Initial_pressures&gt;</strong>
-<br><br>
+</nobr><br><br>
 Initialize the pressures for all coupling blocks with the given value. If this parameter is not given then pressures will not be initialized.
+<br><br>
+<strong>&lt;Finite_difference_absolute_perturbation&gt;</strong> <i>real</i> [1.0e-7] <nobr>
+<strong>&lt;/Finite_difference_absolute_perturbation&gt;</strong>
+</nobr><br><br>
+The smallest flow-rate perturbation used to compute, by finite differences, the resistance (dP/dQ) of each coupled boundary that is added to the svMultiPhysics tangent matrix for implicit and semi-implicit coupling.
+The perturbation used is the larger of this value and <i>Finite_difference_relative_perturbation</i> times the root mean square of the coupled flow rates.
+<br><br>
+<strong>&lt;Finite_difference_relative_perturbation&gt;</strong> <i>real</i> [1.0e-5] <nobr>
+<strong>&lt;/Finite_difference_relative_perturbation&gt;</strong>
+</nobr><br><br>
+The flow-rate perturbation, relative to the root mean square of the coupled flow rates, used to compute the resistance (dP/dQ) of each coupled boundary. See <i>Finite_difference_absolute_perturbation</i>.
+<br><br>
+Each boundary condition coupled to the svZeroDSolver names its svZeroDSolver block in a
+<a href="#coupling_interface_parameters">&lt;Coupling_interface&gt;</a> element.
 </div>
 
 
